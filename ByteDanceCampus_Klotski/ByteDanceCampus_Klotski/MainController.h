@@ -7,8 +7,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface MainController : UIViewController <
+    RisingRouterHandler
+>
 
 @end
 
