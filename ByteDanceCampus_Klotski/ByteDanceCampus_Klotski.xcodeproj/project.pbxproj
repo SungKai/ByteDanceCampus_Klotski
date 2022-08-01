@@ -7,11 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		14E745B6288AFA2C007436F6 /* RisingRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E745B2288AFA2C007436F6 /* RisingRouter.m */; };
-		14E745B7288AFA2C007436F6 /* RisingRouterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E745B3288AFA2C007436F6 /* RisingRouterRequest.m */; };
-		14E745B8288AFA2C007436F6 /* RisingRouterResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E745B4288AFA2C007436F6 /* RisingRouterResponse.m */; };
-		14E745BE288AFA53007436F6 /* RisingFoundationExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E745BB288AFA53007436F6 /* RisingFoundationExtention.m */; };
-		14E745BF288AFA53007436F6 /* RisingUIKitExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E745BC288AFA53007436F6 /* RisingUIKitExtension.m */; };
+		1442D6DF28976CBA009CEB40 /* SchoolBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6DE28976CBA009CEB40 /* SchoolBarController.m */; };
+		1442D6E928976E22009CEB40 /* RisingRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6E028976E22009CEB40 /* RisingRouter.m */; };
+		1442D6EA28976E22009CEB40 /* RisingRouterResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6E528976E22009CEB40 /* RisingRouterResponse.m */; };
+		1442D6EB28976E22009CEB40 /* RisingRouter+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6E628976E22009CEB40 /* RisingRouter+Extension.m */; };
+		1442D6EC28976E22009CEB40 /* RisingRouterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6E728976E22009CEB40 /* RisingRouterRequest.m */; };
+		1442D7012897992A009CEB40 /* NSDate+Rising.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6F42897992A009CEB40 /* NSDate+Rising.m */; };
+		1442D7022897992A009CEB40 /* RisingFoundationExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6F52897992A009CEB40 /* RisingFoundationExtention.m */; };
+		1442D7032897992A009CEB40 /* UIView+Rising.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6FB2897992A009CEB40 /* UIView+Rising.m */; };
+		1442D7042897992A009CEB40 /* RisingUIKitExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6FC2897992A009CEB40 /* RisingUIKitExtension.m */; };
+		1442D7052897992A009CEB40 /* UIColor+Rising.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6FF2897992A009CEB40 /* UIColor+Rising.m */; };
 		3C5AEF06B27681B0DEDEFE9B /* Pods_ByteDanceCampus_Klotski.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C2921943B00D1E1FDEA362 /* Pods_ByteDanceCampus_Klotski.framework */; };
 		B5759A1C288AE5D1007CE07E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5759A1B288AE5D1007CE07E /* AppDelegate.m */; };
 		B5759A22288AE5D1007CE07E /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5759A21288AE5D1007CE07E /* MainController.m */; };
@@ -21,17 +26,28 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		14E745AF288AFA2C007436F6 /* RisingRouterHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingRouterHandler.h; sourceTree = "<group>"; };
-		14E745B0288AFA2C007436F6 /* RisingRouterRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingRouterRequest.h; sourceTree = "<group>"; };
-		14E745B1288AFA2C007436F6 /* RisingRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingRouter.h; sourceTree = "<group>"; };
-		14E745B2288AFA2C007436F6 /* RisingRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RisingRouter.m; sourceTree = "<group>"; };
-		14E745B3288AFA2C007436F6 /* RisingRouterRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RisingRouterRequest.m; sourceTree = "<group>"; };
-		14E745B4288AFA2C007436F6 /* RisingRouterResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RisingRouterResponse.m; sourceTree = "<group>"; };
-		14E745B5288AFA2C007436F6 /* RisingRouterResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingRouterResponse.h; sourceTree = "<group>"; };
-		14E745BA288AFA53007436F6 /* RisingFoundationExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingFoundationExtension.h; sourceTree = "<group>"; };
-		14E745BB288AFA53007436F6 /* RisingFoundationExtention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RisingFoundationExtention.m; sourceTree = "<group>"; };
-		14E745BC288AFA53007436F6 /* RisingUIKitExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RisingUIKitExtension.m; sourceTree = "<group>"; };
-		14E745BD288AFA53007436F6 /* RisingUIKitExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingUIKitExtension.h; sourceTree = "<group>"; };
+		1442D6DD28976CBA009CEB40 /* SchoolBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SchoolBarController.h; sourceTree = "<group>"; };
+		1442D6DE28976CBA009CEB40 /* SchoolBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SchoolBarController.m; sourceTree = "<group>"; };
+		1442D6E028976E22009CEB40 /* RisingRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RisingRouter.m; sourceTree = "<group>"; };
+		1442D6E128976E22009CEB40 /* RisingRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingRouter.h; sourceTree = "<group>"; };
+		1442D6E228976E22009CEB40 /* RisingRouterRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingRouterRequest.h; sourceTree = "<group>"; };
+		1442D6E328976E22009CEB40 /* RisingRouterHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingRouterHandler.h; sourceTree = "<group>"; };
+		1442D6E428976E22009CEB40 /* RisingRouterResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingRouterResponse.h; sourceTree = "<group>"; };
+		1442D6E528976E22009CEB40 /* RisingRouterResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RisingRouterResponse.m; sourceTree = "<group>"; };
+		1442D6E628976E22009CEB40 /* RisingRouter+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RisingRouter+Extension.m"; sourceTree = "<group>"; };
+		1442D6E728976E22009CEB40 /* RisingRouterRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RisingRouterRequest.m; sourceTree = "<group>"; };
+		1442D6E828976E22009CEB40 /* RisingRouter+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RisingRouter+Extension.h"; sourceTree = "<group>"; };
+		1442D6F32897992A009CEB40 /* RisingFoundationExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingFoundationExtension.h; sourceTree = "<group>"; };
+		1442D6F42897992A009CEB40 /* NSDate+Rising.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Rising.m"; sourceTree = "<group>"; };
+		1442D6F52897992A009CEB40 /* RisingFoundationExtention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RisingFoundationExtention.m; sourceTree = "<group>"; };
+		1442D6F62897992A009CEB40 /* NSDate+Rising.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Rising.h"; sourceTree = "<group>"; };
+		1442D6F72897992A009CEB40 /* ExtensionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtensionHeader.h; sourceTree = "<group>"; };
+		1442D6FA2897992A009CEB40 /* UIView+Rising.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Rising.h"; sourceTree = "<group>"; };
+		1442D6FB2897992A009CEB40 /* UIView+Rising.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Rising.m"; sourceTree = "<group>"; };
+		1442D6FC2897992A009CEB40 /* RisingUIKitExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RisingUIKitExtension.m; sourceTree = "<group>"; };
+		1442D6FE2897992A009CEB40 /* UIColor+Rising.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Rising.h"; sourceTree = "<group>"; };
+		1442D6FF2897992A009CEB40 /* UIColor+Rising.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Rising.m"; sourceTree = "<group>"; };
+		1442D7002897992A009CEB40 /* RisingUIKitExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingUIKitExtension.h; sourceTree = "<group>"; };
 		22C2921943B00D1E1FDEA362 /* Pods_ByteDanceCampus_Klotski.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ByteDanceCampus_Klotski.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A404246E66C14D4FA6786972 /* Pods-ByteDanceCampus_Klotski.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ByteDanceCampus_Klotski.release.xcconfig"; path = "Target Support Files/Pods-ByteDanceCampus_Klotski/Pods-ByteDanceCampus_Klotski.release.xcconfig"; sourceTree = "<group>"; };
 		B5759A17288AE5D1007CE07E /* ByteDanceCampus_Klotski.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ByteDanceCampus_Klotski.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,29 +84,70 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		1442D6F12897992A009CEB40 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1442D6F72897992A009CEB40 /* ExtensionHeader.h */,
+				1442D6F22897992A009CEB40 /* FoundationExtension */,
+				1442D6F82897992A009CEB40 /* UIKit Extension */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		1442D6F22897992A009CEB40 /* FoundationExtension */ = {
+			isa = PBXGroup;
+			children = (
+				1442D6F62897992A009CEB40 /* NSDate+Rising.h */,
+				1442D6F42897992A009CEB40 /* NSDate+Rising.m */,
+				1442D6F32897992A009CEB40 /* RisingFoundationExtension.h */,
+				1442D6F52897992A009CEB40 /* RisingFoundationExtention.m */,
+			);
+			path = FoundationExtension;
+			sourceTree = "<group>";
+		};
+		1442D6F82897992A009CEB40 /* UIKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1442D7002897992A009CEB40 /* RisingUIKitExtension.h */,
+				1442D6FC2897992A009CEB40 /* RisingUIKitExtension.m */,
+				1442D6FD2897992A009CEB40 /* UIColor+Rising */,
+				1442D6F92897992A009CEB40 /* UIView+Rising */,
+			);
+			path = "UIKit Extension";
+			sourceTree = "<group>";
+		};
+		1442D6F92897992A009CEB40 /* UIView+Rising */ = {
+			isa = PBXGroup;
+			children = (
+				1442D6FA2897992A009CEB40 /* UIView+Rising.h */,
+				1442D6FB2897992A009CEB40 /* UIView+Rising.m */,
+			);
+			path = "UIView+Rising";
+			sourceTree = "<group>";
+		};
+		1442D6FD2897992A009CEB40 /* UIColor+Rising */ = {
+			isa = PBXGroup;
+			children = (
+				1442D6FE2897992A009CEB40 /* UIColor+Rising.h */,
+				1442D6FF2897992A009CEB40 /* UIColor+Rising.m */,
+			);
+			path = "UIColor+Rising";
+			sourceTree = "<group>";
+		};
 		14E745B9288AFA38007436F6 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				14E745AF288AFA2C007436F6 /* RisingRouterHandler.h */,
-				14E745B1288AFA2C007436F6 /* RisingRouter.h */,
-				14E745B2288AFA2C007436F6 /* RisingRouter.m */,
-				14E745B0288AFA2C007436F6 /* RisingRouterRequest.h */,
-				14E745B3288AFA2C007436F6 /* RisingRouterRequest.m */,
-				14E745B5288AFA2C007436F6 /* RisingRouterResponse.h */,
-				14E745B4288AFA2C007436F6 /* RisingRouterResponse.m */,
+				1442D6E328976E22009CEB40 /* RisingRouterHandler.h */,
+				1442D6E128976E22009CEB40 /* RisingRouter.h */,
+				1442D6E028976E22009CEB40 /* RisingRouter.m */,
+				1442D6E828976E22009CEB40 /* RisingRouter+Extension.h */,
+				1442D6E628976E22009CEB40 /* RisingRouter+Extension.m */,
+				1442D6E228976E22009CEB40 /* RisingRouterRequest.h */,
+				1442D6E728976E22009CEB40 /* RisingRouterRequest.m */,
+				1442D6E428976E22009CEB40 /* RisingRouterResponse.h */,
+				1442D6E528976E22009CEB40 /* RisingRouterResponse.m */,
 			);
 			path = Router;
-			sourceTree = "<group>";
-		};
-		14E745C0288AFA57007436F6 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				14E745BA288AFA53007436F6 /* RisingFoundationExtension.h */,
-				14E745BB288AFA53007436F6 /* RisingFoundationExtention.m */,
-				14E745BD288AFA53007436F6 /* RisingUIKitExtension.h */,
-				14E745BC288AFA53007436F6 /* RisingUIKitExtension.m */,
-			);
-			path = Extension;
 			sourceTree = "<group>";
 		};
 		2EEB6B28084ED8BB1A3EB277 /* Frameworks */ = {
@@ -125,8 +182,10 @@
 				B5759A33288AE6A0007CE07E /* Supporting Files */,
 				B5759A20288AE5D1007CE07E /* MainController.h */,
 				B5759A21288AE5D1007CE07E /* MainController.m */,
+				1442D6DD28976CBA009CEB40 /* SchoolBarController.h */,
+				1442D6DE28976CBA009CEB40 /* SchoolBarController.m */,
 				14E745B9288AFA38007436F6 /* Router */,
-				14E745C0288AFA57007436F6 /* Extension */,
+				1442D6F12897992A009CEB40 /* Extension */,
 				B5759A2B288AE5D2007CE07E /* Info.plist */,
 				B5759A34288AE6C4007CE07E /* PrefixHeader.pch */,
 			);
@@ -258,14 +317,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14E745BF288AFA53007436F6 /* RisingUIKitExtension.m in Sources */,
 				B5759A22288AE5D1007CE07E /* MainController.m in Sources */,
-				14E745B8288AFA2C007436F6 /* RisingRouterResponse.m in Sources */,
-				14E745BE288AFA53007436F6 /* RisingFoundationExtention.m in Sources */,
+				1442D7022897992A009CEB40 /* RisingFoundationExtention.m in Sources */,
 				B5759A1C288AE5D1007CE07E /* AppDelegate.m in Sources */,
-				14E745B6288AFA2C007436F6 /* RisingRouter.m in Sources */,
+				1442D6EC28976E22009CEB40 /* RisingRouterRequest.m in Sources */,
+				1442D7052897992A009CEB40 /* UIColor+Rising.m in Sources */,
+				1442D7042897992A009CEB40 /* RisingUIKitExtension.m in Sources */,
 				B5759A2D288AE5D2007CE07E /* main.m in Sources */,
-				14E745B7288AFA2C007436F6 /* RisingRouterRequest.m in Sources */,
+				1442D7032897992A009CEB40 /* UIView+Rising.m in Sources */,
+				1442D7012897992A009CEB40 /* NSDate+Rising.m in Sources */,
+				1442D6EA28976E22009CEB40 /* RisingRouterResponse.m in Sources */,
+				1442D6DF28976CBA009CEB40 /* SchoolBarController.m in Sources */,
+				1442D6EB28976E22009CEB40 /* RisingRouter+Extension.m in Sources */,
+				1442D6E928976E22009CEB40 /* RisingRouter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +469,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 727CVV9PLJ;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -433,6 +498,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 727CVV9PLJ;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ByteDanceCampus_Klotski/Info.plist;

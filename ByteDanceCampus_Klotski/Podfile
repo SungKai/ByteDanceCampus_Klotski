@@ -1,23 +1,23 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+
 source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
+
 platform :ios,'11.0'
+
 use_frameworks!
 
 target 'ByteDanceCampus_Klotski' do
-  # Comment the next line if you don't want to use dynamic frameworks
 
-  # Pods for ByteDanceCampus_Klotski
-pod 'AFNetworking', '~> 3.1.0' 
-pod 'Masonry', '~> 1.1.0'
-pod 'YYKit',:inhibit_warnings => true
+	pod 'Masonry', '~> 1.1.0'
+	pod 'YYKit',:inhibit_warnings => true
+	pod 'FluentDarkModeKit'
 
-    post_install do |installer|
-    installer.pods_project.build_configurations.each do |config|
-    config.build_settings['ONLY_ACTIVE_ARCH'] = 'NO'
-    config.build_settings['VALID_ARCHS'] = 'arm64 arm64e armv7 armv7s x86_64 i386'
-    config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
-    end
-    end
+end
 
+post_install do |installer|
+	installer.pods_project.build_configurations.each do |config|
+		config.build_settings['ONLY_ACTIVE_ARCH'] = 'NO'
+		config.build_settings['VALID_ARCHS'] = 'arm64 arm64e armv7 armv7s x86_64 i386'
+		config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
+	end
 end

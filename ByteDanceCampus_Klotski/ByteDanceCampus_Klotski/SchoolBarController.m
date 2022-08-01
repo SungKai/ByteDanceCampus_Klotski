@@ -1,54 +1,41 @@
 //
-//  ViewController.m
+//  SchoolBarController.m
 //  ByteDanceCampus_Klotski
 //
-//  Created by 宋开开 on 2022/7/22.
+//  Created by SSR on 2022/8/1.
 //
 
-#import "MainController.h"
+#import "SchoolBarController.h"
 
-@interface MainController ()
+@interface SchoolBarController ()
 
 @end
 
-@implementation MainController
-
-#pragma mark - Life cycle
+@implementation SchoolBarController
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"aa" image:nil tag:0];
+        self.tabBar.backgroundColor = UIColor.redColor;
+        self.viewControllers = @[self.aVC, self.aVC];
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = UIColor.orangeColor;
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
     
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    
+- (UIViewController *)aVC {
+    return [self.router controllerForRouterPath:@"main"];
 }
-
-#pragma mark - Method
-
-// MARK: SEL
-
-#pragma mark - Getter
 
 #pragma mark - RisingRouterHandler
 
 + (NSArray<NSString *> *)routerPath {
     return @[
-        @"main"
+        @"TabBarController"
     ];
 }
 
@@ -62,7 +49,7 @@
             UINavigationController *nav = (request.requestController ? request.requestController : RisingRouterRequest.useTopController).navigationController;
             
             if (nav) {
-                MainController *vc = [[self alloc] init];
+                SchoolBarController *vc = [[self alloc] init];
                 response.responseController = vc;
                 
                 [nav pushViewController:vc animated:YES];
@@ -79,7 +66,7 @@
             
         case RouterRequestController: {
             
-            MainController *vc = [[self alloc] init];
+            SchoolBarController *vc = [[self alloc] init];
             
             response.responseController = vc;
         } break;
@@ -89,6 +76,7 @@
         completion(response);
     }
 }
+
 
 
 @end

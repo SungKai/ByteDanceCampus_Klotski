@@ -15,21 +15,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    RisingRouterRequest *request = [RisingRouterRequest requestWithRouterPath:@"main" parameters:nil];
-    request.requestType = RouterRequestController;
-
-    __block UIViewController *vc;
-    [self.router
-     handleRequest:request
-     complition:^(RisingRouterRequest * _Nonnull request, RisingRouterResponse * _Nonnull response) {
-        vc = response.responseController;
-    }];
-    
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-    
+    UIViewController *vc = [self.router controllerForRouterPath:@"main"];
     
     self.window = [[UIWindow alloc] init];
-    self.window.rootViewController = nav;
+    self.window.rootViewController = vc;
     [self.window makeKeyAndVisible];
     
     return YES;
