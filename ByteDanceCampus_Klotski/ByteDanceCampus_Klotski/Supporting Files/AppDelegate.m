@@ -15,7 +15,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    UIViewController *vc = [self.router controllerForRouterPath:@"main"];
+    UINavigationController *vc = [[UINavigationController alloc] initWithRootViewController:[self.router controllerForRouterPath:@"main"]];
     
     self.window = [[UIWindow alloc] init];
     self.window.rootViewController = vc;

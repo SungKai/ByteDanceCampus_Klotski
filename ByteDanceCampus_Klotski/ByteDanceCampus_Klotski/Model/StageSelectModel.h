@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface StageSelectModel : NSObject
 
 /// 整个华容道的数据
-@property (nonatomic, readonly) NSArray <Level *> *stage;
+@property (nonatomic, readonly) NSArray <Level *> *stages;
 
 @end
 

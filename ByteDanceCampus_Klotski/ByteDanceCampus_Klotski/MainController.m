@@ -12,7 +12,7 @@
 @interface MainController ()
 
 /// 关卡tableView
-@property (nonatomic, strong) UITableView *mainTableView;
+@property (nonatomic, strong) UICollectionView *stageCollectionView;
 
 /// 关卡模型
 @property (nonatomic, strong) StageSelectModel *stageModel;
@@ -29,13 +29,25 @@
     
     self.stageModel = [[StageSelectModel alloc] init];
     
+    [self.view addSubview:self.btn];
 }
 
 #pragma mark - Method
 
 // MARK: SEL
 
+- (void)tap:(UIButton *)btn {
+    [self.router pushForRouterPath:@"LevelController" parameters:@{@"level" : self.stageModel.stages[0]}];
+}
+
 #pragma mark - Getter
+
+- (UIButton *)btn {
+    UIButton *_btn = [[UIButton alloc] initWithFrame:CGRectMake(20, 100, 50, 50)];
+    _btn.backgroundColor = UIColor.redColor;
+    [_btn addTarget:self action:@selector(tap:) forControlEvents:UIControlEventTouchUpInside];
+    return _btn;
+}
 
 #pragma mark - RisingRouterHandler
 

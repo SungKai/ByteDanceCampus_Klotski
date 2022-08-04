@@ -12,6 +12,8 @@
 
 #import "NSDate+Rising.h"
 
+#import "PersonFrame.h"
+
 typedef const char * RisingLogType;
 
 FOUNDATION_EXPORT RisingLogType R_defualt; // ⚪️

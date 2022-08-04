@@ -17,7 +17,7 @@
         for (NSDictionary *dic in array) {
             [mutAry addObject:[[Level alloc] initWithDictionary:dic]];
         }
-        _stage = mutAry.copy;
+        _stages = mutAry.copy;
     }
     return self;
 }

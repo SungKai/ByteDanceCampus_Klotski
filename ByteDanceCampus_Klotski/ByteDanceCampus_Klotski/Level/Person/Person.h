@@ -26,6 +26,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 顶部
 @property (nonatomic) int y;
 
+/// 快速得到frame (计算属性)
+@property (nonatomic) PersonFrame frame;
+
 /// 根据字典创建
 /// @param dictionary 字典
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
