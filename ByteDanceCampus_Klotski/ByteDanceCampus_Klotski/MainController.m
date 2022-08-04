@@ -7,10 +7,15 @@
 
 #import "MainController.h"
 
+#import "StageSelectModel.h"
+
 @interface MainController ()
 
 /// 关卡tableView
 @property (nonatomic, strong) UITableView *mainTableView;
+
+/// 关卡模型
+@property (nonatomic, strong) StageSelectModel *stageModel;
 
 @end
 
@@ -18,17 +23,12 @@
 
 #pragma mark - Life cycle
 
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = UIColor.greenColor;
+    
+    self.stageModel = [[StageSelectModel alloc] init];
+    
 }
 
 #pragma mark - Method

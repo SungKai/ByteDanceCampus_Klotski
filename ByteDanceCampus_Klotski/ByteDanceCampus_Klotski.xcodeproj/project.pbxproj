@@ -17,7 +17,9 @@
 		1442D7042897992A009CEB40 /* RisingUIKitExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6FC2897992A009CEB40 /* RisingUIKitExtension.m */; };
 		1442D7052897992A009CEB40 /* UIColor+Rising.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6FF2897992A009CEB40 /* UIColor+Rising.m */; };
 		14CDC855289B6C210009358F /* StageSelectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC854289B6C210009358F /* StageSelectModel.m */; };
-		14CDC857289B6D2B0009358F /* hrd-games.json in Resources */ = {isa = PBXBuildFile; fileRef = 14CDC856289B6D2B0009358F /* hrd-games.json */; };
+		14CDC860289B84ED0009358F /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC85F289B84ED0009358F /* Person.m */; };
+		14CDC863289B87330009358F /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC862289B87330009358F /* Level.m */; };
+		14CDC867289B8EB60009358F /* level.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14CDC866289B8EB60009358F /* level.plist */; };
 		3C5AEF06B27681B0DEDEFE9B /* Pods_ByteDanceCampus_Klotski.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C2921943B00D1E1FDEA362 /* Pods_ByteDanceCampus_Klotski.framework */; };
 		B5759A1C288AE5D1007CE07E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5759A1B288AE5D1007CE07E /* AppDelegate.m */; };
 		B5759A22288AE5D1007CE07E /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5759A21288AE5D1007CE07E /* MainController.m */; };
@@ -49,7 +51,11 @@
 		1442D7002897992A009CEB40 /* RisingUIKitExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingUIKitExtension.h; sourceTree = "<group>"; };
 		14CDC853289B6C210009358F /* StageSelectModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StageSelectModel.h; sourceTree = "<group>"; };
 		14CDC854289B6C210009358F /* StageSelectModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StageSelectModel.m; sourceTree = "<group>"; };
-		14CDC856289B6D2B0009358F /* hrd-games.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "hrd-games.json"; sourceTree = "<group>"; };
+		14CDC85E289B84ED0009358F /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		14CDC85F289B84ED0009358F /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		14CDC861289B87330009358F /* Level.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
+		14CDC862289B87330009358F /* Level.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Level.m; sourceTree = "<group>"; };
+		14CDC866289B8EB60009358F /* level.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = level.plist; sourceTree = "<group>"; };
 		22C2921943B00D1E1FDEA362 /* Pods_ByteDanceCampus_Klotski.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ByteDanceCampus_Klotski.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A404246E66C14D4FA6786972 /* Pods-ByteDanceCampus_Klotski.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ByteDanceCampus_Klotski.release.xcconfig"; path = "Target Support Files/Pods-ByteDanceCampus_Klotski/Pods-ByteDanceCampus_Klotski.release.xcconfig"; sourceTree = "<group>"; };
 		B5759A17288AE5D1007CE07E /* ByteDanceCampus_Klotski.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ByteDanceCampus_Klotski.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +142,35 @@
 			path = "UIColor+Rising";
 			sourceTree = "<group>";
 		};
+		14CDC868289B91EC0009358F /* Person */ = {
+			isa = PBXGroup;
+			children = (
+				14CDC85E289B84ED0009358F /* Person.h */,
+				14CDC85F289B84ED0009358F /* Person.m */,
+			);
+			path = Person;
+			sourceTree = "<group>";
+		};
+		14CDC869289B91F60009358F /* Level */ = {
+			isa = PBXGroup;
+			children = (
+				14CDC861289B87330009358F /* Level.h */,
+				14CDC862289B87330009358F /* Level.m */,
+				14CDC868289B91EC0009358F /* Person */,
+			);
+			path = Level;
+			sourceTree = "<group>";
+		};
+		14CDC86A289B91FE0009358F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				14CDC853289B6C210009358F /* StageSelectModel.h */,
+				14CDC854289B6C210009358F /* StageSelectModel.m */,
+				14CDC869289B91F60009358F /* Level */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		14E745B9288AFA38007436F6 /* Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,13 +218,11 @@
 			children = (
 				B5759A20288AE5D1007CE07E /* MainController.h */,
 				B5759A21288AE5D1007CE07E /* MainController.m */,
-				14CDC853289B6C210009358F /* StageSelectModel.h */,
-				14CDC854289B6C210009358F /* StageSelectModel.m */,
+				14CDC86A289B91FE0009358F /* Model */,
 				14E745B9288AFA38007436F6 /* Router */,
 				1442D6F12897992A009CEB40 /* Extension */,
 				B5759A33288AE6A0007CE07E /* Supporting Files */,
 				B5759A2B288AE5D2007CE07E /* Info.plist */,
-				14CDC856289B6D2B0009358F /* hrd-games.json */,
 				B5759A34288AE6C4007CE07E /* PrefixHeader.pch */,
 			);
 			path = ByteDanceCampus_Klotski;
@@ -198,11 +231,12 @@
 		B5759A33288AE6A0007CE07E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B5759A2C288AE5D2007CE07E /* main.m */,
 				B5759A1A288AE5D1007CE07E /* AppDelegate.h */,
 				B5759A1B288AE5D1007CE07E /* AppDelegate.m */,
+				14CDC866289B8EB60009358F /* level.plist */,
 				B5759A26288AE5D2007CE07E /* Assets.xcassets */,
 				B5759A28288AE5D2007CE07E /* LaunchScreen.storyboard */,
-				B5759A2C288AE5D2007CE07E /* main.m */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -266,8 +300,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14CDC857289B6D2B0009358F /* hrd-games.json in Resources */,
 				B5759A2A288AE5D2007CE07E /* LaunchScreen.storyboard in Resources */,
+				14CDC867289B8EB60009358F /* level.plist in Resources */,
 				B5759A27288AE5D2007CE07E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,8 +355,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14CDC863289B87330009358F /* Level.m in Sources */,
 				B5759A22288AE5D1007CE07E /* MainController.m in Sources */,
 				1442D7022897992A009CEB40 /* RisingFoundationExtention.m in Sources */,
+				14CDC860289B84ED0009358F /* Person.m in Sources */,
 				B5759A1C288AE5D1007CE07E /* AppDelegate.m in Sources */,
 				1442D6EC28976E22009CEB40 /* RisingRouterRequest.m in Sources */,
 				1442D7052897992A009CEB40 /* UIColor+Rising.m in Sources */,
