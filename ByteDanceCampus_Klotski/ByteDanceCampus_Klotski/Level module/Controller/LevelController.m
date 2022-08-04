@@ -53,6 +53,10 @@
 
 // MARK: SEL
 
+- (void)panItem:(UIPanGestureRecognizer *)pan {
+    CGPoint currentPoint = [pan translationInView:self.collectionView];
+}
+
 #pragma mark - Getter
 
 - (UICollectionView *)collectionView {
@@ -70,6 +74,7 @@
         _collectionView.center = self.view.SuperCenter;
         
         [_collectionView registerClass:PersonItem.class forCellWithReuseIdentifier:PersonItemReuseIdentifier];
+        [_collectionView.panGestureRecognizer addTarget:self action:@selector(panItem:)];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
     }

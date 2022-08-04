@@ -18,7 +18,7 @@
 		1442D7052897992A009CEB40 /* UIColor+Rising.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6FF2897992A009CEB40 /* UIColor+Rising.m */; };
 		14CDC855289B6C210009358F /* StageSelectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC854289B6C210009358F /* StageSelectModel.m */; };
 		14CDC860289B84ED0009358F /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC85F289B84ED0009358F /* Person.m */; };
-		14CDC863289B87330009358F /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC862289B87330009358F /* Level.m */; };
+		14CDC863289B87330009358F /* Level.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC862289B87330009358F /* Level.mm */; };
 		14CDC867289B8EB60009358F /* level.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14CDC866289B8EB60009358F /* level.plist */; };
 		14CDC870289B94E70009358F /* StageSelectItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC86F289B94E70009358F /* StageSelectItem.m */; };
 		14CDC873289BE1FF0009358F /* LevelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC872289BE1FF0009358F /* LevelController.m */; };
@@ -59,7 +59,7 @@
 		14CDC85E289B84ED0009358F /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		14CDC85F289B84ED0009358F /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		14CDC861289B87330009358F /* Level.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
-		14CDC862289B87330009358F /* Level.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Level.m; sourceTree = "<group>"; };
+		14CDC862289B87330009358F /* Level.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Level.mm; sourceTree = "<group>"; };
 		14CDC866289B8EB60009358F /* level.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = level.plist; sourceTree = "<group>"; };
 		14CDC86E289B94E70009358F /* StageSelectItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StageSelectItem.h; sourceTree = "<group>"; };
 		14CDC86F289B94E70009358F /* StageSelectItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StageSelectItem.m; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				14CDC861289B87330009358F /* Level.h */,
-				14CDC862289B87330009358F /* Level.m */,
+				14CDC862289B87330009358F /* Level.mm */,
 				14CDC868289B91EC0009358F /* Person */,
 			);
 			path = Level;
@@ -428,7 +428,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14CDC863289B87330009358F /* Level.m in Sources */,
+				14CDC863289B87330009358F /* Level.mm in Sources */,
 				14CDC87C289BEAB00009358F /* PersonItem.m in Sources */,
 				14CDC878289BE7F70009358F /* PersonFrame.m in Sources */,
 				B5759A22288AE5D1007CE07E /* MainController.m in Sources */,
