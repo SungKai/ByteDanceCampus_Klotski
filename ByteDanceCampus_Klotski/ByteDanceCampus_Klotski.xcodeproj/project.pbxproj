@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1442D6DF28976CBA009CEB40 /* SchoolBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6DE28976CBA009CEB40 /* SchoolBarController.m */; };
 		1442D6E928976E22009CEB40 /* RisingRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6E028976E22009CEB40 /* RisingRouter.m */; };
 		1442D6EA28976E22009CEB40 /* RisingRouterResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6E528976E22009CEB40 /* RisingRouterResponse.m */; };
 		1442D6EB28976E22009CEB40 /* RisingRouter+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6E628976E22009CEB40 /* RisingRouter+Extension.m */; };
@@ -17,6 +16,8 @@
 		1442D7032897992A009CEB40 /* UIView+Rising.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6FB2897992A009CEB40 /* UIView+Rising.m */; };
 		1442D7042897992A009CEB40 /* RisingUIKitExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6FC2897992A009CEB40 /* RisingUIKitExtension.m */; };
 		1442D7052897992A009CEB40 /* UIColor+Rising.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6FF2897992A009CEB40 /* UIColor+Rising.m */; };
+		14CDC855289B6C210009358F /* StageSelectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC854289B6C210009358F /* StageSelectModel.m */; };
+		14CDC857289B6D2B0009358F /* hrd-games.json in Resources */ = {isa = PBXBuildFile; fileRef = 14CDC856289B6D2B0009358F /* hrd-games.json */; };
 		3C5AEF06B27681B0DEDEFE9B /* Pods_ByteDanceCampus_Klotski.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C2921943B00D1E1FDEA362 /* Pods_ByteDanceCampus_Klotski.framework */; };
 		B5759A1C288AE5D1007CE07E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5759A1B288AE5D1007CE07E /* AppDelegate.m */; };
 		B5759A22288AE5D1007CE07E /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5759A21288AE5D1007CE07E /* MainController.m */; };
@@ -26,8 +27,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1442D6DD28976CBA009CEB40 /* SchoolBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SchoolBarController.h; sourceTree = "<group>"; };
-		1442D6DE28976CBA009CEB40 /* SchoolBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SchoolBarController.m; sourceTree = "<group>"; };
 		1442D6E028976E22009CEB40 /* RisingRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RisingRouter.m; sourceTree = "<group>"; };
 		1442D6E128976E22009CEB40 /* RisingRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingRouter.h; sourceTree = "<group>"; };
 		1442D6E228976E22009CEB40 /* RisingRouterRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingRouterRequest.h; sourceTree = "<group>"; };
@@ -48,6 +47,9 @@
 		1442D6FE2897992A009CEB40 /* UIColor+Rising.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Rising.h"; sourceTree = "<group>"; };
 		1442D6FF2897992A009CEB40 /* UIColor+Rising.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Rising.m"; sourceTree = "<group>"; };
 		1442D7002897992A009CEB40 /* RisingUIKitExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingUIKitExtension.h; sourceTree = "<group>"; };
+		14CDC853289B6C210009358F /* StageSelectModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StageSelectModel.h; sourceTree = "<group>"; };
+		14CDC854289B6C210009358F /* StageSelectModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StageSelectModel.m; sourceTree = "<group>"; };
+		14CDC856289B6D2B0009358F /* hrd-games.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "hrd-games.json"; sourceTree = "<group>"; };
 		22C2921943B00D1E1FDEA362 /* Pods_ByteDanceCampus_Klotski.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ByteDanceCampus_Klotski.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A404246E66C14D4FA6786972 /* Pods-ByteDanceCampus_Klotski.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ByteDanceCampus_Klotski.release.xcconfig"; path = "Target Support Files/Pods-ByteDanceCampus_Klotski/Pods-ByteDanceCampus_Klotski.release.xcconfig"; sourceTree = "<group>"; };
 		B5759A17288AE5D1007CE07E /* ByteDanceCampus_Klotski.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ByteDanceCampus_Klotski.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,14 +181,15 @@
 		B5759A19288AE5D1007CE07E /* ByteDanceCampus_Klotski */ = {
 			isa = PBXGroup;
 			children = (
-				B5759A33288AE6A0007CE07E /* Supporting Files */,
 				B5759A20288AE5D1007CE07E /* MainController.h */,
 				B5759A21288AE5D1007CE07E /* MainController.m */,
-				1442D6DD28976CBA009CEB40 /* SchoolBarController.h */,
-				1442D6DE28976CBA009CEB40 /* SchoolBarController.m */,
+				14CDC853289B6C210009358F /* StageSelectModel.h */,
+				14CDC854289B6C210009358F /* StageSelectModel.m */,
 				14E745B9288AFA38007436F6 /* Router */,
 				1442D6F12897992A009CEB40 /* Extension */,
+				B5759A33288AE6A0007CE07E /* Supporting Files */,
 				B5759A2B288AE5D2007CE07E /* Info.plist */,
+				14CDC856289B6D2B0009358F /* hrd-games.json */,
 				B5759A34288AE6C4007CE07E /* PrefixHeader.pch */,
 			);
 			path = ByteDanceCampus_Klotski;
@@ -263,6 +266,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14CDC857289B6D2B0009358F /* hrd-games.json in Resources */,
 				B5759A2A288AE5D2007CE07E /* LaunchScreen.storyboard in Resources */,
 				B5759A27288AE5D2007CE07E /* Assets.xcassets in Resources */,
 			);
@@ -327,7 +331,7 @@
 				1442D7032897992A009CEB40 /* UIView+Rising.m in Sources */,
 				1442D7012897992A009CEB40 /* NSDate+Rising.m in Sources */,
 				1442D6EA28976E22009CEB40 /* RisingRouterResponse.m in Sources */,
-				1442D6DF28976CBA009CEB40 /* SchoolBarController.m in Sources */,
+				14CDC855289B6C210009358F /* StageSelectModel.m in Sources */,
 				1442D6EB28976E22009CEB40 /* RisingRouter+Extension.m in Sources */,
 				1442D6E928976E22009CEB40 /* RisingRouter.m in Sources */,
 			);

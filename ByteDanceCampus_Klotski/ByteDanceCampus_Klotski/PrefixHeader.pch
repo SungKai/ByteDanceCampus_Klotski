@@ -12,4 +12,8 @@
 
 #import "ExtensionHeader.h"
 
+#import <YYKit.h>
+
+#import <MJExtension.h>
+
 #endif /* PrefixHeader_pch */

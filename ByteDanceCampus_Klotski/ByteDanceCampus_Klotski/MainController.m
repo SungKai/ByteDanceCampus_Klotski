@@ -9,6 +9,9 @@
 
 @interface MainController ()
 
+/// 关卡tableView
+@property (nonatomic, strong) UITableView *mainTableView;
+
 @end
 
 @implementation MainController
@@ -18,24 +21,14 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"aa" image:nil tag:0];
+        
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = UIColor.orangeColor;
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    
+    self.view.backgroundColor = UIColor.greenColor;
 }
 
 #pragma mark - Method

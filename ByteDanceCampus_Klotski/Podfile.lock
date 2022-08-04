@@ -1,40 +1,43 @@
 PODS:
-  - AFNetworking (3.1.0):
-    - AFNetworking/NSURLSession (= 3.1.0)
-    - AFNetworking/Reachability (= 3.1.0)
-    - AFNetworking/Security (= 3.1.0)
-    - AFNetworking/Serialization (= 3.1.0)
-    - AFNetworking/UIKit (= 3.1.0)
-  - AFNetworking/NSURLSession (3.1.0):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (3.1.0)
-  - AFNetworking/Security (3.1.0)
-  - AFNetworking/Serialization (3.1.0)
-  - AFNetworking/UIKit (3.1.0):
-    - AFNetworking/NSURLSession
+  - FluentDarkModeKit (1.0.4)
   - Masonry (1.1.0)
+  - MJExtension (3.4.1)
+  - SQLiteRepairKit (1.2.2):
+    - WCDBOptimizedSQLCipher (~> 1.2.0)
+  - WCDB (1.0.7.5):
+    - SQLiteRepairKit (~> 1.2.0)
+    - WCDBOptimizedSQLCipher (~> 1.2.0)
+  - WCDBOptimizedSQLCipher (1.2.1)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
-  - AFNetworking (~> 3.1.0)
+  - FluentDarkModeKit
   - Masonry (~> 1.1.0)
+  - MJExtension
+  - WCDB
   - YYKit
 
 SPEC REPOS:
   https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
-    - AFNetworking
+    - FluentDarkModeKit
     - Masonry
+    - MJExtension
+    - SQLiteRepairKit
+    - WCDB
+    - WCDBOptimizedSQLCipher
     - YYKit
 
 SPEC CHECKSUMS:
-  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  FluentDarkModeKit: b6317653a00329564582884772ec57c4eaad1a1f
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJExtension: 21c5f6f8c4d5d8844b7ae8fbae08fed0b501f961
+  SQLiteRepairKit: 35aaae5a8838adb85f5b1eb4d796055be6060a4b
+  WCDB: 8e90babdeb7784c569353a4bd22a66c0a175a882
+  WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 6d8d1a2c6e7f86ceb87b11ebcea8125efae9ffe9
+PODFILE CHECKSUM: 9a41912bc21136593ab425df78ce3c881b34e230
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

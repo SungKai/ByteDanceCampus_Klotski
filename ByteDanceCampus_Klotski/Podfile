@@ -11,6 +11,8 @@ target 'ByteDanceCampus_Klotski' do
 	pod 'Masonry', '~> 1.1.0'
 	pod 'YYKit',:inhibit_warnings => true
 	pod 'FluentDarkModeKit'
+	pod 'MJExtension'
+	pod 'WCDB'
 
 end
 
