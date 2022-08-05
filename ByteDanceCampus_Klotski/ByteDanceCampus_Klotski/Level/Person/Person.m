@@ -27,6 +27,22 @@
     return PersonFrameMake(self.x, self.y, self.width, self.height);
 }
 
+- (PersonType)type {
+    if (self.width == 1 && self.height == 1) {
+        return PersonTinySquare;
+    }
+    if (self.width == 1 && self.height == 2) {
+        return PersonVertical;
+    }
+    if (self.width == 2 && self.height == 1) {
+        return PersonHorizontal;
+    }
+    if (self.width == 2 && self.height == 2) {
+        return PersonBigSquare;
+    }
+    return PersonFoo;
+}
+
 #pragma mark - Setter
 
 - (void)setFrame:(PersonFrame)frame {
@@ -35,6 +51,5 @@
     self.width = frame.width;
     self.height = frame.width;
 }
-
 
 @end

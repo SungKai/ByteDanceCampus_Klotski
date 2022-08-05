@@ -25,6 +25,7 @@
 		14CDC876289BE2620009358F /* LevelCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC875289BE2620009358F /* LevelCollectionLayout.m */; };
 		14CDC878289BE7F70009358F /* PersonFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC877289BE7F70009358F /* PersonFrame.m */; };
 		14CDC87C289BEAB00009358F /* PersonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC87B289BEAB00009358F /* PersonItem.m */; };
+		14CDC885289CB2DB0009358F /* LevelAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC884289CB2DB0009358F /* LevelAdapter.m */; };
 		3C5AEF06B27681B0DEDEFE9B /* Pods_ByteDanceCampus_Klotski.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C2921943B00D1E1FDEA362 /* Pods_ByteDanceCampus_Klotski.framework */; };
 		B5759A1C288AE5D1007CE07E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5759A1B288AE5D1007CE07E /* AppDelegate.m */; };
 		B5759A22288AE5D1007CE07E /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5759A21288AE5D1007CE07E /* MainController.m */; };
@@ -71,6 +72,8 @@
 		14CDC879289BE8030009358F /* PersonFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonFrame.h; sourceTree = "<group>"; };
 		14CDC87A289BEAB00009358F /* PersonItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonItem.h; sourceTree = "<group>"; };
 		14CDC87B289BEAB00009358F /* PersonItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonItem.m; sourceTree = "<group>"; };
+		14CDC883289CB2DB0009358F /* LevelAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelAdapter.h; sourceTree = "<group>"; };
+		14CDC884289CB2DB0009358F /* LevelAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LevelAdapter.m; sourceTree = "<group>"; };
 		22C2921943B00D1E1FDEA362 /* Pods_ByteDanceCampus_Klotski.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ByteDanceCampus_Klotski.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A404246E66C14D4FA6786972 /* Pods-ByteDanceCampus_Klotski.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ByteDanceCampus_Klotski.release.xcconfig"; path = "Target Support Files/Pods-ByteDanceCampus_Klotski/Pods-ByteDanceCampus_Klotski.release.xcconfig"; sourceTree = "<group>"; };
 		B5759A17288AE5D1007CE07E /* ByteDanceCampus_Klotski.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ByteDanceCampus_Klotski.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -226,6 +229,8 @@
 			children = (
 				14CDC871289BE1FF0009358F /* LevelController.h */,
 				14CDC872289BE1FF0009358F /* LevelController.m */,
+				14CDC883289CB2DB0009358F /* LevelAdapter.h */,
+				14CDC884289CB2DB0009358F /* LevelAdapter.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -446,6 +451,7 @@
 				1442D6EA28976E22009CEB40 /* RisingRouterResponse.m in Sources */,
 				14CDC855289B6C210009358F /* StageSelectModel.m in Sources */,
 				1442D6EB28976E22009CEB40 /* RisingRouter+Extension.m in Sources */,
+				14CDC885289CB2DB0009358F /* LevelAdapter.m in Sources */,
 				1442D6E928976E22009CEB40 /* RisingRouter.m in Sources */,
 				14CDC870289B94E70009358F /* StageSelectItem.m in Sources */,
 			);

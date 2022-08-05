@@ -6,7 +6,10 @@
 //
 
 /**每个关卡的情况
- * 包括名字步数什么的
+ * 接WCDB为了快速存储
+ * TODO: 第一次从plist，以后从WCDB
+ * TODO: 每个level都有唯一算法解
+ * TODO: 自定义一个布局？
  */
 
 #import <Foundation/Foundation.h>
@@ -38,10 +41,11 @@ FOUNDATION_EXPORT NSString *LevelTableName;
 @property (nonatomic, readonly) NSString *idCode;
 
 /// 每个人原始的布局情况
-@property (nonatomic, readonly) NSArray <Person *> *persons;
+///（使用setter时，bestStep，currentStep，currentPersons全部打回）
+@property (nonatomic, copy) NSArray <Person *> *persons;
 
 /// 每个人当前的布局情况
-@property (nonatomic, copy) NSArray <Person *> *currentPersons;
+@property (nonatomic, readonly) NSArray <Person *> *currentPersons;
 
 /// 根据字典确定
 /// @param dictionary 字典

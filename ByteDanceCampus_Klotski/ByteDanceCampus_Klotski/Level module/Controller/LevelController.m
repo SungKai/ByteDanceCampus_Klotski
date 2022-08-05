@@ -13,6 +13,8 @@
 
 #import "PersonItem.h"
 
+#import "LevelAdapter.h"
+
 #pragma mark - LevelController ()
 
 @interface LevelController () <
@@ -26,6 +28,9 @@
 
 /// 华容道的一局的信息
 @property (nonatomic, strong) Level *model;
+
+/// Adapter
+@property (nonatomic, strong) LevelAdapter *adapter;
 
 @end
 
@@ -46,6 +51,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = UIColor.whiteColor;
+    self.adapter = [LevelAdapter adapterWithCollectionView:self.collectionView layout:(LevelCollectionLayout *)self.collectionView.collectionViewLayout model:self.model];
     [self.view addSubview:self.collectionView];
 }
 
@@ -54,7 +60,28 @@
 // MARK: SEL
 
 - (void)panItem:(UIPanGestureRecognizer *)pan {
-    CGPoint currentPoint = [pan translationInView:self.collectionView];
+    CGPoint currentPoint = [pan locationInView:self.collectionView];
+    NSIndexPath *currentIndexPath = [self.collectionView indexPathForItemAtPoint:currentPoint];
+    UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:currentIndexPath];
+    
+    switch (pan.state) {
+        case UIGestureRecognizerStateBegan: {
+            [self.collectionView beginInteractiveMovementForItemAtIndexPath:currentIndexPath];
+        } break;
+            
+        case UIGestureRecognizerStateChanged: {
+            [self.collectionView updateInteractiveMovementTargetPosition:currentPoint];
+        } break;
+            
+        case UIGestureRecognizerStateEnded: {
+            [self.collectionView endInteractiveMovement];
+        } break;
+            
+        default:
+        case UIGestureRecognizerStateCancelled: {
+            [self.collectionView cancelInteractiveMovement];
+        } break;
+    }
 }
 
 #pragma mark - Getter
@@ -64,7 +91,6 @@
         CGFloat width = kScreenWidth - 20;
         
         LevelCollectionLayout *layout = [[LevelCollectionLayout alloc] init];
-        layout.delegate = self;
         layout.lineSpacing = 2;
         layout.interitemSpacing = 2;
         CGFloat minWidth = (width - layout.interitemSpacing) / 4;
@@ -74,37 +100,14 @@
         _collectionView.center = self.view.SuperCenter;
         
         [_collectionView registerClass:PersonItem.class forCellWithReuseIdentifier:PersonItemReuseIdentifier];
-        [_collectionView.panGestureRecognizer addTarget:self action:@selector(panItem:)];
-        _collectionView.delegate = self;
-        _collectionView.dataSource = self;
+        _collectionView.showsVerticalScrollIndicator = NO;
+        _collectionView.showsHorizontalScrollIndicator = NO;
+        
+        UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panItem:)];
+        [_collectionView addGestureRecognizer:pan];
     }
     return _collectionView;
 }
-
-#pragma mark - <UICollectionViewDataSource>
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
-}
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.model.persons.count;
-}
-
-- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    PersonItem *cell = [collectionView dequeueReusableCellWithReuseIdentifier:PersonItemReuseIdentifier forIndexPath:indexPath];
-    
-    cell.backgroundColor = UIColor.orangeColor;
-    
-    return cell;
-}
-
-#pragma mark - <LevelCollectionLayoutDelegate>
-
-- (PersonFrame)collectionView:(UICollectionView *)collectionView layout:(LevelCollectionLayout *)layout frameForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return self.model.persons[indexPath.item].frame;
-}
-
 
 #pragma mark - RisingRouterHandler
 

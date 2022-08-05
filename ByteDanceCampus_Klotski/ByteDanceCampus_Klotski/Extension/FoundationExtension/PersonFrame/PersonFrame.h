@@ -13,7 +13,7 @@ typedef struct _PersonFrame {
     int y;
     int width;
     int height;
-}PersonFrame;
+} PersonFrame;
 
 NS_INLINE PersonFrame PersonFrameMake(int x, int y, int width, int height) {
     PersonFrame frame = {x, y, width, height};

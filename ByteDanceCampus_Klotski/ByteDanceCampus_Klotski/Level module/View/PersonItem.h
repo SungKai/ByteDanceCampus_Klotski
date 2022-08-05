@@ -9,6 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/// 复用标志
 FOUNDATION_EXPORT NSString * PersonItemReuseIdentifier;
 
 #pragma mark - PersonItem
@@ -18,6 +19,9 @@ FOUNDATION_EXPORT NSString * PersonItemReuseIdentifier;
 - (instancetype)init NS_UNAVAILABLE;
 
 + (instancetype)new NS_UNAVAILABLE;
+
+/// 名字（计算属性）
+@property (nonatomic, copy) NSString *name;
 
 @end
 

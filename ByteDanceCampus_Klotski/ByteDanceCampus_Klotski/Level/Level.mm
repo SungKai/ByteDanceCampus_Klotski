@@ -18,6 +18,9 @@ NSString *LevelTableName = @"Level";
 /// 唯一ID
 @property (nonatomic, copy) NSString *onlyCode;
 
+/// 数据库
+@property(nonatomic, readonly, class) WCTDatabase *DB;
+
 @end
 
 #pragma mark - Level (WCTTableCoding)
@@ -42,25 +45,29 @@ WCDB_PROPERTY(currentPersons)
 #pragma mark - (WCTTableCoding)
 
 WCDB_IMPLEMENTATION(Level)
-WCDB_PRIMARY(Level, onlyCode)
+WCDB_SYNTHESIZE(Level, onlyCode)
 WCDB_SYNTHESIZE(Level, name)
 WCDB_SYNTHESIZE(Level, bestStep)
 WCDB_SYNTHESIZE(Level, currentStep)
 WCDB_SYNTHESIZE(Level, persons)
 WCDB_SYNTHESIZE(Level, currentPersons)
 
+WCDB_PRIMARY(Level, onlyCode)
+
 #pragma mark - Life cycle
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {
-        self.name = dictionary[@"name"];
-        self.bestStep = -1;
+        _name = dictionary[@"name"];
+        _bestStep = -1;
+        _currentStep = 0;
         NSMutableArray *mutAry = NSMutableArray.array;
         for (NSDictionary *dic in dictionary[@"blocks"]) {
             [mutAry addObject:[[Person alloc] initWithDictionary:dic]];
         }
-        _persons = mutAry.copy;
+        self.persons = mutAry.copy;
+        _currentPersons = mutAry.copy;
     }
     return self;
 }
@@ -73,6 +80,23 @@ WCDB_SYNTHESIZE(Level, currentPersons)
 
 - (NSString *)idCode {
     return self.onlyCode;
+}
+
++ (WCTDatabase *)DB {
+    static WCTDatabase *_db;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _db = [[WCTDatabase alloc] initWithPath:self.DBpath];
+        [_db createTableAndIndexesOfName:LevelTableName withClass:self];
+    });
+    return _db;
+}
+
+#pragma mark - Setter
+
+- (void)setPersons:(NSArray<Person *> *)persons {
+    _persons = persons.copy;
+    // TODO: 考虑唯一id的算法
 }
 
 @end
