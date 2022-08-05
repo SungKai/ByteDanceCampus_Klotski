@@ -17,11 +17,7 @@
 
 #pragma mark - LevelController ()
 
-@interface LevelController () <
-    LevelCollectionLayoutDelegate,
-    UICollectionViewDelegate,
-    UICollectionViewDataSource
->
+@interface LevelController ()
 
 /// 华容道CollectionView
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -59,31 +55,6 @@
 
 // MARK: SEL
 
-- (void)panItem:(UIPanGestureRecognizer *)pan {
-    CGPoint currentPoint = [pan locationInView:self.collectionView];
-    NSIndexPath *currentIndexPath = [self.collectionView indexPathForItemAtPoint:currentPoint];
-    UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:currentIndexPath];
-    
-    switch (pan.state) {
-        case UIGestureRecognizerStateBegan: {
-            [self.collectionView beginInteractiveMovementForItemAtIndexPath:currentIndexPath];
-        } break;
-            
-        case UIGestureRecognizerStateChanged: {
-            [self.collectionView updateInteractiveMovementTargetPosition:currentPoint];
-        } break;
-            
-        case UIGestureRecognizerStateEnded: {
-            [self.collectionView endInteractiveMovement];
-        } break;
-            
-        default:
-        case UIGestureRecognizerStateCancelled: {
-            [self.collectionView cancelInteractiveMovement];
-        } break;
-    }
-}
-
 #pragma mark - Getter
 
 - (UICollectionView *)collectionView {
@@ -102,9 +73,6 @@
         [_collectionView registerClass:PersonItem.class forCellWithReuseIdentifier:PersonItemReuseIdentifier];
         _collectionView.showsVerticalScrollIndicator = NO;
         _collectionView.showsHorizontalScrollIndicator = NO;
-        
-        UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panItem:)];
-        [_collectionView addGestureRecognizer:pan];
     }
     return _collectionView;
 }

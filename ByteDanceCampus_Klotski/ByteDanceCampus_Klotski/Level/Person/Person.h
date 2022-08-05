@@ -25,6 +25,15 @@ typedef NS_ENUM(NSUInteger, PersonType) {
     PersonBigSquare   // 曹   2 * 2
 };
 
+#pragma mark - ENUM (PersonDirrection)
+
+typedef NS_ENUM(NSUInteger, PersonDirection) {
+    PersonDirectionRight, // 右
+    PersonDirectionLeft,  // 左
+    PersonDirectionUP,    // 上
+    PersonDirectionDown   // 下
+};
+
 #pragma mark - Person
 
 @interface Person : NSObject

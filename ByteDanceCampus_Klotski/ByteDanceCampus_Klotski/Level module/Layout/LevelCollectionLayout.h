@@ -5,6 +5,11 @@
 //  Created by SSR on 2022/8/4.
 //
 
+/**华容道真正布局文件
+ * 一定要遵守delegate
+ * 单个兵的大小也得实现
+ */
+
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -40,6 +45,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 单个兵所占大小
 @property (nonatomic) CGSize sizeForItem;
+
+- (void)reloadItemForIndexPath:(NSIndexPath *)indexPath animate:(BOOL)animate;
 
 @end
 
