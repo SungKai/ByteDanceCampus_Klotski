@@ -36,7 +36,9 @@ typedef NS_ENUM(NSUInteger, PersonDirection) {
 
 #pragma mark - Person
 
-@interface Person : NSObject
+@interface Person : NSObject <
+    NSCopying
+>
 
 /// 名字
 @property (nonatomic, copy) NSString *name;

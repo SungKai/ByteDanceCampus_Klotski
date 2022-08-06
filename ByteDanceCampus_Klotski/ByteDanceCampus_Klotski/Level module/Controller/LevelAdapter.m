@@ -9,8 +9,6 @@
 
 #import "Level.h"
 
-#import "Level+Step.h"
-
 #import "PersonItem.h"
 
 #pragma mark - LevelAdapter ()

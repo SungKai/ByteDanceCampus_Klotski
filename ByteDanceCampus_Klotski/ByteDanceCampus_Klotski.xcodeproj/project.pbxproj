@@ -26,7 +26,6 @@
 		14CDC878289BE7F70009358F /* PersonFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC877289BE7F70009358F /* PersonFrame.m */; };
 		14CDC87C289BEAB00009358F /* PersonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC87B289BEAB00009358F /* PersonItem.m */; };
 		14CDC885289CB2DB0009358F /* LevelAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC884289CB2DB0009358F /* LevelAdapter.m */; };
-		14CDC888289D2AD60009358F /* Level+Step.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC887289D2AD60009358F /* Level+Step.mm */; };
 		14CDC88B289D3F340009358F /* PersonStep.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC88A289D3F340009358F /* PersonStep.m */; };
 		3C5AEF06B27681B0DEDEFE9B /* Pods_ByteDanceCampus_Klotski.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C2921943B00D1E1FDEA362 /* Pods_ByteDanceCampus_Klotski.framework */; };
 		B5759A1C288AE5D1007CE07E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5759A1B288AE5D1007CE07E /* AppDelegate.m */; };
@@ -76,8 +75,6 @@
 		14CDC87B289BEAB00009358F /* PersonItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonItem.m; sourceTree = "<group>"; };
 		14CDC883289CB2DB0009358F /* LevelAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelAdapter.h; sourceTree = "<group>"; };
 		14CDC884289CB2DB0009358F /* LevelAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LevelAdapter.m; sourceTree = "<group>"; };
-		14CDC886289D2AD60009358F /* Level+Step.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Level+Step.h"; sourceTree = "<group>"; };
-		14CDC887289D2AD60009358F /* Level+Step.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "Level+Step.mm"; sourceTree = "<group>"; };
 		14CDC889289D3F340009358F /* PersonStep.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonStep.h; sourceTree = "<group>"; };
 		14CDC88A289D3F340009358F /* PersonStep.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonStep.m; sourceTree = "<group>"; };
 		22C2921943B00D1E1FDEA362 /* Pods_ByteDanceCampus_Klotski.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ByteDanceCampus_Klotski.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,8 +177,6 @@
 			children = (
 				14CDC861289B87330009358F /* Level.h */,
 				14CDC862289B87330009358F /* Level.mm */,
-				14CDC886289D2AD60009358F /* Level+Step.h */,
-				14CDC887289D2AD60009358F /* Level+Step.mm */,
 				14CDC889289D3F340009358F /* PersonStep.h */,
 				14CDC88A289D3F340009358F /* PersonStep.m */,
 				14CDC868289B91EC0009358F /* Person */,
@@ -447,7 +442,6 @@
 				14CDC87C289BEAB00009358F /* PersonItem.m in Sources */,
 				14CDC878289BE7F70009358F /* PersonFrame.m in Sources */,
 				B5759A22288AE5D1007CE07E /* MainController.m in Sources */,
-				14CDC888289D2AD60009358F /* Level+Step.mm in Sources */,
 				14CDC876289BE2620009358F /* LevelCollectionLayout.m in Sources */,
 				1442D7022897992A009CEB40 /* RisingFoundationExtention.m in Sources */,
 				14CDC860289B84ED0009358F /* Person.m in Sources */,

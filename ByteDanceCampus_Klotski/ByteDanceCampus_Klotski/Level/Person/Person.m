@@ -21,6 +21,15 @@
     return self;
 }
 
+#pragma mark - <NSCopying>
+
+- (nonnull id)copyWithZone:(nullable NSZone *)zone {
+    Person *p = [[Person alloc] init];
+    p.name = self.name.copy;
+    p.frame = self.frame;
+    return p;
+}
+
 #pragma mark - Getter
 
 - (PersonFrame)frame {
