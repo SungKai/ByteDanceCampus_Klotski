@@ -10,6 +10,7 @@
 #import <WCDB.h>
 
 #import <array>
+#import <iostream>
 
 NSString *LevelTableName = @"Level";
 
@@ -108,17 +109,27 @@ WCDB_PRIMARY(Level, idCode)
 - (void)setPersons:(NSArray<Person *> *)persons {
     if (_persons == persons) {
         // 重来
-        _currentPersons = persons.copy;
+        for (NSInteger i = 0; i < _persons.count; i++) {
+            self.currentPersons[i].frame = _persons[i].frame;
+        }
         self.currentStep = 0;
         return;
     }
+    // 新的布局
     _persons = persons.copy;
-    // TODO: 考虑唯一id的算法
+    
+    NSMutableArray <Person *> *newPerons = NSMutableArray.array;
+    for (Person *p in _persons) {
+        Person *newP = p.copy;
+        [newPerons addObject:newP];
+    }
+    _currentPersons = newPerons.copy;
+    
     std::array<std::array<long, 4>, 5> array = {};
-    for (Person *person in self.currentPersons) {
-        for (int i = person.x - 1; i < (person.x + person.width); i++) {
-            for (int j = person.y - 1; j < (person.y + person.height); j++) {
-                array[i][j] = person.type;
+    for (Person *person in _persons) {
+        for (int i = person.x; i < (person.x + person.width); i++) {
+            for (int j = person.y; j < (person.y + person.height); j++) {
+                array[j][i] = person.type;
             }
         }
     }
@@ -136,21 +147,24 @@ WCDB_PRIMARY(Level, idCode)
 - (BOOL)currentPersonAtIndex:(NSInteger)index
           canMoveToDirection:(PersonDirection)direction {
     // TODO: 是否可以移动的算法 >>>
+    // 对onlyCode的判断
     Person *person = self.currentPersons[index];
     switch (direction) {
         case PersonDirectionRight: {
             
         } break;
             
-        case PersonDirectionLeft:
+        case PersonDirectionLeft: {
             
-            break;
-        case PersonDirectionUP:
+        } break;
             
-            break;
-        case PersonDirectionDown:
+        case PersonDirectionUP: {
             
-            break;
+        } break;
+            
+        case PersonDirectionDown: {
+            
+        } break;
     }
     // FIXME: <<<
     
@@ -159,7 +173,9 @@ WCDB_PRIMARY(Level, idCode)
 
 - (void)currentPersonAtIndex:(NSInteger)index
                       moveTo:(PersonDirection)direction {
-    // TODO: move的算法,这里简单写了下视图call过来的，差算法
+    // TODO: move的算法,这里简单写了下视图call过来的，差算法 >>>
+    // 对onlyCode的改变
+    // FIXME: <<<
     Person *person = self.currentPersons[index];
     switch (direction) {
         case PersonDirectionUP: {
@@ -181,22 +197,24 @@ WCDB_PRIMARY(Level, idCode)
 }
 
 - (void)currentPersonAtIndex:(NSInteger)index didMoveWithProposedDirection:(PersonDirection)direction {
-    // TODO: move完回掉，可以开启下一次循环
+    // TODO: 当视图移动完后会掉用此方法 >>>
+    // 对onlyCode的改变
+    // FIXME: <<<
 }
 
 - (void)reset {
-    // TODO: 重置
-    // ???: 是否得写在主impl
+    self.persons = self.persons;
 }
 
 - (BOOL)isGameOver {
-    // TODO: 判断曹操是否在结束位置
-    return NO;
+    return (self.onlyCode[4][1] == PersonBigSquare &&
+            self.onlyCode[4][2] == PersonBigSquare);
 }
 
 - (NSArray<PersonStep *> *)stepForCurrent {
     NSMutableArray <PersonStep *> *mutAry = NSMutableArray.array;
     // TODO: 算法
+    // 不允许改变person以及
     return mutAry;
 }
 
