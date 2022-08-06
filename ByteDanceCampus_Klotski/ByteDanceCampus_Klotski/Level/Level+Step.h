@@ -9,6 +9,8 @@
 
 #import "Person.h"
 
+#import "PersonStep.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Level (Step)
@@ -38,6 +40,11 @@ didMoveWithProposedDirection:(PersonDirection)direction;
 
 /// 是否结束（计算属性）
 @property (nonatomic, readonly) BOOL isGameOver;
+
+/// 从当前的问题开始解决，返回步的情况
+/// 不会掉用上面的方法，也不会侵占数据
+/// 掉用过后，所有布局重新布局
+- (NSArray <PersonStep *> *)stepForCurrent;
 
 @end
 

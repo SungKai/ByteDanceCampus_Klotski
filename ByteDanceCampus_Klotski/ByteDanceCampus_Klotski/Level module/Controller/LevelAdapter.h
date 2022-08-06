@@ -7,6 +7,7 @@
 
 /**解决所有事情的类 VC强持有这个类
  * 这个类包含所有的level级别事件处理能力
+ * 这个类不包含其他视图布局
  * UICollectionView和LevelCollectionLayout可以不用设置代理
  */
 

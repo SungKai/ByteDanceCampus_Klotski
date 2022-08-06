@@ -9,6 +9,8 @@
 
 #import <WCDB.h>
 
+#import <array>
+
 NSString *LevelTableName = @"Level";
 
 #pragma mark - Level ()
@@ -16,7 +18,7 @@ NSString *LevelTableName = @"Level";
 @interface Level ()
 
 /// 唯一ID
-@property (nonatomic, copy) NSString *onlyCode;
+@property (nonatomic) std::array<std::array<long, 4>, 5> onlyCode;
 
 /// 数据库
 @property(nonatomic, readonly, class) WCTDatabase *DB;
@@ -29,10 +31,10 @@ NSString *LevelTableName = @"Level";
     WCTTableCoding
 >
 
+WCDB_PROPERTY(idCode)
 WCDB_PROPERTY(name)
 WCDB_PROPERTY(bestStep)
 WCDB_PROPERTY(currentStep)
-WCDB_PROPERTY(onlyCode)
 WCDB_PROPERTY(persons)
 WCDB_PROPERTY(currentPersons)
 
@@ -45,14 +47,14 @@ WCDB_PROPERTY(currentPersons)
 #pragma mark - (WCTTableCoding)
 
 WCDB_IMPLEMENTATION(Level)
-WCDB_SYNTHESIZE(Level, onlyCode)
+WCDB_SYNTHESIZE(Level, idCode)
 WCDB_SYNTHESIZE(Level, name)
 WCDB_SYNTHESIZE(Level, bestStep)
 WCDB_SYNTHESIZE(Level, currentStep)
 WCDB_SYNTHESIZE(Level, persons)
 WCDB_SYNTHESIZE(Level, currentPersons)
 
-WCDB_PRIMARY(Level, onlyCode)
+WCDB_PRIMARY(Level, idCode)
 
 #pragma mark - Life cycle
 
@@ -79,7 +81,13 @@ WCDB_PRIMARY(Level, onlyCode)
 }
 
 - (NSString *)idCode {
-    return self.onlyCode;
+    NSMutableString *str = [NSMutableString stringWithCapacity:4 * 5];
+    for(std::array<long, 4> ary : self.onlyCode) {
+        for (long type : ary) {
+            [str appendFormat:@"%ld", type];
+        }
+    }
+    return str;
 }
 
 + (WCTDatabase *)DB {
@@ -95,8 +103,25 @@ WCDB_PRIMARY(Level, onlyCode)
 #pragma mark - Setter
 
 - (void)setPersons:(NSArray<Person *> *)persons {
+    if (_persons == persons) {
+        // 重来
+        _currentPersons = persons.copy;
+        self.currentStep = 0;
+        return;
+    }
     _persons = persons.copy;
     // TODO: 考虑唯一id的算法
+    std::array<std::array<long, 4>, 5> array = {};
+    for (Person *person in self.currentPersons) {
+        for (int i = person.x - 1; i < (person.x + person.width); i++) {
+            for (int j = person.y - 1; j < (person.y + person.height); j++) {
+                array[i][j] = person.type;
+            }
+        }
+    }
+    self.onlyCode = array;
+    self.bestStep = 0;
+    self.currentStep = 0;
 }
 
 @end

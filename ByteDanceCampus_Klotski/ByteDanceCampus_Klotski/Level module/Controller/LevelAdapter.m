@@ -109,5 +109,4 @@
     return self.model.currentPersons[indexPath.item].frame;
 }
 
-
 @end

@@ -42,6 +42,7 @@ FOUNDATION_EXPORT NSString *LevelTableName;
 
 /// 每个人原始的布局情况
 ///（使用setter时，bestStep，currentStep，currentPersons全部打回）
+/// 使用A.persons = A.persons时，说明是重新来
 @property (nonatomic, copy) NSArray <Person *> *persons;
 
 /// 每个人当前的布局情况
