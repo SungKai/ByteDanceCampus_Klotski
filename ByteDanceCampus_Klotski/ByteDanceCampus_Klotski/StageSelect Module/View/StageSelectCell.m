@@ -39,7 +39,9 @@ NSString * StageSelectCellReuseIdentifier = @"StageSelectCell";
         self.clipsToBounds = YES;
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.backgroundColor = UIColor.clearColor;
-        self.contentView.backgroundColor = UIColor.whiteColor;
+        self.contentView.backgroundColor =
+        [UIColor Any_hex:@"#F8F9FC" a:1 Dark_hex:@"#000000" a:1];
+        
         self.contentView.layer.cornerRadius = 30;
         
         [self.contentView addSubview:self.stageNameLab];
@@ -75,6 +77,7 @@ NSString * StageSelectCellReuseIdentifier = @"StageSelectCell";
         _stageNameLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 16, self.contentView.width, 50)];
         _stageNameLab.textAlignment = NSTextAlignmentCenter;
         _stageNameLab.font = [UIFont fontWithName:PingFangSCBold size:36];
+        _stageNameLab.textColor = [UIColor Any_hex:@"#112C54" a:1 Dark_hex:@"#F0F0F0" a:1];
     }
     return _stageNameLab;
 }
@@ -91,6 +94,7 @@ NSString * StageSelectCellReuseIdentifier = @"StageSelectCell";
     if (_bestStepLab == nil) {
         _bestStepLab = [[UILabel alloc] initWithFrame:CGRectMake(95, 100, 200, 50)];
         _bestStepLab.font = [UIFont fontWithName:PingFangSC size:23];
+        _bestStepLab.textColor = [UIColor Any_hex:@"#112C54" a:1 Dark_hex:@"#F0F0F0" a:1];
     }
     return _bestStepLab;
 }

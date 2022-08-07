@@ -11,10 +11,17 @@
 
 #import "StageSelectModel.h"
 
+#import "StageTopView.h"
+
+#pragma mark - MainController ()
+
 @interface MainController ()
 
 /// 替代原生
 @property (nonatomic, strong) UIImageView *backImgView;
+
+/// 头视图
+@property (nonatomic, strong) StageTopView *topView;
 
 /// 关卡tableView
 @property (nonatomic, strong) UITableView *stageTableView;
@@ -45,6 +52,7 @@
     
     [self.view addSubview:self.backImgView];
     [self.view addSubview:self.stageTableView];
+    self.stageTableView.tableHeaderView = self.topView;
 }
 
 #pragma mark - Method
@@ -59,6 +67,13 @@
         _backImgView.image = [UIImage imageNamed:@"background"];
     }
     return _backImgView;
+}
+
+- (StageTopView *)topView {
+    if (_topView == nil) {
+        _topView = [[StageTopView alloc] initWithFrame:CGRectMake(0, 0, self.stageTableView.width, 100)];
+    }
+    return _topView;
 }
 
 - (UITableView *)stageTableView {

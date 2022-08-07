@@ -108,7 +108,9 @@
         cell.isCollect = level.isFavorite;
         completionHandler(YES);
     }];
-    collect.backgroundColor = [UIColor colorWithHexString:@"#711E02" alpha:0.1];
+    collect.backgroundColor =
+    [UIColor Any_hex:@"#A13502" a:0.1 Dark_hex:@"#351300" a:0.1];
+    
     collect.image =
     [[[UIGraphicsImageRenderer alloc]
      initWithSize:CGSizeMake(50, 50)]
@@ -119,6 +121,12 @@
     }];
     
     return [UISwipeActionsConfiguration configurationWithActions:@[collect]];
+}
+
+#pragma mark - <UIScrollViewDelegate>
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
 }
 
 @end

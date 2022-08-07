@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		14011596289E57A40053CB81 /* StageSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14011595289E57A40053CB81 /* StageSelectCell.m */; };
 		14048C39289F943500C1025F /* StageSelectAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 14048C38289F943500C1025F /* StageSelectAdapter.m */; };
+		14048C41289FE68100C1025F /* StageTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14048C40289FE68100C1025F /* StageTopView.m */; };
+		14048C44289FE98D00C1025F /* UIDevice+Rising.m in Sources */ = {isa = PBXBuildFile; fileRef = 14048C43289FE98D00C1025F /* UIDevice+Rising.m */; };
 		1442D6E928976E22009CEB40 /* RisingRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6E028976E22009CEB40 /* RisingRouter.m */; };
 		1442D6EA28976E22009CEB40 /* RisingRouterResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6E528976E22009CEB40 /* RisingRouterResponse.m */; };
 		1442D6EB28976E22009CEB40 /* RisingRouter+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6E628976E22009CEB40 /* RisingRouter+Extension.m */; };
@@ -42,6 +44,10 @@
 		14048C36289F933E00C1025F /* FontHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FontHeader.h; sourceTree = "<group>"; };
 		14048C37289F943500C1025F /* StageSelectAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StageSelectAdapter.h; sourceTree = "<group>"; };
 		14048C38289F943500C1025F /* StageSelectAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StageSelectAdapter.m; sourceTree = "<group>"; };
+		14048C3F289FE68100C1025F /* StageTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StageTopView.h; sourceTree = "<group>"; };
+		14048C40289FE68100C1025F /* StageTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StageTopView.m; sourceTree = "<group>"; };
+		14048C42289FE98D00C1025F /* UIDevice+Rising.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Rising.h"; sourceTree = "<group>"; };
+		14048C43289FE98D00C1025F /* UIDevice+Rising.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Rising.m"; sourceTree = "<group>"; };
 		1442D6E028976E22009CEB40 /* RisingRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RisingRouter.m; sourceTree = "<group>"; };
 		1442D6E128976E22009CEB40 /* RisingRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingRouter.h; sourceTree = "<group>"; };
 		1442D6E228976E22009CEB40 /* RisingRouterRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingRouterRequest.h; sourceTree = "<group>"; };
@@ -129,6 +135,8 @@
 		14048C3B289FDF4500C1025F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				14048C3F289FE68100C1025F /* StageTopView.h */,
+				14048C40289FE68100C1025F /* StageTopView.m */,
 				14011594289E57A40053CB81 /* StageSelectCell.h */,
 				14011595289E57A40053CB81 /* StageSelectCell.m */,
 			);
@@ -159,9 +167,18 @@
 			children = (
 				14048C3D289FDF5600C1025F /* Controller */,
 				14048C3B289FDF4500C1025F /* View */,
-				14CDC86A289B91FE0009358F /* StageSelectModel */,
+				14CDC86A289B91FE0009358F /* Model */,
 			);
 			path = "StageSelect Module";
+			sourceTree = "<group>";
+		};
+		14048C45289FEAC900C1025F /* UIDevice+Rising */ = {
+			isa = PBXGroup;
+			children = (
+				14048C42289FE98D00C1025F /* UIDevice+Rising.h */,
+				14048C43289FE98D00C1025F /* UIDevice+Rising.m */,
+			);
+			path = "UIDevice+Rising";
 			sourceTree = "<group>";
 		};
 		1442D6F12897992A009CEB40 /* Extension */ = {
@@ -193,6 +210,7 @@
 				1442D6FC2897992A009CEB40 /* RisingUIKitExtension.m */,
 				1442D6FD2897992A009CEB40 /* UIColor+Rising */,
 				1442D6F92897992A009CEB40 /* UIView+Rising */,
+				14048C45289FEAC900C1025F /* UIDevice+Rising */,
 			);
 			path = "UIKit Extension";
 			sourceTree = "<group>";
@@ -236,13 +254,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		14CDC86A289B91FE0009358F /* StageSelectModel */ = {
+		14CDC86A289B91FE0009358F /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				14CDC853289B6C210009358F /* StageSelectModel.h */,
 				14CDC854289B6C210009358F /* StageSelectModel.m */,
 			);
-			path = StageSelectModel;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		14CDC87D289BEAC50009358F /* NSDate+Rising */ = {
@@ -503,7 +521,9 @@
 				14CDC873289BE1FF0009358F /* LevelController.m in Sources */,
 				1442D7012897992A009CEB40 /* NSDate+Rising.m in Sources */,
 				14CDC88B289D3F340009358F /* PersonStep.m in Sources */,
+				14048C44289FE98D00C1025F /* UIDevice+Rising.m in Sources */,
 				1442D6EA28976E22009CEB40 /* RisingRouterResponse.m in Sources */,
+				14048C41289FE68100C1025F /* StageTopView.m in Sources */,
 				14CDC855289B6C210009358F /* StageSelectModel.m in Sources */,
 				1442D6EB28976E22009CEB40 /* RisingRouter+Extension.m in Sources */,
 				14CDC885289CB2DB0009358F /* LevelAdapter.m in Sources */,
@@ -652,6 +672,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ByteDanceCampus_Klotski/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "华容道";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -661,7 +682,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "sungkaikai.ByteDanceCampus-Klotski";
+				PRODUCT_BUNDLE_IDENTIFIER = RisingSSR.ByteDance.Klotski;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -680,6 +701,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ByteDanceCampus_Klotski/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "华容道";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -689,7 +711,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "sungkaikai.ByteDanceCampus-Klotski";
+				PRODUCT_BUNDLE_IDENTIFIER = RisingSSR.ByteDance.Klotski;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = 1;

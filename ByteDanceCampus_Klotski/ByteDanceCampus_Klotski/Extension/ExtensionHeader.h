@@ -22,4 +22,6 @@
 
 #import <YYKit.h>
 
+#import <FluentDarkModeKit.h>
+
 #endif /* ExtensionHeader_h */
