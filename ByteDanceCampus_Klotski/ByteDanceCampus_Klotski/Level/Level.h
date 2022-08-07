@@ -39,6 +39,9 @@ FOUNDATION_EXPORT NSString *LevelTableName;
 /// 当前步数，从0开始
 @property (nonatomic) NSInteger currentStep;
 
+/// 是否收藏
+@property (nonatomic) BOOL isFavorite;
+
 /// 每一关应有唯一值（计算属性）
 @property (nonatomic, readonly) NSString *idCode;
 
@@ -87,7 +90,7 @@ didMoveWithProposedDirection:(PersonDirection)direction;
 /// 从当前的问题开始解决，返回步的情况
 /// 不会掉用上面的方法，也不会侵占数据
 /// 掉用过后，所有布局重新布局
-- (NSArray <PersonStep *> *)stepForCurrent;
+- (NSArray <PersonStep *> * _Nullable)stepForCurrent;
 
 @end
 

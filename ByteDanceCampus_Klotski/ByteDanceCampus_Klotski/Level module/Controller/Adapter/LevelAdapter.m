@@ -78,7 +78,8 @@
     NSInteger index = indexPath.item;
     
     for (int i = 0; i < 4; i++) {
-        if ((swipe.direction & (1 << i)) && [self.model currentPersonAtIndex:index canMoveToDirection:i]) {
+        if ((swipe.direction & (1 << i)) &&
+            [self.model currentPersonAtIndex:index canMoveToDirection:i]) {
             [self.model currentPersonAtIndex:index moveTo:i];
         }
     }

@@ -13,6 +13,9 @@
 
 @interface MainController ()
 
+/// 替代原生
+@property (nonatomic, strong) UIView *rView;
+
 /// 关卡tableView
 @property (nonatomic, strong) UITableView *stageTableView;
 
@@ -32,7 +35,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = UIColor.greenColor;
+    self.navigationController.navigationBar.hidden = YES;
+    self.view = self.rView;
     
     self.stageModel = [[StageSelectModel alloc] init];
     self.adapter = [StageSelectAdapter
@@ -40,7 +44,7 @@
                     tableView:self.stageTableView
                     model:self.stageModel];
     
-    [self.view addSubview:self.stageTableView];
+    [self.rView addSubview:self.stageTableView];
 }
 
 #pragma mark - Method
@@ -49,11 +53,29 @@
 
 #pragma mark - Getter
 
+- (UIView *)rView {
+    if (_rView == nil) {
+        _rView = [[UIView alloc] initWithFrame:self.view.bounds];
+        _rView.backgroundColor = UIColor.greenColor;
+    }
+    return _rView;
+}
+
 - (UITableView *)stageTableView {
     if (_stageTableView == nil) {
         _stageTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+        _stageTableView.backgroundColor = UIColor.clearColor;
+        _stageTableView.width = self.view.width - 80;
+        _stageTableView.centerX = self.view.width / 2;
+        
+        _stageTableView.estimatedRowHeight = 0;
+        _stageTableView.estimatedSectionHeaderHeight = 0;
+        _stageTableView.estimatedSectionFooterHeight = 0;
+        
         _stageTableView.showsVerticalScrollIndicator = NO;
         _stageTableView.showsHorizontalScrollIndicator = NO;
+        
+        _stageTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return _stageTableView;
 }

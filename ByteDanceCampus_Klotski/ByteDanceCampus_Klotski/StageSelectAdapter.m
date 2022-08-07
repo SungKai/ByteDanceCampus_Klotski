@@ -63,14 +63,27 @@
     
     Level *level = self.model.stages[indexPath.section];
     cell.name = level.name;
+    cell.bestStep = level.bestStep;
+    cell.isCollect = level.isFavorite;
+    if (indexPath.section % 2) {
+        cell.bestStep = 4;
+    }
     
     return cell;
 }
 
 #pragma mark - <UITableViewDelegate>
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 0;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 80;
+    return 170;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 60;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -79,6 +92,33 @@
      parameters:@{
         @"level" : self.model.stages[indexPath.section]
     }];
+}
+
+- (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
+    Level *level = self.model.stages[indexPath.section];
+    NSString *title = (level.isFavorite ? @"取消" : @"收藏");
+    
+    UIContextualAction *collect =
+    [UIContextualAction
+     contextualActionWithStyle:UIContextualActionStyleNormal
+     title:title
+     handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
+        level.isFavorite = !level.isFavorite;
+        StageSelectCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        cell.isCollect = level.isFavorite;
+        completionHandler(YES);
+    }];
+    collect.backgroundColor = UIColor.greenColor;
+    collect.image =
+    [[[UIGraphicsImageRenderer alloc]
+     initWithSize:CGSizeMake(50, 50)]
+     imageWithActions:^(UIGraphicsImageRendererContext * _Nonnull rendererContext) {
+        UIImage *img = [UIImage imageNamed:
+                        (level.isFavorite ? @"uncollect" : @"collect")];
+        [img drawInRect:CGRectMake(0, 0, 50, 50)];
+    }];
+    
+    return [UISwipeActionsConfiguration configurationWithActions:@[collect]];
 }
 
 @end

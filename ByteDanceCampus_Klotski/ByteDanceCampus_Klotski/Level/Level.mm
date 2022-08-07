@@ -19,7 +19,7 @@ NSString *LevelTableName = @"Level";
 @interface Level ()
 
 /// 唯一ID
-@property (nonatomic) std::array<std::array<long, 4>, 5> onlyCode;
+@property (nonatomic) std::array<long, 20> onlyCode;
 
 /// 数据库
 @property(nonatomic, readonly, class) WCTDatabase *DB;
@@ -72,8 +72,7 @@ WCDB_PRIMARY(Level, idCode)
             [mutAry addObject:person];
             [mutCAry addObject:person.copy];
         }
-        _persons = mutAry.copy;
-        _currentPersons = mutCAry.copy;
+        self.persons = mutAry.copy;
     }
     return self;
 }
@@ -86,10 +85,8 @@ WCDB_PRIMARY(Level, idCode)
 
 - (NSString *)idCode {
     NSMutableString *str = [NSMutableString stringWithCapacity:4 * 5];
-    for(std::array<long, 4> ary : self.onlyCode) {
-        for (long type : ary) {
-            [str appendFormat:@"%ld", type];
-        }
+    for (long type : self.onlyCode) {
+        [str appendFormat:@"%ld", type];
     }
     return str;
 }
@@ -125,11 +122,11 @@ WCDB_PRIMARY(Level, idCode)
     }
     _currentPersons = newPerons.copy;
     
-    std::array<std::array<long, 4>, 5> array = {};
+    std::array<long, 20> array = {};
     for (Person *person in _persons) {
         for (int i = person.x; i < (person.x + person.width); i++) {
             for (int j = person.y; j < (person.y + person.height); j++) {
-                array[j][i] = person.type;
+                array[j * 4 + i] = person.type;
             }
         }
     }
@@ -207,8 +204,10 @@ WCDB_PRIMARY(Level, idCode)
 }
 
 - (BOOL)isGameOver {
-    return (self.onlyCode[4][1] == PersonBigSquare &&
-            self.onlyCode[4][2] == PersonBigSquare);
+    // TODO: 曹操是否在结束位置 >>>
+    //
+    // FIXME: <<<
+    return NO;
 }
 
 - (NSArray<PersonStep *> *)stepForCurrent {
@@ -216,6 +215,7 @@ WCDB_PRIMARY(Level, idCode)
     // TODO: 算法
     // 不允许改变person以及
     return mutAry;
+    return nil;
 }
 
 @end
