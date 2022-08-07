@@ -49,8 +49,6 @@
     self.view.backgroundColor = UIColor.whiteColor;
     self.adapter = [LevelAdapter adapterWithCollectionView:self.collectionView layout:(LevelCollectionLayout *)self.collectionView.collectionViewLayout model:self.model];
     [self.view addSubview:self.collectionView];
-    
-    RisingLog(R_debug, @"%@", NSTimeZone.knownTimeZoneNames);
 }
 
 #pragma mark - Method

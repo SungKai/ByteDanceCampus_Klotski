@@ -95,8 +95,7 @@
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PersonItem *cell = [collectionView dequeueReusableCellWithReuseIdentifier:PersonItemReuseIdentifier forIndexPath:indexPath];
     
-// FIXME: cell.name = self.model.currentPersons[indexPath.item].name;
-    cell.name = [NSString stringWithFormat:@"%ld", indexPath.item];
+    cell.name = self.model.currentPersons[indexPath.item].name;
     
     return cell;
 }

@@ -7,7 +7,7 @@
 
 /**路由名@"LevelController"
  * parameter是必须的，如下
- * @{@"level" : [Level *]}
+ * @{@"level" : <Level *>}
  * 需要传入一个Level模型
  */
 

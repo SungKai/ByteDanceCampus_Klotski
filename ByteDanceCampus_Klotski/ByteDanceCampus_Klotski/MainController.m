@@ -7,17 +7,24 @@
 
 #import "MainController.h"
 
+#import "StageSelectAdapter.h"
+
 #import "StageSelectModel.h"
 
 @interface MainController ()
 
 /// 关卡tableView
-@property (nonatomic, strong) UICollectionView *stageCollectionView;
+@property (nonatomic, strong) UITableView *stageTableView;
 
 /// 关卡模型
 @property (nonatomic, strong) StageSelectModel *stageModel;
 
+/// 处理逻辑的类
+@property (nonatomic, strong) StageSelectAdapter *adapter;
+
 @end
+
+#pragma mark - MainController
 
 @implementation MainController
 
@@ -28,25 +35,27 @@
     self.view.backgroundColor = UIColor.greenColor;
     
     self.stageModel = [[StageSelectModel alloc] init];
+    self.adapter = [StageSelectAdapter
+                    adapterWithController:self
+                    tableView:self.stageTableView
+                    model:self.stageModel];
     
-    [self.view addSubview:self.btn];
+    [self.view addSubview:self.stageTableView];
 }
 
 #pragma mark - Method
 
 // MARK: SEL
 
-- (void)tap:(UIButton *)btn {
-    [self.router pushForRouterPath:@"LevelController" parameters:@{@"level" : self.stageModel.stages[0]}];
-}
-
 #pragma mark - Getter
 
-- (UIButton *)btn {
-    UIButton *_btn = [[UIButton alloc] initWithFrame:CGRectMake(20, 100, 50, 50)];
-    _btn.backgroundColor = UIColor.redColor;
-    [_btn addTarget:self action:@selector(tap:) forControlEvents:UIControlEventTouchUpInside];
-    return _btn;
+- (UITableView *)stageTableView {
+    if (_stageTableView == nil) {
+        _stageTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+        _stageTableView.showsVerticalScrollIndicator = NO;
+        _stageTableView.showsHorizontalScrollIndicator = NO;
+    }
+    return _stageTableView;
 }
 
 #pragma mark - RisingRouterHandler

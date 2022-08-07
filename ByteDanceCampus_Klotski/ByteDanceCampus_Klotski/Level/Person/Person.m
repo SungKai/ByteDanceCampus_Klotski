@@ -58,7 +58,7 @@
     self.x = frame.x;
     self.y = frame.y;
     self.width = frame.width;
-    self.height = frame.width;
+    self.height = frame.height;
 }
 
 @end

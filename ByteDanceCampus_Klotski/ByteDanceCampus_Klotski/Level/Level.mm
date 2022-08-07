@@ -72,7 +72,7 @@ WCDB_PRIMARY(Level, idCode)
             [mutAry addObject:person];
             [mutCAry addObject:person.copy];
         }
-        self.persons = mutAry.copy;
+        _persons = mutAry.copy;
         _currentPersons = mutCAry.copy;
     }
     return self;
