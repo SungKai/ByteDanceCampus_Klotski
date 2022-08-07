@@ -14,7 +14,7 @@
 @interface MainController ()
 
 /// 替代原生
-@property (nonatomic, strong) UIView *rView;
+@property (nonatomic, strong) UIImageView *backImgView;
 
 /// 关卡tableView
 @property (nonatomic, strong) UITableView *stageTableView;
@@ -36,7 +36,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBar.hidden = YES;
-    self.view = self.rView;
     
     self.stageModel = [[StageSelectModel alloc] init];
     self.adapter = [StageSelectAdapter
@@ -44,7 +43,8 @@
                     tableView:self.stageTableView
                     model:self.stageModel];
     
-    [self.rView addSubview:self.stageTableView];
+    [self.view addSubview:self.backImgView];
+    [self.view addSubview:self.stageTableView];
 }
 
 #pragma mark - Method
@@ -53,12 +53,12 @@
 
 #pragma mark - Getter
 
-- (UIView *)rView {
-    if (_rView == nil) {
-        _rView = [[UIView alloc] initWithFrame:self.view.bounds];
-        _rView.backgroundColor = UIColor.greenColor;
+- (UIImageView *)backImgView {
+    if (_backImgView == nil) {
+        _backImgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+        _backImgView.image = [UIImage imageNamed:@"background"];
     }
-    return _rView;
+    return _backImgView;
 }
 
 - (UITableView *)stageTableView {

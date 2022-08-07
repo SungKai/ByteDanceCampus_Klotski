@@ -108,7 +108,7 @@
         cell.isCollect = level.isFavorite;
         completionHandler(YES);
     }];
-    collect.backgroundColor = UIColor.greenColor;
+    collect.backgroundColor = [UIColor colorWithHexString:@"#711E02" alpha:0.1];
     collect.image =
     [[[UIGraphicsImageRenderer alloc]
      initWithSize:CGSizeMake(50, 50)]

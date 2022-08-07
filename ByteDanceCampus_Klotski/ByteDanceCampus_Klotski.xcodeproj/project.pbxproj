@@ -126,6 +126,44 @@
 			path = Adapter;
 			sourceTree = "<group>";
 		};
+		14048C3B289FDF4500C1025F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				14011594289E57A40053CB81 /* StageSelectCell.h */,
+				14011595289E57A40053CB81 /* StageSelectCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		14048C3C289FDF4A00C1025F /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				14048C37289F943500C1025F /* StageSelectAdapter.h */,
+				14048C38289F943500C1025F /* StageSelectAdapter.m */,
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
+		14048C3D289FDF5600C1025F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B5759A20288AE5D1007CE07E /* MainController.h */,
+				B5759A21288AE5D1007CE07E /* MainController.m */,
+				14048C3C289FDF4A00C1025F /* Adapter */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		14048C3E289FE11500C1025F /* StageSelect Module */ = {
+			isa = PBXGroup;
+			children = (
+				14048C3D289FDF5600C1025F /* Controller */,
+				14048C3B289FDF4500C1025F /* View */,
+				14CDC86A289B91FE0009358F /* StageSelectModel */,
+			);
+			path = "StageSelect Module";
+			sourceTree = "<group>";
+		};
 		1442D6F12897992A009CEB40 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,7 +224,7 @@
 			path = Person;
 			sourceTree = "<group>";
 		};
-		14CDC869289B91F60009358F /* Level */ = {
+		14CDC869289B91F60009358F /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				14CDC861289B87330009358F /* Level.h */,
@@ -195,7 +233,7 @@
 				14CDC88A289D3F340009358F /* PersonStep.m */,
 				14CDC868289B91EC0009358F /* Person */,
 			);
-			path = Level;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		14CDC86A289B91FE0009358F /* StageSelectModel */ = {
@@ -253,14 +291,15 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		14CDC882289BF6DF0009358F /* Level module */ = {
+		14CDC882289BF6DF0009358F /* Level Module */ = {
 			isa = PBXGroup;
 			children = (
 				14CDC881289BF6CC0009358F /* Controller */,
 				14CDC880289BF6C70009358F /* View */,
 				14CDC87F289BF6C10009358F /* Layout */,
+				14CDC869289B91F60009358F /* Model */,
 			);
-			path = "Level module";
+			path = "Level Module";
 			sourceTree = "<group>";
 		};
 		14E745B9288AFA38007436F6 /* Router */ = {
@@ -308,15 +347,8 @@
 		B5759A19288AE5D1007CE07E /* ByteDanceCampus_Klotski */ = {
 			isa = PBXGroup;
 			children = (
-				B5759A20288AE5D1007CE07E /* MainController.h */,
-				B5759A21288AE5D1007CE07E /* MainController.m */,
-				14048C37289F943500C1025F /* StageSelectAdapter.h */,
-				14048C38289F943500C1025F /* StageSelectAdapter.m */,
-				14011594289E57A40053CB81 /* StageSelectCell.h */,
-				14011595289E57A40053CB81 /* StageSelectCell.m */,
-				14CDC86A289B91FE0009358F /* StageSelectModel */,
-				14CDC882289BF6DF0009358F /* Level module */,
-				14CDC869289B91F60009358F /* Level */,
+				14048C3E289FE11500C1025F /* StageSelect Module */,
+				14CDC882289BF6DF0009358F /* Level Module */,
 				14E745B9288AFA38007436F6 /* Router */,
 				1442D6F12897992A009CEB40 /* Extension */,
 				B5759A33288AE6A0007CE07E /* Supporting Files */,

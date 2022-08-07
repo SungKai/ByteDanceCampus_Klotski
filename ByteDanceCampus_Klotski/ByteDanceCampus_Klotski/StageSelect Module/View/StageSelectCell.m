@@ -60,7 +60,7 @@ NSString * StageSelectCellReuseIdentifier = @"StageSelectCell";
     self.moveImgView.bottom = rect.size.height - 20;
     
     self.bestStepLab.top = self.moveImgView.top;
-    self.bestStepLab.left = self.moveImgView.right + 10;
+    self.bestStepLab.left = self.moveImgView.right + 15;
     
     self.collectImgView.right = self.stageNameLab.right - 20;
     self.collectImgView.top = self.stageNameLab.top;
@@ -89,7 +89,7 @@ NSString * StageSelectCellReuseIdentifier = @"StageSelectCell";
 
 - (UILabel *)bestStepLab {
     if (_bestStepLab == nil) {
-        _bestStepLab = [[UILabel alloc] initWithFrame:CGRectMake(90, 100, 200, 50)];
+        _bestStepLab = [[UILabel alloc] initWithFrame:CGRectMake(95, 100, 200, 50)];
         _bestStepLab.font = [UIFont fontWithName:PingFangSC size:23];
     }
     return _bestStepLab;
