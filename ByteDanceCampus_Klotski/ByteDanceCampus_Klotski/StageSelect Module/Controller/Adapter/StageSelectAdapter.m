@@ -81,11 +81,11 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 170;
+    return 180;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 60;
+    return 40;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -135,6 +135,7 @@
     StageTopView *topView = (StageTopView *)self.tableView.tableHeaderView;
     topView.contentView.top = scrollView.contentOffset.y;
     [topView.contentView stretchBottom_toPointY:topView.SuperBottom offset:0];
+    [topView drawRect:CGRectMake(0, 0, topView.contentView.width, topView.contentView.height)];
     
     static BOOL down = YES;
     static CGFloat currentY = 0;

@@ -1,4 +1,3 @@
-## 华容道
 ### 基本介绍
 华容道是古老的中国民间益智游戏，以其变化多端、百玩不厌的特点与[魔方](https://baike.baidu.com/item/魔方/5275)、[独立钻石](https://baike.baidu.com/item/独立钻石/1137021)一起被国外智力专家并称为“智力游戏界的三个不可思议”。它与[七巧板](https://baike.baidu.com/item/七巧板/579)、[九连环](https://baike.baidu.com/item/九连环/23636)等中国传统[益智玩具](https://baike.baidu.com/item/益智玩具/223159)还有个代名词叫作“中国的难题”。据《[资治通鉴](https://baike.baidu.com/item/资治通鉴/521532)》注释中说“从此道可至[华容](https://baike.baidu.com/item/华容/5886741)也”。华容道原是中国古代的一个地名，相传当年[曹操](https://baike.baidu.com/item/曹操/6772)曾经[败走](https://baike.baidu.com/item/败走/8881386)此地。由于当时的华容道是一片沼泽，所以曹操大军要割草填地，不少士兵更惨被活埋，惨烈非常。
 

@@ -21,7 +21,7 @@
 @property (nonatomic, strong) UIView *introView;
 
 /// 富文本
-@property (nonatomic, strong) YYLabel *introduceLab;
+@property (nonatomic, strong) YYTextView *introduceTextView;
 
 @end
 
@@ -42,7 +42,9 @@
         
         [self.contentView addSubview:self.nameLab];
         
-        [self.contentView addSubview:self.introView];
+        [self.contentView addSubview:self.introView]; {
+            [self.introView addSubview:self.introduceTextView];
+        }
     }
     return self;
 }
@@ -50,7 +52,21 @@
 #pragma mark - Method
 
 - (void)drawRect:(CGRect)rect {
-//    self.contentView.height = rect.size.height;
+    // rect是实际上contentView的视图
+    if (rect.size.height < 300) {
+        self.introView.hidden = YES;
+    } else if (rect.size.height < 335) {
+        self.introView.hidden = NO;
+        self.introView.alpha = (rect.size.height - 300) / 35;
+    }
+    if (rect.size.height > 400) {
+        self.introView.alpha = 1;
+    }
+    self.introView.top = self.nameLab.bottom + 15;
+    [self.introView stretchBottom_toPointY:self.contentView.SuperBottom offset:40];
+    
+    self.introduceTextView.top = 15;
+    [self.introduceTextView stretchBottom_toPointY:self.introView.SuperBottom offset:15];
 }
 
 // MARK: SEL
@@ -72,24 +88,29 @@
         _introView = [[UIView alloc] initWithFrame:CGRectMake(0, self.nameLab.bottom + 30, self.width, kScreenHeight)];
         _introView.backgroundColor =
         [UIColor Any_hex:@"#F8F9FC" a:1 Dark_hex:@"#000000" a:1];
-        
         _introView.layer.cornerRadius = 30;
-        _introView.clipsToBounds = YES;
     }
     return _introView;
 }
 
-- (YYLabel *)introduceLab {
-    if (_introduceLab == nil) {
-        _introduceLab = [[YYLabel alloc] initWithFrame:CGRectMake(15, 15, self.introView.width - 30, kScreenHeight)];
-        CMDocument *document = [[CMDocument alloc] initWithContentsOfFile:[NSBundle.mainBundle pathForResource:@"klotski" ofType:@"md"] options:CMDocumentOptionsSmart];
-        NSAttributedString *string = [document attributedStringWithAttributes:[[CMTextAttributes alloc] init]];
-        YYTextLayout *layout = [YYTextLayout layoutWithContainerSize:CGSizeMake(_introduceLab.width, CGFLOAT_MAX) text:string];
-        _introduceLab.textLayout = layout;
-        _introduceLab.attributedText = string;
-        _introduceLab.numberOfLines = 0;
+- (YYTextView *)introduceTextView {
+    if (_introduceTextView == nil) {
+        _introduceTextView = [[YYTextView alloc] initWithFrame:CGRectMake(15, 15, self.introView.width - 30, 0)];
+        _introduceTextView.font = [UIFont fontWithName:PingFangSC size:14];
+        _introduceTextView.textColor =
+        [UIColor Any_hex:@"#112C54" a:1 Dark_hex:@"#F0F0F0" a:1];
+        
+        dispatch_async(dispatch_queue_create("Rising & SSR.ByteDance.StageTopView", DISPATCH_QUEUE_CONCURRENT), ^{
+            CMDocument *document = [[CMDocument alloc] initWithContentsOfFile:[NSBundle.mainBundle pathForResource:@"klotski" ofType:@"md"] options:15];
+            NSAttributedString *string = [document attributedStringWithAttributes:[[CMTextAttributes alloc] init]];
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                self->_introduceTextView.attributedText = string;
+                self->_introduceTextView.contentSize = CGSizeMake(0, 400);
+            });
+        });
+        
     }
-    return _introduceLab;
+    return _introduceTextView;
 }
 
 @end

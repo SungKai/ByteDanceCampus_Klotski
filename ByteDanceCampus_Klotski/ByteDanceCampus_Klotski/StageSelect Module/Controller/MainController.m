@@ -72,7 +72,7 @@
 
 - (StageTopView *)topView {
     if (_topView == nil) {
-        _topView = [[StageTopView alloc] initWithFrame:CGRectMake(0, 0, self.stageTableView.width, 100)];
+        _topView = [[StageTopView alloc] initWithFrame:CGRectMake(0, 0, self.stageTableView.width, 140)];
     }
     return _topView;
 }
