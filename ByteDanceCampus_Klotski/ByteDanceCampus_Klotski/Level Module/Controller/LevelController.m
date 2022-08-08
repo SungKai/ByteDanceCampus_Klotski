@@ -59,15 +59,14 @@
 
 - (UICollectionView *)collectionView {
     if (_collectionView == nil) {
-        CGFloat width = kScreenWidth - 20;
+        CGFloat width = self.view.width - 20;
         
         LevelCollectionLayout *layout = [[LevelCollectionLayout alloc] init];
-        layout.lineSpacing = 2;
-        layout.interitemSpacing = 2;
-        CGFloat minWidth = (width - layout.interitemSpacing) / 4;
+        layout.lineSpacing = layout.interitemSpacing = 5;
+        CGFloat minWidth = width / 4 - layout.interitemSpacing;
         layout.sizeForItem = CGSizeMake(minWidth, minWidth);
         
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, width, width / 4 * 5) collectionViewLayout:layout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, width, (minWidth + layout.lineSpacing) * 5) collectionViewLayout:layout];
         _collectionView.center = self.view.SuperCenter;
         
         [_collectionView registerClass:PersonItem.class forCellWithReuseIdentifier:PersonItemReuseIdentifier];

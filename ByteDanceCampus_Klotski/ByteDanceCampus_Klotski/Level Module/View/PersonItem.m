@@ -16,6 +16,9 @@ NSString * PersonItemReuseIdentifier = @"PersonItem";
 /// 名字
 @property (nonatomic, strong) UILabel *nameLab;
 
+/// 图片
+@property (nonatomic, strong) UIImageView *perImgView;
+
 @end
 
 #pragma mark - PersonItem
@@ -27,15 +30,18 @@ NSString * PersonItemReuseIdentifier = @"PersonItem";
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = UIColor.orangeColor;
-        [self.contentView addSubview:self.nameLab];
+        self.backgroundColor = UIColor.clearColor;
+        self.contentView.backgroundColor = UIColor.orangeColor;
+        self.contentView.layer.cornerRadius = 12;
+        self.contentView.clipsToBounds = YES;
+        [self.contentView addSubview:self.perImgView];
     }
     return self;
 }
 
 - (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
     CGRect rect = layoutAttributes.frame;
-    self.nameLab.bottom = rect.size.height;
+    self.perImgView.size = rect.size;
 }
 
 #pragma mark - Method
@@ -52,6 +58,13 @@ NSString * PersonItemReuseIdentifier = @"PersonItem";
     return _nameLab;
 }
 
+- (UIImageView *)perImgView {
+    if (_perImgView == nil) {
+        _perImgView = [[UIImageView alloc] init];
+    }
+    return _perImgView;
+}
+
 - (NSString *)name {
     return self.nameLab.text;
 }
@@ -60,6 +73,7 @@ NSString * PersonItemReuseIdentifier = @"PersonItem";
 
 - (void)setName:(NSString *)name {
     self.nameLab.text = name;
+    self.perImgView.image = [UIImage imageNamed:name];
 }
 
 @end
