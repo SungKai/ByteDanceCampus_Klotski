@@ -51,8 +51,9 @@
                     model:self.stageModel];
     
     [self.view addSubview:self.backImgView];
-    [self.view addSubview:self.stageTableView];
-    self.stageTableView.tableHeaderView = self.topView;
+    [self.view addSubview:self.stageTableView]; {
+        self.stageTableView.tableHeaderView = self.topView;
+    }
 }
 
 #pragma mark - Method

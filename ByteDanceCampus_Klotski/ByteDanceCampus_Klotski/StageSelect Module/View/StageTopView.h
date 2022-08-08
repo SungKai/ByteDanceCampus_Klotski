@@ -13,6 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface StageTopView : UIView
 
+/// 用于加视图
+@property (nonatomic, readonly) UIView *contentView;
+
 - (instancetype)init NS_UNAVAILABLE;
 
 + (instancetype)new NS_UNAVAILABLE;

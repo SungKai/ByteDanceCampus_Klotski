@@ -11,6 +11,8 @@
 
 #import "StageSelectCell.h"
 
+#import "StageTopView.h"
+
 #pragma mark - StageSelectAdapter ()
 
 @interface StageSelectAdapter ()
@@ -126,7 +128,38 @@
 #pragma mark - <UIScrollViewDelegate>
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (scrollView.contentOffset.y > 0) {
+        return;
+    }
     
+    StageTopView *topView = (StageTopView *)self.tableView.tableHeaderView;
+    topView.contentView.top = scrollView.contentOffset.y;
+    [topView.contentView stretchBottom_toPointY:topView.SuperBottom offset:0];
+    
+    static BOOL down = YES;
+    static CGFloat currentY = 0;
+    if (scrollView.contentOffset.y < currentY) {
+        if (scrollView.contentOffset.y <= -100 && down) {
+            UIImpactFeedbackGenerator *generator = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleHeavy];
+            [generator impactOccurred];
+            
+            down = NO;
+        }
+    } else {
+        if (scrollView.contentOffset.y > -100 && !down) {
+            down = YES;
+        }
+    }
+    currentY = scrollView.contentOffset.y;
+}
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+    if (scrollView.contentOffset.y <= -100 && velocity.y < 0) {
+        *targetContentOffset = CGPointMake(0, -300);
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [scrollView setContentOffset:CGPointMake(0, -scrollView.height + 350) animated:YES];
+        });
+    }
 }
 
 @end

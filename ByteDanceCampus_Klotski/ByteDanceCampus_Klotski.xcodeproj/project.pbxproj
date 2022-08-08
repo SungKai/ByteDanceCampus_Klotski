@@ -11,6 +11,7 @@
 		14048C39289F943500C1025F /* StageSelectAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 14048C38289F943500C1025F /* StageSelectAdapter.m */; };
 		14048C41289FE68100C1025F /* StageTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14048C40289FE68100C1025F /* StageTopView.m */; };
 		14048C44289FE98D00C1025F /* UIDevice+Rising.m in Sources */ = {isa = PBXBuildFile; fileRef = 14048C43289FE98D00C1025F /* UIDevice+Rising.m */; };
+		14048C4728A0330800C1025F /* klotski.md in Resources */ = {isa = PBXBuildFile; fileRef = 14048C4628A0330700C1025F /* klotski.md */; };
 		1442D6E928976E22009CEB40 /* RisingRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6E028976E22009CEB40 /* RisingRouter.m */; };
 		1442D6EA28976E22009CEB40 /* RisingRouterResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6E528976E22009CEB40 /* RisingRouterResponse.m */; };
 		1442D6EB28976E22009CEB40 /* RisingRouter+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6E628976E22009CEB40 /* RisingRouter+Extension.m */; };
@@ -48,6 +49,7 @@
 		14048C40289FE68100C1025F /* StageTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StageTopView.m; sourceTree = "<group>"; };
 		14048C42289FE98D00C1025F /* UIDevice+Rising.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Rising.h"; sourceTree = "<group>"; };
 		14048C43289FE98D00C1025F /* UIDevice+Rising.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Rising.m"; sourceTree = "<group>"; };
+		14048C4628A0330700C1025F /* klotski.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = klotski.md; sourceTree = "<group>"; };
 		1442D6E028976E22009CEB40 /* RisingRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RisingRouter.m; sourceTree = "<group>"; };
 		1442D6E128976E22009CEB40 /* RisingRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingRouter.h; sourceTree = "<group>"; };
 		1442D6E228976E22009CEB40 /* RisingRouterRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingRouterRequest.h; sourceTree = "<group>"; };
@@ -384,6 +386,7 @@
 				B5759A1B288AE5D1007CE07E /* AppDelegate.m */,
 				14CDC866289B8EB60009358F /* level.plist */,
 				B5759A26288AE5D2007CE07E /* Assets.xcassets */,
+				14048C4628A0330700C1025F /* klotski.md */,
 				B5759A28288AE5D2007CE07E /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
@@ -451,6 +454,7 @@
 				B5759A2A288AE5D2007CE07E /* LaunchScreen.storyboard in Resources */,
 				14CDC867289B8EB60009358F /* level.plist in Resources */,
 				B5759A27288AE5D2007CE07E /* Assets.xcassets in Resources */,
+				14048C4728A0330800C1025F /* klotski.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
