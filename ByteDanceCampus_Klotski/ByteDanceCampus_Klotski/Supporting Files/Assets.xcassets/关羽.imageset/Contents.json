@@ -15,7 +15,7 @@
       "scale" : "1x"
     },
     {
-      "filename" : "guanyu.png",
+      "filename" : "guanyu-yellow.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -26,7 +26,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "guanyub.png",
+      "filename" : "guanyu-red.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

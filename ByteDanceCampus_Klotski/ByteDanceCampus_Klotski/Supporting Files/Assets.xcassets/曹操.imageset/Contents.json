@@ -15,7 +15,7 @@
       "scale" : "1x"
     },
     {
-      "filename" : "caocaod.png",
+      "filename" : "caocao-red.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -26,7 +26,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "caocao.png",
+      "filename" : "caocao-yellow.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

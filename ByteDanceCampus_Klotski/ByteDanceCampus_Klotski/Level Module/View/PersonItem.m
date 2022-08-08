@@ -32,7 +32,7 @@ NSString * PersonItemReuseIdentifier = @"PersonItem";
     if (self) {
         self.backgroundColor = UIColor.clearColor;
         self.contentView.backgroundColor = UIColor.orangeColor;
-        self.contentView.layer.cornerRadius = 12;
+        self.contentView.layer.cornerRadius = 17;
         self.contentView.clipsToBounds = YES;
         [self.contentView addSubview:self.perImgView];
     }

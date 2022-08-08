@@ -13,6 +13,8 @@
 
 #import "StageTopView.h"
 
+#import "RTextView.h" // Test
+
 #pragma mark - MainController ()
 
 @interface MainController ()
@@ -24,7 +26,7 @@
 @property (nonatomic, strong) StageTopView *topView;
 
 /// 关卡tableView
-@property (nonatomic, strong) UITableView *stageTableView;
+@property (nonatomic, strong) RTextView *stageTableView;
 
 /// 关卡模型
 @property (nonatomic, strong) StageSelectModel *stageModel;
@@ -48,12 +50,11 @@
     self.adapter = [StageSelectAdapter
                     adapterWithController:self
                     tableView:self.stageTableView
+                    tableHeaderView:self.topView
                     model:self.stageModel];
     
     [self.view addSubview:self.backImgView];
-    [self.view addSubview:self.stageTableView]; {
-        self.stageTableView.tableHeaderView = self.topView;
-    }
+    [self.view addSubview:self.stageTableView];
 }
 
 #pragma mark - Method
@@ -77,9 +78,9 @@
     return _topView;
 }
 
-- (UITableView *)stageTableView {
+- (RTextView *)stageTableView {
     if (_stageTableView == nil) {
-        _stageTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+        _stageTableView = [[RTextView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
         _stageTableView.backgroundColor = UIColor.clearColor;
         _stageTableView.width = self.view.width - 80;
         _stageTableView.centerX = self.view.width / 2;
@@ -141,6 +142,5 @@
         completion(response);
     }
 }
-
 
 @end

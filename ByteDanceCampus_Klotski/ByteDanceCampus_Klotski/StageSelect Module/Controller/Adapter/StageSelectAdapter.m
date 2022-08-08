@@ -20,11 +20,16 @@
 /// 视图
 @property (nonatomic, strong) UITableView *tableView;
 
+/// 头视图
+@property (nonatomic, strong) StageTopView *topView;
+
 /// 模型
 @property (nonatomic, strong) StageSelectModel *model;
 
 /// VC
 @property (nonatomic, weak) UIViewController *controller;
+
+@property (nonatomic) BOOL isFull;
 
 @end
 
@@ -36,13 +41,17 @@
 
 + (instancetype)adapterWithController:(UIViewController *)controller
                             tableView:(UITableView *)tableview
-                                model:(StageSelectModel *)model {
+                      tableHeaderView:(nonnull StageTopView *)topView
+                                model:(nonnull StageSelectModel *)model {
     
     StageSelectAdapter *adapter = [[StageSelectAdapter alloc] init];
     adapter->_model = model;
     adapter->_tableView = tableview;
     adapter->_controller = controller;
+    adapter->_topView = topView;
+    tableview.tableHeaderView = topView;
     
+//    topView.scrollView.delegate = adapter;
     tableview.delegate = adapter;
     tableview.dataSource = adapter;
     [tableview registerClass:StageSelectCell.class forCellReuseIdentifier:StageSelectCellReuseIdentifier];
@@ -128,6 +137,7 @@
 #pragma mark - <UIScrollViewDelegate>
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    // 正常滑动就直接返回
     if (scrollView.contentOffset.y > 0) {
         return;
     }
@@ -136,29 +146,14 @@
     topView.contentView.top = scrollView.contentOffset.y;
     [topView.contentView stretchBottom_toPointY:topView.SuperBottom offset:0];
     [topView drawRect:CGRectMake(0, 0, topView.contentView.width, topView.contentView.height)];
-    
-    static BOOL down = YES;
-    static CGFloat currentY = 0;
-    if (scrollView.contentOffset.y < currentY) {
-        if (scrollView.contentOffset.y <= -100 && down) {
-            UIImpactFeedbackGenerator *generator = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleHeavy];
-            [generator impactOccurred];
-            
-            down = NO;
-        }
-    } else {
-        if (scrollView.contentOffset.y > -100 && !down) {
-            down = YES;
-        }
-    }
-    currentY = scrollView.contentOffset.y;
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
     if (scrollView.contentOffset.y <= -100 && velocity.y < 0) {
-        *targetContentOffset = CGPointMake(0, -300);
+        *targetContentOffset = CGPointMake(0, -scrollView.height + 350);
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [scrollView setContentOffset:CGPointMake(0, -scrollView.height + 350) animated:YES];
+            self.isFull = YES;
         });
     }
 }

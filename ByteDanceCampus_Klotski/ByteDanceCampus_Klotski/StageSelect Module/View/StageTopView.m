@@ -7,7 +7,6 @@
 
 #import "StageTopView.h"
 
-#import <MMMarkdown.h>
 #import <CocoaMarkdown/CocoaMarkdown.h>
 
 #pragma mark - StageTopView ()
@@ -53,6 +52,8 @@
 
 - (void)drawRect:(CGRect)rect {
     // rect是实际上contentView的视图
+    [self scrollWithContentOffset:CGPointMake(0, -rect.size.height + self.height)];
+    
     if (rect.size.height < 300) {
         self.introView.hidden = YES;
     } else if (rect.size.height < 335) {
@@ -67,6 +68,24 @@
     
     self.introduceTextView.top = 15;
     [self.introduceTextView stretchBottom_toPointY:self.introView.SuperBottom offset:15];
+}
+
+- (void)scrollWithContentOffset:(CGPoint)contentOffset {
+    static BOOL down = YES;
+    static CGFloat currentY = 0;
+    if (contentOffset.y < currentY) {
+        if (contentOffset.y <= -100 && down) {
+            UIImpactFeedbackGenerator *generator = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleHeavy];
+            [generator impactOccurred];
+            
+            down = NO;
+        }
+    } else {
+        if (contentOffset.y > -100 && !down) {
+            down = YES;
+        }
+    }
+    currentY = contentOffset.y;
 }
 
 // MARK: SEL
@@ -105,12 +124,14 @@
             NSAttributedString *string = [document attributedStringWithAttributes:[[CMTextAttributes alloc] init]];
             dispatch_sync(dispatch_get_main_queue(), ^{
                 self->_introduceTextView.attributedText = string;
-                self->_introduceTextView.contentSize = CGSizeMake(0, 400);
             });
         });
-        
     }
     return _introduceTextView;
+}
+
+- (UIScrollView *)scrollView {
+    return self.introduceTextView;
 }
 
 @end

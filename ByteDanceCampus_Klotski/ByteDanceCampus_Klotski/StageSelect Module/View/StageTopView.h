@@ -16,6 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 用于加视图
 @property (nonatomic, readonly) UIView *contentView;
 
+/// 用于ScrollView操作（计算属性）
+@property (nonatomic, readonly) UIScrollView *scrollView;
+
 - (instancetype)init NS_UNAVAILABLE;
 
 + (instancetype)new NS_UNAVAILABLE;
