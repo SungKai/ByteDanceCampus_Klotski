@@ -122,14 +122,7 @@
     collect.backgroundColor =
     [UIColor Any_hex:@"#A13502" a:0.1 Dark_hex:@"#351300" a:0.1];
     
-    collect.image =
-    [[[UIGraphicsImageRenderer alloc]
-     initWithSize:CGSizeMake(50, 50)]
-     imageWithActions:^(UIGraphicsImageRendererContext * _Nonnull rendererContext) {
-        UIImage *img = [UIImage imageNamed:
-                        (level.isFavorite ? @"uncollect" : @"collect")];
-        [img drawInRect:CGRectMake(0, 0, 50, 50)];
-    }];
+    collect.image = [[UIImage imageNamed: (level.isFavorite ? @"uncollect" : @"collect")] imageByResizeToSize:CGSizeMake(50, 50)];
     
     return [UISwipeActionsConfiguration configurationWithActions:@[collect]];
 }
@@ -146,14 +139,21 @@
     topView.contentView.top = scrollView.contentOffset.y;
     [topView.contentView stretchBottom_toPointY:topView.SuperBottom offset:0];
     [topView drawRect:CGRectMake(0, 0, topView.contentView.width, topView.contentView.height)];
+    
+//    if (!topView.down) {
+//        [self.controller.tabBarController tabBarVisible:YES animated:YES];
+//    }
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
     if (scrollView.contentOffset.y <= -100 && velocity.y < 0) {
+        
         *targetContentOffset = CGPointMake(0, -scrollView.height + 350);
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
             [scrollView setContentOffset:CGPointMake(0, -scrollView.height + 350) animated:YES];
             self.isFull = YES;
+            [self.controller.tabBarController tabBarVisible:NO animated:YES];
         });
     }
 }

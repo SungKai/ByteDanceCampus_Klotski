@@ -1,11 +1,11 @@
 //
-//  ViewController.m
+//  StageSelectController.h
 //  ByteDanceCampus_Klotski
 //
-//  Created by 宋开开 on 2022/7/22.
+//  Created by SSR on 2022/8/7.
 //
 
-#import "MainController.h"
+#import "StageSelectController.h"
 
 #import "StageSelectAdapter.h"
 
@@ -13,11 +13,9 @@
 
 #import "StageTopView.h"
 
-#import "RTextView.h" // Test
+#pragma mark - StageSelectController ()
 
-#pragma mark - MainController ()
-
-@interface MainController ()
+@interface StageSelectController ()
 
 /// 替代原生
 @property (nonatomic, strong) UIImageView *backImgView;
@@ -26,7 +24,7 @@
 @property (nonatomic, strong) StageTopView *topView;
 
 /// 关卡tableView
-@property (nonatomic, strong) RTextView *stageTableView;
+@property (nonatomic, strong) UITableView *stageTableView;
 
 /// 关卡模型
 @property (nonatomic, strong) StageSelectModel *stageModel;
@@ -36,9 +34,9 @@
 
 @end
 
-#pragma mark - MainController
+#pragma mark - StageSelectController
 
-@implementation MainController
+@implementation StageSelectController
 
 #pragma mark - Life cycle
 
@@ -78,9 +76,9 @@
     return _topView;
 }
 
-- (RTextView *)stageTableView {
+- (UITableView *)stageTableView {
     if (_stageTableView == nil) {
-        _stageTableView = [[RTextView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+        _stageTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
         _stageTableView.backgroundColor = UIColor.clearColor;
         _stageTableView.width = self.view.width - 80;
         _stageTableView.centerX = self.view.width / 2;
@@ -101,7 +99,7 @@
 
 + (NSArray<NSString *> *)routerPath {
     return @[
-        @"main"
+        @"StageSelectController"
     ];
 }
 
@@ -115,7 +113,7 @@
             UINavigationController *nav = (request.requestController ? request.requestController : RisingRouterRequest.useTopController).navigationController;
             
             if (nav) {
-                MainController *vc = [[self alloc] init];
+                StageSelectController *vc = [[self alloc] init];
                 response.responseController = vc;
                 
                 [nav pushViewController:vc animated:YES];
@@ -132,7 +130,7 @@
             
         case RouterRequestController: {
             
-            MainController *vc = [[self alloc] init];
+            StageSelectController *vc = [[self alloc] init];
             
             response.responseController = vc;
         } break;

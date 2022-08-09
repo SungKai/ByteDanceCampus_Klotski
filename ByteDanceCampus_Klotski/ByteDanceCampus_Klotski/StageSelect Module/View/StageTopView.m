@@ -33,6 +33,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        self.down = YES;
         self.backgroundColor = UIColor.clearColor;
         _contentView = [[UIView alloc] initWithFrame:self.bounds];
         _contentView.backgroundColor = UIColor.clearColor;
@@ -80,10 +81,12 @@
             
             down = NO;
         }
+        self.down = YES;
     } else {
         if (contentOffset.y > -100 && !down) {
             down = YES;
         }
+        self.down = NO;
     }
     currentY = contentOffset.y;
 }

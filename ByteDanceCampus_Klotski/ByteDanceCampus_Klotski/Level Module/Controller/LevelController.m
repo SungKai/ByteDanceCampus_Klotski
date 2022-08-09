@@ -40,6 +40,7 @@
     self = [super init];
     if (self) {
         self.model = level;
+        [self.tabBarController tabBarVisible:NO animated:YES];
     }
     return self;
 }

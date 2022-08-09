@@ -19,6 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 用于ScrollView操作（计算属性）
 @property (nonatomic, readonly) UIScrollView *scrollView;
 
+/// 伸缩情况
+@property (nonatomic) BOOL down;
+
 - (instancetype)init NS_UNAVAILABLE;
 
 + (instancetype)new NS_UNAVAILABLE;

@@ -12,8 +12,6 @@
 		14048C41289FE68100C1025F /* StageTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14048C40289FE68100C1025F /* StageTopView.m */; };
 		14048C44289FE98D00C1025F /* UIDevice+Rising.m in Sources */ = {isa = PBXBuildFile; fileRef = 14048C43289FE98D00C1025F /* UIDevice+Rising.m */; };
 		14048C4728A0330800C1025F /* klotski.md in Resources */ = {isa = PBXBuildFile; fileRef = 14048C4628A0330700C1025F /* klotski.md */; };
-		14048C4A28A0EAEE00C1025F /* RTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14048C4928A0EAEE00C1025F /* RTextView.m */; };
-		1404E5C828A17515001E0B6E /* TController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1404E5C728A17515001E0B6E /* TController.m */; };
 		1442D6E928976E22009CEB40 /* RisingRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6E028976E22009CEB40 /* RisingRouter.m */; };
 		1442D6EA28976E22009CEB40 /* RisingRouterResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6E528976E22009CEB40 /* RisingRouterResponse.m */; };
 		1442D6EB28976E22009CEB40 /* RisingRouter+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6E628976E22009CEB40 /* RisingRouter+Extension.m */; };
@@ -23,6 +21,7 @@
 		1442D7032897992A009CEB40 /* UIView+Rising.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6FB2897992A009CEB40 /* UIView+Rising.m */; };
 		1442D7042897992A009CEB40 /* RisingUIKitExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6FC2897992A009CEB40 /* RisingUIKitExtension.m */; };
 		1442D7052897992A009CEB40 /* UIColor+Rising.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6FF2897992A009CEB40 /* UIColor+Rising.m */; };
+		14626BA128A2555D00659D16 /* KlotskiTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14626B9F28A2555D00659D16 /* KlotskiTabController.m */; };
 		14CDC855289B6C210009358F /* StageSelectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC854289B6C210009358F /* StageSelectModel.m */; };
 		14CDC860289B84ED0009358F /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC85F289B84ED0009358F /* Person.m */; };
 		14CDC863289B87330009358F /* Level.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC862289B87330009358F /* Level.mm */; };
@@ -35,7 +34,7 @@
 		14CDC88B289D3F340009358F /* PersonStep.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC88A289D3F340009358F /* PersonStep.m */; };
 		3C5AEF06B27681B0DEDEFE9B /* Pods_ByteDanceCampus_Klotski.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C2921943B00D1E1FDEA362 /* Pods_ByteDanceCampus_Klotski.framework */; };
 		B5759A1C288AE5D1007CE07E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5759A1B288AE5D1007CE07E /* AppDelegate.m */; };
-		B5759A22288AE5D1007CE07E /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5759A21288AE5D1007CE07E /* MainController.m */; };
+		B5759A22288AE5D1007CE07E /* StageSelectController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5759A21288AE5D1007CE07E /* StageSelectController.m */; };
 		B5759A27288AE5D2007CE07E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5759A26288AE5D2007CE07E /* Assets.xcassets */; };
 		B5759A2A288AE5D2007CE07E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5759A28288AE5D2007CE07E /* LaunchScreen.storyboard */; };
 		B5759A2D288AE5D2007CE07E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B5759A2C288AE5D2007CE07E /* main.m */; };
@@ -52,10 +51,6 @@
 		14048C42289FE98D00C1025F /* UIDevice+Rising.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Rising.h"; sourceTree = "<group>"; };
 		14048C43289FE98D00C1025F /* UIDevice+Rising.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Rising.m"; sourceTree = "<group>"; };
 		14048C4628A0330700C1025F /* klotski.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = klotski.md; sourceTree = "<group>"; };
-		14048C4828A0EAEE00C1025F /* RTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTextView.h; sourceTree = "<group>"; };
-		14048C4928A0EAEE00C1025F /* RTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTextView.m; sourceTree = "<group>"; };
-		1404E5C628A17515001E0B6E /* TController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TController.h; sourceTree = "<group>"; };
-		1404E5C728A17515001E0B6E /* TController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TController.m; sourceTree = "<group>"; };
 		1442D6E028976E22009CEB40 /* RisingRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RisingRouter.m; sourceTree = "<group>"; };
 		1442D6E128976E22009CEB40 /* RisingRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingRouter.h; sourceTree = "<group>"; };
 		1442D6E228976E22009CEB40 /* RisingRouterRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingRouterRequest.h; sourceTree = "<group>"; };
@@ -76,6 +71,8 @@
 		1442D6FE2897992A009CEB40 /* UIColor+Rising.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Rising.h"; sourceTree = "<group>"; };
 		1442D6FF2897992A009CEB40 /* UIColor+Rising.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Rising.m"; sourceTree = "<group>"; };
 		1442D7002897992A009CEB40 /* RisingUIKitExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingUIKitExtension.h; sourceTree = "<group>"; };
+		14626B9F28A2555D00659D16 /* KlotskiTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KlotskiTabController.m; sourceTree = "<group>"; };
+		14626BA028A2555D00659D16 /* KlotskiTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KlotskiTabController.h; sourceTree = "<group>"; };
 		14CDC853289B6C210009358F /* StageSelectModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StageSelectModel.h; sourceTree = "<group>"; };
 		14CDC854289B6C210009358F /* StageSelectModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StageSelectModel.m; sourceTree = "<group>"; };
 		14CDC85E289B84ED0009358F /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
@@ -100,8 +97,8 @@
 		B5759A17288AE5D1007CE07E /* ByteDanceCampus_Klotski.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ByteDanceCampus_Klotski.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5759A1A288AE5D1007CE07E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B5759A1B288AE5D1007CE07E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B5759A20288AE5D1007CE07E /* MainController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
-		B5759A21288AE5D1007CE07E /* MainController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainController.m; sourceTree = "<group>"; };
+		B5759A20288AE5D1007CE07E /* StageSelectController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StageSelectController.h; sourceTree = "<group>"; };
+		B5759A21288AE5D1007CE07E /* StageSelectController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StageSelectController.m; sourceTree = "<group>"; };
 		B5759A26288AE5D2007CE07E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5759A29288AE5D2007CE07E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5759A2B288AE5D2007CE07E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -154,8 +151,6 @@
 			children = (
 				14048C37289F943500C1025F /* StageSelectAdapter.h */,
 				14048C38289F943500C1025F /* StageSelectAdapter.m */,
-				14048C4828A0EAEE00C1025F /* RTextView.h */,
-				14048C4928A0EAEE00C1025F /* RTextView.m */,
 			);
 			path = Adapter;
 			sourceTree = "<group>";
@@ -163,8 +158,8 @@
 		14048C3D289FDF5600C1025F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B5759A20288AE5D1007CE07E /* MainController.h */,
-				B5759A21288AE5D1007CE07E /* MainController.m */,
+				B5759A20288AE5D1007CE07E /* StageSelectController.h */,
+				B5759A21288AE5D1007CE07E /* StageSelectController.m */,
 				14048C3C289FDF4A00C1025F /* Adapter */,
 			);
 			path = Controller;
@@ -390,8 +385,6 @@
 		B5759A19288AE5D1007CE07E /* ByteDanceCampus_Klotski */ = {
 			isa = PBXGroup;
 			children = (
-				1404E5C628A17515001E0B6E /* TController.h */,
-				1404E5C728A17515001E0B6E /* TController.m */,
 				14048C3E289FE11500C1025F /* StageSelect Module */,
 				14CDC882289BF6DF0009358F /* Level Module */,
 				14CDC86A289B91FE0009358F /* Model */,
@@ -410,6 +403,8 @@
 				B5759A2C288AE5D2007CE07E /* main.m */,
 				B5759A1A288AE5D1007CE07E /* AppDelegate.h */,
 				B5759A1B288AE5D1007CE07E /* AppDelegate.m */,
+				14626BA028A2555D00659D16 /* KlotskiTabController.h */,
+				14626B9F28A2555D00659D16 /* KlotskiTabController.m */,
 				14CDC866289B8EB60009358F /* level.plist */,
 				B5759A26288AE5D2007CE07E /* Assets.xcassets */,
 				14048C4628A0330700C1025F /* klotski.md */,
@@ -536,7 +531,7 @@
 				14CDC863289B87330009358F /* Level.mm in Sources */,
 				14CDC87C289BEAB00009358F /* PersonItem.m in Sources */,
 				14CDC878289BE7F70009358F /* PersonFrame.m in Sources */,
-				B5759A22288AE5D1007CE07E /* MainController.m in Sources */,
+				B5759A22288AE5D1007CE07E /* StageSelectController.m in Sources */,
 				14CDC876289BE2620009358F /* LevelCollectionLayout.m in Sources */,
 				1442D7022897992A009CEB40 /* RisingFoundationExtention.m in Sources */,
 				14048C39289F943500C1025F /* StageSelectAdapter.m in Sources */,
@@ -544,9 +539,9 @@
 				B5759A1C288AE5D1007CE07E /* AppDelegate.m in Sources */,
 				1442D6EC28976E22009CEB40 /* RisingRouterRequest.m in Sources */,
 				1442D7052897992A009CEB40 /* UIColor+Rising.m in Sources */,
+				14626BA128A2555D00659D16 /* KlotskiTabController.m in Sources */,
 				1442D7042897992A009CEB40 /* RisingUIKitExtension.m in Sources */,
 				B5759A2D288AE5D2007CE07E /* main.m in Sources */,
-				14048C4A28A0EAEE00C1025F /* RTextView.m in Sources */,
 				14011596289E57A40053CB81 /* StageSelectCell.m in Sources */,
 				1442D7032897992A009CEB40 /* UIView+Rising.m in Sources */,
 				14CDC873289BE1FF0009358F /* LevelController.m in Sources */,
@@ -555,7 +550,6 @@
 				14048C44289FE98D00C1025F /* UIDevice+Rising.m in Sources */,
 				1442D6EA28976E22009CEB40 /* RisingRouterResponse.m in Sources */,
 				14048C41289FE68100C1025F /* StageTopView.m in Sources */,
-				1404E5C828A17515001E0B6E /* TController.m in Sources */,
 				14CDC855289B6C210009358F /* StageSelectModel.m in Sources */,
 				1442D6EB28976E22009CEB40 /* RisingRouter+Extension.m in Sources */,
 				14CDC885289CB2DB0009358F /* LevelAdapter.m in Sources */,
