@@ -37,7 +37,7 @@
 - (UITabBar *)klotskiTabBar {
     if (_klotskiTabBar == nil) {
         _klotskiTabBar = [[UITabBar alloc] initWithFrame:CGRectMake(0, 0, self.view.width - 200, 49)];
-        _klotskiTabBar.bottom = tabBarTop(self);
+        _klotskiTabBar.top = tabBarTop(self);
         _klotskiTabBar.centerX = self.view.width / 2;
         
         _klotskiTabBar.layer.cornerRadius = _klotskiTabBar.height / 2;
@@ -70,7 +70,7 @@
 
 - (void)setViewControllers:(NSArray<__kindof UIViewController *> *)viewControllers {
     [super setViewControllers:viewControllers];
-    self.klotskiTabBar.items = self.tabBar.items;
+    self.klotskiTabBar.items = self.tabBar.items.mutableCopy;
 }
 
 #pragma mark - <UITabBarDelegate>
@@ -127,19 +127,21 @@
 
 - (void)tabBarVisible:(BOOL)isVisible animated:(BOOL)animated {
     UITabBar *tabBar = ((KlotskiTabController *)self).mainTabBar;
-    if (!(tabBar.hidden ^ isVisible)) {
+    if (tabBar.hidden ^ isVisible) {
         return;
     }
     
     CGFloat top = tabBarTop((KlotskiTabController *)self);
     
     [UIView
-     animateWithDuration:(animated ? 0.5 : 0)
+     animateWithDuration:(animated ? 0.3 : 0)
      animations:^{
-        tabBar.top = (isVisible ? top : 0);
+        tabBar.top = (isVisible ? top : self.view.bottom);
     }
      completion:^(BOOL finished) {
-        tabBar.hidden = !isVisible;
+        if (finished) {
+            tabBar.hidden = !isVisible;
+        }
     }];
 }
 

@@ -140,9 +140,9 @@
     [topView.contentView stretchBottom_toPointY:topView.SuperBottom offset:0];
     [topView drawRect:CGRectMake(0, 0, topView.contentView.width, topView.contentView.height)];
     
-//    if (!topView.down) {
-//        [self.controller.tabBarController tabBarVisible:YES animated:YES];
-//    }
+    if (!topView.down) {
+        [self.controller.tabBarController tabBarVisible:YES animated:YES];
+    }
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {

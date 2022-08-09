@@ -253,6 +253,15 @@
 			path = "UIColor+Rising";
 			sourceTree = "<group>";
 		};
+		145C83B328A25C7500DCE54C /* Klotski Tab Module */ = {
+			isa = PBXGroup;
+			children = (
+				14626BA028A2555D00659D16 /* KlotskiTabController.h */,
+				14626B9F28A2555D00659D16 /* KlotskiTabController.m */,
+			);
+			path = "Klotski Tab Module";
+			sourceTree = "<group>";
+		};
 		14CDC868289B91EC0009358F /* Person */ = {
 			isa = PBXGroup;
 			children = (
@@ -387,6 +396,7 @@
 			children = (
 				14048C3E289FE11500C1025F /* StageSelect Module */,
 				14CDC882289BF6DF0009358F /* Level Module */,
+				145C83B328A25C7500DCE54C /* Klotski Tab Module */,
 				14CDC86A289B91FE0009358F /* Model */,
 				14E745B9288AFA38007436F6 /* Router */,
 				1442D6F12897992A009CEB40 /* Extension */,
@@ -403,8 +413,6 @@
 				B5759A2C288AE5D2007CE07E /* main.m */,
 				B5759A1A288AE5D1007CE07E /* AppDelegate.h */,
 				B5759A1B288AE5D1007CE07E /* AppDelegate.m */,
-				14626BA028A2555D00659D16 /* KlotskiTabController.h */,
-				14626B9F28A2555D00659D16 /* KlotskiTabController.m */,
 				14CDC866289B8EB60009358F /* level.plist */,
 				B5759A26288AE5D2007CE07E /* Assets.xcassets */,
 				14048C4628A0330700C1025F /* klotski.md */,
