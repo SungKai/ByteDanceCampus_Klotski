@@ -32,6 +32,7 @@
 		14CDC87C289BEAB00009358F /* PersonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC87B289BEAB00009358F /* PersonItem.m */; };
 		14CDC885289CB2DB0009358F /* LevelAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC884289CB2DB0009358F /* LevelAdapter.m */; };
 		14CDC88B289D3F340009358F /* PersonStep.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC88A289D3F340009358F /* PersonStep.m */; };
+		37BDE42A28A3E7F2001E7C4E /* IntroCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BDE42928A3E7F2001E7C4E /* IntroCell.m */; };
 		3C5AEF06B27681B0DEDEFE9B /* Pods_ByteDanceCampus_Klotski.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C2921943B00D1E1FDEA362 /* Pods_ByteDanceCampus_Klotski.framework */; };
 		B5759A1C288AE5D1007CE07E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5759A1B288AE5D1007CE07E /* AppDelegate.m */; };
 		B5759A22288AE5D1007CE07E /* StageSelectController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5759A21288AE5D1007CE07E /* StageSelectController.m */; };
@@ -93,6 +94,8 @@
 		14CDC889289D3F340009358F /* PersonStep.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonStep.h; sourceTree = "<group>"; };
 		14CDC88A289D3F340009358F /* PersonStep.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonStep.m; sourceTree = "<group>"; };
 		22C2921943B00D1E1FDEA362 /* Pods_ByteDanceCampus_Klotski.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ByteDanceCampus_Klotski.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37BDE42828A3E7F2001E7C4E /* IntroCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroCell.h; sourceTree = "<group>"; };
+		37BDE42928A3E7F2001E7C4E /* IntroCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroCell.m; sourceTree = "<group>"; };
 		A404246E66C14D4FA6786972 /* Pods-ByteDanceCampus_Klotski.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ByteDanceCampus_Klotski.release.xcconfig"; path = "Target Support Files/Pods-ByteDanceCampus_Klotski/Pods-ByteDanceCampus_Klotski.release.xcconfig"; sourceTree = "<group>"; };
 		B5759A17288AE5D1007CE07E /* ByteDanceCampus_Klotski.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ByteDanceCampus_Klotski.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5759A1A288AE5D1007CE07E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -188,6 +191,8 @@
 			children = (
 				14011594289E57A40053CB81 /* StageSelectCell.h */,
 				14011595289E57A40053CB81 /* StageSelectCell.m */,
+				37BDE42828A3E7F2001E7C4E /* IntroCell.h */,
+				37BDE42928A3E7F2001E7C4E /* IntroCell.m */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -544,6 +549,7 @@
 				1442D7022897992A009CEB40 /* RisingFoundationExtention.m in Sources */,
 				14048C39289F943500C1025F /* StageSelectAdapter.m in Sources */,
 				14CDC860289B84ED0009358F /* Person.m in Sources */,
+				37BDE42A28A3E7F2001E7C4E /* IntroCell.m in Sources */,
 				B5759A1C288AE5D1007CE07E /* AppDelegate.m in Sources */,
 				1442D6EC28976E22009CEB40 /* RisingRouterRequest.m in Sources */,
 				1442D7052897992A009CEB40 /* UIColor+Rising.m in Sources */,

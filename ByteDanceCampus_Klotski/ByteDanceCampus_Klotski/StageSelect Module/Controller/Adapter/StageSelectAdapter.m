@@ -13,6 +13,8 @@
 
 #import "StageTopView.h"
 
+#import "IntroCell.h"
+
 #pragma mark - StageSelectAdapter ()
 
 @interface StageSelectAdapter ()
@@ -62,7 +64,7 @@
 #pragma mark - <UITableViewDataSource>
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.model.stages.count;
+    return self.model.stages.count + 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -70,9 +72,13 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return [IntroCell new];
+    }
+    
     StageSelectCell *cell = [tableView dequeueReusableCellWithIdentifier:StageSelectCellReuseIdentifier forIndexPath:indexPath];
     
-    Level *level = self.model.stages[indexPath.section];
+    Level *level = self.model.stages[indexPath.section - 1];
     cell.name = level.name;
     cell.bestStep = level.bestStep;
     cell.isCollect = level.isFavorite;
@@ -90,6 +96,9 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (!indexPath.section) {
+        return 230;
+    }
     return 180;
 }
 
@@ -98,10 +107,13 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (!indexPath.section) {
+        return;
+    }
     [self.controller.router
      pushForRouterPath:@"LevelController"
      parameters:@{
-        @"level" : self.model.stages[indexPath.section]
+        @"level" : self.model.stages[indexPath.section - 1]
     }];
 }
 
