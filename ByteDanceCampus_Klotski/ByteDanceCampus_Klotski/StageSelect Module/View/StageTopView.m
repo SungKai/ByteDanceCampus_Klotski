@@ -119,8 +119,8 @@
     if (_introduceTextView == nil) {
         _introduceTextView = [[YYTextView alloc] initWithFrame:CGRectMake(15, 15, self.introView.width - 30, 0)];
         _introduceTextView.font = [UIFont fontWithName:PingFangSC size:14];
-        _introduceTextView.textColor =
-        [UIColor Any_hex:@"#112C54" a:1 Dark_hex:@"#F0F0F0" a:1];
+//        _introduceTextView.textColor = UIColor.redColor;
+////        [UIColor Any_hex:@"#112C54" a:1 Dark_hex:@"#F0F0F0" a:1];
         
         dispatch_async(dispatch_queue_create("Rising & SSR.ByteDance.StageTopView", DISPATCH_QUEUE_CONCURRENT), ^{
             CMDocument *document = [[CMDocument alloc] initWithContentsOfFile:[NSBundle.mainBundle pathForResource:@"klotski" ofType:@"md"] options:15];

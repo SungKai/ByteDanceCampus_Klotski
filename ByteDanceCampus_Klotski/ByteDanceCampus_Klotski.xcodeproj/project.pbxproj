@@ -22,6 +22,7 @@
 		1442D7042897992A009CEB40 /* RisingUIKitExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6FC2897992A009CEB40 /* RisingUIKitExtension.m */; };
 		1442D7052897992A009CEB40 /* UIColor+Rising.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6FF2897992A009CEB40 /* UIColor+Rising.m */; };
 		14626BA128A2555D00659D16 /* KlotskiTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14626B9F28A2555D00659D16 /* KlotskiTabController.m */; };
+		14A92BE228A2914B00D6ACB0 /* HomePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A92BE128A2914B00D6ACB0 /* HomePageController.m */; };
 		14CDC855289B6C210009358F /* StageSelectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC854289B6C210009358F /* StageSelectModel.m */; };
 		14CDC860289B84ED0009358F /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC85F289B84ED0009358F /* Person.m */; };
 		14CDC863289B87330009358F /* Level.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC862289B87330009358F /* Level.mm */; };
@@ -73,6 +74,8 @@
 		1442D7002897992A009CEB40 /* RisingUIKitExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingUIKitExtension.h; sourceTree = "<group>"; };
 		14626B9F28A2555D00659D16 /* KlotskiTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KlotskiTabController.m; sourceTree = "<group>"; };
 		14626BA028A2555D00659D16 /* KlotskiTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KlotskiTabController.h; sourceTree = "<group>"; };
+		14A92BE028A2914B00D6ACB0 /* HomePageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageController.h; sourceTree = "<group>"; };
+		14A92BE128A2914B00D6ACB0 /* HomePageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageController.m; sourceTree = "<group>"; };
 		14CDC853289B6C210009358F /* StageSelectModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StageSelectModel.h; sourceTree = "<group>"; };
 		14CDC854289B6C210009358F /* StageSelectModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StageSelectModel.m; sourceTree = "<group>"; };
 		14CDC85E289B84ED0009358F /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
@@ -403,6 +406,8 @@
 				B5759A33288AE6A0007CE07E /* Supporting Files */,
 				B5759A2B288AE5D2007CE07E /* Info.plist */,
 				B5759A34288AE6C4007CE07E /* PrefixHeader.pch */,
+				14A92BE028A2914B00D6ACB0 /* HomePageController.h */,
+				14A92BE128A2914B00D6ACB0 /* HomePageController.m */,
 			);
 			path = ByteDanceCampus_Klotski;
 			sourceTree = "<group>";
@@ -560,6 +565,7 @@
 				14048C41289FE68100C1025F /* StageTopView.m in Sources */,
 				14CDC855289B6C210009358F /* StageSelectModel.m in Sources */,
 				1442D6EB28976E22009CEB40 /* RisingRouter+Extension.m in Sources */,
+				14A92BE228A2914B00D6ACB0 /* HomePageController.m in Sources */,
 				14CDC885289CB2DB0009358F /* LevelAdapter.m in Sources */,
 				1442D6E928976E22009CEB40 /* RisingRouter.m in Sources */,
 			);

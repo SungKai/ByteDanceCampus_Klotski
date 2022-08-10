@@ -48,5 +48,9 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "compression-type" : "lossy",
+    "template-rendering-intent" : "original"
   }
 }

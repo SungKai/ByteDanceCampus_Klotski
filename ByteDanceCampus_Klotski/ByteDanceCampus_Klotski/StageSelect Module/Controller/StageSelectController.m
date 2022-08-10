@@ -60,11 +60,6 @@
     [self.tabBarController tabBarVisible:YES animated:YES];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [self.tabBarController tabBarVisible:NO animated:YES];
-}
-
 #pragma mark - Method
 
 // MARK: SEL

@@ -9,12 +9,16 @@
 
 #import <objc/runtime.h>
 
+#pragma mark - KlotskiTabController ()
+
 @interface KlotskiTabController () 
 
 /// 自定义一个TabBar
 @property (nonatomic, strong) UITabBar *klotskiTabBar;
 
 @end
+
+#pragma mark - KlotskiTabController
 
 @implementation KlotskiTabController
 
@@ -25,30 +29,26 @@
     self.tabBar.hidden = YES;
     
     [self.view addSubview:self.klotskiTabBar];
-    self.viewControllers = @[self.navForStageSelect];
+    self.viewControllers = @[self.navForHomePage, self.navForStageSelect];
 }
-
-#pragma mark - Method
-
-// MARK: SEL
 
 #pragma mark - Getter
 
 - (UITabBar *)klotskiTabBar {
     if (_klotskiTabBar == nil) {
         _klotskiTabBar = [[UITabBar alloc] initWithFrame:CGRectMake(0, 0, self.view.width - 200, 49)];
-        _klotskiTabBar.top = tabBarTop(self);
+        _klotskiTabBar.top = self.tabBarMaxTop;
         _klotskiTabBar.centerX = self.view.width / 2;
         
         _klotskiTabBar.layer.cornerRadius = _klotskiTabBar.height / 2;
         _klotskiTabBar.clipsToBounds = YES;
-        _klotskiTabBar.backgroundColor = UIColor.redColor;
+        _klotskiTabBar.barTintColor = UIColor.redColor;
         _klotskiTabBar.delegate = self;
     }
     return _klotskiTabBar;
 }
 
-- (UINavigationController *)navForStageSelect {
+- (UIViewController *)navForStageSelect {
     UIViewController *vc = [self.router controllerForRouterPath:@"StageSelectController"];
     
     vc.tabBarItem =
@@ -62,8 +62,26 @@
     return [[UINavigationController alloc] initWithRootViewController:vc];
 }
 
+- (UIViewController *)navForHomePage {
+    UIViewController *vc = [self.router controllerForRouterPath:@"HomePageController"];
+    
+    vc.tabBarItem =
+    [[UITabBarItem alloc]
+     initWithTitle:@"play"
+     image:[[UIImage imageNamed:@"main.unselect"]
+            imageByResizeToSize:CGSizeMake(25, 25)]
+     selectedImage:[[UIImage imageNamed:@"main.select"]
+                    imageByResizeToSize:CGSizeMake(25, 25)]];
+    
+    return [[UINavigationController alloc] initWithRootViewController:vc];
+}
+
 - (UITabBar *)mainTabBar {
     return _klotskiTabBar;
+}
+
+- (CGFloat)tabBarMaxTop {
+    return self.view.height - UIDevice.statusBarHeight - self.mainTabBar.height;
 }
 
 #pragma mark - Setter
@@ -71,9 +89,8 @@
 - (void)setViewControllers:(NSArray<__kindof UIViewController *> *)viewControllers {
     [super setViewControllers:viewControllers];
     self.klotskiTabBar.items = self.tabBar.items.mutableCopy;
+    self.klotskiTabBar.selectedItem = self.tabBar.selectedItem;
 }
-
-#pragma mark - <UITabBarDelegate>
 
 #pragma mark - RisingRouterHandler
 
@@ -123,6 +140,8 @@
 
 @end
 
+#pragma mark - UITabBarController (Rising)
+
 @implementation UITabBarController (Rising)
 
 - (void)tabBarVisible:(BOOL)isVisible animated:(BOOL)animated {
@@ -131,7 +150,7 @@
         return;
     }
     
-    CGFloat top = tabBarTop((KlotskiTabController *)self);
+    CGFloat top = ((KlotskiTabController *)self).tabBarMaxTop;
     
     [UIView
      animateWithDuration:(animated ? 0.3 : 0)

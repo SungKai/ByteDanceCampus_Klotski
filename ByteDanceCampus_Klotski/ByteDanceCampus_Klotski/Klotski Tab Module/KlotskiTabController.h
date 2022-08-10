@@ -13,6 +13,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#pragma mark - KlotskiTabController
+
 @interface KlotskiTabController : UITabBarController <
     RisingRouterHandler
 >
@@ -20,14 +22,18 @@ NS_ASSUME_NONNULL_BEGIN
 /// tabBar视图
 @property(nonatomic, readonly) UITabBar *mainTabBar;
 
+/// tabBar最高高度
+@property (nonatomic, readonly) CGFloat tabBarMaxTop;
+
 @end
 
-NS_INLINE CGFloat tabBarTop(KlotskiTabController *controller) {
-    return controller.view.frame.size.height - UIDevice.statusBarHeight - controller.mainTabBar.frame.size.height;
-}
+#pragma mark - UITabBarController (Rising)
 
 @interface UITabBarController (Rising)
 
+/// 是否展示tabBar，并且是否拥有动画
+/// @param isVisible 是否展示
+/// @param animated 是否动画
 - (void)tabBarVisible:(BOOL)isVisible animated:(BOOL)animated;
 
 @end

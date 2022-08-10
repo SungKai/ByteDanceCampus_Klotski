@@ -51,6 +51,11 @@
     [self.view addSubview:self.collectionView];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tabBarController tabBarVisible:NO animated:YES];
+}
+
 #pragma mark - Method
 
 // MARK: SEL
