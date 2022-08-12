@@ -13,6 +13,8 @@
 
 #import "StageTopView.h"
 
+#import "IntroduceView.h"
+
 #pragma mark - StageSelectController ()
 
 @interface StageSelectController ()
@@ -42,7 +44,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBar.hidden = YES;
+    self.navigationController.navigationBarHidden = YES;
     
     self.stageModel = [[StageSelectModel alloc] init];
     self.adapter = [StageSelectAdapter
@@ -53,6 +55,9 @@
     
     [self.view addSubview:self.backImgView];
     [self.view addSubview:self.stageTableView];
+    
+    IntroduceView *view = [[IntroduceView alloc] initWithFrame:CGRectMake(0, 0, self.stageTableView.width, 300)];
+    self.adapter.scrollView = view;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -77,6 +82,7 @@
 - (StageTopView *)topView {
     if (_topView == nil) {
         _topView = [[StageTopView alloc] initWithFrame:CGRectMake(0, 0, self.stageTableView.width, 140)];
+        _topView.title = @"华容道";
     }
     return _topView;
 }
@@ -91,6 +97,7 @@
         _stageTableView.estimatedRowHeight = 0;
         _stageTableView.estimatedSectionHeaderHeight = 0;
         _stageTableView.estimatedSectionFooterHeight = 0;
+        _stageTableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         
         _stageTableView.showsVerticalScrollIndicator = NO;
         _stageTableView.showsHorizontalScrollIndicator = NO;

@@ -59,7 +59,10 @@
      selectedImage:[[UIImage imageNamed:@"paly.select"]
                     imageByResizeToSize:CGSizeMake(40, 40)]];
     
-    return [[UINavigationController alloc] initWithRootViewController:vc];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    vc.navigationController.navigationBarHidden = YES;
+    vc.navigationController.hidesBottomBarWhenPushed = YES;
+    return nav;
 }
 
 - (UIViewController *)navForHomePage {
@@ -73,7 +76,10 @@
      selectedImage:[[UIImage imageNamed:@"main.select"]
                     imageByResizeToSize:CGSizeMake(25, 25)]];
     
-    return [[UINavigationController alloc] initWithRootViewController:vc];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    vc.navigationController.navigationBarHidden = YES;
+    vc.navigationController.hidesBottomBarWhenPushed = YES;
+    return nav;
 }
 
 - (UITabBar *)mainTabBar {

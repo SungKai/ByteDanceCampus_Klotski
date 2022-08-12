@@ -29,7 +29,8 @@
 /// VC
 @property (nonatomic, weak) UIViewController *controller;
 
-@property (nonatomic) BOOL isFull;
+/// 较高的Scroll高度
+@property (nonatomic) CGFloat topScrollHeight;
 
 @end
 
@@ -51,12 +52,28 @@
     adapter->_topView = topView;
     tableview.tableHeaderView = topView;
     
-//    topView.scrollView.delegate = adapter;
     tableview.delegate = adapter;
     tableview.dataSource = adapter;
     [tableview registerClass:StageSelectCell.class forCellReuseIdentifier:StageSelectCellReuseIdentifier];
     
     return adapter;
+}
+
+#pragma mark - Setter
+
+- (void)setScrollView:(UIScrollView *)scrollView {
+    [_scrollView removeFromSuperview];
+    
+    _scrollView = scrollView;
+    self.topScrollHeight = scrollView.height;
+    
+    scrollView.delegate = self;
+    scrollView.height = 0;
+    scrollView.top = self.topView.topBelowTitle + 100;
+    scrollView.centerX = self.tableView.width / 2;
+    scrollView.alpha = 0;
+    
+    [self.tableView addSubview:scrollView];
 }
 
 #pragma mark - <UITableViewDataSource>
@@ -130,29 +147,36 @@
 #pragma mark - <UIScrollViewDelegate>
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    // 正常滑动就直接返回
-    if (scrollView.contentOffset.y > 0) {
-        return;
-    }
-    
-    StageTopView *topView = (StageTopView *)self.tableView.tableHeaderView;
-    topView.contentView.top = scrollView.contentOffset.y;
-    [topView.contentView stretchBottom_toPointY:topView.SuperBottom offset:0];
-    [topView drawRect:CGRectMake(0, 0, topView.contentView.width, topView.contentView.height)];
-    
-    if (!topView.down) {
-        [self.controller.tabBarController tabBarVisible:YES animated:YES];
+    // 是tableView
+    if (scrollView == self.tableView) {
+        // 正常滑动就直接返回
+        if (scrollView.contentOffset.y > 0) {
+            return;
+        }
+        // 向下滑动则吸顶
+        self.topView.contentView.top = scrollView.contentOffset.y;
+        [self.topView.contentView stretchBottom_toPointY:self.topView.SuperBottom offset:0];
+        // 同时有子scroll则放大
+        if (self.scrollView) {
+            self.scrollView.top = self.topView.contentView.top + self.topView.topBelowTitle;
+            self.scrollView.height = -scrollView.contentOffset.y;
+            [self.scrollView drawRect:self.scrollView.frame];
+        }
     }
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+    // 如果没有scrollView则不用显示悬停
+    if (self.scrollView == nil) {
+        return;
+    }
+    
     if (scrollView.contentOffset.y <= -100 && velocity.y < 0) {
         
         *targetContentOffset = CGPointMake(0, -scrollView.height + 350);
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             
             [scrollView setContentOffset:CGPointMake(0, -scrollView.height + 350) animated:YES];
-            self.isFull = YES;
             [self.controller.tabBarController tabBarVisible:NO animated:YES];
         });
     }

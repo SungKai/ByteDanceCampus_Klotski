@@ -33,12 +33,14 @@ NS_ASSUME_NONNULL_BEGIN
 /// 创建一个Adapter
 /// @param controller 控制器（用于push）
 /// @param tableview 视图
-/// @param topView 头视图
 /// @param model 模型
 + (instancetype)adapterWithController:(UIViewController *)controller
                             tableView:(UITableView *)tableview
                       tableHeaderView:(StageTopView *)topView
                                 model:(StageSelectModel *)model;
+
+/// 赋予一个介绍的ScrollView，origin会发生改变，但size不会
+@property (nonatomic, strong, null_resettable) UIScrollView *scrollView;
 
 @end
 

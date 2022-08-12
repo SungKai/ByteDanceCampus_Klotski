@@ -13,14 +13,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface StageTopView : UIView
 
-/// 用于加视图
+/// 主视图，用来拉大
 @property (nonatomic, readonly) UIView *contentView;
 
-/// 用于ScrollView操作（计算属性）
-@property (nonatomic, readonly) UIScrollView *scrollView;
+/// 标题（计算属性）
+@property (nonatomic, copy) NSString *title;
 
-/// 伸缩情况
-@property (nonatomic) BOOL down;
+/// 标题的底部
+@property (nonatomic, readonly) CGFloat topBelowTitle;
 
 - (instancetype)init NS_UNAVAILABLE;
 
