@@ -32,9 +32,9 @@
 #pragma mark - Method
 
 - (void)drawRect:(CGRect)rect {
-    if (rect.size.height < 20) {
+    if (rect.size.height < 50) {
         self.alpha = 0;
-    } else if (rect.size.height >= 20 && rect.size.height <= 70) {
+    } else if (rect.size.height >= 50 && rect.size.height <= 100) {
         self.alpha = rect.size.height / 50;
     } else {
         self.alpha = 1;
@@ -42,14 +42,14 @@
     
     static float height = 0;
     static BOOL down = YES;
-    if (rect.size.height < height) {
-        if (rect.size.height > 50 && down) {
+    if (rect.size.height > height) {
+        if (rect.size.height > 100 && down) {
             UIImpactFeedbackGenerator *generator = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleHeavy];
             [generator impactOccurred];
             down = NO;
         }
     } else {
-        if (rect.size.height > 50 && !down) {
+        if (rect.size.height < 100 && !down) {
             down = YES;
         }
     }

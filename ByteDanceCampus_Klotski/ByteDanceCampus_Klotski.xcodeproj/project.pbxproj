@@ -12,6 +12,11 @@
 		14048C41289FE68100C1025F /* StageTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14048C40289FE68100C1025F /* StageTopView.m */; };
 		14048C44289FE98D00C1025F /* UIDevice+Rising.m in Sources */ = {isa = PBXBuildFile; fileRef = 14048C43289FE98D00C1025F /* UIDevice+Rising.m */; };
 		14048C4728A0330800C1025F /* klotski.md in Resources */ = {isa = PBXBuildFile; fileRef = 14048C4628A0330700C1025F /* klotski.md */; };
+		142014AE28A7743600CBD0B3 /* TeamIntroduceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 142014AD28A7743600CBD0B3 /* TeamIntroduceView.m */; };
+		142014B128A778F000CBD0B3 /* TeamIntroduceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 142014B028A778F000CBD0B3 /* TeamIntroduceModel.m */; };
+		142014B328A779F700CBD0B3 /* team.plist in Resources */ = {isa = PBXBuildFile; fileRef = 142014B228A779F700CBD0B3 /* team.plist */; };
+		142014B628A77D8200CBD0B3 /* TeamIntroduceAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 142014B528A77D8200CBD0B3 /* TeamIntroduceAdapter.m */; };
+		142014B928A77E6300CBD0B3 /* TeamIntroduceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 142014B828A77E6300CBD0B3 /* TeamIntroduceItem.m */; };
 		1442D6E928976E22009CEB40 /* RisingRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6E028976E22009CEB40 /* RisingRouter.m */; };
 		1442D6EA28976E22009CEB40 /* RisingRouterResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6E528976E22009CEB40 /* RisingRouterResponse.m */; };
 		1442D6EB28976E22009CEB40 /* RisingRouter+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6E628976E22009CEB40 /* RisingRouter+Extension.m */; };
@@ -53,6 +58,15 @@
 		14048C42289FE98D00C1025F /* UIDevice+Rising.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Rising.h"; sourceTree = "<group>"; };
 		14048C43289FE98D00C1025F /* UIDevice+Rising.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Rising.m"; sourceTree = "<group>"; };
 		14048C4628A0330700C1025F /* klotski.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = klotski.md; sourceTree = "<group>"; };
+		142014AC28A7743600CBD0B3 /* TeamIntroduceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamIntroduceView.h; sourceTree = "<group>"; };
+		142014AD28A7743600CBD0B3 /* TeamIntroduceView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamIntroduceView.m; sourceTree = "<group>"; };
+		142014AF28A778F000CBD0B3 /* TeamIntroduceModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamIntroduceModel.h; sourceTree = "<group>"; };
+		142014B028A778F000CBD0B3 /* TeamIntroduceModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamIntroduceModel.m; sourceTree = "<group>"; };
+		142014B228A779F700CBD0B3 /* team.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = team.plist; sourceTree = "<group>"; };
+		142014B428A77D8200CBD0B3 /* TeamIntroduceAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamIntroduceAdapter.h; sourceTree = "<group>"; };
+		142014B528A77D8200CBD0B3 /* TeamIntroduceAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamIntroduceAdapter.m; sourceTree = "<group>"; };
+		142014B728A77E6300CBD0B3 /* TeamIntroduceItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamIntroduceItem.h; sourceTree = "<group>"; };
+		142014B828A77E6300CBD0B3 /* TeamIntroduceItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamIntroduceItem.m; sourceTree = "<group>"; };
 		1442D6E028976E22009CEB40 /* RisingRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RisingRouter.m; sourceTree = "<group>"; };
 		1442D6E128976E22009CEB40 /* RisingRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingRouter.h; sourceTree = "<group>"; };
 		1442D6E228976E22009CEB40 /* RisingRouterRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingRouterRequest.h; sourceTree = "<group>"; };
@@ -206,6 +220,63 @@
 				14048C40289FE68100C1025F /* StageTopView.m */,
 			);
 			name = TopView;
+			sourceTree = "<group>";
+		};
+		142014BA28A7DE3F00CBD0B3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				142014B728A77E6300CBD0B3 /* TeamIntroduceItem.h */,
+				142014B828A77E6300CBD0B3 /* TeamIntroduceItem.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		142014BB28A7DE4700CBD0B3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				142014AF28A778F000CBD0B3 /* TeamIntroduceModel.h */,
+				142014B028A778F000CBD0B3 /* TeamIntroduceModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		142014BC28A7DE5700CBD0B3 /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				142014B428A77D8200CBD0B3 /* TeamIntroduceAdapter.h */,
+				142014B528A77D8200CBD0B3 /* TeamIntroduceAdapter.m */,
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
+		142014BD28A7DE6700CBD0B3 /* TeamIntroduce Module */ = {
+			isa = PBXGroup;
+			children = (
+				142014AC28A7743600CBD0B3 /* TeamIntroduceView.h */,
+				142014AD28A7743600CBD0B3 /* TeamIntroduceView.m */,
+				142014BC28A7DE5700CBD0B3 /* Adapter */,
+				142014BB28A7DE4700CBD0B3 /* Model */,
+				142014BA28A7DE3F00CBD0B3 /* View */,
+			);
+			path = "TeamIntroduce Module";
+			sourceTree = "<group>";
+		};
+		142014BE28A7E45400CBD0B3 /* HomePage Module */ = {
+			isa = PBXGroup;
+			children = (
+				142014BF28A7E46900CBD0B3 /* Controller */,
+				142014BD28A7DE6700CBD0B3 /* TeamIntroduce Module */,
+			);
+			path = "HomePage Module";
+			sourceTree = "<group>";
+		};
+		142014BF28A7E46900CBD0B3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				14A92BE028A2914B00D6ACB0 /* HomePageController.h */,
+				14A92BE128A2914B00D6ACB0 /* HomePageController.m */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		1442D6F12897992A009CEB40 /* Extension */ = {
@@ -412,6 +483,7 @@
 			children = (
 				14048C3E289FE11500C1025F /* StageSelect Module */,
 				14CDC882289BF6DF0009358F /* Level Module */,
+				142014BE28A7E45400CBD0B3 /* HomePage Module */,
 				145C83B328A25C7500DCE54C /* Klotski Tab Module */,
 				14CDC86A289B91FE0009358F /* Model */,
 				14E745B9288AFA38007436F6 /* Router */,
@@ -419,8 +491,6 @@
 				B5759A33288AE6A0007CE07E /* Supporting Files */,
 				B5759A2B288AE5D2007CE07E /* Info.plist */,
 				B5759A34288AE6C4007CE07E /* PrefixHeader.pch */,
-				14A92BE028A2914B00D6ACB0 /* HomePageController.h */,
-				14A92BE128A2914B00D6ACB0 /* HomePageController.m */,
 			);
 			path = ByteDanceCampus_Klotski;
 			sourceTree = "<group>";
@@ -431,6 +501,7 @@
 				B5759A2C288AE5D2007CE07E /* main.m */,
 				B5759A1A288AE5D1007CE07E /* AppDelegate.h */,
 				B5759A1B288AE5D1007CE07E /* AppDelegate.m */,
+				142014B228A779F700CBD0B3 /* team.plist */,
 				14CDC866289B8EB60009358F /* level.plist */,
 				B5759A26288AE5D2007CE07E /* Assets.xcassets */,
 				14048C4628A0330700C1025F /* klotski.md */,
@@ -502,6 +573,7 @@
 				14CDC867289B8EB60009358F /* level.plist in Resources */,
 				B5759A27288AE5D2007CE07E /* Assets.xcassets in Resources */,
 				14048C4728A0330800C1025F /* klotski.md in Resources */,
+				142014B328A779F700CBD0B3 /* team.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,13 +642,17 @@
 				B5759A2D288AE5D2007CE07E /* main.m in Sources */,
 				14011596289E57A40053CB81 /* StageSelectCell.m in Sources */,
 				1442D7032897992A009CEB40 /* UIView+Rising.m in Sources */,
+				142014B128A778F000CBD0B3 /* TeamIntroduceModel.m in Sources */,
+				142014B928A77E6300CBD0B3 /* TeamIntroduceItem.m in Sources */,
 				14CDC873289BE1FF0009358F /* LevelController.m in Sources */,
 				1442D7012897992A009CEB40 /* NSDate+Rising.m in Sources */,
 				14A92BE828A4EB7C00D6ACB0 /* IntroduceView.m in Sources */,
 				14CDC88B289D3F340009358F /* PersonStep.m in Sources */,
+				142014AE28A7743600CBD0B3 /* TeamIntroduceView.m in Sources */,
 				14048C44289FE98D00C1025F /* UIDevice+Rising.m in Sources */,
 				1442D6EA28976E22009CEB40 /* RisingRouterResponse.m in Sources */,
 				14048C41289FE68100C1025F /* StageTopView.m in Sources */,
+				142014B628A77D8200CBD0B3 /* TeamIntroduceAdapter.m in Sources */,
 				14CDC855289B6C210009358F /* StageSelectModel.m in Sources */,
 				1442D6EB28976E22009CEB40 /* RisingRouter+Extension.m in Sources */,
 				14A92BE228A2914B00D6ACB0 /* HomePageController.m in Sources */,

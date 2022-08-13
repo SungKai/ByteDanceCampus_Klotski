@@ -7,26 +7,48 @@
 
 #import "HomePageController.h"
 
+#import "TeamIntroduceView.h"
+
+#pragma mark - HomePageController ()
+
 @interface HomePageController ()
 
 /// 大logo
 @property (nonatomic, strong) UIImageView *logoImgView;
 
-/// 团队介绍
-@property (nonatomic, strong) UICollectionView *teamCollectionView;
+/// 介绍
+@property (nonatomic, strong) TeamIntroduceView *introduceView;
 
 @end
+
+#pragma mark - HomePageController
 
 @implementation HomePageController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = UIColor.orangeColor;
+    self.view.backgroundColor = UIColor.grayColor;
+    
+    [self.view addSubview:self.logoImgView];
+    [self.view addSubview:self.introduceView];
 }
 
 #pragma mark - Getter
 
+- (UIImageView *)logoImgView {
+    if (_logoImgView == nil) {
+        _logoImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, UIDevice.safeDistanceTop, self.view.width, self.view.width / 1.5)];
+        _logoImgView.image = [UIImage imageNamed:@"title.logo"];
+    }
+    return _logoImgView;
+}
 
+- (TeamIntroduceView *)introduceView {
+    if (_introduceView == nil) {
+        _introduceView = [[TeamIntroduceView alloc] initWithFrame:CGRectMake(15, self.logoImgView.bottom, self.view.width - 30, 180)];
+    }
+    return _introduceView;
+}
 
 #pragma mark - RisingRouterHandler
 

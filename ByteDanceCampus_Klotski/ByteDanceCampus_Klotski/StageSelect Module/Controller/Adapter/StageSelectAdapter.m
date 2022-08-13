@@ -29,8 +29,11 @@
 /// VC
 @property (nonatomic, weak) UIViewController *controller;
 
-/// 较高的Scroll高度
-@property (nonatomic) CGFloat topScrollHeight;
+/// 是否是子视图在滑动
+@property (nonatomic) BOOL isChildScroll;
+
+/// 是否在展示子视图
+@property (nonatomic) BOOL showChildScroll;
 
 @end
 
@@ -65,7 +68,6 @@
     [_scrollView removeFromSuperview];
     
     _scrollView = scrollView;
-    self.topScrollHeight = scrollView.height;
     
     scrollView.delegate = self;
     scrollView.height = 0;
@@ -149,36 +151,61 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     // 是tableView
     if (scrollView == self.tableView) {
+        self.isChildScroll = NO;
         // 正常滑动就直接返回
-        if (scrollView.contentOffset.y > 0) {
+        if (scrollView.contentOffset.y >= 0) {
             return;
         }
         // 向下滑动则吸顶
         self.topView.contentView.top = scrollView.contentOffset.y;
         [self.topView.contentView stretchBottom_toPointY:self.topView.SuperBottom offset:0];
-        // 同时有子scroll则放大
+        // 有子scroll则子scrollView放大
         if (self.scrollView) {
             self.scrollView.top = self.topView.contentView.top + self.topView.topBelowTitle;
             self.scrollView.height = -scrollView.contentOffset.y;
             [self.scrollView drawRect:self.scrollView.frame];
         }
+    } else {
+        CGFloat height = -self.tableView.height + 350;
+        if (self.isChildScroll) {
+            // 如果子视图正在滑动，父视图则保持原样
+            self.tableView.contentOffset = CGPointMake(0, height);
+        }
+        
+        CGFloat bottom = scrollView.contentSize.height - scrollView.bounds.size.height;
+        if (scrollView.contentOffset.y >= bottom) {
+            // 如果子视图滑动到底部
+            self.tableView.contentOffset = CGPointMake(0, self.tableView.contentOffset.y + scrollView.contentOffset.y - bottom);
+            // 保持子视图在底部
+            scrollView.contentOffset = CGPointMake(0, bottom);
+            self.isChildScroll = NO;
+        }
     }
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-    // 如果没有scrollView则不用显示悬停
+    // 如果没有scrollView则不用显示悬停，在展示scrollView也直接返回
     if (self.scrollView == nil) {
         return;
     }
     
-    if (scrollView.contentOffset.y <= -100 && velocity.y < 0) {
-        
-        *targetContentOffset = CGPointMake(0, -scrollView.height + 350);
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    RisingDetailLog(@"tableview? : %d", scrollView == self.tableView);
+    if ((self.scrollView.contentOffset.y < (self.scrollView.contentSize.height - self.scrollView.height - 5)) && self.showChildScroll) {
+        self.tableView.contentOffset = CGPointMake(0, -self.tableView.height + 350);
+        return;
+    }
+    
+    if (scrollView == self.tableView) {
+        if (scrollView.contentOffset.y <= -100 && velocity.y < 0) {
             
-            [scrollView setContentOffset:CGPointMake(0, -scrollView.height + 350) animated:YES];
-            [self.controller.tabBarController tabBarVisible:NO animated:YES];
-        });
+            *targetContentOffset = CGPointMake(0, -scrollView.height + 350);
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                
+                [scrollView setContentOffset:CGPointMake(0, -scrollView.height + 350) animated:YES];
+                [self.controller.tabBarController tabBarVisible:NO animated:YES];
+                self.showChildScroll = YES;
+            });
+        }
     }
 }
 
