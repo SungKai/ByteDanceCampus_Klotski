@@ -42,7 +42,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param alpha 透明度
 + (UIColor *)xFF_R:(CGFloat)red G:(CGFloat)green B:(CGFloat)blue Alpha:(CGFloat)alpha;
 
-+ (UIColor *)any:(UIColor *)anyColor dark:(UIColor *)darkColor;
++ (UIColor *)Any_hex:(NSString *)Ahex a:(CGFloat)Aalpha
+            Dark_hex:(NSString *)Dhex a:(CGFloat)Dalpha;
 
 @end
 

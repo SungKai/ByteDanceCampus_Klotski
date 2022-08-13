@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14011596289E57A40053CB81 /* StageSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14011595289E57A40053CB81 /* StageSelectCell.m */; };
+		14048C39289F943500C1025F /* StageSelectAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 14048C38289F943500C1025F /* StageSelectAdapter.m */; };
+		14048C41289FE68100C1025F /* StageTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14048C40289FE68100C1025F /* StageTopView.m */; };
+		14048C44289FE98D00C1025F /* UIDevice+Rising.m in Sources */ = {isa = PBXBuildFile; fileRef = 14048C43289FE98D00C1025F /* UIDevice+Rising.m */; };
+		14048C4728A0330800C1025F /* klotski.md in Resources */ = {isa = PBXBuildFile; fileRef = 14048C4628A0330700C1025F /* klotski.md */; };
+		142014AE28A7743600CBD0B3 /* TeamIntroduceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 142014AD28A7743600CBD0B3 /* TeamIntroduceView.m */; };
+		142014B128A778F000CBD0B3 /* TeamIntroduceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 142014B028A778F000CBD0B3 /* TeamIntroduceModel.m */; };
+		142014B328A779F700CBD0B3 /* team.plist in Resources */ = {isa = PBXBuildFile; fileRef = 142014B228A779F700CBD0B3 /* team.plist */; };
+		142014B628A77D8200CBD0B3 /* TeamIntroduceAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 142014B528A77D8200CBD0B3 /* TeamIntroduceAdapter.m */; };
+		142014B928A77E6300CBD0B3 /* TeamIntroduceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 142014B828A77E6300CBD0B3 /* TeamIntroduceItem.m */; };
 		1442D6E928976E22009CEB40 /* RisingRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6E028976E22009CEB40 /* RisingRouter.m */; };
 		1442D6EA28976E22009CEB40 /* RisingRouterResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6E528976E22009CEB40 /* RisingRouterResponse.m */; };
 		1442D6EB28976E22009CEB40 /* RisingRouter+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6E628976E22009CEB40 /* RisingRouter+Extension.m */; };
@@ -16,11 +26,13 @@
 		1442D7032897992A009CEB40 /* UIView+Rising.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6FB2897992A009CEB40 /* UIView+Rising.m */; };
 		1442D7042897992A009CEB40 /* RisingUIKitExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6FC2897992A009CEB40 /* RisingUIKitExtension.m */; };
 		1442D7052897992A009CEB40 /* UIColor+Rising.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6FF2897992A009CEB40 /* UIColor+Rising.m */; };
+		14626BA128A2555D00659D16 /* KlotskiTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14626B9F28A2555D00659D16 /* KlotskiTabController.m */; };
+		14A92BE228A2914B00D6ACB0 /* HomePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A92BE128A2914B00D6ACB0 /* HomePageController.m */; };
+		14A92BE828A4EB7C00D6ACB0 /* IntroduceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A92BE728A4EB7C00D6ACB0 /* IntroduceView.m */; };
 		14CDC855289B6C210009358F /* StageSelectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC854289B6C210009358F /* StageSelectModel.m */; };
 		14CDC860289B84ED0009358F /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC85F289B84ED0009358F /* Person.m */; };
 		14CDC863289B87330009358F /* Level.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC862289B87330009358F /* Level.mm */; };
 		14CDC867289B8EB60009358F /* level.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14CDC866289B8EB60009358F /* level.plist */; };
-		14CDC870289B94E70009358F /* StageSelectItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC86F289B94E70009358F /* StageSelectItem.m */; };
 		14CDC873289BE1FF0009358F /* LevelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC872289BE1FF0009358F /* LevelController.m */; };
 		14CDC876289BE2620009358F /* LevelCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC875289BE2620009358F /* LevelCollectionLayout.m */; };
 		14CDC878289BE7F70009358F /* PersonFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC877289BE7F70009358F /* PersonFrame.m */; };
@@ -29,13 +41,32 @@
 		14CDC88B289D3F340009358F /* PersonStep.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC88A289D3F340009358F /* PersonStep.m */; };
 		3C5AEF06B27681B0DEDEFE9B /* Pods_ByteDanceCampus_Klotski.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C2921943B00D1E1FDEA362 /* Pods_ByteDanceCampus_Klotski.framework */; };
 		B5759A1C288AE5D1007CE07E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5759A1B288AE5D1007CE07E /* AppDelegate.m */; };
-		B5759A22288AE5D1007CE07E /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5759A21288AE5D1007CE07E /* MainController.m */; };
+		B5759A22288AE5D1007CE07E /* StageSelectController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5759A21288AE5D1007CE07E /* StageSelectController.m */; };
 		B5759A27288AE5D2007CE07E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5759A26288AE5D2007CE07E /* Assets.xcassets */; };
 		B5759A2A288AE5D2007CE07E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5759A28288AE5D2007CE07E /* LaunchScreen.storyboard */; };
 		B5759A2D288AE5D2007CE07E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B5759A2C288AE5D2007CE07E /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		14011594289E57A40053CB81 /* StageSelectCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StageSelectCell.h; sourceTree = "<group>"; };
+		14011595289E57A40053CB81 /* StageSelectCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StageSelectCell.m; sourceTree = "<group>"; };
+		14048C36289F933E00C1025F /* FontHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FontHeader.h; sourceTree = "<group>"; };
+		14048C37289F943500C1025F /* StageSelectAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StageSelectAdapter.h; sourceTree = "<group>"; };
+		14048C38289F943500C1025F /* StageSelectAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StageSelectAdapter.m; sourceTree = "<group>"; };
+		14048C3F289FE68100C1025F /* StageTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StageTopView.h; sourceTree = "<group>"; };
+		14048C40289FE68100C1025F /* StageTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StageTopView.m; sourceTree = "<group>"; };
+		14048C42289FE98D00C1025F /* UIDevice+Rising.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Rising.h"; sourceTree = "<group>"; };
+		14048C43289FE98D00C1025F /* UIDevice+Rising.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Rising.m"; sourceTree = "<group>"; };
+		14048C4628A0330700C1025F /* klotski.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = klotski.md; sourceTree = "<group>"; };
+		142014AC28A7743600CBD0B3 /* TeamIntroduceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamIntroduceView.h; sourceTree = "<group>"; };
+		142014AD28A7743600CBD0B3 /* TeamIntroduceView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamIntroduceView.m; sourceTree = "<group>"; };
+		142014AF28A778F000CBD0B3 /* TeamIntroduceModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamIntroduceModel.h; sourceTree = "<group>"; };
+		142014B028A778F000CBD0B3 /* TeamIntroduceModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamIntroduceModel.m; sourceTree = "<group>"; };
+		142014B228A779F700CBD0B3 /* team.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = team.plist; sourceTree = "<group>"; };
+		142014B428A77D8200CBD0B3 /* TeamIntroduceAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamIntroduceAdapter.h; sourceTree = "<group>"; };
+		142014B528A77D8200CBD0B3 /* TeamIntroduceAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamIntroduceAdapter.m; sourceTree = "<group>"; };
+		142014B728A77E6300CBD0B3 /* TeamIntroduceItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamIntroduceItem.h; sourceTree = "<group>"; };
+		142014B828A77E6300CBD0B3 /* TeamIntroduceItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamIntroduceItem.m; sourceTree = "<group>"; };
 		1442D6E028976E22009CEB40 /* RisingRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RisingRouter.m; sourceTree = "<group>"; };
 		1442D6E128976E22009CEB40 /* RisingRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingRouter.h; sourceTree = "<group>"; };
 		1442D6E228976E22009CEB40 /* RisingRouterRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingRouterRequest.h; sourceTree = "<group>"; };
@@ -56,6 +87,12 @@
 		1442D6FE2897992A009CEB40 /* UIColor+Rising.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Rising.h"; sourceTree = "<group>"; };
 		1442D6FF2897992A009CEB40 /* UIColor+Rising.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Rising.m"; sourceTree = "<group>"; };
 		1442D7002897992A009CEB40 /* RisingUIKitExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingUIKitExtension.h; sourceTree = "<group>"; };
+		14626B9F28A2555D00659D16 /* KlotskiTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KlotskiTabController.m; sourceTree = "<group>"; };
+		14626BA028A2555D00659D16 /* KlotskiTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KlotskiTabController.h; sourceTree = "<group>"; };
+		14A92BE028A2914B00D6ACB0 /* HomePageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageController.h; sourceTree = "<group>"; };
+		14A92BE128A2914B00D6ACB0 /* HomePageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageController.m; sourceTree = "<group>"; };
+		14A92BE628A4EB7C00D6ACB0 /* IntroduceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroduceView.h; sourceTree = "<group>"; };
+		14A92BE728A4EB7C00D6ACB0 /* IntroduceView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroduceView.m; sourceTree = "<group>"; };
 		14CDC853289B6C210009358F /* StageSelectModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StageSelectModel.h; sourceTree = "<group>"; };
 		14CDC854289B6C210009358F /* StageSelectModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StageSelectModel.m; sourceTree = "<group>"; };
 		14CDC85E289B84ED0009358F /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
@@ -63,8 +100,6 @@
 		14CDC861289B87330009358F /* Level.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
 		14CDC862289B87330009358F /* Level.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Level.mm; sourceTree = "<group>"; };
 		14CDC866289B8EB60009358F /* level.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = level.plist; sourceTree = "<group>"; };
-		14CDC86E289B94E70009358F /* StageSelectItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StageSelectItem.h; sourceTree = "<group>"; };
-		14CDC86F289B94E70009358F /* StageSelectItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StageSelectItem.m; sourceTree = "<group>"; };
 		14CDC871289BE1FF0009358F /* LevelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelController.h; sourceTree = "<group>"; };
 		14CDC872289BE1FF0009358F /* LevelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LevelController.m; sourceTree = "<group>"; };
 		14CDC874289BE2620009358F /* LevelCollectionLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelCollectionLayout.h; sourceTree = "<group>"; };
@@ -82,8 +117,8 @@
 		B5759A17288AE5D1007CE07E /* ByteDanceCampus_Klotski.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ByteDanceCampus_Klotski.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5759A1A288AE5D1007CE07E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B5759A1B288AE5D1007CE07E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B5759A20288AE5D1007CE07E /* MainController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainController.h; sourceTree = "<group>"; };
-		B5759A21288AE5D1007CE07E /* MainController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainController.m; sourceTree = "<group>"; };
+		B5759A20288AE5D1007CE07E /* StageSelectController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StageSelectController.h; sourceTree = "<group>"; };
+		B5759A21288AE5D1007CE07E /* StageSelectController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StageSelectController.m; sourceTree = "<group>"; };
 		B5759A26288AE5D2007CE07E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5759A29288AE5D2007CE07E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5759A2B288AE5D2007CE07E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -113,6 +148,137 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		14048C3A289F99CE00C1025F /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				14CDC883289CB2DB0009358F /* LevelAdapter.h */,
+				14CDC884289CB2DB0009358F /* LevelAdapter.m */,
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
+		14048C3B289FDF4500C1025F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1404E5CA28A17999001E0B6E /* TopView */,
+				14A92BE928A5449600D6ACB0 /* IntroduceView */,
+				1404E5C928A1798E001E0B6E /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		14048C3C289FDF4A00C1025F /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				14048C37289F943500C1025F /* StageSelectAdapter.h */,
+				14048C38289F943500C1025F /* StageSelectAdapter.m */,
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
+		14048C3D289FDF5600C1025F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B5759A20288AE5D1007CE07E /* StageSelectController.h */,
+				B5759A21288AE5D1007CE07E /* StageSelectController.m */,
+				14048C3C289FDF4A00C1025F /* Adapter */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		14048C3E289FE11500C1025F /* StageSelect Module */ = {
+			isa = PBXGroup;
+			children = (
+				14048C3D289FDF5600C1025F /* Controller */,
+				14048C3B289FDF4500C1025F /* View */,
+			);
+			path = "StageSelect Module";
+			sourceTree = "<group>";
+		};
+		14048C45289FEAC900C1025F /* UIDevice+Rising */ = {
+			isa = PBXGroup;
+			children = (
+				14048C42289FE98D00C1025F /* UIDevice+Rising.h */,
+				14048C43289FE98D00C1025F /* UIDevice+Rising.m */,
+			);
+			path = "UIDevice+Rising";
+			sourceTree = "<group>";
+		};
+		1404E5C928A1798E001E0B6E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				14011594289E57A40053CB81 /* StageSelectCell.h */,
+				14011595289E57A40053CB81 /* StageSelectCell.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		1404E5CA28A17999001E0B6E /* TopView */ = {
+			isa = PBXGroup;
+			children = (
+				14048C3F289FE68100C1025F /* StageTopView.h */,
+				14048C40289FE68100C1025F /* StageTopView.m */,
+			);
+			name = TopView;
+			sourceTree = "<group>";
+		};
+		142014BA28A7DE3F00CBD0B3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				142014B728A77E6300CBD0B3 /* TeamIntroduceItem.h */,
+				142014B828A77E6300CBD0B3 /* TeamIntroduceItem.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		142014BB28A7DE4700CBD0B3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				142014AF28A778F000CBD0B3 /* TeamIntroduceModel.h */,
+				142014B028A778F000CBD0B3 /* TeamIntroduceModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		142014BC28A7DE5700CBD0B3 /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				142014B428A77D8200CBD0B3 /* TeamIntroduceAdapter.h */,
+				142014B528A77D8200CBD0B3 /* TeamIntroduceAdapter.m */,
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
+		142014BD28A7DE6700CBD0B3 /* TeamIntroduce Module */ = {
+			isa = PBXGroup;
+			children = (
+				142014AC28A7743600CBD0B3 /* TeamIntroduceView.h */,
+				142014AD28A7743600CBD0B3 /* TeamIntroduceView.m */,
+				142014BC28A7DE5700CBD0B3 /* Adapter */,
+				142014BB28A7DE4700CBD0B3 /* Model */,
+				142014BA28A7DE3F00CBD0B3 /* View */,
+			);
+			path = "TeamIntroduce Module";
+			sourceTree = "<group>";
+		};
+		142014BE28A7E45400CBD0B3 /* HomePage Module */ = {
+			isa = PBXGroup;
+			children = (
+				142014BF28A7E46900CBD0B3 /* Controller */,
+				142014BD28A7DE6700CBD0B3 /* TeamIntroduce Module */,
+			);
+			path = "HomePage Module";
+			sourceTree = "<group>";
+		};
+		142014BF28A7E46900CBD0B3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				14A92BE028A2914B00D6ACB0 /* HomePageController.h */,
+				14A92BE128A2914B00D6ACB0 /* HomePageController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		1442D6F12897992A009CEB40 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +294,7 @@
 			children = (
 				1442D6F32897992A009CEB40 /* RisingFoundationExtension.h */,
 				1442D6F52897992A009CEB40 /* RisingFoundationExtention.m */,
+				14048C36289F933E00C1025F /* FontHeader.h */,
 				14CDC87E289BEACF0009358F /* PersonFrame */,
 				14CDC87D289BEAC50009358F /* NSDate+Rising */,
 			);
@@ -141,6 +308,7 @@
 				1442D6FC2897992A009CEB40 /* RisingUIKitExtension.m */,
 				1442D6FD2897992A009CEB40 /* UIColor+Rising */,
 				1442D6F92897992A009CEB40 /* UIView+Rising */,
+				14048C45289FEAC900C1025F /* UIDevice+Rising */,
 			);
 			path = "UIKit Extension";
 			sourceTree = "<group>";
@@ -163,6 +331,24 @@
 			path = "UIColor+Rising";
 			sourceTree = "<group>";
 		};
+		145C83B328A25C7500DCE54C /* Klotski Tab Module */ = {
+			isa = PBXGroup;
+			children = (
+				14626BA028A2555D00659D16 /* KlotskiTabController.h */,
+				14626B9F28A2555D00659D16 /* KlotskiTabController.m */,
+			);
+			path = "Klotski Tab Module";
+			sourceTree = "<group>";
+		};
+		14A92BE928A5449600D6ACB0 /* IntroduceView */ = {
+			isa = PBXGroup;
+			children = (
+				14A92BE628A4EB7C00D6ACB0 /* IntroduceView.h */,
+				14A92BE728A4EB7C00D6ACB0 /* IntroduceView.m */,
+			);
+			name = IntroduceView;
+			sourceTree = "<group>";
+		};
 		14CDC868289B91EC0009358F /* Person */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,7 +358,7 @@
 			path = Person;
 			sourceTree = "<group>";
 		};
-		14CDC869289B91F60009358F /* Level */ = {
+		14CDC869289B91F60009358F /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				14CDC861289B87330009358F /* Level.h */,
@@ -181,7 +367,7 @@
 				14CDC88A289D3F340009358F /* PersonStep.m */,
 				14CDC868289B91EC0009358F /* Person */,
 			);
-			path = Level;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		14CDC86A289B91FE0009358F /* Model */ = {
@@ -189,6 +375,7 @@
 			children = (
 				14CDC853289B6C210009358F /* StageSelectModel.h */,
 				14CDC854289B6C210009358F /* StageSelectModel.m */,
+				14CDC869289B91F60009358F /* Model */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -234,20 +421,19 @@
 			children = (
 				14CDC871289BE1FF0009358F /* LevelController.h */,
 				14CDC872289BE1FF0009358F /* LevelController.m */,
-				14CDC883289CB2DB0009358F /* LevelAdapter.h */,
-				14CDC884289CB2DB0009358F /* LevelAdapter.m */,
+				14048C3A289F99CE00C1025F /* Adapter */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		14CDC882289BF6DF0009358F /* Level module */ = {
+		14CDC882289BF6DF0009358F /* Level Module */ = {
 			isa = PBXGroup;
 			children = (
 				14CDC881289BF6CC0009358F /* Controller */,
 				14CDC880289BF6C70009358F /* View */,
 				14CDC87F289BF6C10009358F /* Layout */,
 			);
-			path = "Level module";
+			path = "Level Module";
 			sourceTree = "<group>";
 		};
 		14E745B9288AFA38007436F6 /* Router */ = {
@@ -295,13 +481,11 @@
 		B5759A19288AE5D1007CE07E /* ByteDanceCampus_Klotski */ = {
 			isa = PBXGroup;
 			children = (
-				B5759A20288AE5D1007CE07E /* MainController.h */,
-				B5759A21288AE5D1007CE07E /* MainController.m */,
-				14CDC86E289B94E70009358F /* StageSelectItem.h */,
-				14CDC86F289B94E70009358F /* StageSelectItem.m */,
+				14048C3E289FE11500C1025F /* StageSelect Module */,
+				14CDC882289BF6DF0009358F /* Level Module */,
+				142014BE28A7E45400CBD0B3 /* HomePage Module */,
+				145C83B328A25C7500DCE54C /* Klotski Tab Module */,
 				14CDC86A289B91FE0009358F /* Model */,
-				14CDC882289BF6DF0009358F /* Level module */,
-				14CDC869289B91F60009358F /* Level */,
 				14E745B9288AFA38007436F6 /* Router */,
 				1442D6F12897992A009CEB40 /* Extension */,
 				B5759A33288AE6A0007CE07E /* Supporting Files */,
@@ -317,8 +501,10 @@
 				B5759A2C288AE5D2007CE07E /* main.m */,
 				B5759A1A288AE5D1007CE07E /* AppDelegate.h */,
 				B5759A1B288AE5D1007CE07E /* AppDelegate.m */,
+				142014B228A779F700CBD0B3 /* team.plist */,
 				14CDC866289B8EB60009358F /* level.plist */,
 				B5759A26288AE5D2007CE07E /* Assets.xcassets */,
+				14048C4628A0330700C1025F /* klotski.md */,
 				B5759A28288AE5D2007CE07E /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
@@ -386,6 +572,8 @@
 				B5759A2A288AE5D2007CE07E /* LaunchScreen.storyboard in Resources */,
 				14CDC867289B8EB60009358F /* level.plist in Resources */,
 				B5759A27288AE5D2007CE07E /* Assets.xcassets in Resources */,
+				14048C4728A0330800C1025F /* klotski.md in Resources */,
+				142014B328A779F700CBD0B3 /* team.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,25 +629,35 @@
 				14CDC863289B87330009358F /* Level.mm in Sources */,
 				14CDC87C289BEAB00009358F /* PersonItem.m in Sources */,
 				14CDC878289BE7F70009358F /* PersonFrame.m in Sources */,
-				B5759A22288AE5D1007CE07E /* MainController.m in Sources */,
+				B5759A22288AE5D1007CE07E /* StageSelectController.m in Sources */,
 				14CDC876289BE2620009358F /* LevelCollectionLayout.m in Sources */,
 				1442D7022897992A009CEB40 /* RisingFoundationExtention.m in Sources */,
+				14048C39289F943500C1025F /* StageSelectAdapter.m in Sources */,
 				14CDC860289B84ED0009358F /* Person.m in Sources */,
 				B5759A1C288AE5D1007CE07E /* AppDelegate.m in Sources */,
 				1442D6EC28976E22009CEB40 /* RisingRouterRequest.m in Sources */,
 				1442D7052897992A009CEB40 /* UIColor+Rising.m in Sources */,
+				14626BA128A2555D00659D16 /* KlotskiTabController.m in Sources */,
 				1442D7042897992A009CEB40 /* RisingUIKitExtension.m in Sources */,
 				B5759A2D288AE5D2007CE07E /* main.m in Sources */,
+				14011596289E57A40053CB81 /* StageSelectCell.m in Sources */,
 				1442D7032897992A009CEB40 /* UIView+Rising.m in Sources */,
+				142014B128A778F000CBD0B3 /* TeamIntroduceModel.m in Sources */,
+				142014B928A77E6300CBD0B3 /* TeamIntroduceItem.m in Sources */,
 				14CDC873289BE1FF0009358F /* LevelController.m in Sources */,
 				1442D7012897992A009CEB40 /* NSDate+Rising.m in Sources */,
+				14A92BE828A4EB7C00D6ACB0 /* IntroduceView.m in Sources */,
 				14CDC88B289D3F340009358F /* PersonStep.m in Sources */,
+				142014AE28A7743600CBD0B3 /* TeamIntroduceView.m in Sources */,
+				14048C44289FE98D00C1025F /* UIDevice+Rising.m in Sources */,
 				1442D6EA28976E22009CEB40 /* RisingRouterResponse.m in Sources */,
+				14048C41289FE68100C1025F /* StageTopView.m in Sources */,
+				142014B628A77D8200CBD0B3 /* TeamIntroduceAdapter.m in Sources */,
 				14CDC855289B6C210009358F /* StageSelectModel.m in Sources */,
 				1442D6EB28976E22009CEB40 /* RisingRouter+Extension.m in Sources */,
+				14A92BE228A2914B00D6ACB0 /* HomePageController.m in Sources */,
 				14CDC885289CB2DB0009358F /* LevelAdapter.m in Sources */,
 				1442D6E928976E22009CEB40 /* RisingRouter.m in Sources */,
-				14CDC870289B94E70009358F /* StageSelectItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,8 +802,10 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ByteDanceCampus_Klotski/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "华容道";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -613,7 +813,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "sungkaikai.ByteDanceCampus-Klotski";
+				PRODUCT_BUNDLE_IDENTIFIER = RisingSSR.ByteDance.Klotski;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -632,8 +832,10 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ByteDanceCampus_Klotski/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "华容道";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -641,7 +843,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "sungkaikai.ByteDanceCampus-Klotski";
+				PRODUCT_BUNDLE_IDENTIFIER = RisingSSR.ByteDance.Klotski;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = 1;

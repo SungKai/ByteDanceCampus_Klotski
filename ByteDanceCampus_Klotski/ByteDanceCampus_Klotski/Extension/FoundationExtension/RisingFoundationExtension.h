@@ -10,6 +10,8 @@
 #ifndef RisingFoundationExtension_h
 #define RisingFoundationExtension_h
 
+#import "FontHeader.h"
+
 #import "NSDate+Rising.h"
 
 #import "PersonFrame.h"

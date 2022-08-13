@@ -1,4 +1,5 @@
 PODS:
+  - CocoaMarkdown (1.2.7)
   - FluentDarkModeKit (1.0.4)
   - Masonry (1.1.0)
   - MJExtension (3.4.1)
@@ -13,6 +14,7 @@ PODS:
   - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
+  - CocoaMarkdown
   - FluentDarkModeKit
   - Masonry (~> 1.1.0)
   - MJExtension
@@ -21,6 +23,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
+    - CocoaMarkdown
     - FluentDarkModeKit
     - Masonry
     - MJExtension
@@ -30,6 +33,7 @@ SPEC REPOS:
     - YYKit
 
 SPEC CHECKSUMS:
+  CocoaMarkdown: c0c4707fd46ee03d5b662a3cd93560f0fe2b79b6
   FluentDarkModeKit: b6317653a00329564582884772ec57c4eaad1a1f
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 21c5f6f8c4d5d8844b7ae8fbae08fed0b501f961
@@ -38,6 +42,6 @@ SPEC CHECKSUMS:
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 9a41912bc21136593ab425df78ce3c881b34e230
+PODFILE CHECKSUM: 1ca69ac6a31e2a98c63fa5080b71e589ea973a13
 
 COCOAPODS: 1.11.3

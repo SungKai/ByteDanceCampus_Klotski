@@ -15,7 +15,7 @@
 
 + (UIColor *)colorWithHexString:(NSString *)hexColor
                           alpha:(CGFloat)opacity {
-    NSAssert(opacity < 0 || opacity > 1, @"透明度应在[0,1]区间范围");
+    NSAssert(opacity >= 0 && opacity <= 1, @"透明度应在[0,1]区间范围");
     
     //删除字符串中的空格
     NSString *cString = [[hexColor stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
@@ -103,8 +103,9 @@
     return [UIColor colorWithRed:red / 255 green:green / 255 blue:blue / 255 alpha:alpha];
 }
 
-+ (UIColor *)any:(UIColor *)anyColor dark:(UIColor *)darkColor {
-    return [UIColor dm_colorWithLightColor:anyColor darkColor:darkColor];
++ (UIColor *)Any_hex:(NSString *)Ahex a:(CGFloat)Aalpha
+            Dark_hex:(NSString *)Dhex a:(CGFloat)Dalpha {
+    return [self dm_colorWithLightColor:[self colorWithHexString:Ahex alpha:Aalpha] darkColor:[self colorWithHexString:Dhex alpha:Dalpha]];
 }
 
 @end

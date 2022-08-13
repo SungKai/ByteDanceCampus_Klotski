@@ -13,6 +13,7 @@ target 'ByteDanceCampus_Klotski' do
 	pod 'FluentDarkModeKit'
 	pod 'MJExtension'
 	pod 'WCDB'
+	pod 'CocoaMarkdown'
 
 end
 
