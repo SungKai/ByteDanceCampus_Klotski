@@ -7,7 +7,7 @@
 
 #import "KlotskiTabController.h"
 
-#import <objc/runtime.h>
+#import "StageSelectModel.h"
 
 #pragma mark - KlotskiTabController ()
 
@@ -15,6 +15,9 @@
 
 /// 自定义一个TabBar
 @property (nonatomic, strong) UITabBar *klotskiTabBar;
+
+/// 游戏嘛，全局model不过分
+@property (nonatomic, strong) StageSelectModel *model;
 
 @end
 
@@ -27,6 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tabBar.hidden = YES;
+    self.model = [[StageSelectModel alloc] init];
     
     [self.view addSubview:self.klotskiTabBar];
     self.viewControllers = @[self.navForHomePage, self.navForStageSelect];
@@ -49,7 +53,12 @@
 }
 
 - (UIViewController *)navForStageSelect {
-    UIViewController *vc = [self.router controllerForRouterPath:@"StageSelectController"];
+    UIViewController *vc =
+    [self.router
+     controllerForRouterPath:@"StageSelectController"
+     parameters:@{
+        @"StageSelectModel" : self.model
+    }];
     
     vc.tabBarItem =
     [[UITabBarItem alloc]
@@ -66,7 +75,10 @@
 }
 
 - (UIViewController *)navForHomePage {
-    UIViewController *vc = [self.router controllerForRouterPath:@"HomePageController"];
+    UIViewController *vc =
+    [self.router
+     controllerForRouterPath:@"HomePageController"];
+    // TODO: 每日容道的parameter算法与传入
     
     vc.tabBarItem =
     [[UITabBarItem alloc]

@@ -86,7 +86,9 @@
 
 - (void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(nonnull NSIndexPath *)sourceIndexPath toIndexPath:(nonnull NSIndexPath *)destinationIndexPath
 {
-    [self.model exchangeObjectAtIndex:sourceIndexPath.item withObjectAtIndex:destinationIndexPath.item];
+    TeamIntroduceModel *model = self.model[sourceIndexPath.item];
+    [self.model removeObject:model];
+    [self.model insertObject:model atIndex:destinationIndexPath.item];
 }
 
 #pragma mark - <UICollectionViewDelegate>

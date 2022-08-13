@@ -62,6 +62,7 @@
         _collectionView.showsVerticalScrollIndicator = NO;
         _collectionView.showsHorizontalScrollIndicator = NO;
         _collectionView.backgroundColor = UIColor.clearColor;
+        _collectionView.clipsToBounds = NO;
     }
     return _collectionView;
 }

@@ -9,6 +9,8 @@
 
 #import "TeamIntroduceView.h"
 
+#import "Level.h"
+
 #pragma mark - HomePageController ()
 
 @interface HomePageController ()
@@ -19,11 +21,24 @@
 /// 介绍
 @property (nonatomic, strong) TeamIntroduceView *introduceView;
 
+/// 关卡（用于今日关卡选择
+@property (nonatomic, strong) Level *model;
+
 @end
 
 #pragma mark - HomePageController
 
 @implementation HomePageController
+
+#pragma mark - Method
+
+- (instancetype)initWithModel:(Level *)model {
+    self = [super init];
+    if (self) {
+        self.model = model;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -68,7 +83,14 @@
             UINavigationController *nav = (request.requestController ? request.requestController : RisingRouterRequest.useTopController).navigationController;
             
             if (nav) {
-                HomePageController *vc = [[self alloc] init];
+                HomePageController *vc;
+                if (request.parameters[@"level"]) {
+                    Level *model = request.parameters[@"level"];
+                    vc = [[self alloc] initWithModel:model];
+                } else {
+                    vc = [[self alloc] init];
+                }
+                
                 response.responseController = vc;
                 
                 [nav pushViewController:vc animated:YES];

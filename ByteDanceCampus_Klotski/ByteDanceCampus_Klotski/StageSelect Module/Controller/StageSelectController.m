@@ -42,11 +42,22 @@
 
 #pragma mark - Life cycle
 
+- (instancetype)initWithModel:(StageSelectModel *)model {
+    self = [super init];
+    if (self) {
+        self.stageModel = model;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = YES;
     
-    self.stageModel = [[StageSelectModel alloc] init];
+    if (self.stageModel == nil) {
+        self.stageModel = [[StageSelectModel alloc] init];
+    }
+    
     self.adapter = [StageSelectAdapter
                     adapterWithController:self
                     tableView:self.stageTableView
@@ -125,7 +136,14 @@
             UINavigationController *nav = (request.requestController ? request.requestController : RisingRouterRequest.useTopController).navigationController;
             
             if (nav) {
-                StageSelectController *vc = [[self alloc] init];
+                StageSelectController *vc;
+                if (request.parameters[@"StageSelectModel"]) {
+                    StageSelectModel *model = request.parameters[@"StageSelectModel"];
+                    vc = [[self alloc] initWithModel:model];
+                } else {
+                    vc = [[self alloc] init];
+                }
+                
                 response.responseController = vc;
                 
                 [nav pushViewController:vc animated:YES];

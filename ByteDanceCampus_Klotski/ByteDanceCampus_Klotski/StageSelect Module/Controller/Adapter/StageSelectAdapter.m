@@ -32,9 +32,6 @@
 /// 是否是子视图在滑动
 @property (nonatomic) BOOL isChildScroll;
 
-/// 是否在展示子视图
-@property (nonatomic) BOOL showChildScroll;
-
 @end
 
 #pragma mark - StageSelectAdapter
@@ -154,6 +151,7 @@
         self.isChildScroll = NO;
         // 正常滑动就直接返回
         if (scrollView.contentOffset.y >= 0) {
+            [self.controller.tabBarController tabBarVisible:YES animated:YES];
             return;
         }
         // 向下滑动则吸顶
@@ -188,12 +186,7 @@
     if (self.scrollView == nil) {
         return;
     }
-    
-    RisingDetailLog(@"tableview? : %d", scrollView == self.tableView);
-    if ((self.scrollView.contentOffset.y < (self.scrollView.contentSize.height - self.scrollView.height - 5)) && self.showChildScroll) {
-        self.tableView.contentOffset = CGPointMake(0, -self.tableView.height + 350);
-        return;
-    }
+    // TODO: 如果松手时是子Scroll，那会先掉父，再掉子，有没有解决方案？
     
     if (scrollView == self.tableView) {
         if (scrollView.contentOffset.y <= -100 && velocity.y < 0) {
@@ -203,7 +196,6 @@
                 
                 [scrollView setContentOffset:CGPointMake(0, -scrollView.height + 350) animated:YES];
                 [self.controller.tabBarController tabBarVisible:NO animated:YES];
-                self.showChildScroll = YES;
             });
         }
     }
