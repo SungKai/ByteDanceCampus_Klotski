@@ -96,7 +96,14 @@
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PersonItem *cell = [collectionView dequeueReusableCellWithReuseIdentifier:PersonItemReuseIdentifier forIndexPath:indexPath];
     
-    cell.name = self.model.currentPersons[indexPath.item].name;
+    Person *model = self.model.currentPersons[indexPath.item];
+    NSString *str =
+    (model.width == model.height ?
+     model.name :
+     [NSString stringWithFormat:@"%@.%@", model.name,
+      (model.width == (model.height * 2) ? @"H" : @"V")]);
+    
+    cell.name = str;
     
     return cell;
 }
