@@ -15,7 +15,7 @@
       "scale" : "1x"
     },
     {
-      "filename" : "huangzong_H.png",
+      "filename" : "huangzong_HD.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -26,7 +26,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "huangzong_HD.png",
+      "filename" : "huangzong_H.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

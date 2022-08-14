@@ -76,10 +76,6 @@
     [self.tabBarController tabBarVisible:YES animated:YES];
 }
 
-#pragma mark - Method
-
-// MARK: SEL
-
 #pragma mark - Getter
 
 - (UIImageView *)backImgView {

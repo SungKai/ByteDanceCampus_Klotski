@@ -187,6 +187,11 @@
         return;
     }
     // TODO: 如果松手时是子Scroll，那会先掉父，再掉子，有没有解决方案？
+    RisingDetailLog(@"tableView? %d", scrollView == self.tableView);
+    if (scrollView == self.scrollView) {
+        self.tableView.contentOffset = CGPointMake(0, -scrollView.height + 350);
+        return;
+    }
     
     if (scrollView == self.tableView) {
         if (scrollView.contentOffset.y <= -100 && velocity.y < 0) {

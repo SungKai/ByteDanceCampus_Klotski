@@ -8,6 +8,8 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
+#import "KlotskiHeader.h"
+
 #import "RisingRouter.h"
 
 #import "KlotskiTabController.h"

@@ -89,6 +89,7 @@
 		1442D7002897992A009CEB40 /* RisingUIKitExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingUIKitExtension.h; sourceTree = "<group>"; };
 		14626B9F28A2555D00659D16 /* KlotskiTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KlotskiTabController.m; sourceTree = "<group>"; };
 		14626BA028A2555D00659D16 /* KlotskiTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KlotskiTabController.h; sourceTree = "<group>"; };
+		1480BBC628A8FFD5009F0244 /* KlotskiHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KlotskiHeader.h; sourceTree = "<group>"; };
 		14A92BE028A2914B00D6ACB0 /* HomePageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageController.h; sourceTree = "<group>"; };
 		14A92BE128A2914B00D6ACB0 /* HomePageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageController.m; sourceTree = "<group>"; };
 		14A92BE628A4EB7C00D6ACB0 /* IntroduceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroduceView.h; sourceTree = "<group>"; };
@@ -501,10 +502,11 @@
 				B5759A2C288AE5D2007CE07E /* main.m */,
 				B5759A1A288AE5D1007CE07E /* AppDelegate.h */,
 				B5759A1B288AE5D1007CE07E /* AppDelegate.m */,
+				1480BBC628A8FFD5009F0244 /* KlotskiHeader.h */,
 				142014B228A779F700CBD0B3 /* team.plist */,
 				14CDC866289B8EB60009358F /* level.plist */,
-				B5759A26288AE5D2007CE07E /* Assets.xcassets */,
 				14048C4628A0330700C1025F /* klotski.md */,
+				B5759A26288AE5D2007CE07E /* Assets.xcassets */,
 				B5759A28288AE5D2007CE07E /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
