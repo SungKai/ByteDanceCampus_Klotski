@@ -110,13 +110,6 @@ FOUNDATION_EXPORT NSString *LevelTableName;
 - (void)currentPersonAtIndex:(NSInteger)index
                       moveTo:(PersonDirection)direction;
 
-/// 已经执行完了刚刚那一步
-/// @param index 棋子所在下标
-/// @param direction 所想移动的方向
-- (void)currentPersonAtIndex:(NSInteger)index
-didMoveWithProposedDirection:(PersonDirection)direction;
-
-
 /// 是否结束（计算属性）
 @property (nonatomic, readonly) BOOL isGameOver;
 

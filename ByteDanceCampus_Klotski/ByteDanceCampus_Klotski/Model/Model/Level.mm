@@ -264,16 +264,6 @@ WCDB_SYNTHESIZE(Level, originLayoutStr)
     }
 }
 
-- (void)currentPersonAtIndex:(NSInteger)index didMoveWithProposedDirection:(PersonDirection)direction {
-    // TODO: 当视图移动完后会掉用此方法 >>>
-    // 对onlyCode的改变
-    // FIXME: <<<
-    
-}
-
-- (void)reset {
-}
-
 - (BOOL)isGameOver {
     // TODO: 曹操是否在结束位置 >>>
     //
