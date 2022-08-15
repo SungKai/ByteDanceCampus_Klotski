@@ -75,6 +75,16 @@ WCDB_SYNTHESIZE(Level, originLayoutStr)
     return self;
 }
 
+#pragma mark - Privety Method
+
+- (void)__setCodeWithPerson:(Person *)person {
+    for (int i = person.x; i < (person.x + person.width); i++) {
+        for (int j = person.y; j < (person.y + person.height); j++) {
+            _onlyCode[j * 4 + i] = (int)person.type;
+        }
+    }
+}
+
 #pragma mark - Getter
 
 + (NSString *)DBpath {
@@ -91,8 +101,35 @@ WCDB_SYNTHESIZE(Level, originLayoutStr)
     return _db;
 }
 
-@end
+#pragma mark - Setter
 
+- (void)setOriginLayoutStr:(NSMutableString *)originLayoutStr {
+    _originLayoutStr = originLayoutStr;
+    
+    NSArray <NSString *> *strAry = [_originLayoutStr componentsSeparatedByString:@" "];
+    NSMutableArray <Person *> *mutAry = [NSMutableArray arrayWithCapacity:strAry.count];
+    std::array<int, 20> t = {};
+    _onlyCode = t;
+    
+    for (int i = 0; i < strAry.count; i++) {
+        NSString *aStr = strAry[i];
+        int x = [aStr substringWithRange:NSMakeRange(0, 1)].intValue;
+        int y = [aStr substringWithRange:NSMakeRange(1, 1)].intValue;
+        int width = [aStr substringWithRange:NSMakeRange(2, 1)].intValue;
+        int height = [aStr substringWithRange:NSMakeRange(3, 1)].intValue;
+        NSString *name = [aStr substringFromIndex:4];
+        
+        Person *p = [[Person alloc] init];
+        p.name = name;
+        p.frame = PersonFrameMake(x, y, width, height);
+        [mutAry addObject:p];
+        
+        [self __setCodeWithPerson:p];
+    }
+    _personAry = mutAry.copy;
+}
+
+@end
 
 
 
@@ -123,6 +160,10 @@ WCDB_SYNTHESIZE(Level, originLayoutStr)
     return self;
 }
 
++ (NSArray<Level *> *)levelsFromWCDB {
+    return [self.DB getAllObjectsOfClass:self.class fromTable:LevelTableName];
+}
+
 - (void)replacePersons:(NSArray<Person *> *)personAry {
     _personAry = personAry.copy;
     
@@ -149,14 +190,6 @@ WCDB_SYNTHESIZE(Level, originLayoutStr)
         p.x = x;
         p.y = y;
         [self __setCodeWithPerson:p];
-    }
-}
-
-- (void)__setCodeWithPerson:(Person *)person {
-    for (int i = person.x; i < (person.x + person.width); i++) {
-        for (int j = person.y; j < (person.y + person.height); j++) {
-            _onlyCode[j * 4 + i] = (int)person.type;
-        }
     }
 }
 

@@ -74,6 +74,9 @@ FOUNDATION_EXPORT NSString *LevelTableName;
 /// @param personAry 对象
 - (instancetype)initWithName:(NSString *)name persons:(NSArray <Person *> *)personAry;
 
+/// 从WCDB中取除的对象
++ (NSArray <Level *> *)levelsFromWCDB;
+
 /// 设置/重组关卡的对象
 /// @param personAry 对象
 - (void)replacePersons:(NSArray <Person *> *)personAry;
