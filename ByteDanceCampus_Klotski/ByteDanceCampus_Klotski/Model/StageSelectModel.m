@@ -15,7 +15,8 @@
         NSMutableArray <Level *> *mutAry = NSMutableArray.array;
         NSArray *array = [NSArray arrayWithContentsOfFile:[NSBundle.mainBundle pathForResource:@"level" ofType:@"plist"]];
         for (NSDictionary *dic in array) {
-            [mutAry addObject:[[Level alloc] initWithDictionary:dic]];
+            Level *model = [[Level alloc] initWithDictionary:dic];
+            [mutAry addObject:model];
         }
         _stages = mutAry.copy;
     }
