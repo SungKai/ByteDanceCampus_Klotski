@@ -21,7 +21,7 @@
 /// 介绍
 @property (nonatomic, strong) TeamIntroduceView *introduceView;
 
-/// 关卡（用于今日关卡选择
+/// 关卡（用于今日关卡选择）
 @property (nonatomic, strong) Level *model;
 
 /// 今日推荐按钮
@@ -33,7 +33,7 @@
 
 @implementation HomePageController
 
-#pragma mark - Method
+#pragma mark - Life cycle
 
 - (instancetype)initWithModel:(Level *)model {
     self = [super init];
@@ -66,6 +66,10 @@
     }];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.tabBarController tabBarVisible:YES animated:YES];
+}
 
 #pragma mark - Getter
 

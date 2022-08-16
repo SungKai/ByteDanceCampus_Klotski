@@ -34,7 +34,9 @@ NSString * PersonItemReuseIdentifier = @"PersonItem";
         self.contentView.backgroundColor = UIColor.orangeColor;
         self.contentView.layer.cornerRadius = 17;
         self.contentView.clipsToBounds = YES;
-        [self.contentView addSubview:self.perImgView];
+//        [self.contentView addSubview:self.perImgView];
+        
+        [self.contentView addSubview:self.nameLab];
     }
     return self;
 }
@@ -42,6 +44,10 @@ NSString * PersonItemReuseIdentifier = @"PersonItem";
 - (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
     CGRect rect = layoutAttributes.frame;
     self.perImgView.size = rect.size;
+    
+    self.nameLab.top = 0;
+    self.nameLab.width = rect.size.width;
+    self.nameLab.height = 50;
 }
 
 #pragma mark - Method

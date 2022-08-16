@@ -76,10 +76,6 @@
     [self.tabBarController tabBarVisible:YES animated:YES];
 }
 
-#pragma mark - Method
-
-// MARK: SEL
-
 #pragma mark - Getter
 
 - (UIImageView *)backImgView {
@@ -94,6 +90,7 @@
     if (_topView == nil) {
         _topView = [[StageTopView alloc] initWithFrame:CGRectMake(0, 0, self.stageTableView.width, 140)];
         _topView.title = @"华容道";
+        self.transitioningDelegate;
     }
     return _topView;
 }

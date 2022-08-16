@@ -15,23 +15,26 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/// 数据表的表名
+FOUNDATION_EXPORT NSString *PersonTableName;
+
 #pragma mark - ENUM (PersonType)
 
 typedef NS_ENUM(NSUInteger, PersonType) {
-    PersonFoo,        // 空   0 * 0
-    PersonTinySquare, // 卒   1 * 1
-    PersonVertical,   // 竖   1 * 2
-    PersonHorizontal, // 横   2 * 1
-    PersonBigSquare   // 曹   2 * 2
+    PersonFoo,        // 空   0 * 0   0
+    PersonTinySquare, // 卒   1 * 1   1
+    PersonVertical,   // 竖   1 * 2   2
+    PersonHorizontal, // 横   2 * 1   3
+    PersonBigSquare   // 曹   2 * 2   4
 };
 
 #pragma mark - ENUM (PersonDirrection)
 
 typedef NS_ENUM(NSUInteger, PersonDirection) {
-    PersonDirectionRight, // 右
-    PersonDirectionLeft,  // 左
-    PersonDirectionUP,    // 上
-    PersonDirectionDown   // 下
+    PersonDirectionRight, // 右  0
+    PersonDirectionLeft,  // 左  1
+    PersonDirectionUP,    // 上  2
+    PersonDirectionDown   // 下  3
 };
 
 #pragma mark - Person
@@ -43,24 +46,27 @@ typedef NS_ENUM(NSUInteger, PersonDirection) {
 /// 名字
 @property (nonatomic, copy) NSString *name;
 
-/// 宽度
-@property (nonatomic) int width;
-
-/// 高度
-@property (nonatomic) int height;
-
 /// 左边
 @property (nonatomic) int x;
 
 /// 顶部
 @property (nonatomic) int y;
 
+/// 宽度
+@property (nonatomic, readonly) int width;
+
+/// 高度
+@property (nonatomic, readonly) int height;
+
 /// 快速得到frame（计算属性）
 /// setter时，会对x，y，width，height做出改变
 @property (nonatomic) PersonFrame frame;
 
 /// 得到相关类型（计算属性）
-@property (nonatomic) PersonType type;
+@property (nonatomic, readonly) PersonType type;
+
+/// 得到code（计算属性）
+@property (nonatomic, readonly) NSString *code;
 
 /// 根据字典创建
 /// @param dictionary 字典

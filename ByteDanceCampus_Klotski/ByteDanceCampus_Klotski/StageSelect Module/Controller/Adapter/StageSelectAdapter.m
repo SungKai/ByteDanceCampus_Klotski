@@ -187,6 +187,8 @@
         return;
     }
     // TODO: 如果松手时是子Scroll，那会先掉父，再掉子，有没有解决方案？
+    UIPanGestureRecognizer *pan = scrollView.panGestureRecognizer;
+    
     
     if (scrollView == self.tableView) {
         if (scrollView.contentOffset.y <= -100 && velocity.y < 0) {

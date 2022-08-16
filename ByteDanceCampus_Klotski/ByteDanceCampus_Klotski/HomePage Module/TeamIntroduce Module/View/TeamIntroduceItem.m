@@ -31,8 +31,12 @@ NSString * TeamIntroduceItemReuseIdentifier = @"TeamIntroduceItem";
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = UIColor.clearColor;
-        self.contentView.backgroundColor = UIColor.orangeColor;
+        self.contentView.backgroundColor =
+        [UIColor Any_hex:@"#F6F1FD" a:1 Dark_hex:@"F2FBF0" a:1];
         self.contentView.layer.cornerRadius = 20;
+        self.contentView.layer.borderWidth = 2;
+        self.contentView.layer.borderColor =
+        [UIColor Any_hex:@"#C9B3F5" a:1 Dark_hex:@"#C2EAB6" a:1].CGColor;
         
         [self.contentView addSubview:self.titleLab];
         [self.contentView addSubview:self.contentLab];
@@ -61,6 +65,7 @@ NSString * TeamIntroduceItemReuseIdentifier = @"TeamIntroduceItem";
     if (_titleLab == nil) {
         _titleLab = [[UILabel alloc] initWithFrame:CGRectMake(10, 7, 0, 30)];
         _titleLab.font = [UIFont fontWithName:PingFangSCBold size:16];
+        _titleLab.textColor = [UIColor colorWithHexString:@"#112C54"];
     }
     return _titleLab;
 }
@@ -69,6 +74,7 @@ NSString * TeamIntroduceItemReuseIdentifier = @"TeamIntroduceItem";
     if (_contentLab == nil) {
         _contentLab = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 0, 20)];
         _contentLab.font = [UIFont fontWithName:PingFangSCBold size:12];
+        _contentLab.textColor = [UIColor colorWithHexString:@"#112C54"];
     }
     return _contentLab;
 }

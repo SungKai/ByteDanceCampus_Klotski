@@ -38,7 +38,6 @@
 		14CDC878289BE7F70009358F /* PersonFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC877289BE7F70009358F /* PersonFrame.m */; };
 		14CDC87C289BEAB00009358F /* PersonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC87B289BEAB00009358F /* PersonItem.m */; };
 		14CDC885289CB2DB0009358F /* LevelAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC884289CB2DB0009358F /* LevelAdapter.m */; };
-		14CDC88B289D3F340009358F /* PersonStep.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC88A289D3F340009358F /* PersonStep.m */; };
 		3C5AEF06B27681B0DEDEFE9B /* Pods_ByteDanceCampus_Klotski.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C2921943B00D1E1FDEA362 /* Pods_ByteDanceCampus_Klotski.framework */; };
 		B5759A1C288AE5D1007CE07E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5759A1B288AE5D1007CE07E /* AppDelegate.m */; };
 		B5759A22288AE5D1007CE07E /* StageSelectController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5759A21288AE5D1007CE07E /* StageSelectController.m */; };
@@ -89,6 +88,7 @@
 		1442D7002897992A009CEB40 /* RisingUIKitExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisingUIKitExtension.h; sourceTree = "<group>"; };
 		14626B9F28A2555D00659D16 /* KlotskiTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KlotskiTabController.m; sourceTree = "<group>"; };
 		14626BA028A2555D00659D16 /* KlotskiTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KlotskiTabController.h; sourceTree = "<group>"; };
+		1480BBC628A8FFD5009F0244 /* KlotskiHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KlotskiHeader.h; sourceTree = "<group>"; };
 		14A92BE028A2914B00D6ACB0 /* HomePageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageController.h; sourceTree = "<group>"; };
 		14A92BE128A2914B00D6ACB0 /* HomePageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageController.m; sourceTree = "<group>"; };
 		14A92BE628A4EB7C00D6ACB0 /* IntroduceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroduceView.h; sourceTree = "<group>"; };
@@ -110,8 +110,6 @@
 		14CDC87B289BEAB00009358F /* PersonItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonItem.m; sourceTree = "<group>"; };
 		14CDC883289CB2DB0009358F /* LevelAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelAdapter.h; sourceTree = "<group>"; };
 		14CDC884289CB2DB0009358F /* LevelAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LevelAdapter.m; sourceTree = "<group>"; };
-		14CDC889289D3F340009358F /* PersonStep.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonStep.h; sourceTree = "<group>"; };
-		14CDC88A289D3F340009358F /* PersonStep.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonStep.m; sourceTree = "<group>"; };
 		22C2921943B00D1E1FDEA362 /* Pods_ByteDanceCampus_Klotski.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ByteDanceCampus_Klotski.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A404246E66C14D4FA6786972 /* Pods-ByteDanceCampus_Klotski.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ByteDanceCampus_Klotski.release.xcconfig"; path = "Target Support Files/Pods-ByteDanceCampus_Klotski/Pods-ByteDanceCampus_Klotski.release.xcconfig"; sourceTree = "<group>"; };
 		B5759A17288AE5D1007CE07E /* ByteDanceCampus_Klotski.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ByteDanceCampus_Klotski.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -295,7 +293,6 @@
 				1442D6F32897992A009CEB40 /* RisingFoundationExtension.h */,
 				1442D6F52897992A009CEB40 /* RisingFoundationExtention.m */,
 				14048C36289F933E00C1025F /* FontHeader.h */,
-				14CDC87E289BEACF0009358F /* PersonFrame */,
 				14CDC87D289BEAC50009358F /* NSDate+Rising */,
 			);
 			path = FoundationExtension;
@@ -363,8 +360,6 @@
 			children = (
 				14CDC861289B87330009358F /* Level.h */,
 				14CDC862289B87330009358F /* Level.mm */,
-				14CDC889289D3F340009358F /* PersonStep.h */,
-				14CDC88A289D3F340009358F /* PersonStep.m */,
 				14CDC868289B91EC0009358F /* Person */,
 			);
 			path = Model;
@@ -376,6 +371,7 @@
 				14CDC853289B6C210009358F /* StageSelectModel.h */,
 				14CDC854289B6C210009358F /* StageSelectModel.m */,
 				14CDC869289B91F60009358F /* Model */,
+				14CDC87E289BEACF0009358F /* PersonFrame */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -501,10 +497,11 @@
 				B5759A2C288AE5D2007CE07E /* main.m */,
 				B5759A1A288AE5D1007CE07E /* AppDelegate.h */,
 				B5759A1B288AE5D1007CE07E /* AppDelegate.m */,
+				1480BBC628A8FFD5009F0244 /* KlotskiHeader.h */,
 				142014B228A779F700CBD0B3 /* team.plist */,
 				14CDC866289B8EB60009358F /* level.plist */,
-				B5759A26288AE5D2007CE07E /* Assets.xcassets */,
 				14048C4628A0330700C1025F /* klotski.md */,
+				B5759A26288AE5D2007CE07E /* Assets.xcassets */,
 				B5759A28288AE5D2007CE07E /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
@@ -647,7 +644,6 @@
 				14CDC873289BE1FF0009358F /* LevelController.m in Sources */,
 				1442D7012897992A009CEB40 /* NSDate+Rising.m in Sources */,
 				14A92BE828A4EB7C00D6ACB0 /* IntroduceView.m in Sources */,
-				14CDC88B289D3F340009358F /* PersonStep.m in Sources */,
 				142014AE28A7743600CBD0B3 /* TeamIntroduceView.m in Sources */,
 				14048C44289FE98D00C1025F /* UIDevice+Rising.m in Sources */,
 				1442D6EA28976E22009CEB40 /* RisingRouterResponse.m in Sources */,
