@@ -217,21 +217,87 @@ WCDB_SYNTHESIZE(Level, originLayoutStr)
     // TODO: 是否可以移动的算法 >>>
     // 对onlyCode的判断
     Person *person = self.personAry[index];
+    
+    int one = 0, two = 0;
+    
     switch (direction) {
+            
         case PersonDirectionRight: {
-            //return (self.onlyCode[(person.y * 4) + person.x + person.width] == 0);
+            //空格不可移动
+            if(person.type == 0)
+                return false;
+            //先做边界判断，再做是否有棋子判断
+            if(person.x + person.width == 4)
+                return false;
+            if(person.type == 1 || person.type == 3) {
+                one = self.onlyCode[person.y * 4 + person.x + person.width];
+                if(one != 0)
+                    return false;
+            }
+            if(person.type == 2 || person.type == 4) {
+                one = self.onlyCode[person.y * 4 + person.x + person.width];
+                two = self.onlyCode[(person.y + 1) * 4 + person.x + person.width];
+                if(one != 0 || two != 0)
+                    return false;
+            }
+            return true;
         } break;
             
         case PersonDirectionLeft: {
-            
+            if(person.type == 0)
+                return false;
+            if(person.x == 0)
+                return false;
+            if(person.type == 1 || person.type == 3) {
+                one = self.onlyCode[person.y * 4 + person.x - 1];
+                if(one != 0)
+                    return false;
+            }
+            if(person.type == 2 || person.type == 4) {
+                one = self.onlyCode[person.y * 4 + person.x - 1 ];
+                two = self.onlyCode[(person.y + 1) * 4 + person.x - 1];
+                if(one != 0 || two != 0)
+                    return false;
+            }
+            return true;
         } break;
             
         case PersonDirectionUP: {
-            
+            if(person.type == 0)
+                return false;
+            if(person.y == 0)
+                return false;
+            if(person.type == 1 || person.type == 2) {
+                one = self.onlyCode[(person.y - 1) * 4 + person.x];
+                if(one != 0)
+                    return false;
+            }
+            if(person.type == 3 || person.type == 4) {
+                one = self.onlyCode[(person.y - 1) * 4 + person.x];
+                two = self.onlyCode[(person.y - 1) * 4 + person.x + 1];
+                if(one != 0 || two != 0)
+                    return false;
+            }
+            return true;
         } break;
             
         case PersonDirectionDown: {
-            
+            if(person.type == 0)
+                return false;
+            if(person.y + person.height == 5)
+                return false;
+            if(person.type == 1 || person.type == 2) {
+                one = self.onlyCode[(person.y + 1) * 4 + person.x];
+                if(one != 0)
+                    return false;
+            }
+            if(person.type == 3 || person.type == 4) {
+                one = self.onlyCode[(person.y + 1) * 4 + person.x];
+                two = self.onlyCode[(person.y + 1) * 4 + person.x + 1];
+                if(one != 0 || two != 0)
+                    return false;
+            }
+            return true;
         } break;
     }
     // FIXME: <<<
@@ -266,8 +332,10 @@ WCDB_SYNTHESIZE(Level, originLayoutStr)
 
 - (BOOL)isGameOver {
     // TODO: 曹操是否在结束位置 >>>
-    //
+    // 直接判断曹操是否到获胜所需的位置
     // FIXME: <<<
+    if(self.onlyCode[18] == 4 && self.onlyCode[19] == 4)
+        return YES;
     return NO;
 }
 
@@ -276,6 +344,12 @@ WCDB_SYNTHESIZE(Level, originLayoutStr)
     // TODO: 算法
     // 不允许改变person以及
     std::vector<std::map<int, int>> t;
+    
+    
+    
+    
+    
+    
     
     return nil;
 }
