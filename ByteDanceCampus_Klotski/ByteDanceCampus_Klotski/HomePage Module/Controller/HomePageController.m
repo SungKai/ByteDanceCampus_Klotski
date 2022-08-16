@@ -112,7 +112,13 @@
             
         case RouterRequestController: {
             
-            HomePageController *vc = [[self alloc] init];
+            HomePageController *vc;
+            if (request.parameters[@"level"]) {
+                Level *model = request.parameters[@"level"];
+                vc = [[self alloc] initWithModel:model];
+            } else {
+                vc = [[self alloc] init];
+            }
             
             response.responseController = vc;
         } break;
