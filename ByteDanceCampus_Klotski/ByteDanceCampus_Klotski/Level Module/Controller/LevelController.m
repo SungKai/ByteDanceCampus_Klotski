@@ -64,6 +64,11 @@
     [self.tabBarController tabBarVisible:NO animated:YES];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self.model updateDB];
+}
+
 #pragma mark - Method
 
 // MARK: SEL

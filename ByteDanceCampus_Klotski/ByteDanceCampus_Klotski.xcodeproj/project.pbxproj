@@ -27,6 +27,7 @@
 		1442D7042897992A009CEB40 /* RisingUIKitExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6FC2897992A009CEB40 /* RisingUIKitExtension.m */; };
 		1442D7052897992A009CEB40 /* UIColor+Rising.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6FF2897992A009CEB40 /* UIColor+Rising.m */; };
 		14626BA128A2555D00659D16 /* KlotskiTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14626B9F28A2555D00659D16 /* KlotskiTabController.m */; };
+		149786E028AD369A00D4EB3C /* LevelFuncView.m in Sources */ = {isa = PBXBuildFile; fileRef = 149786DF28AD369A00D4EB3C /* LevelFuncView.m */; };
 		14A92BE228A2914B00D6ACB0 /* HomePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A92BE128A2914B00D6ACB0 /* HomePageController.m */; };
 		14A92BE828A4EB7C00D6ACB0 /* IntroduceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A92BE728A4EB7C00D6ACB0 /* IntroduceView.m */; };
 		14CDC855289B6C210009358F /* StageSelectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC854289B6C210009358F /* StageSelectModel.m */; };
@@ -90,6 +91,8 @@
 		14626B9F28A2555D00659D16 /* KlotskiTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KlotskiTabController.m; sourceTree = "<group>"; };
 		14626BA028A2555D00659D16 /* KlotskiTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KlotskiTabController.h; sourceTree = "<group>"; };
 		1480BBC628A8FFD5009F0244 /* KlotskiHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KlotskiHeader.h; sourceTree = "<group>"; };
+		149786DE28AD369A00D4EB3C /* LevelFuncView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelFuncView.h; sourceTree = "<group>"; };
+		149786DF28AD369A00D4EB3C /* LevelFuncView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LevelFuncView.m; sourceTree = "<group>"; };
 		14A92BE028A2914B00D6ACB0 /* HomePageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageController.h; sourceTree = "<group>"; };
 		14A92BE128A2914B00D6ACB0 /* HomePageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageController.m; sourceTree = "<group>"; };
 		14A92BE628A4EB7C00D6ACB0 /* IntroduceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroduceView.h; sourceTree = "<group>"; };
@@ -410,6 +413,8 @@
 			children = (
 				14CDC87A289BEAB00009358F /* PersonItem.h */,
 				14CDC87B289BEAB00009358F /* PersonItem.m */,
+				149786DE28AD369A00D4EB3C /* LevelFuncView.h */,
+				149786DF28AD369A00D4EB3C /* LevelFuncView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -644,6 +649,7 @@
 				14048C39289F943500C1025F /* StageSelectAdapter.m in Sources */,
 				14CDC860289B84ED0009358F /* Person.m in Sources */,
 				B5759A1C288AE5D1007CE07E /* AppDelegate.m in Sources */,
+				149786E028AD369A00D4EB3C /* LevelFuncView.m in Sources */,
 				1442D6EC28976E22009CEB40 /* RisingRouterRequest.m in Sources */,
 				1442D7052897992A009CEB40 /* UIColor+Rising.m in Sources */,
 				14626BA128A2555D00659D16 /* KlotskiTabController.m in Sources */,

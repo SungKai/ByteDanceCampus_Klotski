@@ -85,6 +85,13 @@
     }
     
     [self.layout reloadItemForIndexPath:indexPath animate:YES];
+    if (self.model.isGameOver) {
+        /**TODO: 挑战成功
+         * 复原棋盘
+         * 记录最高次数
+         * 当前次数还原
+         */
+    }
 }
 
 #pragma mark - <UICollectionViewDataSource>

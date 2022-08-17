@@ -59,8 +59,8 @@ FOUNDATION_EXPORT NSString *LevelTableName;
  * 手动保存：
  * - 时机为 updateDB
  * - 方式为 update
- *
- * 手动保存时，若没有personAry，会取消本次保存
+ * 若没有personAry，会取消本次保存
+ * 同时，手动保存会保存当前棋盘情况
  */
 
 @interface Level (CRUD)
@@ -75,7 +75,7 @@ FOUNDATION_EXPORT NSString *LevelTableName;
 - (instancetype)initWithName:(NSString *)name persons:(NSArray <Person *> *)personAry;
 
 /// 从WCDB中取除的对象
-+ (NSArray <Level *> *)levelsFromWCDB;
+@property (nonatomic, readonly, class, nullable) NSArray <Level *> *WCDBAry;
 
 /// 设置/重组关卡的对象
 /// @param personAry 对象

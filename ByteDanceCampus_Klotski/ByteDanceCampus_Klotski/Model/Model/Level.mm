@@ -21,9 +21,13 @@ NSString *LevelTableName = @"Level";
 
 /// 初始布局
 /// 每组为当前person的code
-/// componentsSeparatedByString
 /// @"1022曹操 0012张飞 "
 @property (nonatomic, strong) NSMutableString *originLayoutStr;
+
+/// 当前布局
+/// 每组为当前person的x, y
+/// @"10 00"
+@property (nonatomic, strong) NSMutableString *currentLayoutStr;
 
 /// 棋盘布局
 /// [2,4,4,2,2,4,4,2,2,3,3,2,2,1,1,2,1,0,0,1]
@@ -45,6 +49,7 @@ WCDB_PROPERTY(currentStep)
 WCDB_PROPERTY(bestStep)
 WCDB_PROPERTY(isFavorite)
 WCDB_PROPERTY(originLayoutStr)
+WCDB_PROPERTY(currentLayoutStr)
 
 @end
 
@@ -61,6 +66,7 @@ WCDB_SYNTHESIZE(Level, currentStep)
 WCDB_SYNTHESIZE(Level, bestStep)
 WCDB_SYNTHESIZE(Level, isFavorite)
 WCDB_SYNTHESIZE(Level, originLayoutStr)
+WCDB_SYNTHESIZE(Level, currentLayoutStr)
 
 #pragma mark - Life cycle
 
@@ -129,6 +135,26 @@ WCDB_SYNTHESIZE(Level, originLayoutStr)
     _personAry = mutAry.copy;
 }
 
+- (void)setCurrentLayoutStr:(NSMutableString *)currentLayoutStr {
+    _currentLayoutStr = currentLayoutStr;
+    
+    NSArray <NSString *> *strAry = [_originLayoutStr componentsSeparatedByString:@" "];
+    std::array<int, 20> t = {};
+    _onlyCode = t;
+    
+    for (int i = 0; i < strAry.count; i++) {
+        NSString *aStr = strAry[i];
+        int x = [aStr substringWithRange:NSMakeRange(0, 1)].intValue;
+        int y = [aStr substringWithRange:NSMakeRange(1, 1)].intValue;
+        
+        Person *p = _personAry[i];
+        p.x = x;
+        p.y = y;
+        
+        [self __setCodeWithPerson:p];
+    }
+}
+
 @end
 
 
@@ -160,7 +186,7 @@ WCDB_SYNTHESIZE(Level, originLayoutStr)
     return self;
 }
 
-+ (NSArray<Level *> *)levelsFromWCDB {
++ (NSArray<Level *> *)WCDBAry {
     return [self.DB getAllObjectsOfClass:self.class fromTable:LevelTableName];
 }
 
@@ -175,7 +201,7 @@ WCDB_SYNTHESIZE(Level, originLayoutStr)
         [self __setCodeWithPerson:person];
     }
     
-    // FIXME: insertOrReplace
+    // FIXME: insertOrReplaceObject
     // [Level.DB insertOrReplaceObject:self onProperties:{Level.name} into:LevelTableName];
 }
 
@@ -194,11 +220,12 @@ WCDB_SYNTHESIZE(Level, originLayoutStr)
 }
 
 - (void)updateDB {
-    [Level.DB
-     updateAllRowsInTable:LevelTableName
-     onProperties:
-     {Level.name, Level.bestStep, Level.currentStep, Level.isFavorite}
-     withObject:self];
+    // TODO: updateAllRowsInTable
+//    [Level.DB
+//     updateAllRowsInTable:LevelTableName
+//     onProperties:
+//     {Level.name, Level.bestStep, Level.currentStep, Level.isFavorite}
+//     withObject:self];
 }
 
 @end
