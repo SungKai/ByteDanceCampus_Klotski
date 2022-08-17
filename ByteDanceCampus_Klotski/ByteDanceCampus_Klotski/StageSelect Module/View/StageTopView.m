@@ -39,8 +39,8 @@
 
 - (UILabel *)nameLab {
     if (_nameLab == nil) {
-        _nameLab = [[UILabel alloc] initWithFrame:CGRectMake(0, UIDevice.statusBarHeight, self.width, 80)];
-        _nameLab.font = [UIFont fontWithName:PingFangSCBold size:58];
+        _nameLab = [[UILabel alloc] initWithFrame:CGRectMake(0, UIDevice.statusBarHeight, self.width, 100)];
+        _nameLab.font = [UIFont fontWithName:PangMenZhengDaoBold size:93];
         _nameLab.textAlignment = NSTextAlignmentCenter;
         _nameLab.textColor =
         [UIColor Any_hex:@"#5A1F0A" a:1 Dark_hex:@"#C94823" a:1];

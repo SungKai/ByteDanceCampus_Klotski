@@ -38,6 +38,7 @@
 		14CDC878289BE7F70009358F /* PersonFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC877289BE7F70009358F /* PersonFrame.m */; };
 		14CDC87C289BEAB00009358F /* PersonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC87B289BEAB00009358F /* PersonItem.m */; };
 		14CDC885289CB2DB0009358F /* LevelAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC884289CB2DB0009358F /* LevelAdapter.m */; };
+		14FB5FAF28ACAB3A0006A02B /* PangMenZhengDao-Cu.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14FB5FAE28ACAB280006A02B /* PangMenZhengDao-Cu.ttf */; };
 		3C5AEF06B27681B0DEDEFE9B /* Pods_ByteDanceCampus_Klotski.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C2921943B00D1E1FDEA362 /* Pods_ByteDanceCampus_Klotski.framework */; };
 		B5759A1C288AE5D1007CE07E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5759A1B288AE5D1007CE07E /* AppDelegate.m */; };
 		B5759A22288AE5D1007CE07E /* StageSelectController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5759A21288AE5D1007CE07E /* StageSelectController.m */; };
@@ -110,6 +111,7 @@
 		14CDC87B289BEAB00009358F /* PersonItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonItem.m; sourceTree = "<group>"; };
 		14CDC883289CB2DB0009358F /* LevelAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelAdapter.h; sourceTree = "<group>"; };
 		14CDC884289CB2DB0009358F /* LevelAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LevelAdapter.m; sourceTree = "<group>"; };
+		14FB5FAE28ACAB280006A02B /* PangMenZhengDao-Cu.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PangMenZhengDao-Cu.ttf"; sourceTree = "<group>"; };
 		22C2921943B00D1E1FDEA362 /* Pods_ByteDanceCampus_Klotski.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ByteDanceCampus_Klotski.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A404246E66C14D4FA6786972 /* Pods-ByteDanceCampus_Klotski.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ByteDanceCampus_Klotski.release.xcconfig"; path = "Target Support Files/Pods-ByteDanceCampus_Klotski/Pods-ByteDanceCampus_Klotski.release.xcconfig"; sourceTree = "<group>"; };
 		B5759A17288AE5D1007CE07E /* ByteDanceCampus_Klotski.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ByteDanceCampus_Klotski.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -281,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				1442D6F72897992A009CEB40 /* ExtensionHeader.h */,
+				14048C36289F933E00C1025F /* FontHeader.h */,
 				1442D6F22897992A009CEB40 /* FoundationExtension */,
 				1442D6F82897992A009CEB40 /* UIKit Extension */,
 			);
@@ -292,7 +295,6 @@
 			children = (
 				1442D6F32897992A009CEB40 /* RisingFoundationExtension.h */,
 				1442D6F52897992A009CEB40 /* RisingFoundationExtention.m */,
-				14048C36289F933E00C1025F /* FontHeader.h */,
 				14CDC87D289BEAC50009358F /* NSDate+Rising */,
 			);
 			path = FoundationExtension;
@@ -448,6 +450,19 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		14FB5FB028ACADB40006A02B /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				142014B228A779F700CBD0B3 /* team.plist */,
+				14CDC866289B8EB60009358F /* level.plist */,
+				14048C4628A0330700C1025F /* klotski.md */,
+				14FB5FAE28ACAB280006A02B /* PangMenZhengDao-Cu.ttf */,
+				B5759A26288AE5D2007CE07E /* Assets.xcassets */,
+				B5759A28288AE5D2007CE07E /* LaunchScreen.storyboard */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		2EEB6B28084ED8BB1A3EB277 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -498,11 +513,7 @@
 				B5759A1A288AE5D1007CE07E /* AppDelegate.h */,
 				B5759A1B288AE5D1007CE07E /* AppDelegate.m */,
 				1480BBC628A8FFD5009F0244 /* KlotskiHeader.h */,
-				142014B228A779F700CBD0B3 /* team.plist */,
-				14CDC866289B8EB60009358F /* level.plist */,
-				14048C4628A0330700C1025F /* klotski.md */,
-				B5759A26288AE5D2007CE07E /* Assets.xcassets */,
-				B5759A28288AE5D2007CE07E /* LaunchScreen.storyboard */,
+				14FB5FB028ACADB40006A02B /* Source */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -566,6 +577,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14FB5FAF28ACAB3A0006A02B /* PangMenZhengDao-Cu.ttf in Resources */,
 				B5759A2A288AE5D2007CE07E /* LaunchScreen.storyboard in Resources */,
 				14CDC867289B8EB60009358F /* level.plist in Resources */,
 				B5759A27288AE5D2007CE07E /* Assets.xcassets in Resources */,

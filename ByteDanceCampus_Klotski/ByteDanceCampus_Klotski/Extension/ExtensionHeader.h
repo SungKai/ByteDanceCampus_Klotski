@@ -16,7 +16,7 @@
 
 #import "RisingUIKitExtension.h"
 
-#pragma mark - Module
+#import "FontHeader.h"
 
 #pragma mark - Others
 
