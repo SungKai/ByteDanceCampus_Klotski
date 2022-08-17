@@ -15,7 +15,7 @@
       "scale" : "1x"
     },
     {
-      "filename" : "未命名.heic",
+      "filename" : "back02.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -26,7 +26,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "background-dark.heic",
+      "filename" : "back02-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

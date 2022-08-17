@@ -15,6 +15,9 @@
 
 @interface HomePageController ()
 
+/// 大背景
+@property (nonatomic, strong) UIImageView *backImgView;
+
 /// 大logo
 @property (nonatomic, strong) UIImageView *logoImgView;
 
@@ -47,23 +50,9 @@
     [super viewDidLoad];
     self.view.backgroundColor = UIColor.grayColor;
     
+    [self.view addSubview:self.backImgView];
     [self.view addSubview:self.logoImgView];
     [self.view addSubview:self.introduceView];
-    [self.view addSubview:self.recommendBtn];
-    [self setSEL];
-}
-
-- (void)setSEL {
-    [self.recommendBtn addTarget:self action:@selector(clickToRecommend) forControlEvents:UIControlEventTouchUpInside];
-}
-
-/// 点击今日推荐按钮跳转到关卡
-- (void)clickToRecommend {
-    [self.router
-     pushForRouterPath:@"LevelController"
-     parameters:@{
-        @"level" : self.model
-    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -89,14 +78,12 @@
     return _introduceView;
 }
 
-- (UIButton *)recommendBtn {
-    if (_recommendBtn == nil) {
-        _recommendBtn = [[UIButton alloc] initWithFrame:CGRectMake(self.view.width * 0.2, self.introduceView.bottom + 10, self.view.width * 0.6, 100)];
-        [_recommendBtn setBackgroundColor:UIColor.systemBlueColor];
-//        _recommendBtn setImage:<#(nullable UIImage *)#> forState:<#(UIControlState)#>
-        
+- (UIImageView *)backImgView {
+    if (_backImgView == nil) {
+        _backImgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+        _backImgView.image = [UIImage imageNamed:@"background"];
     }
-    return _recommendBtn;
+    return _backImgView;
 }
 
 #pragma mark - RisingRouterHandler
