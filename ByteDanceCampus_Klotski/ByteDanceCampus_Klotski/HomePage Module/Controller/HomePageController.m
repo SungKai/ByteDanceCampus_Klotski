@@ -83,14 +83,15 @@
 
 - (TeamIntroduceView *)introduceView {
     if (_introduceView == nil) {
-        _introduceView = [[TeamIntroduceView alloc] initWithFrame:CGRectMake(15, self.logoImgView.bottom, self.view.width - 30, 180)];
+        CGFloat width = self.view.width - 30;
+        _introduceView = [[TeamIntroduceView alloc] initWithFrame:CGRectMake(15, self.logoImgView.bottom, width, width / 2.5)];
     }
     return _introduceView;
 }
 
 - (UIButton *)recommendBtn {
     if (_recommendBtn == nil) {
-        _recommendBtn = [[UIButton alloc] initWithFrame:CGRectMake(self.view.width * 0.2, self.view.height * 0.7, self.view.width * 0.6, 100)];
+        _recommendBtn = [[UIButton alloc] initWithFrame:CGRectMake(self.view.width * 0.2, self.introduceView.bottom + 10, self.view.width * 0.6, 100)];
         [_recommendBtn setBackgroundColor:UIColor.systemBlueColor];
 //        _recommendBtn setImage:<#(nullable UIImage *)#> forState:<#(UIControlState)#>
         

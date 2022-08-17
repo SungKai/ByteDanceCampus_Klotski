@@ -50,7 +50,7 @@ NSString * TeamIntroduceItemReuseIdentifier = @"TeamIntroduceItem";
     CGRect frame = layoutAttributes.frame;
     [self.titleLab stretchRight_toPointX:frame.size.width offset:7];
     
-    self.contentLab.top = self.titleLab.bottom + 7;
+    self.contentLab.top = self.titleLab.bottom + 3;
     self.contentLab.width = self.titleLab.width;
 }
 
@@ -63,8 +63,8 @@ NSString * TeamIntroduceItemReuseIdentifier = @"TeamIntroduceItem";
 
 - (UILabel *)titleLab {
     if (_titleLab == nil) {
-        _titleLab = [[UILabel alloc] initWithFrame:CGRectMake(10, 7, 0, 30)];
-        _titleLab.font = [UIFont fontWithName:PingFangSCBold size:16];
+        _titleLab = [[UILabel alloc] initWithFrame:CGRectMake(6, 6, 0, 30)];
+        _titleLab.font = [UIFont fontWithName:PingFangSCBold size:14];
         _titleLab.textColor = [UIColor colorWithHexString:@"#112C54"];
     }
     return _titleLab;
@@ -72,8 +72,8 @@ NSString * TeamIntroduceItemReuseIdentifier = @"TeamIntroduceItem";
 
 - (UILabel *)contentLab {
     if (_contentLab == nil) {
-        _contentLab = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 0, 20)];
-        _contentLab.font = [UIFont fontWithName:PingFangSCBold size:12];
+        _contentLab = [[UILabel alloc] initWithFrame:CGRectMake(self.titleLab.left, 0, 0, 20)];
+        _contentLab.font = [UIFont fontWithName:PingFangSC size:10];
         _contentLab.textColor = [UIColor colorWithHexString:@"#112C54"];
     }
     return _contentLab;

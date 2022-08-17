@@ -186,12 +186,10 @@
     if (self.scrollView == nil) {
         return;
     }
-    // TODO: 如果松手时是子Scroll，那会先掉父，再掉子，有没有解决方案？
-    UIPanGestureRecognizer *pan = scrollView.panGestureRecognizer;
-    
     
     if (scrollView == self.tableView) {
-        if (scrollView.contentOffset.y <= -100 && velocity.y < 0) {
+        if ((scrollView.contentOffset.y <= -100 && velocity.y < 0)
+            || scrollView.contentOffset.y <= -500) {
             
             *targetContentOffset = CGPointMake(0, -scrollView.height + 350);
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -199,6 +197,7 @@
                 [scrollView setContentOffset:CGPointMake(0, -scrollView.height + 350) animated:YES];
                 [self.controller.tabBarController tabBarVisible:NO animated:YES];
             });
+            return;
         }
     }
 }
