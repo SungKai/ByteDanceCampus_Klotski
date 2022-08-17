@@ -136,7 +136,7 @@
         completionHandler(YES);
     }];
     collect.backgroundColor =
-    [UIColor Any_hex:@"#A13502" a:0.1 Dark_hex:@"#351300" a:0.1];
+    [UIColor Any_hex:@"#EEDBA2" a:0.1 Dark_hex:@"#4F3119" a:0.1];
     
     collect.image = [[UIImage imageNamed: (level.isFavorite ? @"uncollect" : @"collect")] imageByResizeToSize:CGSizeMake(50, 50)];
     
