@@ -244,21 +244,58 @@ WCDB_SYNTHESIZE(Level, currentLayoutStr)
     // TODO: 是否可以移动的算法 >>>
     // 对onlyCode的判断
     Person *person = self.personAry[index];
+        
     switch (direction) {
         case PersonDirectionRight: {
-            //return (self.onlyCode[(person.y * 4) + person.x + person.width] == 0);
+            if(person.type == 0)
+                return false;
+            if(person.x + person.width == 4)
+                return false;
+            for (int i = person.y; i < person.y + person.height; i++) {
+                if (_onlyCode[i * 4 + person.x + person.width]) {
+                    return false;
+                }
+            }
+            return true;
         } break;
             
         case PersonDirectionLeft: {
-            
+            if(person.type == 0)
+                return false;
+            if(person.x == 0)
+                return false;
+            for (int i = person.y; i < person.y + person.height; i++) {
+                if (_onlyCode[i * 4 + person.x - 1]) {
+                    return false;
+                }
+            }
+            return true;
         } break;
             
         case PersonDirectionUP: {
-            
+            if(person.type == 0)
+                return false;
+            if(person.y == 0)
+                return false;
+            for (int i = person.x ; i < person.x + person.width; i++) {
+                if (_onlyCode[(person.y - 1) * 4 + i]) {
+                    return false;
+                }
+            }
+            return true;
         } break;
             
         case PersonDirectionDown: {
-            
+            if(person.type == 0)
+                return false;
+            if(person.y + person.height == 5)
+                return false;
+            for (int i = person.x ; i < person.x + person.width; i++) {
+                if (_onlyCode[(person.y + person.height) * 4 + i]) {
+                    return false;
+                }
+            }
+            return true;
         } break;
     }
     // FIXME: <<<
@@ -274,18 +311,34 @@ WCDB_SYNTHESIZE(Level, currentLayoutStr)
     Person *person = self.personAry[index];
     switch (direction) {
         case PersonDirectionUP: {
+            for (int i = person.x; i < person.x + person.width; i++) {
+                _onlyCode[(person.y + person.height - 1) * 4 + i] = 0;
+                _onlyCode[(person.y - 1) * 4 + i] = (int)person.type;
+            }
             person.y -= 1;
         } break;
             
         case PersonDirectionLeft: {
+            for (int i = person.y; i < person.y + person.height; i++) {
+                _onlyCode[i * 4 + person.x - 1] = (int) person.type;
+                _onlyCode[i * 4 + person.x + person.width - 1] = 0;
+            }
             person.x -= 1;
         } break;
             
         case PersonDirectionDown: {
+            for (int i = person.x; i < person.x + person.width; i++) {
+                _onlyCode[person.y * 4 + i] = 0;
+                _onlyCode[(person.y + person.height) * 4 + i] = (int)person.type;
+            }
             person.y += 1;
         } break;
             
         case PersonDirectionRight: {
+            for (int i = person.y; i < person.y + person.height; i++) {
+                _onlyCode[i * 4 + person.x + person.width] = (int)person.type;
+                _onlyCode[i * 4 + person.x] = 0;
+            }
             person.x += 1;
         } break;
     }
@@ -293,8 +346,10 @@ WCDB_SYNTHESIZE(Level, currentLayoutStr)
 
 - (BOOL)isGameOver {
     // TODO: 曹操是否在结束位置 >>>
-    //
+    // 直接判断曹操是否到获胜所需的位置
     // FIXME: <<<
+    if(self.onlyCode[18] == 4 && self.onlyCode[19] == 4)
+        return YES;
     return NO;
 }
 
@@ -303,6 +358,12 @@ WCDB_SYNTHESIZE(Level, currentLayoutStr)
     // TODO: 算法
     // 不允许改变person以及
     std::vector<std::map<int, int>> t;
+    
+    
+    
+    
+    
+    
     
     return nil;
 }
