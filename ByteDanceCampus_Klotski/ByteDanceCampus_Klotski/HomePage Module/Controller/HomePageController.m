@@ -15,14 +15,20 @@
 
 @interface HomePageController ()
 
+/// 大背景
+@property (nonatomic, strong) UIImageView *backImgView;
+
 /// 大logo
 @property (nonatomic, strong) UIImageView *logoImgView;
 
 /// 介绍
 @property (nonatomic, strong) TeamIntroduceView *introduceView;
 
-/// 关卡（用于今日关卡选择
+/// 关卡（用于今日关卡选择）
 @property (nonatomic, strong) Level *model;
+
+/// 今日推荐按钮
+@property (nonatomic, strong) UIButton *recommendBtn;
 
 @end
 
@@ -30,7 +36,7 @@
 
 @implementation HomePageController
 
-#pragma mark - Method
+#pragma mark - Life cycle
 
 - (instancetype)initWithModel:(Level *)model {
     self = [super init];
@@ -44,8 +50,14 @@
     [super viewDidLoad];
     self.view.backgroundColor = UIColor.grayColor;
     
+    [self.view addSubview:self.backImgView];
     [self.view addSubview:self.logoImgView];
     [self.view addSubview:self.introduceView];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.tabBarController tabBarVisible:YES animated:YES];
 }
 
 #pragma mark - Getter
@@ -60,9 +72,18 @@
 
 - (TeamIntroduceView *)introduceView {
     if (_introduceView == nil) {
-        _introduceView = [[TeamIntroduceView alloc] initWithFrame:CGRectMake(15, self.logoImgView.bottom, self.view.width - 30, 180)];
+        CGFloat width = self.view.width - 30;
+        _introduceView = [[TeamIntroduceView alloc] initWithFrame:CGRectMake(15, self.logoImgView.bottom, width, width / 2.5)];
     }
     return _introduceView;
+}
+
+- (UIImageView *)backImgView {
+    if (_backImgView == nil) {
+        _backImgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+        _backImgView.image = [UIImage imageNamed:@"background"];
+    }
+    return _backImgView;
 }
 
 #pragma mark - RisingRouterHandler
@@ -107,7 +128,13 @@
             
         case RouterRequestController: {
             
-            HomePageController *vc = [[self alloc] init];
+            HomePageController *vc;
+            if (request.parameters[@"level"]) {
+                Level *model = request.parameters[@"level"];
+                vc = [[self alloc] initWithModel:model];
+            } else {
+                vc = [[self alloc] init];
+            }
             
             response.responseController = vc;
         } break;

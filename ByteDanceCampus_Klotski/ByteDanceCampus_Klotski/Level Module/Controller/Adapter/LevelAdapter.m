@@ -85,18 +85,33 @@
     }
     
     [self.layout reloadItemForIndexPath:indexPath animate:YES];
+    if (self.model.isGameOver) {
+        /**TODO: 挑战成功
+         * 复原棋盘
+         * 记录最高次数
+         * 当前次数还原
+         */
+    }
 }
 
 #pragma mark - <UICollectionViewDataSource>
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.model.currentPersons.count;
+    return self.model.personAry.count;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PersonItem *cell = [collectionView dequeueReusableCellWithReuseIdentifier:PersonItemReuseIdentifier forIndexPath:indexPath];
     
-    cell.name = self.model.currentPersons[indexPath.item].name;
+    Person *model = self.model.personAry[indexPath.item];
+    NSString *str = [NSString stringWithFormat:@"i:%ld p(%d,%d,%d,%d)",
+                     indexPath.item, model.x, model.y, model.width, model.height];
+//    (model.width == model.height ?
+//     model.name :
+//     [NSString stringWithFormat:@"%@.%@", model.name,
+//      (model.width == (model.height * 2) ? @"H" : @"V")]);
+    
+    cell.name = str;
     
     return cell;
 }
@@ -104,7 +119,7 @@
 #pragma mark - <LevelCollectionLayoutDelegate>
 
 - (PersonFrame)collectionView:(UICollectionView *)collectionView layout:(LevelCollectionLayout *)layout frameForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return self.model.currentPersons[indexPath.item].frame;
+    return self.model.personAry[indexPath.item].frame;
 }
 
 @end

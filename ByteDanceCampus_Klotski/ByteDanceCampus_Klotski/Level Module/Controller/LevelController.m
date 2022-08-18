@@ -19,6 +19,9 @@
 
 @interface LevelController ()
 
+/// 标题
+@property (nonatomic, strong) UILabel *titleLab;
+
 /// 华容道CollectionView
 @property (nonatomic, strong) UICollectionView *collectionView;
 
@@ -46,8 +49,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+    self.navigationController.interactivePopGestureRecognizer.delegate = nil;
     self.view.backgroundColor = UIColor.whiteColor;
+    
     self.adapter = [LevelAdapter adapterWithCollectionView:self.collectionView layout:(LevelCollectionLayout *)self.collectionView.collectionViewLayout model:self.model];
+    
+    [self.view addSubview:self.titleLab];
     [self.view addSubview:self.collectionView];
 }
 
@@ -56,11 +64,27 @@
     [self.tabBarController tabBarVisible:NO animated:YES];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self.model updateDB];
+}
+
 #pragma mark - Method
 
 // MARK: SEL
 
 #pragma mark - Getter
+
+- (UILabel *)titleLab {
+    if (_titleLab == nil) {
+        _titleLab = [[UILabel alloc] initWithFrame:CGRectMake(0, UIDevice.safeDistanceTop + 10, self.view.width, 100)];
+        _titleLab.backgroundColor = UIColor.clearColor;
+        _titleLab.font = [UIFont fontWithName:PingFangSCBold size:52];
+        _titleLab.textAlignment = NSTextAlignmentCenter;
+        _titleLab.text = self.model.name;
+    }
+    return _titleLab;
+}
 
 - (UICollectionView *)collectionView {
     if (_collectionView == nil) {
@@ -73,6 +97,7 @@
         
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, width, (minWidth + layout.lineSpacing) * 5) collectionViewLayout:layout];
         _collectionView.center = self.view.SuperCenter;
+        _collectionView.backgroundColor = UIColor.clearColor;
         
         [_collectionView registerClass:PersonItem.class forCellWithReuseIdentifier:PersonItemReuseIdentifier];
         _collectionView.showsVerticalScrollIndicator = NO;

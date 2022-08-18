@@ -12,12 +12,18 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        NSMutableArray <Level *> *mutAry = NSMutableArray.array;
-        NSArray *array = [NSArray arrayWithContentsOfFile:[NSBundle.mainBundle pathForResource:@"level" ofType:@"plist"]];
-        for (NSDictionary *dic in array) {
-            [mutAry addObject:[[Level alloc] initWithDictionary:dic]];
+        NSArray <Level *> *DBLevels = Level.WCDBAry;
+        if (!DBLevels || DBLevels.count == 0) {
+            NSMutableArray <Level *> *mutAry = NSMutableArray.array;
+            NSArray *array = [NSArray arrayWithContentsOfFile:[NSBundle.mainBundle pathForResource:@"level" ofType:@"plist"]];
+            for (NSDictionary *dic in array) {
+                Level *model = [[Level alloc] initWithDictionary:dic];
+                [mutAry addObject:model];
+            }
+            _stages = mutAry.copy;
+        } else {
+            _stages = DBLevels.copy;
         }
-        _stages = mutAry.copy;
     }
     return self;
 }
