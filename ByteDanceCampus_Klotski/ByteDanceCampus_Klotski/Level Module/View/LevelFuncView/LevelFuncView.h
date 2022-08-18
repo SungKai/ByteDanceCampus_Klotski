@@ -27,6 +27,8 @@ typedef NS_ENUM(NSUInteger, LevelFuncType) {
 
 #pragma mark - LevelFuncViewDelegate
 
+typedef void(^LevelFuncViewComplitionBlock)(BOOL);
+
 @protocol LevelFuncViewDelegate <NSObject>
 
 /// 是否允许执行功能

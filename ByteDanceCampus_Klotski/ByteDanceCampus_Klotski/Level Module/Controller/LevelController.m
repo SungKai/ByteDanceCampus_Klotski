@@ -97,7 +97,7 @@
         CGFloat minWidth = width / 4 - layout.interitemSpacing;
         layout.sizeForItem = CGSizeMake(minWidth, minWidth);
         
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, width - layout.interitemSpacing, (minWidth + layout.lineSpacing) * 5) collectionViewLayout:layout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, width - layout.interitemSpacing, (minWidth + layout.lineSpacing) * 5 - layout.lineSpacing) collectionViewLayout:layout];
         _collectionView.center = self.view.SuperCenter;
         _collectionView.backgroundColor = UIColor.clearColor;
         
@@ -153,7 +153,6 @@
         } break;
             
         case RouterRequestParameters: {
-            // TODO: 传回参数
         } break;
             
         case RouterRequestController: {

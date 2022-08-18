@@ -123,7 +123,6 @@
         } break;
             
         case RouterRequestParameters: {
-            // TODO: 传回参数
         } break;
             
         case RouterRequestController: {

@@ -70,7 +70,7 @@
         
         [_saveBtn setTitle:@"保存棋局" forState:UIControlStateNormal];
         _saveBtn.titleLabel.font = [UIFont fontWithName:PingFangSC size:24];
-        [_saveBtn setTitleColor:[UIColor Any_hex:@"#112C54" a:1 Dark_hex:@"#F0F0F0" a:1] forState:UIControlStateNormal];
+        [_saveBtn setTitleColor:[UIColor colorWithHexString:@"#112C54"] forState:UIControlStateNormal];
         
         [_saveBtn addTarget:self action:@selector(__didSelectBtn:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -88,7 +88,7 @@
         
         [_resetBtn setTitle:@"重新挑战" forState:UIControlStateNormal];
         _resetBtn.titleLabel.font = [UIFont fontWithName:PingFangSC size:24];
-        [_resetBtn setTitleColor:[UIColor Any_hex:@"#112C54" a:1 Dark_hex:@"#F0F0F0" a:1] forState:UIControlStateNormal];
+        [_resetBtn setTitleColor:[UIColor colorWithHexString:@"#112C54"] forState:UIControlStateNormal];
         
         [_saveBtn addTarget:self action:@selector(__didSelectBtn:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -106,7 +106,7 @@
         
         [_autoBtn setTitle:@"自动求解" forState:UIControlStateNormal];
         _autoBtn.titleLabel.font = [UIFont fontWithName:PingFangSC size:24];
-        [_autoBtn setTitleColor:[UIColor Any_hex:@"#112C54" a:1 Dark_hex:@"#F0F0F0" a:1] forState:UIControlStateNormal];
+        [_autoBtn setTitleColor:[UIColor colorWithHexString:@"#112C54"] forState:UIControlStateNormal];
         
         [_autoBtn addTarget:self action:@selector(__didSelectBtn:) forControlEvents:UIControlEventTouchUpInside];
     }
