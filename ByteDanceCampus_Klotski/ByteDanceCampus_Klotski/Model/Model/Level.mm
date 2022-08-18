@@ -217,30 +217,13 @@ WCDB_SYNTHESIZE(Level, originLayoutStr)
     // TODO: 是否可以移动的算法 >>>
     // 对onlyCode的判断
     Person *person = self.personAry[index];
-    
-    int one = 0, two = 0;
-    
+        
     switch (direction) {
-            
         case PersonDirectionRight: {
-//            //空格不可移动
-//            if(person.type == 0)
-//                return false;
-//            //先做边界判断，再做是否有棋子判断
-//            if(person.x + person.width == 4)
-//                return false;
-//            if(person.type == 1 || person.type == 3) {
-//                one = self.onlyCode[person.y * 4 + person.x + person.width];
-//                if(one != 0)
-//                    return false;
-//            }
-//            if(person.type == 2 || person.type == 4) {
-//                one = self.onlyCode[person.y * 4 + person.x + person.width];
-//                two = self.onlyCode[(person.y + 1) * 4 + person.x + person.width];
-//                if(one != 0 || two != 0)
-//                    return false;
-//            }
-//            return true;
+            if(person.type == 0)
+                return false;
+            if(person.x + person.width == 4)
+                return false;
             for (int i = person.y; i < person.y + person.height; i++) {
                 if (_onlyCode[i * 4 + person.x + person.width]) {
                     return false;
@@ -254,16 +237,10 @@ WCDB_SYNTHESIZE(Level, originLayoutStr)
                 return false;
             if(person.x == 0)
                 return false;
-            if(person.type == 1 || person.type == 3) {
-                one = self.onlyCode[person.y * 4 + person.x - 1];
-                if(one != 0)
+            for (int i = person.y; i < person.y + person.height; i++) {
+                if (_onlyCode[i * 4 + person.x - 1]) {
                     return false;
-            }
-            if(person.type == 2 || person.type == 4) {
-                one = self.onlyCode[person.y * 4 + person.x - 1 ];
-                two = self.onlyCode[(person.y + 1) * 4 + person.x - 1];
-                if(one != 0 || two != 0)
-                    return false;
+                }
             }
             return true;
         } break;
@@ -273,16 +250,10 @@ WCDB_SYNTHESIZE(Level, originLayoutStr)
                 return false;
             if(person.y == 0)
                 return false;
-            if(person.type == 1 || person.type == 2) {
-                one = self.onlyCode[(person.y - 1) * 4 + person.x];
-                if(one != 0)
+            for (int i = person.x ; i < person.x + person.width; i++) {
+                if (_onlyCode[(person.y - 1) * 4 + i]) {
                     return false;
-            }
-            if(person.type == 3 || person.type == 4) {
-                one = self.onlyCode[(person.y - 1) * 4 + person.x];
-                two = self.onlyCode[(person.y - 1) * 4 + person.x + 1];
-                if(one != 0 || two != 0)
-                    return false;
+                }
             }
             return true;
         } break;
@@ -292,16 +263,10 @@ WCDB_SYNTHESIZE(Level, originLayoutStr)
                 return false;
             if(person.y + person.height == 5)
                 return false;
-            if(person.type == 1 || person.type == 2) {
-                one = self.onlyCode[(person.y + 1) * 4 + person.x];
-                if(one != 0)
+            for (int i = person.x ; i < person.x + person.width; i++) {
+                if (_onlyCode[(person.y + person.height) * 4 + i]) {
                     return false;
-            }
-            if(person.type == 3 || person.type == 4) {
-                one = self.onlyCode[(person.y + 1) * 4 + person.x];
-                two = self.onlyCode[(person.y + 1) * 4 + person.x + 1];
-                if(one != 0 || two != 0)
-                    return false;
+                }
             }
             return true;
         } break;
@@ -319,105 +284,31 @@ WCDB_SYNTHESIZE(Level, originLayoutStr)
     Person *person = self.personAry[index];
     switch (direction) {
         case PersonDirectionUP: {
-            if(person.type == PersonTinySquare) {
-                self.onlyCode[(person.y - 1) * 4 + person.x] = 1;
-                self.onlyCode[person.y * 4 + person.x] = 0;
-            }
-            else if(person.type == PersonVertical) {
-                self.onlyCode[(person.y - 1) * 4 + person.x] = 2;
-                self.onlyCode[(person.y + 1) * 4 + person.x] = 0;
-            }
-            else if(person.type == PersonHorizontal) {
-                self.onlyCode[(person.y - 1) * 4 + person.x] = 3;
-                self.onlyCode[(person.y - 1) * 4 + person.x + 1] = 3;
-                self.onlyCode[person.y * 4 + person.x] = 0;
-                self.onlyCode[person.y * 4 + person.x + 1] = 0;
-            }
-            else if(person.type == PersonBigSquare) {
-                self.onlyCode[(person.y - 1) * 4 + person.x] = 4;
-                self.onlyCode[(person.y - 1) * 4 + person.x + 1] = 4;
-                self.onlyCode[(person.y + 1) * 4 + person.x] = 0;
-                self.onlyCode[(person.y + 1) * 4 + person.x + 1] = 0;
+            for (int i = person.x; i < person.x + person.width; i++) {
+                _onlyCode[(person.y + person.height - 1) * 4 + i] = 0;
+                _onlyCode[(person.y - 1) * 4 + i] = (int)person.type;
             }
             person.y -= 1;
-            
-//            // test
-//            for (int i = person.x; i < (person.x + person.width); i++) {
-//                _onlyCode[person.y * 4 + i] = (int)person.type;
-//            }
         } break;
             
         case PersonDirectionLeft: {
-            if(person.type == PersonTinySquare) {
-                self.onlyCode[person.y * 4 + person.x - 1] = 1;
-                self.onlyCode[person.y * 4 + person.x] = 0;
-            }
-            else if(person.type == PersonVertical) {
-                self.onlyCode[person.y * 4 + person.x] = 0;
-                self.onlyCode[(person.y + 1) * 4 + person.x] = 0;
-                self.onlyCode[person.y * 4 + person.x - 1] = 2;
-                self.onlyCode[(person.y + 1) * 4 + person.x - 1] = 2;
-            }
-            else if(person.type == PersonHorizontal) {
-                self.onlyCode[person.y * 4 + person.x - 1] = 3;
-                self.onlyCode[person.y * 4 + person.x + 1] = 0;
-            }
-            else if(person.type == PersonBigSquare) {
-                self.onlyCode[person.y * 4 + person.x - 1] = 4;
-                self.onlyCode[(person.y + 1) * 4 + person.x - 1] = 4;
-                self.onlyCode[person.y * 4 + person.x + 1] = 0;
-                self.onlyCode[(person.y + 1) * 4 + person.x + 1] = 0;
+            for (int i = person.y; i < person.y + person.height; i++) {
+                _onlyCode[i * 4 + person.x - 1] = (int) person.type;
+                _onlyCode[i * 4 + person.x + person.width - 1] = 0;
             }
             person.x -= 1;
         } break;
             
         case PersonDirectionDown: {
-            if(person.type == PersonTinySquare) {
-                self.onlyCode[(person.y + 1) * 4 + person.x] = 1;
-                self.onlyCode[person.y * 4 + person.x] = 0;
-            }
-            else if(person.type == PersonVertical) {
-                self.onlyCode[person.y * 4 + person.x] = 0;
-                self.onlyCode[(person.y + 2) * 4 + person.x] = 2;
-            }
-            else if(person.type == PersonHorizontal) {
-                self.onlyCode[(person.y + 1) * 4 + person.x] = 3;
-                self.onlyCode[(person.y + 1) * 4 + person.x + 1] = 3;
-                self.onlyCode[person.y * 4 + person.x] = 0;
-                self.onlyCode[person.y * 4 + person.x + 1] = 0;
-            }
-            else if(person.type == PersonBigSquare) {
-                self.onlyCode[person.y * 4 + person.x] = 0;
-                self.onlyCode[person.y * 4 + person.x + 1] = 0;
-                self.onlyCode[(person.y + 2) * 4 + person.x] = 4;
-                self.onlyCode[(person.y + 2) * 4 + person.x + 1] = 4;
+            for (int i = person.x; i < person.x + person.width; i++) {
+                _onlyCode[person.y * 4 + i] = 0;
+                _onlyCode[(person.y + person.height) * 4 + i] = (int)person.type;
             }
             person.y += 1;
         } break;
             
         case PersonDirectionRight: {
-//            if(person.type == PersonTinySquare) {
-//                _onlyCode[person.y * 4 + person.x - 1] = 1;
-//                _onlyCode[person.y * 4 + person.x] = 0;
-//            }
-//            else if(person.type == PersonVertical) {
-//                self.onlyCode[person.y * 4 + person.x] = 0;
-//                self.onlyCode[(person.y + 1) * 4 + person.x] = 0;
-//                self.onlyCode[person.y * 4 + person.x + 1] = 2;
-//                self.onlyCode[(person.y + 1) * 4 + person.x + 1] = 2;
-//            }
-//            else if(person.type == PersonHorizontal) {
-//                self.onlyCode[person.y * 4 + person.x] = 0;
-//                self.onlyCode[person.y * 4 + person.x + 2] = 3;
-//            }
-//            else if(person.type == PersonBigSquare) {
-//                self.onlyCode[person.y * 4 + person.x] = 0;
-//                self.onlyCode[(person.y + 1) * 4 + person.x] = 0;
-//                self.onlyCode[person.y * 4 + person.x + 2] = 4;
-//                self.onlyCode[(person.y + 1) * 4 + person.x + 2] = 4;
-//            }
-            
-            for (int i = person.y; i < (person.y + person.height); i++) {
+            for (int i = person.y; i < person.y + person.height; i++) {
                 _onlyCode[i * 4 + person.x + person.width] = (int)person.type;
                 _onlyCode[i * 4 + person.x] = 0;
             }
