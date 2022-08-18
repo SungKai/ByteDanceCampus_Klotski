@@ -15,6 +15,8 @@
 
 #import "LevelCollectionLayout.h"
 
+#import "LevelFuncView.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @class Level;
@@ -22,7 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface LevelAdapter : NSObject <
     LevelCollectionLayoutDelegate,
     UICollectionViewDelegate,
-    UICollectionViewDataSource
+    UICollectionViewDataSource,
+    LevelFuncViewDelegate
 >
 
 - (instancetype)init NS_UNAVAILABLE;

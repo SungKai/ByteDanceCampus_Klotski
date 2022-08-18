@@ -15,6 +15,8 @@
 
 #import "LevelAdapter.h"
 
+#import "LevelFuncView.h"
+
 #pragma mark - LevelController ()
 
 @interface LevelController ()
@@ -27,6 +29,9 @@
 
 /// 华容道的一局的信息
 @property (nonatomic, strong) Level *model;
+
+/// 关于关卡的功能
+@property (nonatomic, strong) LevelFuncView *funcView;
 
 /// Adapter
 @property (nonatomic, strong) LevelAdapter *adapter;
@@ -57,6 +62,7 @@
     
     [self.view addSubview:self.titleLab];
     [self.view addSubview:self.collectionView];
+    [self.view addSubview:self.funcView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -69,17 +75,13 @@
     [self.model updateDB];
 }
 
-#pragma mark - Method
-
-// MARK: SEL
-
 #pragma mark - Getter
 
 - (UILabel *)titleLab {
     if (_titleLab == nil) {
-        _titleLab = [[UILabel alloc] initWithFrame:CGRectMake(0, UIDevice.safeDistanceTop + 10, self.view.width, 100)];
+        _titleLab = [[UILabel alloc] initWithFrame:CGRectMake(0, UIDevice.safeDistanceTop + 20, self.view.width, 100)];
         _titleLab.backgroundColor = UIColor.clearColor;
-        _titleLab.font = [UIFont fontWithName:PingFangSCBold size:52];
+        _titleLab.font = [UIFont fontWithName:PangMenZhengDaoBold size:83];
         _titleLab.textAlignment = NSTextAlignmentCenter;
         _titleLab.text = self.model.name;
     }
@@ -88,14 +90,14 @@
 
 - (UICollectionView *)collectionView {
     if (_collectionView == nil) {
-        CGFloat width = self.view.width - 20;
+        CGFloat width = self.view.width - 40;
         
         LevelCollectionLayout *layout = [[LevelCollectionLayout alloc] init];
         layout.lineSpacing = layout.interitemSpacing = 5;
         CGFloat minWidth = width / 4 - layout.interitemSpacing;
         layout.sizeForItem = CGSizeMake(minWidth, minWidth);
         
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, width, (minWidth + layout.lineSpacing) * 5) collectionViewLayout:layout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, width - layout.interitemSpacing, (minWidth + layout.lineSpacing) * 5) collectionViewLayout:layout];
         _collectionView.center = self.view.SuperCenter;
         _collectionView.backgroundColor = UIColor.clearColor;
         
@@ -104,6 +106,16 @@
         _collectionView.showsHorizontalScrollIndicator = NO;
     }
     return _collectionView;
+}
+
+- (LevelFuncView *)funcView {
+    if (_funcView == nil) {
+        CGFloat width = self.view.width - 30;
+        _funcView = [[LevelFuncView alloc] initWithFrame:CGRectMake(15, 0, width, 50)];
+        _funcView.centerY = (self.collectionView.bottom + self.view.height) / 2;
+        _funcView.delegate = self.adapter;
+    }
+    return _funcView;
 }
 
 #pragma mark - RisingRouterHandler

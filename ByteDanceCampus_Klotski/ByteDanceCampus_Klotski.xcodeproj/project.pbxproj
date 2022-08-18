@@ -411,10 +411,8 @@
 		14CDC880289BF6C70009358F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				14CDC87A289BEAB00009358F /* PersonItem.h */,
-				14CDC87B289BEAB00009358F /* PersonItem.m */,
-				149786DE28AD369A00D4EB3C /* LevelFuncView.h */,
-				149786DF28AD369A00D4EB3C /* LevelFuncView.m */,
+				14EDEBC428AE3A3200D38795 /* PersonItem */,
+				14EDEBC328AE3A2400D38795 /* LevelFuncView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -453,6 +451,24 @@
 				1442D6E528976E22009CEB40 /* RisingRouterResponse.m */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		14EDEBC328AE3A2400D38795 /* LevelFuncView */ = {
+			isa = PBXGroup;
+			children = (
+				149786DE28AD369A00D4EB3C /* LevelFuncView.h */,
+				149786DF28AD369A00D4EB3C /* LevelFuncView.m */,
+			);
+			path = LevelFuncView;
+			sourceTree = "<group>";
+		};
+		14EDEBC428AE3A3200D38795 /* PersonItem */ = {
+			isa = PBXGroup;
+			children = (
+				14CDC87A289BEAB00009358F /* PersonItem.h */,
+				14CDC87B289BEAB00009358F /* PersonItem.m */,
+			);
+			path = PersonItem;
 			sourceTree = "<group>";
 		};
 		14FB5FB028ACADB40006A02B /* Source */ = {

@@ -24,11 +24,6 @@
 /// 华容道的一局的信息
 @property (nonatomic, strong) Level *model;
 
-/// p
-@property (nonatomic) CGPoint currentP;
-
-@property (nonatomic, weak) UICollectionViewCell *moveItem;
-
 @end
 
 #pragma mark - LevelAdapter
@@ -104,12 +99,11 @@
     PersonItem *cell = [collectionView dequeueReusableCellWithReuseIdentifier:PersonItemReuseIdentifier forIndexPath:indexPath];
     
     Person *model = self.model.personAry[indexPath.item];
-    NSString *str = [NSString stringWithFormat:@"i:%ld p(%d,%d,%d,%d)",
-                     indexPath.item, model.x, model.y, model.width, model.height];
-//    (model.width == model.height ?
-//     model.name :
-//     [NSString stringWithFormat:@"%@.%@", model.name,
-//      (model.width == (model.height * 2) ? @"H" : @"V")]);
+    NSString *str =
+    (model.width == model.height ?
+     model.name :
+     [NSString stringWithFormat:@"%@.%@", model.name,
+      (model.width == (model.height * 2) ? @"H" : @"V")]);
     
     cell.name = str;
     
@@ -120,6 +114,16 @@
 
 - (PersonFrame)collectionView:(UICollectionView *)collectionView layout:(LevelCollectionLayout *)layout frameForItemAtIndexPath:(NSIndexPath *)indexPath {
     return self.model.personAry[indexPath.item].frame;
+}
+
+#pragma mark - <LevelFuncViewDelegate>
+
+- (BOOL)levelFuncView:(nonnull LevelFuncView *)view enableToSelectTypeFunc:(LevelFuncType)type {
+    return YES;
+}
+
+- (void)levelFuncView:(nonnull LevelFuncView *)view didSelectTypeFunc:(LevelFuncType)type {
+    
 }
 
 @end

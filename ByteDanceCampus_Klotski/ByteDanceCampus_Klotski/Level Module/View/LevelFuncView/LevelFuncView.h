@@ -45,6 +45,9 @@ typedef NS_ENUM(NSUInteger, LevelFuncType) {
 
 @interface LevelFuncView : UIView
 
+/// 代理
+@property (nonatomic, weak) id <LevelFuncViewDelegate> delegate;
+
 - (instancetype)init NS_UNAVAILABLE;
 
 + (instancetype)new NS_UNAVAILABLE;

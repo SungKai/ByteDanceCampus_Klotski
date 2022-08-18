@@ -241,10 +241,7 @@ WCDB_SYNTHESIZE(Level, currentLayoutStr)
 
 - (BOOL)currentPersonAtIndex:(NSInteger)index
           canMoveToDirection:(PersonDirection)direction {
-    // TODO: 是否可以移动的算法 >>>
-    // 对onlyCode的判断
     Person *person = self.personAry[index];
-        
     switch (direction) {
         case PersonDirectionRight: {
             if(person.type == 0)
@@ -305,9 +302,6 @@ WCDB_SYNTHESIZE(Level, currentLayoutStr)
 
 - (void)currentPersonAtIndex:(NSInteger)index
                       moveTo:(PersonDirection)direction {
-    // TODO: move的算法,这里简单写了下视图call过来的，差算法 >>>
-    // 对onlyCode的改变
-    // FIXME: <<<
     Person *person = self.personAry[index];
     switch (direction) {
         case PersonDirectionUP: {
@@ -345,9 +339,6 @@ WCDB_SYNTHESIZE(Level, currentLayoutStr)
 }
 
 - (BOOL)isGameOver {
-    // TODO: 曹操是否在结束位置 >>>
-    // 直接判断曹操是否到获胜所需的位置
-    // FIXME: <<<
     if(self.onlyCode[18] == 4 && self.onlyCode[19] == 4)
         return YES;
     return NO;
