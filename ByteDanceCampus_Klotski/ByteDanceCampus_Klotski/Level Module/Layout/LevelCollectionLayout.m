@@ -50,6 +50,8 @@
     return _attributes;
 }
 
+#pragma mark - Method
+
 - (void)reloadItemForIndexPath:(NSIndexPath *)indexPath animate:(BOOL)animate {
     if (self.delegate) {
         PersonFrame frame = [self.delegate collectionView:self.collectionView layout:self frameForItemAtIndexPath:indexPath];

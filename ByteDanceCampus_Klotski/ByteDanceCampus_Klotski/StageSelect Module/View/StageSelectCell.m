@@ -124,7 +124,7 @@ NSString * StageSelectCellReuseIdentifier = @"StageSelectCell";
 }
 
 - (void)setBestStep:(NSInteger)bestStep {
-    if (bestStep) {
+    if (bestStep >= 0) {
         self.moveImgView.image = [UIImage imageNamed:@"move"];
         self.bestStepLab.text = [NSString stringWithFormat:@"最佳记录：%ld", bestStep];
     } else {

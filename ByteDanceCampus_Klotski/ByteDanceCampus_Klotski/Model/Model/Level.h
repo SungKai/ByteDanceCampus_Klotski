@@ -116,7 +116,9 @@ FOUNDATION_EXPORT NSString *LevelTableName;
 /// 从当前的问题开始解决，返回步的情况
 /// 不会掉用上面的方法，也不会侵占数据
 /// 掉用过后，所有布局重新布局
-- (NSArray <NSDictionary <NSNumber *, NSNumber *> *> * _Nullable)stepForCurrent;
+@property (nonatomic, readonly) NSArray
+<NSDictionary
+    <NSNumber *, NSNumber *> *> *stepForCurrent;
 
 @end
 

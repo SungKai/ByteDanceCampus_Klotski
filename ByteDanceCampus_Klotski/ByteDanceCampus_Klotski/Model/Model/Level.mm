@@ -353,10 +353,14 @@ WCDB_SYNTHESIZE(Level, currentLayoutStr)
     
     
     
-    
-    
-    
-    return nil;
+    NSMutableArray <NSDictionary <NSNumber *,NSNumber *> *> *mutAry = NSMutableArray.array;
+    for (std::map aMap : t) {
+        NSInteger index = aMap.begin()->first;
+        PersonDirection direction = (PersonDirection)aMap.begin()->second;
+        NSDictionary *aDic = @{@(index):@(direction)};
+        [mutAry addObject:aDic];
+    }
+    return mutAry.copy;
 }
 
 @end

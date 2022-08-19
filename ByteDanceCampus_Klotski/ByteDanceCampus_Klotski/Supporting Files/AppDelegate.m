@@ -15,7 +15,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    UINavigationController *vc = [[UINavigationController alloc] initWithRootViewController:[self.router controllerForRouterPath:@"KlotskiTabController"]];
+    UIViewController *vc = [self.router controllerForRouterPath:@"KlotskiTabController"];
     
     self.window = [[UIWindow alloc] init];
     self.window.rootViewController = vc;
