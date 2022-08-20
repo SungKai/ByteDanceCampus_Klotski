@@ -46,7 +46,15 @@ NS_ASSUME_NONNULL_BEGIN
 /// 单个兵所占大小
 @property (nonatomic) CGSize sizeForItem;
 
-- (void)moveItemAtIndex:(NSInteger)index toDirection:(PersonDirection)direction complition:(void (^ _Nullable)(void))complition;
+/// 移动一个item所做的事情
+/// 这里不会对数据源进行操作，finished可以拿来干点其他事
+/// 如果想对原数据进行改变，请单独处理哟～
+/// @param index 第几个item
+/// @param direction 向哪边走
+/// @param complition 完成动画后回掉
+- (void)moveItemAtIndex:(NSInteger)index
+            toDirection:(PersonDirection)direction
+               finished:(void (^ _Nullable)(void))complition;
 
 @end
 

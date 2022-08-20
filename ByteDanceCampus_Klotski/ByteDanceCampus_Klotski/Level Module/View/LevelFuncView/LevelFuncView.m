@@ -41,7 +41,7 @@
 
 #pragma mark - Method
 
-- (void)__didSelectBtn:(UIButton *)btn {
+- (void)_didSelectBtn:(UIButton *)btn {
     LevelFuncType type = LevelFuncTypeSaveCurrent;
     if ([btn.titleLabel.text isEqualToString:@"保存棋局"]) {
         type = LevelFuncTypeSaveCurrent;
@@ -72,7 +72,7 @@
         _saveBtn.titleLabel.font = [UIFont fontWithName:PingFangSC size:24];
         [_saveBtn setTitleColor:[UIColor colorWithHexString:@"#112C54"] forState:UIControlStateNormal];
         
-        [_saveBtn addTarget:self action:@selector(__didSelectBtn:) forControlEvents:UIControlEventTouchUpInside];
+        [_saveBtn addTarget:self action:@selector(_didSelectBtn:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _saveBtn;
 }
@@ -90,7 +90,7 @@
         _resetBtn.titleLabel.font = [UIFont fontWithName:PingFangSC size:24];
         [_resetBtn setTitleColor:[UIColor colorWithHexString:@"#112C54"] forState:UIControlStateNormal];
         
-        [_saveBtn addTarget:self action:@selector(__didSelectBtn:) forControlEvents:UIControlEventTouchUpInside];
+        [_saveBtn addTarget:self action:@selector(_didSelectBtn:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _resetBtn;
 }
@@ -108,7 +108,7 @@
         _autoBtn.titleLabel.font = [UIFont fontWithName:PingFangSC size:24];
         [_autoBtn setTitleColor:[UIColor colorWithHexString:@"#112C54"] forState:UIControlStateNormal];
         
-        [_autoBtn addTarget:self action:@selector(__didSelectBtn:) forControlEvents:UIControlEventTouchUpInside];
+        [_autoBtn addTarget:self action:@selector(_didSelectBtn:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _autoBtn;
 }

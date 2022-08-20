@@ -84,7 +84,7 @@
 
 #pragma mark - Method
 
-- (void)__pop:(UIButton *)btn {
+- (void)_pop:(UIButton *)btn {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -104,7 +104,7 @@
         _popBtn.layer.cornerRadius = _popBtn.width / 2;
         [_popBtn bringSubviewToFront:_popBtn.imageView];
         
-        [_popBtn addTarget:self action:@selector(__pop:) forControlEvents:UIControlEventTouchUpInside];
+        [_popBtn addTarget:self action:@selector(_pop:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _popBtn;
 }

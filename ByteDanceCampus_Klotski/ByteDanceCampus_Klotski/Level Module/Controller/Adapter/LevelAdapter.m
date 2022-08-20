@@ -24,8 +24,16 @@
 /// 华容道的一局的信息
 @property (nonatomic, strong) Level *model;
 
+// MARK: - slove
+
 /// 是否再自动求解
 @property (nonatomic) BOOL isAutoSolve;
+
+/// 解法
+@property (nonatomic, strong) NSArray <NSDictionary <NSNumber *, NSNumber *> * > *solveSteps;
+
+/// 当前步骤
+@property (nonatomic) NSInteger currentSoloveStep;
 
 @end
 
@@ -41,16 +49,16 @@
     view.dataSource = adapter;
     view.delegate = adapter;
     
-    UISwipeGestureRecognizer *panU = [[UISwipeGestureRecognizer alloc] initWithTarget:adapter action:@selector(panItem:)];
+    UISwipeGestureRecognizer *panU = [[UISwipeGestureRecognizer alloc] initWithTarget:adapter action:@selector(_panItem:)];
     panU.direction = UISwipeGestureRecognizerDirectionUp;
     
-    UISwipeGestureRecognizer *panR = [[UISwipeGestureRecognizer alloc] initWithTarget:adapter action:@selector(panItem:)];
+    UISwipeGestureRecognizer *panR = [[UISwipeGestureRecognizer alloc] initWithTarget:adapter action:@selector(_panItem:)];
     panR.direction = UISwipeGestureRecognizerDirectionRight;
     
-    UISwipeGestureRecognizer *panD = [[UISwipeGestureRecognizer alloc] initWithTarget:adapter action:@selector(panItem:)];
+    UISwipeGestureRecognizer *panD = [[UISwipeGestureRecognizer alloc] initWithTarget:adapter action:@selector(_panItem:)];
     panD.direction = UISwipeGestureRecognizerDirectionDown;
     
-    UISwipeGestureRecognizer *panL = [[UISwipeGestureRecognizer alloc] initWithTarget:adapter action:@selector(panItem:)];
+    UISwipeGestureRecognizer *panL = [[UISwipeGestureRecognizer alloc] initWithTarget:adapter action:@selector(_panItem:)];
     panL.direction = UISwipeGestureRecognizerDirectionLeft;
     
     [view addGestureRecognizer:panU];
@@ -67,7 +75,7 @@
 
 #pragma mark - Method
 
-- (void)panItem:(UISwipeGestureRecognizer *)swipe {
+- (void)_panItem:(UISwipeGestureRecognizer *)swipe {
     if (self.isAutoSolve) {
         return;
     }
@@ -84,7 +92,7 @@
             [self.model currentPersonAtIndex:index canMoveToDirection:i]) {
             
             [self.model currentPersonAtIndex:index moveTo:i];
-            [self.layout moveItemAtIndex:index toDirection:i complition:nil];
+            [self.layout moveItemAtIndex:index toDirection:i finished:nil];
         }
     }
     
@@ -142,18 +150,35 @@
             
         case LevelFuncTypeAutoGame:{
             
-            NSArray <NSDictionary <NSNumber *, NSNumber *> * > *steps = self.model.stepForCurrent;
-            for (NSDictionary <NSNumber *, NSNumber *> *aStep in steps) {
-                [self.layout
-                 moveItemAtIndex:(NSInteger)aStep.allKeys[0]
-                 toDirection:(PersonDirection)aStep.allValues[0]
-                 complition:^{
-                    
-                }];
-            }
+            self.isAutoSolve = YES;
+            self.solveSteps = self.model.stepForCurrent;
+            [self _solveDic:self._nextStep];
             
         } break;
     }
+}
+    
+#pragma mark - property method
+
+- (void)_solveDic:(NSDictionary <NSNumber *, NSNumber *> *)dic {
+    if (dic == nil) {
+        return;
+    }
+    [self.layout
+     moveItemAtIndex:(NSInteger)dic.allKeys[0]
+     toDirection:(PersonDirection)dic.allValues[0]
+     finished:^{
+        [self _solveDic:self._nextStep];
+    }];
+}
+
+- (NSDictionary <NSNumber *, NSNumber *> *)_nextStep {
+    if (self.currentSoloveStep >= self.solveSteps.count) {
+        return nil;
+    }
+    NSDictionary <NSNumber *, NSNumber *> *dic = self.solveSteps[self.currentSoloveStep];
+    self.currentSoloveStep += 1;
+    return dic;
 }
 
 @end

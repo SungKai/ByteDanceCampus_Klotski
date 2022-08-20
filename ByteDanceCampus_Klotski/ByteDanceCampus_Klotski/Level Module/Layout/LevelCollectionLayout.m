@@ -58,7 +58,7 @@
     return CGRectZero;
 }
 
-- (void)moveItemAtIndex:(NSInteger)index toDirection:(PersonDirection)direction complition:(void (^ _Nullable)(void))complition{
+- (void)moveItemAtIndex:(NSInteger)index toDirection:(PersonDirection)direction finished:(void (^ _Nullable)(void))complition{
     UICollectionViewLayoutAttributes *attribute = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
     CGRect frame = attribute.frame;
     CGFloat moveWidth = self.interitemSpacing + self.sizeForItem.width;

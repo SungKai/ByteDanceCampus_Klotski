@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class Level;
 
+#pragma mark - LevelAdapter
+
 @interface LevelAdapter : NSObject <
     LevelCollectionLayoutDelegate,
     UICollectionViewDelegate,
