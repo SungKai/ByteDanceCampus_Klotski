@@ -360,11 +360,20 @@ WCDB_SYNTHESIZE(Level, currentLayoutStr)
     return [self isGameOverWithCheckBoard:_onlyCode];
 }
 
+// MARK: solve problem
+
 - (NSArray<NSDictionary<NSNumber *,NSNumber *> *> *)stepForCurrent {
     
     // TODO: 算法
     // 不允许改变person以及
     std::vector<std::map<int, int>> t;
+    
+    std::map<int, int> m;
+    m.insert(std::make_pair(3, 4));
+    
+    t.insert(t.end(), m);
+    
+    
     
     NSMutableArray <NSDictionary <NSNumber *,NSNumber *> *> *mutAry = NSMutableArray.array;
     for (std::map aMap : t) {

@@ -19,6 +19,10 @@ FOUNDATION_EXPORT NSString *PersonTableName;
 
 #pragma mark - ENUM (PersonType)
 
+/**成员属性
+ * 这个属性只用于算法
+ */
+
 typedef NS_ENUM(NSUInteger, PersonType) {
     PersonFoo,        // 空   0 * 0   0
     PersonTinySquare, // 卒   1 * 1   1
@@ -27,11 +31,16 @@ typedef NS_ENUM(NSUInteger, PersonType) {
     PersonBigSquare   // 曹   2 * 2   4
 };
 
+#pragma mark - PersonStruct
+
+/**为了值传递，使用struct进行传递
+ * 这个struct只能用来读，所有的赋值操作只用于算法
+ */
 
 typedef struct _PersonStruct {
-    int index;
-    PersonFrame frame;
-    PersonType type;
+    int index;          // 所在下标，是唯一的
+    PersonFrame frame;  // 所占位置
+    PersonType type;    // 成员属性
 } PersonStruct;
 
 #pragma mark - Person
