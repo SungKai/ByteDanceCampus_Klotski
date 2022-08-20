@@ -41,7 +41,7 @@
 
 @implementation LevelAdapter
 
-#pragma mark - Life cyle
+#pragma mark - Life cycle
 
 + (instancetype)adapterWithCollectionView:(UICollectionView *)view layout:(nonnull LevelCollectionLayout *)layout model:(nonnull Level *)model {
     LevelAdapter *adapter = [[LevelAdapter alloc] init];
@@ -93,6 +93,8 @@
             
             [self.model currentPersonAtIndex:index moveTo:i];
             [self.layout moveItemAtIndex:index toDirection:i finished:nil];
+            
+            self.model.currentStep += 1;
         }
     }
     

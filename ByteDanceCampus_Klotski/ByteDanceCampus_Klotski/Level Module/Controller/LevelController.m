@@ -67,7 +67,14 @@
     
     [self.view addSubview:self.backImgView];
     [self.view addSubview:self.titleLab];
-    [self.view addSubview:self.popBtn];
+    {
+        UIVisualEffectView *view = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleRegular]];
+        view.frame = self.popBtn.frame;
+        view.layer.cornerRadius = view.width / 2;
+        view.clipsToBounds = YES;
+        [self.view addSubview:view];
+        [self.view addSubview:self.popBtn];
+    }
     [self.view addSubview:self.collectionView];
     [self.view addSubview:self.funcView];
 }
@@ -93,13 +100,10 @@
 - (UIButton *)popBtn {
     if (_popBtn == nil) {
         _popBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, UIDevice.statusBarHeight, 40, 40)];
-        
-        UIVisualEffectView *view = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleRegular]];
-        view.frame = _popBtn.bounds;
-        [_popBtn insertSubview:view atIndex:0];
+        _popBtn.userInteractionEnabled = YES;
         
         [_popBtn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
-        _popBtn.imageEdgeInsets = UIEdgeInsetsMake(6, 10, 6, 3);
+        _popBtn.imageEdgeInsets = UIEdgeInsetsMake(4, 0, 4, 3);
         _popBtn.clipsToBounds = YES;
         _popBtn.layer.cornerRadius = _popBtn.width / 2;
         [_popBtn bringSubviewToFront:_popBtn.imageView];

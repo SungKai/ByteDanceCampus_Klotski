@@ -68,6 +68,8 @@ WCDB_SYNTHESIZE(Level, isFavorite)
 WCDB_SYNTHESIZE(Level, originLayoutStr)
 WCDB_SYNTHESIZE(Level, currentLayoutStr)
 
+WCDB_PRIMARY(Level, originLayoutStr)
+
 #pragma mark - Life cycle
 
 - (instancetype)init {
@@ -83,11 +85,20 @@ WCDB_SYNTHESIZE(Level, currentLayoutStr)
 
 #pragma mark - Privety Method
 
-- (void)__setCodeWithPerson:(Person *)person {
+- (void)_setCodeWithPerson:(Person *)person {
     for (int i = person.x; i < (person.x + person.width); i++) {
         for (int j = person.y; j < (person.y + person.height); j++) {
             _onlyCode[j * 4 + i] = (int)person.type;
         }
+    }
+}
+
+- (void)_saveCurrentLayout {
+    _currentLayoutStr = NSMutableString.string;
+    for (int p = 0; p < _personAry.count; p++) {
+        Person *person = _personAry[p];
+        
+        [_currentLayoutStr appendFormat:@"%@ ", person.code];
     }
 }
 
@@ -119,6 +130,9 @@ WCDB_SYNTHESIZE(Level, currentLayoutStr)
     
     for (int i = 0; i < strAry.count; i++) {
         NSString *aStr = strAry[i];
+        if (aStr.length < 4) {
+            continue;
+        }
         int x = [aStr substringWithRange:NSMakeRange(0, 1)].intValue;
         int y = [aStr substringWithRange:NSMakeRange(1, 1)].intValue;
         int width = [aStr substringWithRange:NSMakeRange(2, 1)].intValue;
@@ -130,28 +144,34 @@ WCDB_SYNTHESIZE(Level, currentLayoutStr)
         p.frame = PersonFrameMake(x, y, width, height);
         [mutAry addObject:p];
         
-        [self __setCodeWithPerson:p];
+        [self _setCodeWithPerson:p];
     }
     _personAry = mutAry.copy;
 }
 
 - (void)setCurrentLayoutStr:(NSMutableString *)currentLayoutStr {
     _currentLayoutStr = currentLayoutStr;
-    
-    NSArray <NSString *> *strAry = [_originLayoutStr componentsSeparatedByString:@" "];
+    if (!_currentLayoutStr && _currentLayoutStr.length < 2) {
+        return;
+    }
+
+    NSArray <NSString *> *strAry = [_currentLayoutStr componentsSeparatedByString:@" "];
     std::array<int, 20> t = {};
     _onlyCode = t;
-    
+
     for (int i = 0; i < strAry.count; i++) {
         NSString *aStr = strAry[i];
+        if (aStr.length < 4) {
+            continue;
+        }
         int x = [aStr substringWithRange:NSMakeRange(0, 1)].intValue;
         int y = [aStr substringWithRange:NSMakeRange(1, 1)].intValue;
-        
+
         Person *p = _personAry[i];
         p.x = x;
         p.y = y;
-        
-        [self __setCodeWithPerson:p];
+
+        [self _setCodeWithPerson:p];
     }
 }
 
@@ -198,11 +218,16 @@ WCDB_SYNTHESIZE(Level, currentLayoutStr)
         
         [_originLayoutStr appendFormat:@"%@ ", person.code];
         
-        [self __setCodeWithPerson:person];
+        [self _setCodeWithPerson:person];
     }
     
-    // FIXME: insertOrReplaceObject
-    // [Level.DB insertOrReplaceObject:self onProperties:{Level.name} into:LevelTableName];
+    [self _saveCurrentLayout];
+    
+    [Level.DB
+     insertOrReplaceObject:self
+     onProperties:
+     {Level.name, Level.currentStep, Level.bestStep, Level.isFavorite, Level.originLayoutStr, Level.currentLayoutStr}
+     into:LevelTableName];
 }
 
 - (void)resetLayout {
@@ -215,17 +240,18 @@ WCDB_SYNTHESIZE(Level, currentLayoutStr)
         Person *p = _personAry[i];
         p.x = x;
         p.y = y;
-        [self __setCodeWithPerson:p];
+        [self _setCodeWithPerson:p];
     }
 }
 
 - (void)updateDB {
-    // TODO: updateAllRowsInTable
-//    [Level.DB
-//     updateAllRowsInTable:LevelTableName
-//     onProperties:
-//     {Level.name, Level.bestStep, Level.currentStep, Level.isFavorite}
-//     withObject:self];
+    [self _saveCurrentLayout];
+    
+    [Level.DB
+     updateAllRowsInTable:LevelTableName
+     onProperties:
+     {Level.name, Level.currentStep, Level.bestStep, Level.isFavorite, Level.currentLayoutStr}
+     withObject:self];
 }
 
 @end

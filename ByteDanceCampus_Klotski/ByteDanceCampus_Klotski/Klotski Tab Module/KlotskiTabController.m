@@ -42,6 +42,7 @@
     NSString *todayStr = [NSDate.date stringWithFormat:@"YYYYMMDD"];
     NSString *userDay = [NSUserDefaults.standardUserDefaults stringForKey:Klotski_today_String];
     if (![userDay isEqualToString:todayStr]) {
+        [NSUserDefaults.standardUserDefaults setValue:todayStr forKey:Klotski_today_String];
         NSInteger todayIndex = arc4random() % self.model.stages.count;
         [NSUserDefaults.standardUserDefaults setInteger:todayIndex forKey:Klotski_indexAtLevel_Long];
     }
