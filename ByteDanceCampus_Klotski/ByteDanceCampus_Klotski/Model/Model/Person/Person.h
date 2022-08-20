@@ -7,7 +7,6 @@
 
 /**对于每一个人的一个模型
  * 相对来说比较固定，但不同摆放有不同讲究
- * TODO: 在高阶应用时，要考虑全横全竖
  * PersonType与PersonFrame用于算法
  */
 
@@ -20,6 +19,10 @@ FOUNDATION_EXPORT NSString *PersonTableName;
 
 #pragma mark - ENUM (PersonType)
 
+/**成员属性
+ * 这个属性只用于算法
+ */
+
 typedef NS_ENUM(NSUInteger, PersonType) {
     PersonFoo,        // 空   0 * 0   0
     PersonTinySquare, // 卒   1 * 1   1
@@ -28,14 +31,17 @@ typedef NS_ENUM(NSUInteger, PersonType) {
     PersonBigSquare   // 曹   2 * 2   4
 };
 
-#pragma mark - ENUM (PersonDirrection)
+#pragma mark - PersonStruct
 
-typedef NS_ENUM(NSUInteger, PersonDirection) {
-    PersonDirectionRight, // 右  0
-    PersonDirectionLeft,  // 左  1
-    PersonDirectionUP,    // 上  2
-    PersonDirectionDown   // 下  3
-};
+/**为了值传递，使用struct进行传递
+ * 这个struct只能用来读，所有的赋值操作只用于算法
+ */
+
+typedef struct _PersonStruct {
+    int index;          // 所在下标，是唯一的
+    PersonFrame frame;  // 所占位置
+    PersonType type;    // 成员属性
+} PersonStruct;
 
 #pragma mark - Person
 
@@ -67,6 +73,12 @@ typedef NS_ENUM(NSUInteger, PersonDirection) {
 
 /// 得到code（计算属性）
 @property (nonatomic, readonly) NSString *code;
+
+/// 下标
+@property (nonatomic) int index;
+
+/// 得到PersonStruct
+@property (nonatomic, readonly) PersonStruct perStruct;
 
 /// 根据字典创建
 /// @param dictionary 字典

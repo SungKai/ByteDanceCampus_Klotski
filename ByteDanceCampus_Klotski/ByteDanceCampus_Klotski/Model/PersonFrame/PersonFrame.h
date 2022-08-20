@@ -25,4 +25,14 @@ NS_INLINE BOOL PersonFrameEqual(PersonFrame f1, PersonFrame f2) {
             f1.width == f2.width && f1.height == f2.height);
 }
 
+
+#pragma mark - ENUM (PersonDirrection)
+
+typedef NS_ENUM(NSUInteger, PersonDirection) {
+    PersonDirectionRight, // 右  0
+    PersonDirectionLeft,  // 左  1
+    PersonDirectionUP,    // 上  2
+    PersonDirectionDown   // 下  3
+};
+
 #endif /* PersonFrame_h */

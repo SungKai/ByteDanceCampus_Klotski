@@ -42,7 +42,7 @@
     NSString *todayStr = [NSDate.date stringWithFormat:@"YYYYMMDD"];
     NSString *userDay = [NSUserDefaults.standardUserDefaults stringForKey:Klotski_today_String];
     if (![userDay isEqualToString:todayStr]) {
-        // 更新
+        [NSUserDefaults.standardUserDefaults setValue:todayStr forKey:Klotski_today_String];
         NSInteger todayIndex = arc4random() % self.model.stages.count;
         [NSUserDefaults.standardUserDefaults setInteger:todayIndex forKey:Klotski_indexAtLevel_Long];
     }
@@ -60,8 +60,11 @@
         
         _klotskiTabBar.layer.cornerRadius = _klotskiTabBar.height / 2;
         _klotskiTabBar.clipsToBounds = YES;
-        _klotskiTabBar.barTintColor = UIColor.redColor;
         _klotskiTabBar.delegate = self;
+        
+        UIVisualEffectView *view = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleRegular]];
+        view.frame = _klotskiTabBar.bounds;
+        [_klotskiTabBar insertSubview:view atIndex:0];
     }
     return _klotskiTabBar;
 }
@@ -77,10 +80,14 @@
     vc.tabBarItem =
     [[UITabBarItem alloc]
      initWithTitle:@"play"
-     image:[[UIImage imageNamed:@"play.unselect"]
+     image:[[[UIImage
+            imageNamed:@"play.unselect"]
             imageByResizeToSize:CGSizeMake(40, 40)]
-     selectedImage:[[UIImage imageNamed:@"paly.select"]
-                    imageByResizeToSize:CGSizeMake(40, 40)]];
+            imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
+     selectedImage:[[[UIImage
+                    imageNamed:@"paly.select"]
+                    imageByResizeToSize:CGSizeMake(40, 40)]
+                    imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     vc.navigationController.navigationBarHidden = YES;
@@ -101,10 +108,14 @@
     vc.tabBarItem =
     [[UITabBarItem alloc]
      initWithTitle:@"Klotski"
-     image:[[UIImage imageNamed:@"main.unselect"]
+     image:[[[UIImage
+            imageNamed:@"main.unselect"]
             imageByResizeToSize:CGSizeMake(25, 25)]
-     selectedImage:[[UIImage imageNamed:@"main.select"]
-                    imageByResizeToSize:CGSizeMake(25, 25)]];
+            imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
+     selectedImage:[[[UIImage
+                    imageNamed:@"main.select"]
+                    imageByResizeToSize:CGSizeMake(25, 25)]
+                    imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     vc.navigationController.navigationBarHidden = YES;
@@ -124,7 +135,7 @@
 
 - (void)setViewControllers:(NSArray<__kindof UIViewController *> *)viewControllers {
     [super setViewControllers:viewControllers];
-    self.klotskiTabBar.items = self.tabBar.items.mutableCopy;
+    self.klotskiTabBar.items = self.tabBar.items;
     self.klotskiTabBar.selectedItem = self.tabBar.selectedItem;
 }
 
@@ -158,7 +169,6 @@
         } break;
             
         case RouterRequestParameters: {
-            // TODO: 传回参数
         } break;
             
         case RouterRequestController: {

@@ -15,9 +15,17 @@
 
 #import "LevelAdapter.h"
 
+#import "LevelFuncView.h"
+
 #pragma mark - LevelController ()
 
 @interface LevelController ()
+
+/// 返回按钮
+@property (nonatomic, strong) UIButton *popBtn;
+
+/// 背景
+@property (nonatomic, strong) UIImageView *backImgView;
 
 /// 标题
 @property (nonatomic, strong) UILabel *titleLab;
@@ -27,6 +35,9 @@
 
 /// 华容道的一局的信息
 @property (nonatomic, strong) Level *model;
+
+/// 关于关卡的功能
+@property (nonatomic, strong) LevelFuncView *funcView;
 
 /// Adapter
 @property (nonatomic, strong) LevelAdapter *adapter;
@@ -51,12 +62,21 @@
     [super viewDidLoad];
     self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     self.navigationController.interactivePopGestureRecognizer.delegate = nil;
-    self.view.backgroundColor = UIColor.whiteColor;
     
     self.adapter = [LevelAdapter adapterWithCollectionView:self.collectionView layout:(LevelCollectionLayout *)self.collectionView.collectionViewLayout model:self.model];
     
+    [self.view addSubview:self.backImgView];
     [self.view addSubview:self.titleLab];
+    {
+        UIVisualEffectView *view = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleRegular]];
+        view.frame = self.popBtn.frame;
+        view.layer.cornerRadius = view.width / 2;
+        view.clipsToBounds = YES;
+        [self.view addSubview:view];
+        [self.view addSubview:self.popBtn];
+    }
     [self.view addSubview:self.collectionView];
+    [self.view addSubview:self.funcView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -71,31 +91,58 @@
 
 #pragma mark - Method
 
-// MARK: SEL
+- (void)_pop:(UIButton *)btn {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 #pragma mark - Getter
 
+- (UIButton *)popBtn {
+    if (_popBtn == nil) {
+        _popBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, UIDevice.statusBarHeight, 40, 40)];
+        _popBtn.userInteractionEnabled = YES;
+        
+        [_popBtn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+        _popBtn.imageEdgeInsets = UIEdgeInsetsMake(4, 0, 4, 3);
+        _popBtn.clipsToBounds = YES;
+        _popBtn.layer.cornerRadius = _popBtn.width / 2;
+        [_popBtn bringSubviewToFront:_popBtn.imageView];
+        
+        [_popBtn addTarget:self action:@selector(_pop:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _popBtn;
+}
+
+- (UIImageView *)backImgView {
+    if (_backImgView == nil) {
+        _backImgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+        _backImgView.image = [UIImage imageNamed:@"back.level"];
+    }
+    return _backImgView;
+}
+
 - (UILabel *)titleLab {
     if (_titleLab == nil) {
-        _titleLab = [[UILabel alloc] initWithFrame:CGRectMake(0, UIDevice.safeDistanceTop + 10, self.view.width, 100)];
+        _titleLab = [[UILabel alloc] initWithFrame:CGRectMake(0, UIDevice.safeDistanceTop + 20, self.view.width, 100)];
         _titleLab.backgroundColor = UIColor.clearColor;
-        _titleLab.font = [UIFont fontWithName:PingFangSCBold size:52];
+        _titleLab.font = [UIFont fontWithName:PangMenZhengDaoBold size:83];
         _titleLab.textAlignment = NSTextAlignmentCenter;
         _titleLab.text = self.model.name;
+        _titleLab.textColor = [UIColor colorWithHexString:@"#DDC992"];
     }
     return _titleLab;
 }
 
 - (UICollectionView *)collectionView {
     if (_collectionView == nil) {
-        CGFloat width = self.view.width - 20;
+        CGFloat width = self.view.width - 40;
         
         LevelCollectionLayout *layout = [[LevelCollectionLayout alloc] init];
         layout.lineSpacing = layout.interitemSpacing = 5;
         CGFloat minWidth = width / 4 - layout.interitemSpacing;
         layout.sizeForItem = CGSizeMake(minWidth, minWidth);
         
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, width, (minWidth + layout.lineSpacing) * 5) collectionViewLayout:layout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, width - layout.interitemSpacing, (minWidth + layout.lineSpacing) * 5 - layout.lineSpacing) collectionViewLayout:layout];
         _collectionView.center = self.view.SuperCenter;
         _collectionView.backgroundColor = UIColor.clearColor;
         
@@ -104,6 +151,16 @@
         _collectionView.showsHorizontalScrollIndicator = NO;
     }
     return _collectionView;
+}
+
+- (LevelFuncView *)funcView {
+    if (_funcView == nil) {
+        CGFloat width = self.view.width - 30;
+        _funcView = [[LevelFuncView alloc] initWithFrame:CGRectMake(15, 0, width, 50)];
+        _funcView.centerY = (self.collectionView.bottom + self.view.height) / 2;
+        _funcView.delegate = self.adapter;
+    }
+    return _funcView;
 }
 
 #pragma mark - RisingRouterHandler
@@ -141,7 +198,6 @@
         } break;
             
         case RouterRequestParameters: {
-            // TODO: 传回参数
         } break;
             
         case RouterRequestController: {

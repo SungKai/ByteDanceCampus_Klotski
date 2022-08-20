@@ -9,6 +9,8 @@
 
 #import "TeamIntroduceView.h"
 
+#import "TodayRecommendView.h"
+
 #import "Level.h"
 
 #pragma mark - HomePageController ()
@@ -27,8 +29,8 @@
 /// 关卡（用于今日关卡选择）
 @property (nonatomic, strong) Level *model;
 
-/// 今日推荐按钮
-@property (nonatomic, strong) UIButton *recommendBtn;
+/// 今日推荐
+@property (nonatomic, strong) TodayRecommendView *recommendView;
 
 @end
 
@@ -53,11 +55,22 @@
     [self.view addSubview:self.backImgView];
     [self.view addSubview:self.logoImgView];
     [self.view addSubview:self.introduceView];
+    [self.view addSubview:self.recommendView];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.tabBarController tabBarVisible:YES animated:YES];
+}
+
+#pragma mark - Method
+
+- (void)_push {
+    [self.router
+     pushForRouterPath:@"LevelController"
+     parameters:@{
+        @"level" : self.model
+    }];
 }
 
 #pragma mark - Getter
@@ -84,6 +97,17 @@
         _backImgView.image = [UIImage imageNamed:@"background"];
     }
     return _backImgView;
+}
+
+- (TodayRecommendView *)recommendView {
+    if (_recommendView == nil) {
+        CGFloat width = self.view.width * 0.7;
+        _recommendView = [[TodayRecommendView alloc] initWithFrame:CGRectMake(0, self.introduceView.bottom + 20, width, width * 0.5)];
+        _recommendView.centerX = self.view.width / 2;
+        _recommendView.title = self.model.name;
+        [_recommendView addTarget:self action:@selector(_push)];
+    }
+    return _recommendView;
 }
 
 #pragma mark - RisingRouterHandler
@@ -123,7 +147,6 @@
         } break;
             
         case RouterRequestParameters: {
-            // TODO: 传回参数
         } break;
             
         case RouterRequestController: {

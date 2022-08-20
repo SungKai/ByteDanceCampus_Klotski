@@ -68,6 +68,8 @@ WCDB_SYNTHESIZE(Level, isFavorite)
 WCDB_SYNTHESIZE(Level, originLayoutStr)
 WCDB_SYNTHESIZE(Level, currentLayoutStr)
 
+WCDB_PRIMARY(Level, originLayoutStr)
+
 #pragma mark - Life cycle
 
 - (instancetype)init {
@@ -83,11 +85,20 @@ WCDB_SYNTHESIZE(Level, currentLayoutStr)
 
 #pragma mark - Privety Method
 
-- (void)__setCodeWithPerson:(Person *)person {
+- (void)_setCodeWithPerson:(Person *)person {
     for (int i = person.x; i < (person.x + person.width); i++) {
         for (int j = person.y; j < (person.y + person.height); j++) {
             _onlyCode[j * 4 + i] = (int)person.type;
         }
+    }
+}
+
+- (void)_saveCurrentLayout {
+    _currentLayoutStr = NSMutableString.string;
+    for (int p = 0; p < _personAry.count; p++) {
+        Person *person = _personAry[p];
+        
+        [_currentLayoutStr appendFormat:@"%@ ", person.code];
     }
 }
 
@@ -119,6 +130,9 @@ WCDB_SYNTHESIZE(Level, currentLayoutStr)
     
     for (int i = 0; i < strAry.count; i++) {
         NSString *aStr = strAry[i];
+        if (aStr.length < 4) {
+            continue;
+        }
         int x = [aStr substringWithRange:NSMakeRange(0, 1)].intValue;
         int y = [aStr substringWithRange:NSMakeRange(1, 1)].intValue;
         int width = [aStr substringWithRange:NSMakeRange(2, 1)].intValue;
@@ -130,28 +144,34 @@ WCDB_SYNTHESIZE(Level, currentLayoutStr)
         p.frame = PersonFrameMake(x, y, width, height);
         [mutAry addObject:p];
         
-        [self __setCodeWithPerson:p];
+        [self _setCodeWithPerson:p];
     }
     _personAry = mutAry.copy;
 }
 
 - (void)setCurrentLayoutStr:(NSMutableString *)currentLayoutStr {
     _currentLayoutStr = currentLayoutStr;
-    
-    NSArray <NSString *> *strAry = [_originLayoutStr componentsSeparatedByString:@" "];
+    if (!_currentLayoutStr && _currentLayoutStr.length < 2) {
+        return;
+    }
+
+    NSArray <NSString *> *strAry = [_currentLayoutStr componentsSeparatedByString:@" "];
     std::array<int, 20> t = {};
     _onlyCode = t;
-    
+
     for (int i = 0; i < strAry.count; i++) {
         NSString *aStr = strAry[i];
+        if (aStr.length < 4) {
+            continue;
+        }
         int x = [aStr substringWithRange:NSMakeRange(0, 1)].intValue;
         int y = [aStr substringWithRange:NSMakeRange(1, 1)].intValue;
-        
+
         Person *p = _personAry[i];
         p.x = x;
         p.y = y;
-        
-        [self __setCodeWithPerson:p];
+
+        [self _setCodeWithPerson:p];
     }
 }
 
@@ -198,11 +218,16 @@ WCDB_SYNTHESIZE(Level, currentLayoutStr)
         
         [_originLayoutStr appendFormat:@"%@ ", person.code];
         
-        [self __setCodeWithPerson:person];
+        [self _setCodeWithPerson:person];
     }
     
-    // FIXME: insertOrReplaceObject
-    // [Level.DB insertOrReplaceObject:self onProperties:{Level.name} into:LevelTableName];
+    [self _saveCurrentLayout];
+    
+    [Level.DB
+     insertOrReplaceObject:self
+     onProperties:
+     {Level.name, Level.currentStep, Level.bestStep, Level.isFavorite, Level.originLayoutStr, Level.currentLayoutStr}
+     into:LevelTableName];
 }
 
 - (void)resetLayout {
@@ -215,22 +240,21 @@ WCDB_SYNTHESIZE(Level, currentLayoutStr)
         Person *p = _personAry[i];
         p.x = x;
         p.y = y;
-        [self __setCodeWithPerson:p];
+        [self _setCodeWithPerson:p];
     }
 }
 
 - (void)updateDB {
-    // TODO: updateAllRowsInTable
-//    [Level.DB
-//     updateAllRowsInTable:LevelTableName
-//     onProperties:
-//     {Level.name, Level.bestStep, Level.currentStep, Level.isFavorite}
-//     withObject:self];
+    [self _saveCurrentLayout];
+    
+    [Level.DB
+     updateAllRowsInTable:LevelTableName
+     onProperties:
+     {Level.name, Level.currentStep, Level.bestStep, Level.isFavorite, Level.currentLayoutStr}
+     withObject:self];
 }
 
 @end
-
-
 
 
 
@@ -239,64 +263,130 @@ WCDB_SYNTHESIZE(Level, currentLayoutStr)
 
 @implementation Level (Step)
 
-- (BOOL)currentPersonAtIndex:(NSInteger)index
-          canMoveToDirection:(PersonDirection)direction {
-    // TODO: 是否可以移动的算法 >>>
-    // 对onlyCode的判断
-    Person *person = self.personAry[index];
+// MARK: can move
+
+- (BOOL)personStruct:(PersonStruct)person
+  canMoveToDirection:(PersonDirection)direction
+          checkBoard:(std::array<int, 20>)board {
     switch (direction) {
         case PersonDirectionRight: {
-            //return (self.onlyCode[(person.y * 4) + person.x + person.width] == 0);
+            if(person.type == 0)
+                return false;
+            if(person.frame.x + person.frame.width == 4)
+                return false;
+            for (int i = person.frame.y; i < person.frame.y + person.frame.height; i++) {
+                if (board[i * 4 + person.frame.x + person.frame.width]) {
+                    return false;
+                }
+            }
+            return true;
         } break;
             
         case PersonDirectionLeft: {
-            
+            if(person.type == 0)
+                return false;
+            if(person.frame.x == 0)
+                return false;
+            for (int i = person.frame.y; i < person.frame.y + person.frame.height; i++) {
+                if (board[i * 4 + person.frame.x - 1]) {
+                    return false;
+                }
+            }
+            return true;
         } break;
             
         case PersonDirectionUP: {
-            
+            if(person.type == 0)
+                return false;
+            if(person.frame.y == 0)
+                return false;
+            for (int i = person.frame.x ; i < person.frame.x + person.frame.width; i++) {
+                if (board[(person.frame.y - 1) * 4 + i]) {
+                    return false;
+                }
+            }
+            return true;
         } break;
             
         case PersonDirectionDown: {
-            
+            if(person.type == 0)
+                return false;
+            if(person.frame.y + person.frame.height == 5)
+                return false;
+            for (int i = person.frame.x ; i < person.frame.x + person.frame.width; i++) {
+                if (board[(person.frame.y + person.frame.height) * 4 + i]) {
+                    return false;
+                }
+            }
+            return true;
         } break;
     }
-    // FIXME: <<<
-    
-    return YES;
+    return NO;
+}
+
+- (BOOL)currentPersonAtIndex:(NSInteger)index
+          canMoveToDirection:(PersonDirection)direction {
+    Person *person = self.personAry[index];
+    return [self personStruct:person.perStruct canMoveToDirection:direction checkBoard:_onlyCode];
+}
+
+// MARK: move to
+
+- (void)personStruct:(PersonStruct)person
+              moveTo:(PersonDirection)direction
+          checkBoard:(std::array<int, 20> &)board {
+    switch (direction) {
+        case PersonDirectionUP: {
+            for (int i = person.frame.x; i < person.frame.x + person.frame.width; i++) {
+                board[(person.frame.y + person.frame.height - 1) * 4 + i] = 0;
+                board[(person.frame.y - 1) * 4 + i] = (int)person.type;
+            }
+            person.frame.y -= 1;
+        } break;
+            
+        case PersonDirectionLeft: {
+            for (int i = person.frame.y; i < person.frame.y + person.frame.height; i++) {
+                board[i * 4 + person.frame.x - 1] = (int) person.type;
+                board[i * 4 + person.frame.x + person.frame.width - 1] = 0;
+            }
+            person.frame.x -= 1;
+        } break;
+            
+        case PersonDirectionDown: {
+            for (int i = person.frame.x; i < person.frame.x + person.frame.width; i++) {
+                board[person.frame.y * 4 + i] = 0;
+                board[(person.frame.y + person.frame.height) * 4 + i] = (int)person.type;
+            }
+            person.frame.y += 1;
+        } break;
+            
+        case PersonDirectionRight: {
+            for (int i = person.frame.y; i < person.frame.y + person.frame.height; i++) {
+                board[i * 4 + person.frame.x + person.frame.width] = (int)person.type;
+                board[i * 4 + person.frame.x] = 0;
+            }
+            person.frame.x += 1;
+        } break;
+    }
 }
 
 - (void)currentPersonAtIndex:(NSInteger)index
                       moveTo:(PersonDirection)direction {
-    // TODO: move的算法,这里简单写了下视图call过来的，差算法 >>>
-    // 对onlyCode的改变
-    // FIXME: <<<
     Person *person = self.personAry[index];
-    switch (direction) {
-        case PersonDirectionUP: {
-            person.y -= 1;
-        } break;
-            
-        case PersonDirectionLeft: {
-            person.x -= 1;
-        } break;
-            
-        case PersonDirectionDown: {
-            person.y += 1;
-        } break;
-            
-        case PersonDirectionRight: {
-            person.x += 1;
-        } break;
-    }
+    return [self personStruct:person.perStruct moveTo:direction checkBoard:_onlyCode];
+}
+
+// MARK: game over
+
+- (BOOL)isGameOverWithCheckBoard:(std::array<int, 20>)board {
+    return (board[18] == 4 && board[19] == 4);
 }
 
 - (BOOL)isGameOver {
-    // TODO: 曹操是否在结束位置 >>>
-    //
-    // FIXME: <<<
-    return NO;
+    return [self isGameOverWithCheckBoard:_onlyCode];
 }
+
+// MARK: solve problem
 
 - (NSArray<NSDictionary<NSNumber *,NSNumber *> *> *)stepForCurrent {
     
@@ -304,7 +394,22 @@ WCDB_SYNTHESIZE(Level, currentLayoutStr)
     // 不允许改变person以及
     std::vector<std::map<int, int>> t;
     
-    return nil;
+    std::map<int, int> m;
+    m.insert(std::make_pair(3, 4));
+    
+    t.insert(t.end(), m);
+    
+    
+    
+    NSMutableArray <NSDictionary <NSNumber *,NSNumber *> *> *mutAry = NSMutableArray.array;
+    for (std::map aMap : t) {
+        NSInteger index = aMap.begin()->first;
+        PersonDirection direction = (PersonDirection)aMap.begin()->second;
+        NSDictionary *aDic = @{@(index):@(direction)};
+        [mutAry addObject:aDic];
+    }
+    return mutAry.copy;
+    
 }
 
 @end

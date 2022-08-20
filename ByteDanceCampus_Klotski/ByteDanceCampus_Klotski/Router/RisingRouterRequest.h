@@ -7,7 +7,6 @@
 
 /// 这个RouterRequest用来解决Request的问题
 /// 包括外链到内部的分配算法都在这里解决
-/// TODO: 可以根据路径" / "一个一个push
 
 #import <UIKit/UIKit.h>
 
