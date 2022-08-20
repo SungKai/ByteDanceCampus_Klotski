@@ -38,7 +38,7 @@ typedef NS_ENUM(NSUInteger, PersonType) {
  */
 
 typedef struct _PersonStruct {
-    int index;          // 所在下标，是唯一的
+    int index;          // 所在下标
     PersonFrame frame;  // 所占位置
     PersonType type;    // 成员属性
 } PersonStruct;

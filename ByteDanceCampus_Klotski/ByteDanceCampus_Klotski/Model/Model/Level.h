@@ -120,6 +120,22 @@ FOUNDATION_EXPORT NSString *LevelTableName;
 <NSDictionary
     <NSNumber *, NSNumber *> *> *stepForCurrent;
 
+
+///**
+// *  广度优先树节点结构
+// *  仅用于算法
+// */
+//
+//typedef struct TreeNode {
+//    std::array<int, 20> code;  // 棋盘布局
+//    std::array<PersonStruct, 10> array;   //此时棋子的状态
+////    int floor;    // 树的深度
+////    int num;     // 树的宽度
+//    int index;   // 棋子下标
+//    int moveTo;  // 移动方向
+//    TreeNode *before;    // 父节点
+//} TreeNode;
+
 @end
 
 
