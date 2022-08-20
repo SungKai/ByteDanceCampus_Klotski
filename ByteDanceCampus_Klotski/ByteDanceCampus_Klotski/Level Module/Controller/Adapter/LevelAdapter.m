@@ -24,6 +24,9 @@
 /// 华容道的一局的信息
 @property (nonatomic, strong) Level *model;
 
+/// 是否再自动求解
+@property (nonatomic) BOOL isAutoSolve;
+
 @end
 
 #pragma mark - LevelAdapter
@@ -65,6 +68,10 @@
 #pragma mark - Method
 
 - (void)panItem:(UISwipeGestureRecognizer *)swipe {
+    if (self.isAutoSolve) {
+        return;
+    }
+    
     CGPoint point = [swipe locationInView:self.collectionView];
     NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:point];
     if (!indexPath) {
@@ -75,11 +82,12 @@
     for (int i = 0; i < 4; i++) {
         if ((swipe.direction & (1 << i)) &&
             [self.model currentPersonAtIndex:index canMoveToDirection:i]) {
+            
             [self.model currentPersonAtIndex:index moveTo:i];
+            [self.layout moveItemAtIndex:index toDirection:i complition:nil];
         }
     }
     
-    [self.layout reloadItemForIndexPath:indexPath animate:YES];
     if (self.model.isGameOver) {
         /**TODO: 挑战成功
          * 复原棋盘
@@ -119,11 +127,33 @@
 #pragma mark - <LevelFuncViewDelegate>
 
 - (BOOL)levelFuncView:(nonnull LevelFuncView *)view enableToSelectTypeFunc:(LevelFuncType)type {
-    return YES;
+    return !self.isAutoSolve;
 }
 
 - (void)levelFuncView:(nonnull LevelFuncView *)view didSelectTypeFunc:(LevelFuncType)type {
-    
+    switch (type) {
+        case LevelFuncTypeSaveCurrent: {
+            [self.model updateDB];
+        } break;
+            
+        case LevelFuncTypeResetPlay: {
+            [self.model resetLayout];
+        } break;
+            
+        case LevelFuncTypeAutoGame:{
+            
+            NSArray <NSDictionary <NSNumber *, NSNumber *> * > *steps = self.model.stepForCurrent;
+            for (NSDictionary <NSNumber *, NSNumber *> *aStep in steps) {
+                [self.layout
+                 moveItemAtIndex:(NSInteger)aStep.allKeys[0]
+                 toDirection:(PersonDirection)aStep.allValues[0]
+                 complition:^{
+                    
+                }];
+            }
+            
+        } break;
+    }
 }
 
 @end

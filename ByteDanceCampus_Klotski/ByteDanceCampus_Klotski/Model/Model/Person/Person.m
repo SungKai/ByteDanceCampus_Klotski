@@ -58,6 +58,11 @@
     return [NSString stringWithFormat:@"%d%d%d%d%@", _x, _y, _width, _height, _name];
 }
 
+- (PersonStruct)perStruct {
+    PersonStruct per = {self.index, self.frame, self.type};
+    return per;
+}
+
 #pragma mark - Setter
 
 - (void)setFrame:(PersonFrame)frame {

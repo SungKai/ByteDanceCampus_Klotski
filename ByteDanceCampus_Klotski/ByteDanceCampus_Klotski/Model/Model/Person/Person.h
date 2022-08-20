@@ -27,14 +27,12 @@ typedef NS_ENUM(NSUInteger, PersonType) {
     PersonBigSquare   // 曹   2 * 2   4
 };
 
-#pragma mark - ENUM (PersonDirrection)
 
-typedef NS_ENUM(NSUInteger, PersonDirection) {
-    PersonDirectionRight, // 右  0
-    PersonDirectionLeft,  // 左  1
-    PersonDirectionUP,    // 上  2
-    PersonDirectionDown   // 下  3
-};
+typedef struct _PersonStruct {
+    int index;
+    PersonFrame frame;
+    PersonType type;
+} PersonStruct;
 
 #pragma mark - Person
 
@@ -66,6 +64,12 @@ typedef NS_ENUM(NSUInteger, PersonDirection) {
 
 /// 得到code（计算属性）
 @property (nonatomic, readonly) NSString *code;
+
+/// 下标
+@property (nonatomic) int index;
+
+/// 得到PersonStruct
+@property (nonatomic, readonly) PersonStruct perStruct;
 
 /// 根据字典创建
 /// @param dictionary 字典

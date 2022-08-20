@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 单个兵所占大小
 @property (nonatomic) CGSize sizeForItem;
 
-- (void)reloadItemForIndexPath:(NSIndexPath *)indexPath animate:(BOOL)animate;
+- (void)moveItemAtIndex:(NSInteger)index toDirection:(PersonDirection)direction complition:(void (^ _Nullable)(void))complition;
 
 @end
 

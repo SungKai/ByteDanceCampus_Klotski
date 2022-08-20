@@ -32,16 +32,10 @@
         for (NSInteger s = 0; s < section; s++) {
             NSInteger items = [self.collectionView.dataSource collectionView:self.collectionView numberOfItemsInSection:s];
             for (NSInteger i = 0; i < items; i++) {
-                UICollectionViewLayoutAttributes *attribute = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:[NSIndexPath indexPathForItem:i inSection:s]];
+                NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:s];
+                UICollectionViewLayoutAttributes *attribute = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
                 
-                if (self.delegate) {
-                    PersonFrame frame = [self.delegate collectionView:self.collectionView layout:self frameForItemAtIndexPath:[NSIndexPath indexPathForItem:i inSection:s]];
-                    CGFloat x = frame.x * (self.interitemSpacing + self.sizeForItem.width);
-                    CGFloat y = frame.y * (self.lineSpacing + self.sizeForItem.height);
-                    CGFloat width = frame.width * self.sizeForItem.width + (frame.width - 1) * self.interitemSpacing;
-                    CGFloat height = frame.height * self.sizeForItem.height + (frame.height - 1) * self.lineSpacing;
-                    attribute.frame = CGRectMake(x, y, width, height);
-                }
+                attribute.frame = [self _frameForIndexPath:indexPath];
                 
                 [_attributes addObject:attribute];
             }
@@ -52,24 +46,48 @@
 
 #pragma mark - Method
 
-- (void)reloadItemForIndexPath:(NSIndexPath *)indexPath animate:(BOOL)animate {
+- (CGRect)_frameForIndexPath:(NSIndexPath *)indexPath {
     if (self.delegate) {
         PersonFrame frame = [self.delegate collectionView:self.collectionView layout:self frameForItemAtIndexPath:indexPath];
         CGFloat x = frame.x * (self.interitemSpacing + self.sizeForItem.width);
         CGFloat y = frame.y * (self.lineSpacing + self.sizeForItem.height);
         CGFloat width = frame.width * self.sizeForItem.width + (frame.width - 1) * self.interitemSpacing;
         CGFloat height = frame.height * self.sizeForItem.height + (frame.height - 1) * self.lineSpacing;
-        
-        UICollectionViewLayoutAttributes *attribute = [self layoutAttributesForItemAtIndexPath:indexPath];
-        
-        if (animate) {
-            [self.collectionView
-             performBatchUpdates:^{
-                attribute.frame = CGRectMake(x, y, width, height);
-            }
-             completion:nil];
-        }
+        return CGRectMake(x, y, width, height);
     }
+    return CGRectZero;
+}
+
+- (void)moveItemAtIndex:(NSInteger)index toDirection:(PersonDirection)direction complition:(void (^ _Nullable)(void))complition{
+    UICollectionViewLayoutAttributes *attribute = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
+    CGRect frame = attribute.frame;
+    CGFloat moveWidth = self.interitemSpacing + self.sizeForItem.width;
+    CGFloat moveHeight = self.lineSpacing + self.sizeForItem.height;
+    
+    switch (direction) {
+        case PersonDirectionRight:
+            frame.origin.x += moveWidth;
+            break;
+        case PersonDirectionLeft:
+            frame.origin.x -= moveWidth;
+            break;
+        case PersonDirectionUP:
+            frame.origin.y -= moveHeight;
+            break;
+        case PersonDirectionDown:
+            frame.origin.y += moveHeight;
+            break;
+    }
+    
+    [self.collectionView
+     performBatchUpdates:^{
+        attribute.frame = frame;
+    }
+     completion:^(BOOL finished) {
+        if (finished && complition) {
+            complition();
+        }
+    }];
 }
 
 #pragma mark - UICollectionViewLayout (UISubclassingHooks)
