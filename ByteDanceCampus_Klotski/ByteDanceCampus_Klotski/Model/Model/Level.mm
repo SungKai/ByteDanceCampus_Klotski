@@ -654,8 +654,7 @@ WCDB_SYNTHESIZE(Level, currentLayoutStr)
         std::map<int, int> map;
         map.insert(std::make_pair(Atree.index, Atree.moveTo));
         t.insert(t.begin(), map);
-        Atree = Atree->before;
-        
+        Atree = *Atree.before;
     }
     
     
