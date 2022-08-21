@@ -233,6 +233,9 @@ WCDB_PRIMARY(Level, originLayoutStr)
 - (void)replacePersons:(NSArray<Person *> *)personAry {
     _personAry = personAry.copy;
     
+    std::array<int, 20> t = {};
+    _onlyCode = t;
+    _originLayoutStr = NSMutableString.string;
     for (int p = 0; p < _personAry.count; p++) {
         Person *person = _personAry[p];
         person.index = p;
@@ -264,6 +267,11 @@ WCDB_PRIMARY(Level, originLayoutStr)
         Person *p = _personAry[i];
         p.x = x;
         p.y = y;
+    }
+    
+    std::array<int, 20> t = {};
+    _onlyCode = t;
+    for (Person *p in _personAry) {
         [self _setCodeWithPerson:p];
     }
 }
