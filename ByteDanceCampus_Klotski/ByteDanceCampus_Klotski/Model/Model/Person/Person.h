@@ -38,7 +38,7 @@ typedef NS_ENUM(NSUInteger, PersonType) {
  */
 
 typedef struct _PersonStruct {
-    int index;          // 所在下标，是唯一的
+    int index;          // 所在下标
     PersonFrame frame;  // 所占位置
     PersonType type;    // 成员属性
 } PersonStruct;
@@ -77,8 +77,9 @@ typedef struct _PersonStruct {
 /// 下标
 @property (nonatomic) int index;
 
-/// 得到PersonStruct
-@property (nonatomic, readonly) PersonStruct perStruct;
+/// PersonStruct（计算属性）
+/// setter时，只会勇于frame改变
+@property (nonatomic) PersonStruct perStruct;
 
 /// 根据字典创建
 /// @param dictionary 字典
