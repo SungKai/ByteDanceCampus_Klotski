@@ -117,7 +117,7 @@ WCDB_PRIMARY(Level, originLayoutStr)
     for (int p = 0; p < _personAry.count; p++) {
         Person *person = _personAry[p];
         
-        [_currentLayoutStr appendFormat:@"%@ ", person.code];
+        [_currentLayoutStr appendFormat:@"%d%d ", person.x, person.y];
     }
 }
 
