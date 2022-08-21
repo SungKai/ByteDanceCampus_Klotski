@@ -52,7 +52,6 @@
 		374C116A28AE6DE700479969 /* GameWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374C116928AE6DE700479969 /* GameWidget.swift */; };
 		374C116C28AE6DE800479969 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 374C116B28AE6DE800479969 /* Assets.xcassets */; };
 		374C117028AE6DE800479969 /* GameWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 374C116328AE6DE700479969 /* GameWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		374C117828AE8D4600479969 /* NewTeamIntroduceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374C117728AE8A5200479969 /* NewTeamIntroduceView.swift */; };
 		3C5AEF06B27681B0DEDEFE9B /* Pods_ByteDanceCampus_Klotski.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C2921943B00D1E1FDEA362 /* Pods_ByteDanceCampus_Klotski.framework */; };
 		B5759A1C288AE5D1007CE07E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5759A1B288AE5D1007CE07E /* AppDelegate.m */; };
 		B5759A22288AE5D1007CE07E /* StageSelectController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5759A21288AE5D1007CE07E /* StageSelectController.m */; };
@@ -163,7 +162,6 @@
 		374C116928AE6DE700479969 /* GameWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameWidget.swift; sourceTree = "<group>"; };
 		374C116B28AE6DE800479969 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		374C116D28AE6DE800479969 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		374C117728AE8A5200479969 /* NewTeamIntroduceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTeamIntroduceView.swift; sourceTree = "<group>"; };
 		374C117928AE8D8700479969 /* Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
 		A404246E66C14D4FA6786972 /* Pods-ByteDanceCampus_Klotski.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ByteDanceCampus_Klotski.release.xcconfig"; path = "Target Support Files/Pods-ByteDanceCampus_Klotski/Pods-ByteDanceCampus_Klotski.release.xcconfig"; sourceTree = "<group>"; };
 		B5759A17288AE5D1007CE07E /* ByteDanceCampus_Klotski.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ByteDanceCampus_Klotski.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -576,7 +574,6 @@
 				374C116928AE6DE700479969 /* GameWidget.swift */,
 				374C116B28AE6DE800479969 /* Assets.xcassets */,
 				374C116D28AE6DE800479969 /* Info.plist */,
-				374C117728AE8A5200479969 /* NewTeamIntroduceView.swift */,
 				374C117928AE8D8700479969 /* Bridge.h */,
 			);
 			path = GameWidget;
@@ -783,7 +780,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				374C117828AE8D4600479969 /* NewTeamIntroduceView.swift in Sources */,
 				374C116A28AE6DE700479969 /* GameWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
