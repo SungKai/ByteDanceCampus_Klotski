@@ -31,6 +31,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UITabBarController (Rising)
 
+/// tabBar视图
+@property(nonatomic, readonly) UITabBar *mainTabBar;
+
 /// 是否展示tabBar，并且是否拥有动画
 /// @param isVisible 是否展示
 /// @param animated 是否动画

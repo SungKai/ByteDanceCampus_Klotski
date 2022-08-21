@@ -57,7 +57,7 @@
 
 - (UILabel *)todayLab {
     if (_todayLab == nil) {
-        _todayLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.width, 0.4 * self.height)];
+        _todayLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.width, 0.5 * self.height)];
         _todayLab.backgroundColor = UIColor.clearColor;
         _todayLab.textAlignment = NSTextAlignmentCenter;
         _todayLab.font = [UIFont fontWithName:PingFangSCBold size:24];
@@ -69,7 +69,7 @@
 
 - (UILabel *)recommendLab {
     if (_recommendLab == nil) {
-        _recommendLab = [[UILabel alloc] initWithFrame:CGRectMake(0, self.todayLab.bottom, self.width, 0.6 * self.height)];
+        _recommendLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0.3 * self.height, self.width, 0.7 * self.height)];
         _recommendLab.backgroundColor = UIColor.clearColor;
         _recommendLab.textAlignment = NSTextAlignmentCenter;
         _recommendLab.font = [UIFont fontWithName:PangMenZhengDaoBold size:68];

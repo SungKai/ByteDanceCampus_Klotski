@@ -19,7 +19,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class Level;
+@class Level, LevelDataView;
 
 #pragma mark - LevelAdapter
 
@@ -41,6 +41,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)adapterWithCollectionView:(UICollectionView *)view
                                    layout:(LevelCollectionLayout *)layout
                                     model:(Level *)model;
+
+/// 数据视图
+@property (nonatomic, null_resettable) LevelDataView *dataView;
 
 @end
 

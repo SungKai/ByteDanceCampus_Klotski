@@ -190,6 +190,10 @@
 
 @implementation UITabBarController (Rising)
 
+- (UITabBar *)mainTabBar {
+    return ((KlotskiTabController *)self).mainTabBar;
+}
+
 - (void)tabBarVisible:(BOOL)isVisible animated:(BOOL)animated {
     UITabBar *tabBar = ((KlotskiTabController *)self).mainTabBar;
     if (tabBar.hidden ^ isVisible) {

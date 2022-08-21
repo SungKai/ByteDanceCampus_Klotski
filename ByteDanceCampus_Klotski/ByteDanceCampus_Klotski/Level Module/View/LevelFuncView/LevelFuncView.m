@@ -32,6 +32,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = UIColor.clearColor;
+        self.userInteractionEnabled = YES;
         [self addSubview:self.saveBtn];
         [self addSubview:self.resetBtn];
         [self addSubview:self.autoBtn];
@@ -90,7 +91,7 @@
         _resetBtn.titleLabel.font = [UIFont fontWithName:PingFangSC size:24];
         [_resetBtn setTitleColor:[UIColor colorWithHexString:@"#112C54"] forState:UIControlStateNormal];
         
-        [_saveBtn addTarget:self action:@selector(_didSelectBtn:) forControlEvents:UIControlEventTouchUpInside];
+        [_resetBtn addTarget:self action:@selector(_didSelectBtn:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _resetBtn;
 }
