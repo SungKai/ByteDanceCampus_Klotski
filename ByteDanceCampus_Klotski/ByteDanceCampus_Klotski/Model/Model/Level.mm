@@ -48,7 +48,8 @@ NSString *LevelTableName = @"Level";
 
 typedef struct TreeNode {
     std::array<int, 20> code;  // 棋盘布局
-    std::array<PersonStruct, 10> array;   //此时棋子的状态
+//    std::array<PersonStruct, 10> array;   //此时棋子的状态
+    std::vector<PersonStruct> array;
 //    int floor;    // 树的深度
 //    int num;     // 树的宽度
     int index;   // 上一步使用的棋子
@@ -220,6 +221,7 @@ WCDB_SYNTHESIZE(Level, currentLayoutStr)
     
     for (int p = 0; p < _personAry.count; p++) {
         Person *person = _personAry[p];
+        person.index = p;
         
         [_originLayoutStr appendFormat:@"%@ ", person.code];
         
@@ -362,7 +364,7 @@ WCDB_SYNTHESIZE(Level, currentLayoutStr)
 //--------------------------用于求解--------------------------------
 // MARK: move to
 
-- (void)personStruct:(PersonStruct)person
+- (void)personStruct:(PersonStruct &)person
               moveTo:(PersonDirection)direction
           checkBoard:(std::array<int, 20> &)board {
     switch (direction) {
@@ -408,7 +410,10 @@ WCDB_SYNTHESIZE(Level, currentLayoutStr)
 - (void)currentPersonAtIndex:(NSInteger)index
                       moveTo:(PersonDirection)direction {
     Person *person = self.personAry[index];
-    return [self personStruct:person.perStruct moveTo:direction checkBoard:_onlyCode];
+    PersonStruct perStruct = person.perStruct;
+    [self personStruct:perStruct moveTo:direction checkBoard:_onlyCode];
+    person.perStruct = perStruct;
+    return;
 }
 
 
@@ -454,10 +459,14 @@ WCDB_SYNTHESIZE(Level, currentLayoutStr)
     std::vector<std::vector<TreeNode>> A;
     
     //获取最顶级节点的棋子属性
-    std::array<PersonStruct, 10> per;
-    for(int i=0; i <= 9; i++){
-        PersonStruct person = {i, self.personAry[i].frame, self.personAry[i].type};
-        per[i] = person;
+//    std::array<PersonStruct, 10> per;
+    std::vector<PersonStruct> per;
+//    for(int i = 0; i <= _personAry.count; i++){
+//        PersonStruct person = {i, self.personAry[i].frame, self.personAry[i].type};
+//        per[i] = person;
+//    }
+    for (Person *p in _personAry) {
+        per.insert(per.end(), p.perStruct);
     }
     
     //以此刻棋盘为树顶点
@@ -487,7 +496,7 @@ WCDB_SYNTHESIZE(Level, currentLayoutStr)
             //记录广度
             int b = 0;
             
-            for(int i = 0; i <= 9; i++)
+            for(int i = 0; i < _personAry.count; i++)
             {
                 
                 if([self personStruct:A[a][k].array[i] canMoveToDirection:PersonDirectionUP checkBoard:A[a][k].code]){
@@ -504,7 +513,8 @@ WCDB_SYNTHESIZE(Level, currentLayoutStr)
                     //记录父节点的地址，用于后期回溯
 //                    A[a+1][b].before = &A[a][k];
                     
-                    std::array<PersonStruct, 10> arr = A[a][k].array;
+//                    std::array<PersonStruct, 10> arr = A[a][k].array;
+                    std::vector<PersonStruct> arr = A[a][k].array;
                     
                     //添加节点
                     TreeNode node = {A[a][k].code, arr, i, PersonDirectionUP, &A[a][k]};
@@ -533,7 +543,8 @@ WCDB_SYNTHESIZE(Level, currentLayoutStr)
                     
                     [self personStruct:A[a][k].array[i] moveTo:PersonDirectionDown checkBoard:A[a][k].code];
                     //记录下一节点的常规数据
-                    std::array<PersonStruct, 10> arr = A[a][k].array;
+//                    std::array<PersonStruct, 10> arr = A[a][k].array;
+                    std::vector<PersonStruct> arr = A[a][k].array;
                     
                     //添加节点
                     TreeNode node = {A[a][k].code, arr, i, PersonDirectionDown, &A[a][k]};
@@ -563,7 +574,8 @@ WCDB_SYNTHESIZE(Level, currentLayoutStr)
                     [self personStruct:A[a][k].array[i] moveTo:PersonDirectionLeft checkBoard:A[a][k].code];
                     //记录下一节点的常规数据
 
-                    std::array<PersonStruct, 10> arr = A[a][k].array;
+//                    std::array<PersonStruct, 10> arr = A[a][k].array;
+                    std::vector<PersonStruct> arr = A[a][k].array;
                     
                     //添加节点
                     TreeNode node = {A[a][k].code, arr, i, PersonDirectionLeft, &A[a][k]};
@@ -593,7 +605,8 @@ WCDB_SYNTHESIZE(Level, currentLayoutStr)
                     [self personStruct:A[a][k].array[i] moveTo:PersonDirectionRight checkBoard:A[a][k].code];
                     //记录下一节点的常规数据
 
-                    std::array<PersonStruct, 10> arr = A[a][k].array;
+//                    std::array<PersonStruct, 10> arr = A[a][k].array;
+                    std::vector<PersonStruct> arr = A[a][k].array;
                     
                     //添加节点
                     TreeNode node = {A[a][k].code, arr, i, PersonDirectionRight, &A[a][k]};
@@ -637,14 +650,6 @@ WCDB_SYNTHESIZE(Level, currentLayoutStr)
     
     
     
-    
-    
-    
-//
-//    std::map<int, int> m;
-//    m.insert(std::make_pair(3, 4));
-//
-//    t.insert(t.end(), m);
     
     
     

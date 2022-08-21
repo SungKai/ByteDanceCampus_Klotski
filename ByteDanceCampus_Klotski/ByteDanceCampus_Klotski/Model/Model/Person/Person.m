@@ -72,4 +72,8 @@
     _height = frame.height;
 }
 
+- (void)setPerStruct:(PersonStruct)perStruct {
+    self.frame = perStruct.frame;
+}
+
 @end
