@@ -432,6 +432,17 @@ WCDB_PRIMARY(Level, originLayoutStr)
 
 // MARK: solve problem
 
+
+
+
+
+
+
+
+
+
+
+
 - (NSArray<NSDictionary<NSNumber *,NSNumber *> *> *)stepForCurrent {
     // TODO: 算法
     
@@ -442,24 +453,31 @@ WCDB_PRIMARY(Level, originLayoutStr)
     //  A是广度优先搜索树
     //  本来想使用map，可以省略重复棋盘的代码。但后来发现map在使用索引的时候超级无敌究极麻烦，
     //  麻烦程度远远超过自己写代码解决重复棋盘。所以用回vector
-    std::vector<std::vector<TreeNode>> A= {};
+    std::vector<std::vector<TreeNode>> A;
+    //提前预留深度为100000的空间，但说实话我个人觉得深度应该超不过100甚至超不过50.
+//    A.reserve(100000);
+    
+    
     
     //获取最顶级节点的棋子属性
 //    std::array<PersonStruct, 10> per;
-    std::vector<PersonStruct> per;
 //    for(int i = 0; i <= _personAry.count; i++){
 //        PersonStruct person = {i, self.personAry[i].frame, self.personAry[i].type};
 //        per[i] = person;
 //    }
+    std::vector<PersonStruct> per;
     for (Person *p in _personAry) {
         per.insert(per.end(), p.perStruct);
     }
+    
+    
     
     //以此刻棋盘为树顶点
     TreeNode father = {_onlyCode, per, 0, 0, NULL};
     std::vector<TreeNode> fatherV = {father};
     A.push_back(fatherV);
 //    A[0].push_back(father);
+    
     
     //是否获胜
     Boolean victory = false;
@@ -479,7 +497,8 @@ WCDB_PRIMARY(Level, originLayoutStr)
         //开始遍历某一层的全部节点
         for(int k = 0; k < A[a].size(); k++)
         {
-            
+            //创建此层的临时容器
+            std::vector<TreeNode> all;
             
             //记录广度
             int b = 0;
@@ -500,15 +519,15 @@ WCDB_PRIMARY(Level, originLayoutStr)
 //                    A[a+1][b].code = A[a][k].code;
                     //记录父节点的地址，用于后期回溯
 //                    A[a+1][b].before = &A[a][k];
-                    
 //                    std::array<PersonStruct, 10> arr = A[a][k].array;
                     std::vector<PersonStruct> arr = A[a][k].array;
                     
+                    
                     //添加节点
-                    TreeNode node = {A[a][k].code, arr, i, PersonDirectionUP, &A[a][k]};
-                    std::vector<TreeNode> tree = {node};
+                    TreeNode node = { A[a][k].code, arr, i, PersonDirectionUP, &A[a][k]};
+                    all.push_back(node);
 //                    A[a+1].push_back(node);
-                    A.push_back(tree);
+
                     
                     //注意！！！一定要把棋盘还原为父节点！！！不然子节点会直接覆盖父节点
                     A[a][k].array[i] = per;
@@ -516,10 +535,10 @@ WCDB_PRIMARY(Level, originLayoutStr)
                     
 
                     //判断是否获胜
-                    if([self isGameOverWithCheckBoard:A[a+1][b].code]){
-                        victory = true;
-                        Atree = A[a+1][b];
-                    }
+//                    if([self isGameOverWithCheckBoard:A[a+1][b].code]){
+//                        victory = true;
+//                        Atree = A[a+1][b];
+//                    }
                     
                     //更新广度
                     b++;
@@ -538,9 +557,10 @@ WCDB_PRIMARY(Level, originLayoutStr)
                     
                     //添加节点
                     TreeNode node = {A[a][k].code, arr, i, PersonDirectionDown, &A[a][k]};
-                    std::vector<TreeNode> tree = {node};
+                    all.push_back(node);
+//                    std::vector<TreeNode> tree = {node};
 //                    A[a+1].push_back(node);
-                    A.push_back(tree);
+//                    A.push_back(tree);
                     
                     //注意！！！一定要把棋盘还原为父节点！！！不然子节点会直接覆盖父节点
                     A[a][k].array[i] = per;
@@ -548,10 +568,10 @@ WCDB_PRIMARY(Level, originLayoutStr)
                     
 
                     //判断是否获胜
-                    if([self isGameOverWithCheckBoard:A[a+1][b].code]){
-                        victory = true;
-                        Atree = A[a+1][b];
-                    }
+//                    if([self isGameOverWithCheckBoard:A[a+1][b].code]){
+//                        victory = true;
+//                        Atree = A[a+1][b];
+//                    }
                     
                     //更新广度
                     b++;
@@ -571,8 +591,9 @@ WCDB_PRIMARY(Level, originLayoutStr)
                     
                     //添加节点
                     TreeNode node = {A[a][k].code, arr, i, PersonDirectionLeft, &A[a][k]};
-                    std::vector<TreeNode> tree = {node};
-                    A.push_back(tree);
+                    all.push_back(node);
+//                    std::vector<TreeNode> tree = {node};
+//                    A.push_back(tree);
 //                    A[a+1].push_back(node);
                     
                     //注意！！！一定要把棋盘还原为父节点！！！不然子节点会直接覆盖父节点
@@ -581,10 +602,10 @@ WCDB_PRIMARY(Level, originLayoutStr)
                     
 
                     //判断是否获胜
-                    if([self isGameOverWithCheckBoard:A[a+1][b].code]){
-                        victory = true;
-                        Atree = A[a+1][b];
-                    }
+//                    if([self isGameOverWithCheckBoard:A[a+1][b].code]){
+//                        victory = true;
+//                        Atree = A[a+1][b];
+//                    }
                     
                     //更新广度
                     b++;
@@ -604,8 +625,9 @@ WCDB_PRIMARY(Level, originLayoutStr)
                     
                     //添加节点
                     TreeNode node = {A[a][k].code, arr, i, PersonDirectionRight, &A[a][k]};
-                    std::vector<TreeNode> tree = {node};
-                    A.push_back(tree);
+                    all.push_back(node);
+//                    std::vector<TreeNode> tree = {node};
+//                    A.push_back(tree);
 //                    A[a+1].push_back(node);
                     
                     //注意！！！一定要把棋盘还原为父节点！！！不然子节点会直接覆盖父节点
@@ -614,10 +636,10 @@ WCDB_PRIMARY(Level, originLayoutStr)
                     
 
                     //判断是否获胜
-                    if([self isGameOverWithCheckBoard:A[a+1][b].code]){
-                        victory = true;
-                        Atree = A[a+1][b];
-                    }
+//                    if([self isGameOverWithCheckBoard:A[a+1][b].code]){
+//                        victory = true;
+//                        Atree = A[a+1][b];
+//                    }
                     
                     //更新广度
                     b++;
@@ -633,6 +655,16 @@ WCDB_PRIMARY(Level, originLayoutStr)
 //                for()
             
 
+            A.push_back(all);//将临时容器装入树的整一层
+            //把判断是否获胜单独拿出来放在这里
+            for(int s = 0; s< A[a+1].size(); s++){
+                if([self isGameOverWithCheckBoard:A[a+1][s].code]){
+                    victory = true;
+                    Atree = A[a+1][b];
+                }
+            }
+            
+            
             a++;//更新深度，即进入树的下一层
         }//遍历此层的全部节点结束
         
