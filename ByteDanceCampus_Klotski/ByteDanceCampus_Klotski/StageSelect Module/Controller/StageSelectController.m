@@ -155,7 +155,13 @@
             
         case RouterRequestController: {
             
-            StageSelectController *vc = [[self alloc] init];
+            StageSelectController *vc;
+            if (request.parameters[@"StageSelectModel"]) {
+                StageSelectModel *model = request.parameters[@"StageSelectModel"];
+                vc = [[self alloc] initWithModel:model];
+            } else {
+                vc = [[self alloc] init];
+            }
             
             response.responseController = vc;
         } break;
