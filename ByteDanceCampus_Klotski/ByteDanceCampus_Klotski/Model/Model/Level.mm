@@ -503,6 +503,25 @@ WCDB_PRIMARY(Level, originLayoutStr)
             }
         }
         
+        // 定义死亡节点
+        std::array<int, 20> kill = {5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5};
+        
+        // 广度遍历并删除重复节点，一旦重复就杀死其中一个节点，保证这一层中没用出现重复棋盘
+        for(int s = 0; s < A[a + 1].size() - 1; s++){
+            for(int b = s + 1; b < A[a + 1].size(); b++){
+                if( A[a + 1][s].code == A[a + 1][b].code)
+                    A[a + 1][b].code = kill;
+            }
+        }
+        // 深度遍历并删除重复节点，一旦重复，该节点直接自杀，保证这一条支线不是循环
+        for(int s = 0; s < a ; s++){
+            for(int b = s + 1; b < a + 1; b++){
+                if( A[a + 1][s].code == A[a + 1][b].code)
+                    A[a + 1][b].code = kill;
+            }
+        }
+        
+        
         // 广度加一层
         a++;
     }
