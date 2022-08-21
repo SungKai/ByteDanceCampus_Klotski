@@ -80,13 +80,13 @@
     
     vc.tabBarItem =
     [[UITabBarItem alloc]
-     initWithTitle:@"play"
+     initWithTitle:@"Klotski"
      image:[[[UIImage
             imageNamed:@"play.unselect"]
             imageByResizeToSize:CGSizeMake(40, 40)]
             imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
      selectedImage:[[[UIImage
-                    imageNamed:@"paly.select"]
+                    imageNamed:@"play.select"]
                     imageByResizeToSize:CGSizeMake(40, 40)]
                     imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     
