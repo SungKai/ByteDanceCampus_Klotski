@@ -7,9 +7,6 @@
 
 /**每个关卡的情况
  * 接WCDB为了快速存储
- * TODO: 第一次从plist，以后从WCDB
- * TODO: 每个level都有唯一算法解
- * TODO: 自定义一个布局？
  */
 
 #import <Foundation/Foundation.h>

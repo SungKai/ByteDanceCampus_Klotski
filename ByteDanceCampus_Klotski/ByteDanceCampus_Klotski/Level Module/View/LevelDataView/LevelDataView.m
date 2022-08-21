@@ -61,7 +61,7 @@
 
 - (UILabel *)currentLab {
     if (_currentLab == nil) {
-        _currentLab = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, self.width / 2 - 10, self.height)];
+        _currentLab = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, self.width / 2 - 10, self.height)];
         _currentLab.font = [UIFont fontWithName:PingFangSC size:17];
         _currentLab.textColor = [UIColor colorWithHexString:@"#112C54"];
     }

@@ -16,6 +16,8 @@
 
 @end
 
+#pragma mark - LevelCollectionLayout
+
 @implementation LevelCollectionLayout
 
 - (void)reloadLayout {

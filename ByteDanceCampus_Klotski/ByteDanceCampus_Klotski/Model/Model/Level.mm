@@ -306,9 +306,6 @@ WCDB_PRIMARY(Level, originLayoutStr)
 
 // MARK: can move
 
-
-
-//-------------------------------用于求解------------------------------------
 - (BOOL)personStruct:(PersonStruct)person
   canMoveToDirection:(PersonDirection)direction
           checkBoard:(std::array<int, 20>)board {
@@ -368,31 +365,12 @@ WCDB_PRIMARY(Level, originLayoutStr)
     return NO;
 }
 
-
-
-
-
-
-
-
-//---------------------------用户真正操作--------------------------
 - (BOOL)currentPersonAtIndex:(NSInteger)index
           canMoveToDirection:(PersonDirection)direction {
     Person *person = self.personAry[index];
     return [self personStruct:person.perStruct canMoveToDirection:direction checkBoard:_onlyCode];
 }
 
-
-
-
-
-
-
-
-
-
-
-//--------------------------用于求解--------------------------------
 // MARK: move to
 
 - (void)personStruct:(PersonStruct &)person
@@ -433,11 +411,6 @@ WCDB_PRIMARY(Level, originLayoutStr)
     }
 }
 
-
-
-
-
-//------------------------用户真正操作------------------------
 - (void)currentPersonAtIndex:(NSInteger)index
                       moveTo:(PersonDirection)direction {
     Person *person = self.personAry[index];
@@ -447,41 +420,23 @@ WCDB_PRIMARY(Level, originLayoutStr)
     return;
 }
 
-
-
-
-
 // MARK: game over
-//--------------------------用于求解--------------------------------
+
 - (BOOL)isGameOverWithCheckBoard:(std::array<int, 20>)board {
     return (board[18] == 4 && board[19] == 4);
 }
 
-
-
-
-
-//------------------------用户真正操作------------------------
 - (BOOL)isGameOver {
     return [self isGameOverWithCheckBoard:_onlyCode];
 }
 
 // MARK: solve problem
 
-
-
-
-
-
-
-
-
 - (NSArray<NSDictionary<NSNumber *,NSNumber *> *> *)stepForCurrent {
     // TODO: 算法
-    // 不允许改变person以及
     
-    // t是最终得到答案的数组，这个要到很后面才用到，先不看他
-    std::vector<std::map<int, int>> t;
+//    // t是最终得到答案的数组，这个要到很后面才用到，先不看他
+//    std::vector<std::map<int, int>> t;
     
     
     //  A是广度优先搜索树
@@ -695,31 +650,17 @@ WCDB_PRIMARY(Level, originLayoutStr)
     
     
     //将整个树的答案树枝装入t中,i遍历到1就行，因为树的顶级节点不需要操作
+    NSMutableArray <NSDictionary <NSNumber *,NSNumber *> *> *mutAry = NSMutableArray.array;
     for(int i = a; i >= 1; i--){
         
-        std::map<int, int> map;
-        map.insert(std::make_pair(Atree.index, Atree.moveTo));
-        t.insert(t.begin(), map);
+//        std::map<int, int> map;
+//        map.insert(std::make_pair(Atree.index, Atree.moveTo));
+//        t.insert(t.begin(), map);
+//        Atree = *Atree.before;
+        
+        NSDictionary <NSNumber *,NSNumber *> *aDic = @{@(Atree.index):@(Atree.moveTo)};
+        [mutAry insertObject:aDic atIndex:0];
         Atree = *Atree.before;
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    //-------------------与算法无关------------------------
-    NSMutableArray <NSDictionary <NSNumber *,NSNumber *> *> *mutAry = NSMutableArray.array;
-    for (std::map aMap : t) {
-        NSInteger index = aMap.begin()->first;
-        PersonDirection direction = (PersonDirection)aMap.begin()->second;
-        NSDictionary *aDic = @{@(index):@(direction)};
-        [mutAry addObject:aDic];
     }
     return mutAry.copy;
     
