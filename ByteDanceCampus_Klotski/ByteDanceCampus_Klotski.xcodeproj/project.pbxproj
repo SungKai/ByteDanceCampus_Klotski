@@ -32,13 +32,14 @@
 		14BBA99028B2701B006359F5 /* PersonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BBA98D28B2701B006359F5 /* PersonItem.m */; };
 		14BBA99C28B27034006359F5 /* PangMenZhengDao-Cu.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14BBA99228B27034006359F5 /* PangMenZhengDao-Cu.ttf */; };
 		14BBA99D28B27034006359F5 /* level.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14BBA99328B27034006359F5 /* level.plist */; };
-		14BBA99E28B27034006359F5 /* MC_Blogs_Header-Img_1200x630-13_0e3462db-f818-4465-8125-104aa606cf99_1600x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 14BBA99528B27034006359F5 /* MC_Blogs_Header-Img_1200x630-13_0e3462db-f818-4465-8125-104aa606cf99_1600x.jpg */; };
-		14BBA99F28B27034006359F5 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = 14BBA99628B27034006359F5 /* Contents.json */; };
 		14BBA9A028B27034006359F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14BBA99728B27034006359F5 /* Assets.xcassets */; };
 		14BBA9A128B27034006359F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14BBA99828B27034006359F5 /* LaunchScreen.storyboard */; };
 		14BBA9A228B27034006359F5 /* klotski.md in Resources */ = {isa = PBXBuildFile; fileRef = 14BBA99A28B27034006359F5 /* klotski.md */; };
 		14BBA9A328B27034006359F5 /* team.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14BBA99B28B27034006359F5 /* team.plist */; };
 		14BBA9A728B2709C006359F5 /* TodayRecommendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BBA9A528B2709C006359F5 /* TodayRecommendView.m */; };
+		14BBA9A828B2762E006359F5 /* PangMenZhengDao-Cu.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14BBA99228B27034006359F5 /* PangMenZhengDao-Cu.ttf */; };
+		14BBA9A928B27638006359F5 /* team.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14BBA99B28B27034006359F5 /* team.plist */; };
+		14BBA9AA28B2763B006359F5 /* level.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14BBA99328B27034006359F5 /* level.plist */; };
 		14CDC855289B6C210009358F /* StageSelectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC854289B6C210009358F /* StageSelectModel.m */; };
 		14CDC860289B84ED0009358F /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC85F289B84ED0009358F /* Person.m */; };
 		14CDC863289B87330009358F /* Level.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC862289B87330009358F /* Level.mm */; };
@@ -135,8 +136,6 @@
 		14BBA98D28B2701B006359F5 /* PersonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonItem.m; sourceTree = "<group>"; };
 		14BBA99228B27034006359F5 /* PangMenZhengDao-Cu.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PangMenZhengDao-Cu.ttf"; sourceTree = "<group>"; };
 		14BBA99328B27034006359F5 /* level.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = level.plist; sourceTree = "<group>"; };
-		14BBA99528B27034006359F5 /* MC_Blogs_Header-Img_1200x630-13_0e3462db-f818-4465-8125-104aa606cf99_1600x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "MC_Blogs_Header-Img_1200x630-13_0e3462db-f818-4465-8125-104aa606cf99_1600x.jpg"; sourceTree = "<group>"; };
-		14BBA99628B27034006359F5 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		14BBA99728B27034006359F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14BBA99928B27034006359F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14BBA99A28B27034006359F5 /* klotski.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = klotski.md; sourceTree = "<group>"; };
@@ -441,22 +440,12 @@
 			children = (
 				14BBA99228B27034006359F5 /* PangMenZhengDao-Cu.ttf */,
 				14BBA99328B27034006359F5 /* level.plist */,
-				14BBA99428B27034006359F5 /* recommendBtnBackGround.imageset */,
 				14BBA99728B27034006359F5 /* Assets.xcassets */,
 				14BBA99828B27034006359F5 /* LaunchScreen.storyboard */,
 				14BBA99A28B27034006359F5 /* klotski.md */,
 				14BBA99B28B27034006359F5 /* team.plist */,
 			);
 			path = Source;
-			sourceTree = "<group>";
-		};
-		14BBA99428B27034006359F5 /* recommendBtnBackGround.imageset */ = {
-			isa = PBXGroup;
-			children = (
-				14BBA99528B27034006359F5 /* MC_Blogs_Header-Img_1200x630-13_0e3462db-f818-4465-8125-104aa606cf99_1600x.jpg */,
-				14BBA99628B27034006359F5 /* Contents.json */,
-			);
-			path = recommendBtnBackGround.imageset;
 			sourceTree = "<group>";
 		};
 		14BBA9A428B2709C006359F5 /* View */ = {
@@ -726,6 +715,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				374C116C28AE6DE800479969 /* Assets.xcassets in Resources */,
+				14BBA9AA28B2763B006359F5 /* level.plist in Resources */,
+				14BBA9A928B27638006359F5 /* team.plist in Resources */,
+				14BBA9A828B2762E006359F5 /* PangMenZhengDao-Cu.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -733,13 +725,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14BBA99E28B27034006359F5 /* MC_Blogs_Header-Img_1200x630-13_0e3462db-f818-4465-8125-104aa606cf99_1600x.jpg in Resources */,
 				14BBA9A128B27034006359F5 /* LaunchScreen.storyboard in Resources */,
 				14BBA99D28B27034006359F5 /* level.plist in Resources */,
 				14BBA99C28B27034006359F5 /* PangMenZhengDao-Cu.ttf in Resources */,
 				14BBA9A028B27034006359F5 /* Assets.xcassets in Resources */,
 				14BBA9A228B27034006359F5 /* klotski.md in Resources */,
-				14BBA99F28B27034006359F5 /* Contents.json in Resources */,
 				14BBA9A328B27034006359F5 /* team.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -873,7 +863,7 @@
 				INFOPLIST_FILE = GameWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = GameWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -904,7 +894,7 @@
 				INFOPLIST_FILE = GameWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = GameWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -975,7 +965,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1029,7 +1019,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

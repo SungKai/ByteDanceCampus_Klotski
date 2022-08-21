@@ -45,7 +45,7 @@ struct SmallWidget: View{
 }
 
 struct MediumWidget: View{
-    let todayRecommended = UserDefaults.standard.string(forKey: Klotski_today_String) ?? "横刀立马"
+    let todayRecommended = UserDefaults.standard.string(forKey: Klotski_todayLevelName_String) ?? "横刀立马123"
     
     var body: some View {
         GeometryReader { metrics in
@@ -91,6 +91,24 @@ struct LargeWidget: View{
 
 struct GameWidgetEntryView : View {
     var entry: Provider.Entry
+    @Environment(\.widgetFamily) var family
+    
+    var body: some View {
+        switch family {
+        case .systemSmall:
+            SmallWidget()
+        case .systemMedium:
+            MediumWidget()
+        case .systemLarge:
+            LargeWidget()
+        default:
+            EmptyView()
+        }
+    }
+}
+
+struct GameWidgetEntryView_Preview : View {
+    var entry: Provider.Entry
     var family: WidgetFamily
     
     var body: some View {
@@ -113,7 +131,7 @@ struct GameWidget: Widget {
     
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            GameWidgetEntryView(entry: entry,family: .systemSmall)
+            GameWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("My Widget")
         .description("This is an example widget.")
@@ -124,13 +142,13 @@ struct GameWidget: Widget {
 struct GameWidget_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            GameWidgetEntryView(entry: SimpleEntry(date: Date())
+            GameWidgetEntryView_Preview(entry: SimpleEntry(date: Date())
                                 ,family: .systemSmall)
             .previewContext(WidgetPreviewContext(family: .systemSmall))
-            GameWidgetEntryView(entry: SimpleEntry(date: Date())
+            GameWidgetEntryView_Preview(entry: SimpleEntry(date: Date())
                                 ,family: .systemMedium)
             .previewContext(WidgetPreviewContext(family: .systemMedium))
-            GameWidgetEntryView(entry: SimpleEntry(date: Date())
+            GameWidgetEntryView_Preview(entry: SimpleEntry(date: Date())
                                 ,family: .systemLarge)
             .previewContext(WidgetPreviewContext(family: .systemLarge))
         }

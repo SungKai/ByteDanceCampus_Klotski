@@ -16,4 +16,7 @@
 /// 下标
 #define Klotski_indexAtLevel_Long @"Klotski_indexAtLevel"
 
+/// 名字
+#define Klotski_todayLevelName_String @"Klotski_todayLevelName"
+
 #endif /* KlotskiHeader_h */

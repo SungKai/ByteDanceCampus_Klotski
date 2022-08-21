@@ -45,6 +45,7 @@
         [NSUserDefaults.standardUserDefaults setValue:todayStr forKey:Klotski_today_String];
         NSInteger todayIndex = arc4random() % self.model.stages.count;
         [NSUserDefaults.standardUserDefaults setInteger:todayIndex forKey:Klotski_indexAtLevel_Long];
+        [NSUserDefaults.standardUserDefaults setObject:self.model.stages[todayIndex].name forKey:Klotski_todayLevelName_String];
     }
     NSInteger todayIndex = [NSUserDefaults.standardUserDefaults integerForKey:Klotski_indexAtLevel_Long];
     return self.model.stages[todayIndex];
