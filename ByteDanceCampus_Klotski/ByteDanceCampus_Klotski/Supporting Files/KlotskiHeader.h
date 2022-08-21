@@ -10,8 +10,10 @@
 
 #pragma mark - User Default
 
+/// 日期
 #define Klotski_today_String @"Klotski_today"
 
+/// 下标
 #define Klotski_indexAtLevel_Long @"Klotski_indexAtLevel"
 
 #endif /* KlotskiHeader_h */

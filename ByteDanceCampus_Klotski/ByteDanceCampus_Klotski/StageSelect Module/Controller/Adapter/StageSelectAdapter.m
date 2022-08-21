@@ -90,10 +90,11 @@
     
     Level *level = self.model.stages[indexPath.section];
     cell.name = level.name;
-    cell.bestStep = level.bestStep;
     cell.isCollect = level.isFavorite;
-    if (indexPath.section % 2) {
-        cell.bestStep = 4;
+    if (level.currentStep == 0) {
+        cell.bestStep = level.bestStep;
+    } else {
+        [cell continueToPlay];
     }
     
     return cell;
