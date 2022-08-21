@@ -32,6 +32,9 @@ FOUNDATION_EXPORT NSString * StageSelectCellReuseIdentifier;
 
 - (instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
 
+/// 与最佳步数中只能显示一个，按先后顺序
+- (void)continueToPlay;
+
 @end
 
 NS_ASSUME_NONNULL_END

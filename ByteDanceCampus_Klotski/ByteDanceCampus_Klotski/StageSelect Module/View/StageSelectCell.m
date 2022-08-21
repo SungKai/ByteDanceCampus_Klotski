@@ -68,7 +68,10 @@ NSString * StageSelectCellReuseIdentifier = @"StageSelectCell";
     self.collectImgView.top = self.stageNameLab.top;
 }
 
-// MARK: SEL
+- (void)continueToPlay {
+    self.moveImgView.image = [UIImage imageNamed:@"game"];
+    self.bestStepLab.text = @"请继续游玩～";
+}
 
 #pragma mark - Getter
 
