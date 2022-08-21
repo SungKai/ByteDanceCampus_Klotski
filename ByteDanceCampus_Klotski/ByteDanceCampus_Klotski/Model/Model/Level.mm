@@ -514,14 +514,6 @@ WCDB_PRIMARY(Level, originLayoutStr)
                     A[a + 1][b].code = kill;
             }
         }
-        // 深度遍历并删除重复节点，一旦重复，该节点直接自杀，保证这一条支线不是循环
-//        for(int s = 0; s < a ; s++){
-//            for(int b = s + 1; b < a + 1; b++){
-//                if( A[a + 1][s].code == A[a + 1][b].code)
-//                    A[a + 1][b].code = kill;
-//            }
-//        }
-        
         
         // 广度加一层
         a++;
