@@ -45,26 +45,26 @@ struct SmallWidget: View{
 }
 
 struct MediumWidget: View{
-    let todayRecommended = UserDefaults.standard.string(forKey: Klotski_todayLevelName_String) ?? "横刀立马123"
+    let todayRecommended = UserDefaults.standard.string(forKey: Klotski_today_String) ?? "横刀立马"
     
     var body: some View {
         GeometryReader { metrics in
             HStack{
                 Text("华\n容\n道")
                     .font(.custom("PangMenZhengDao-Cu", fixedSize: 26.0))
-                    .foregroundColor(.gray)
+                    .foregroundColor(Color("TitleColor"))
                     .padding()
                 VStack{
                     HStack{
                         Text("今日推荐")
                             .font(.custom("PangMenZhengDao-Cu", fixedSize: 25))
-                            .foregroundColor(.gray)
+                            .foregroundColor(Color("TitleColor"))
                             .frame(height: metrics.size.height * 0.33)
                         Image("ByteDanceLogo")
                     }
                     Text(todayRecommended)
                         .font(.custom("PangMenZhengDao-Cu", fixedSize: 42.0))
-                        .foregroundColor(.gray)
+                        .foregroundColor(Color("TitleColor"))
                         .padding()
                 }
             }
@@ -73,18 +73,15 @@ struct MediumWidget: View{
 }
 
 struct LargeWidget: View{
-    let todayRecommended = UserDefaults.standard.string(forKey: Klotski_today_String) ?? ""
+    let todayRecommended = UserDefaults.standard.string(forKey: Klotski_today_String) ?? "横刀立马"
     
     var body: some View {
-        VStack{
-            HStack{
-                Text("华容道")
-                Image("ByteDanceLogo")
-            }
-            HStack{
-                Text("今日推荐")
-                Text(todayRecommended)
-            }
+        ZStack(alignment: .bottomLeading){
+            Image("LargeWidget").resizable()
+            Text("\(todayRecommended)")
+                .font(.custom("PangMenZhengDao-Cu", fixedSize: 55))
+                .foregroundColor(Color("TitleColor"))
+                .padding()
         }
     }
 }
@@ -143,13 +140,13 @@ struct GameWidget_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             GameWidgetEntryView_Preview(entry: SimpleEntry(date: Date())
-                                ,family: .systemSmall)
+                                        ,family: .systemSmall)
             .previewContext(WidgetPreviewContext(family: .systemSmall))
             GameWidgetEntryView_Preview(entry: SimpleEntry(date: Date())
-                                ,family: .systemMedium)
+                                        ,family: .systemMedium)
             .previewContext(WidgetPreviewContext(family: .systemMedium))
             GameWidgetEntryView_Preview(entry: SimpleEntry(date: Date())
-                                ,family: .systemLarge)
+                                        ,family: .systemLarge)
             .previewContext(WidgetPreviewContext(family: .systemLarge))
         }
     }
