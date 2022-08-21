@@ -27,9 +27,6 @@
 		1442D7042897992A009CEB40 /* RisingUIKitExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6FC2897992A009CEB40 /* RisingUIKitExtension.m */; };
 		1442D7052897992A009CEB40 /* UIColor+Rising.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6FF2897992A009CEB40 /* UIColor+Rising.m */; };
 		14626BA128A2555D00659D16 /* KlotskiTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14626B9F28A2555D00659D16 /* KlotskiTabController.m */; };
-		148EE7F728B1230C0094760E /* TodayRecommendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 148EE7F628B1230C0094760E /* TodayRecommendView.m */; };
-		148EE81828B1D0030094760E /* LevelDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 148EE81728B1D0030094760E /* LevelDataView.m */; };
-		149786E028AD369A00D4EB3C /* LevelFuncView.m in Sources */ = {isa = PBXBuildFile; fileRef = 149786DF28AD369A00D4EB3C /* LevelFuncView.m */; };
 		14A92BE228A2914B00D6ACB0 /* HomePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A92BE128A2914B00D6ACB0 /* HomePageController.m */; };
 		14A92BE828A4EB7C00D6ACB0 /* IntroduceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A92BE728A4EB7C00D6ACB0 /* IntroduceView.m */; };
 		14CDC855289B6C210009358F /* StageSelectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC854289B6C210009358F /* StageSelectModel.m */; };
@@ -41,14 +38,45 @@
 		14CDC878289BE7F70009358F /* PersonFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC877289BE7F70009358F /* PersonFrame.m */; };
 		14CDC87C289BEAB00009358F /* PersonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC87B289BEAB00009358F /* PersonItem.m */; };
 		14CDC885289CB2DB0009358F /* LevelAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDC884289CB2DB0009358F /* LevelAdapter.m */; };
-		14FB5FAF28ACAB3A0006A02B /* PangMenZhengDao-Cu.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14FB5FAE28ACAB280006A02B /* PangMenZhengDao-Cu.ttf */; };
+		374C116528AE6DE700479969 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374C116428AE6DE700479969 /* WidgetKit.framework */; };
+		374C116728AE6DE700479969 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 374C116628AE6DE700479969 /* SwiftUI.framework */; };
+		374C116A28AE6DE700479969 /* GameWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374C116928AE6DE700479969 /* GameWidget.swift */; };
+		374C116C28AE6DE800479969 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 374C116B28AE6DE800479969 /* Assets.xcassets */; };
+		374C117028AE6DE800479969 /* GameWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 374C116328AE6DE700479969 /* GameWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		374C117528AE6EB800479969 /* PangMenZhengDao-Cu.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B517923228AB8C9F00884FC7 /* PangMenZhengDao-Cu.ttf */; };
+		374C117828AE8D4600479969 /* NewTeamIntroduceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374C117728AE8A5200479969 /* NewTeamIntroduceView.swift */; };
 		3C5AEF06B27681B0DEDEFE9B /* Pods_ByteDanceCampus_Klotski.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C2921943B00D1E1FDEA362 /* Pods_ByteDanceCampus_Klotski.framework */; };
+		B517923328AB943000884FC7 /* PangMenZhengDao-Cu.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B517923228AB8C9F00884FC7 /* PangMenZhengDao-Cu.ttf */; };
 		B5759A1C288AE5D1007CE07E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5759A1B288AE5D1007CE07E /* AppDelegate.m */; };
 		B5759A22288AE5D1007CE07E /* StageSelectController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5759A21288AE5D1007CE07E /* StageSelectController.m */; };
 		B5759A27288AE5D2007CE07E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5759A26288AE5D2007CE07E /* Assets.xcassets */; };
 		B5759A2A288AE5D2007CE07E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5759A28288AE5D2007CE07E /* LaunchScreen.storyboard */; };
 		B5759A2D288AE5D2007CE07E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B5759A2C288AE5D2007CE07E /* main.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		374C116E28AE6DE800479969 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5759A0F288AE5D0007CE07E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 374C116228AE6DE700479969;
+			remoteInfo = GameWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		374C117128AE6DE800479969 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				374C117028AE6DE800479969 /* GameWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		14011594289E57A40053CB81 /* StageSelectCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StageSelectCell.h; sourceTree = "<group>"; };
@@ -93,12 +121,6 @@
 		14626B9F28A2555D00659D16 /* KlotskiTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KlotskiTabController.m; sourceTree = "<group>"; };
 		14626BA028A2555D00659D16 /* KlotskiTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KlotskiTabController.h; sourceTree = "<group>"; };
 		1480BBC628A8FFD5009F0244 /* KlotskiHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KlotskiHeader.h; sourceTree = "<group>"; };
-		148EE7F528B1230C0094760E /* TodayRecommendView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayRecommendView.h; sourceTree = "<group>"; };
-		148EE7F628B1230C0094760E /* TodayRecommendView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayRecommendView.m; sourceTree = "<group>"; };
-		148EE81628B1D0030094760E /* LevelDataView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelDataView.h; sourceTree = "<group>"; };
-		148EE81728B1D0030094760E /* LevelDataView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LevelDataView.m; sourceTree = "<group>"; };
-		149786DE28AD369A00D4EB3C /* LevelFuncView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelFuncView.h; sourceTree = "<group>"; };
-		149786DF28AD369A00D4EB3C /* LevelFuncView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LevelFuncView.m; sourceTree = "<group>"; };
 		14A92BE028A2914B00D6ACB0 /* HomePageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageController.h; sourceTree = "<group>"; };
 		14A92BE128A2914B00D6ACB0 /* HomePageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomePageController.m; sourceTree = "<group>"; };
 		14A92BE628A4EB7C00D6ACB0 /* IntroduceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroduceView.h; sourceTree = "<group>"; };
@@ -120,9 +142,17 @@
 		14CDC87B289BEAB00009358F /* PersonItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonItem.m; sourceTree = "<group>"; };
 		14CDC883289CB2DB0009358F /* LevelAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelAdapter.h; sourceTree = "<group>"; };
 		14CDC884289CB2DB0009358F /* LevelAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LevelAdapter.m; sourceTree = "<group>"; };
-		14FB5FAE28ACAB280006A02B /* PangMenZhengDao-Cu.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PangMenZhengDao-Cu.ttf"; sourceTree = "<group>"; };
 		22C2921943B00D1E1FDEA362 /* Pods_ByteDanceCampus_Klotski.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ByteDanceCampus_Klotski.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		374C116328AE6DE700479969 /* GameWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GameWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		374C116428AE6DE700479969 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		374C116628AE6DE700479969 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		374C116928AE6DE700479969 /* GameWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameWidget.swift; sourceTree = "<group>"; };
+		374C116B28AE6DE800479969 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		374C116D28AE6DE800479969 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		374C117728AE8A5200479969 /* NewTeamIntroduceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTeamIntroduceView.swift; sourceTree = "<group>"; };
+		374C117928AE8D8700479969 /* Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
 		A404246E66C14D4FA6786972 /* Pods-ByteDanceCampus_Klotski.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ByteDanceCampus_Klotski.release.xcconfig"; path = "Target Support Files/Pods-ByteDanceCampus_Klotski/Pods-ByteDanceCampus_Klotski.release.xcconfig"; sourceTree = "<group>"; };
+		B517923228AB8C9F00884FC7 /* PangMenZhengDao-Cu.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PangMenZhengDao-Cu.ttf"; sourceTree = "<group>"; };
 		B5759A17288AE5D1007CE07E /* ByteDanceCampus_Klotski.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ByteDanceCampus_Klotski.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5759A1A288AE5D1007CE07E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B5759A1B288AE5D1007CE07E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -137,6 +167,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		374C116028AE6DE700479969 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				374C116728AE6DE700479969 /* SwiftUI.framework in Frameworks */,
+				374C116528AE6DE700479969 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B5759A14288AE5D1007CE07E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -274,7 +313,6 @@
 			isa = PBXGroup;
 			children = (
 				142014BF28A7E46900CBD0B3 /* Controller */,
-				148EE7F828B12BE10094760E /* View */,
 				142014BD28A7DE6700CBD0B3 /* TeamIntroduce Module */,
 			);
 			path = "HomePage Module";
@@ -293,7 +331,6 @@
 			isa = PBXGroup;
 			children = (
 				1442D6F72897992A009CEB40 /* ExtensionHeader.h */,
-				14048C36289F933E00C1025F /* FontHeader.h */,
 				1442D6F22897992A009CEB40 /* FoundationExtension */,
 				1442D6F82897992A009CEB40 /* UIKit Extension */,
 			);
@@ -305,6 +342,7 @@
 			children = (
 				1442D6F32897992A009CEB40 /* RisingFoundationExtension.h */,
 				1442D6F52897992A009CEB40 /* RisingFoundationExtention.m */,
+				14048C36289F933E00C1025F /* FontHeader.h */,
 				14CDC87D289BEAC50009358F /* NSDate+Rising */,
 			);
 			path = FoundationExtension;
@@ -347,24 +385,6 @@
 				14626B9F28A2555D00659D16 /* KlotskiTabController.m */,
 			);
 			path = "Klotski Tab Module";
-			sourceTree = "<group>";
-		};
-		148EE7F828B12BE10094760E /* View */ = {
-			isa = PBXGroup;
-			children = (
-				148EE7F528B1230C0094760E /* TodayRecommendView.h */,
-				148EE7F628B1230C0094760E /* TodayRecommendView.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		148EE81928B1D8240094760E /* LevelDataView */ = {
-			isa = PBXGroup;
-			children = (
-				148EE81628B1D0030094760E /* LevelDataView.h */,
-				148EE81728B1D0030094760E /* LevelDataView.m */,
-			);
-			path = LevelDataView;
 			sourceTree = "<group>";
 		};
 		14A92BE928A5449600D6ACB0 /* IntroduceView */ = {
@@ -436,9 +456,8 @@
 		14CDC880289BF6C70009358F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				14EDEBC428AE3A3200D38795 /* PersonItem */,
-				14EDEBC328AE3A2400D38795 /* LevelFuncView */,
-				148EE81928B1D8240094760E /* LevelDataView */,
+				14CDC87A289BEAB00009358F /* PersonItem.h */,
+				14CDC87B289BEAB00009358F /* PersonItem.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -479,49 +498,33 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
-		14EDEBC328AE3A2400D38795 /* LevelFuncView */ = {
-			isa = PBXGroup;
-			children = (
-				149786DE28AD369A00D4EB3C /* LevelFuncView.h */,
-				149786DF28AD369A00D4EB3C /* LevelFuncView.m */,
-			);
-			path = LevelFuncView;
-			sourceTree = "<group>";
-		};
-		14EDEBC428AE3A3200D38795 /* PersonItem */ = {
-			isa = PBXGroup;
-			children = (
-				14CDC87A289BEAB00009358F /* PersonItem.h */,
-				14CDC87B289BEAB00009358F /* PersonItem.m */,
-			);
-			path = PersonItem;
-			sourceTree = "<group>";
-		};
-		14FB5FB028ACADB40006A02B /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				142014B228A779F700CBD0B3 /* team.plist */,
-				14CDC866289B8EB60009358F /* level.plist */,
-				14048C4628A0330700C1025F /* klotski.md */,
-				14FB5FAE28ACAB280006A02B /* PangMenZhengDao-Cu.ttf */,
-				B5759A26288AE5D2007CE07E /* Assets.xcassets */,
-				B5759A28288AE5D2007CE07E /* LaunchScreen.storyboard */,
-			);
-			path = Source;
-			sourceTree = "<group>";
-		};
 		2EEB6B28084ED8BB1A3EB277 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				22C2921943B00D1E1FDEA362 /* Pods_ByteDanceCampus_Klotski.framework */,
+				374C116428AE6DE700479969 /* WidgetKit.framework */,
+				374C116628AE6DE700479969 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		374C116828AE6DE700479969 /* GameWidget */ = {
+			isa = PBXGroup;
+			children = (
+				374C116928AE6DE700479969 /* GameWidget.swift */,
+				374C116B28AE6DE800479969 /* Assets.xcassets */,
+				374C116D28AE6DE800479969 /* Info.plist */,
+				374C117728AE8A5200479969 /* NewTeamIntroduceView.swift */,
+				374C117928AE8D8700479969 /* Bridge.h */,
+			);
+			path = GameWidget;
 			sourceTree = "<group>";
 		};
 		B5759A0E288AE5D0007CE07E = {
 			isa = PBXGroup;
 			children = (
 				B5759A19288AE5D1007CE07E /* ByteDanceCampus_Klotski */,
+				374C116828AE6DE700479969 /* GameWidget */,
 				B5759A18288AE5D1007CE07E /* Products */,
 				03EC6DEE4AEBAFBC2D140CF0 /* Pods */,
 				2EEB6B28084ED8BB1A3EB277 /* Frameworks */,
@@ -532,6 +535,7 @@
 			isa = PBXGroup;
 			children = (
 				B5759A17288AE5D1007CE07E /* ByteDanceCampus_Klotski.app */,
+				374C116328AE6DE700479969 /* GameWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -547,6 +551,7 @@
 				14E745B9288AFA38007436F6 /* Router */,
 				1442D6F12897992A009CEB40 /* Extension */,
 				B5759A33288AE6A0007CE07E /* Supporting Files */,
+				B517923228AB8C9F00884FC7 /* PangMenZhengDao-Cu.ttf */,
 				B5759A2B288AE5D2007CE07E /* Info.plist */,
 				B5759A34288AE6C4007CE07E /* PrefixHeader.pch */,
 			);
@@ -560,7 +565,11 @@
 				B5759A1A288AE5D1007CE07E /* AppDelegate.h */,
 				B5759A1B288AE5D1007CE07E /* AppDelegate.m */,
 				1480BBC628A8FFD5009F0244 /* KlotskiHeader.h */,
-				14FB5FB028ACADB40006A02B /* Source */,
+				142014B228A779F700CBD0B3 /* team.plist */,
+				14CDC866289B8EB60009358F /* level.plist */,
+				14048C4628A0330700C1025F /* klotski.md */,
+				B5759A26288AE5D2007CE07E /* Assets.xcassets */,
+				B5759A28288AE5D2007CE07E /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -568,6 +577,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		374C116228AE6DE700479969 /* GameWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 374C117428AE6DE800479969 /* Build configuration list for PBXNativeTarget "GameWidgetExtension" */;
+			buildPhases = (
+				374C115F28AE6DE700479969 /* Sources */,
+				374C116028AE6DE700479969 /* Frameworks */,
+				374C116128AE6DE700479969 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GameWidgetExtension;
+			productName = GameWidgetExtension;
+			productReference = 374C116328AE6DE700479969 /* GameWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		B5759A16288AE5D1007CE07E /* ByteDanceCampus_Klotski */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B5759A30288AE5D2007CE07E /* Build configuration list for PBXNativeTarget "ByteDanceCampus_Klotski" */;
@@ -577,10 +603,12 @@
 				B5759A14288AE5D1007CE07E /* Frameworks */,
 				B5759A15288AE5D1007CE07E /* Resources */,
 				100A931BBEB14DFD8573FE6D /* [CP] Embed Pods Frameworks */,
+				374C117128AE6DE800479969 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				374C116F28AE6DE800479969 /* PBXTargetDependency */,
 			);
 			name = ByteDanceCampus_Klotski;
 			productName = ByteDanceCampus_Klotski;
@@ -594,8 +622,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1310;
 				TargetAttributes = {
+					374C116228AE6DE700479969 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
 					B5759A16288AE5D1007CE07E = {
 						CreatedOnToolsVersion = 13.1;
 					};
@@ -615,16 +647,26 @@
 			projectRoot = "";
 			targets = (
 				B5759A16288AE5D1007CE07E /* ByteDanceCampus_Klotski */,
+				374C116228AE6DE700479969 /* GameWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		374C116128AE6DE700479969 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				374C116C28AE6DE800479969 /* Assets.xcassets in Resources */,
+				374C117528AE6EB800479969 /* PangMenZhengDao-Cu.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B5759A15288AE5D1007CE07E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14FB5FAF28ACAB3A0006A02B /* PangMenZhengDao-Cu.ttf in Resources */,
+				B517923328AB943000884FC7 /* PangMenZhengDao-Cu.ttf in Resources */,
 				B5759A2A288AE5D2007CE07E /* LaunchScreen.storyboard in Resources */,
 				14CDC867289B8EB60009358F /* level.plist in Resources */,
 				B5759A27288AE5D2007CE07E /* Assets.xcassets in Resources */,
@@ -678,6 +720,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		374C115F28AE6DE700479969 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				374C117828AE8D4600479969 /* NewTeamIntroduceView.swift in Sources */,
+				374C116A28AE6DE700479969 /* GameWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B5759A13288AE5D1007CE07E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -689,11 +740,8 @@
 				14CDC876289BE2620009358F /* LevelCollectionLayout.m in Sources */,
 				1442D7022897992A009CEB40 /* RisingFoundationExtention.m in Sources */,
 				14048C39289F943500C1025F /* StageSelectAdapter.m in Sources */,
-				148EE81828B1D0030094760E /* LevelDataView.m in Sources */,
 				14CDC860289B84ED0009358F /* Person.m in Sources */,
 				B5759A1C288AE5D1007CE07E /* AppDelegate.m in Sources */,
-				148EE7F728B1230C0094760E /* TodayRecommendView.m in Sources */,
-				149786E028AD369A00D4EB3C /* LevelFuncView.m in Sources */,
 				1442D6EC28976E22009CEB40 /* RisingRouterRequest.m in Sources */,
 				1442D7052897992A009CEB40 /* UIColor+Rising.m in Sources */,
 				14626BA128A2555D00659D16 /* KlotskiTabController.m in Sources */,
@@ -721,6 +769,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		374C116F28AE6DE800479969 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 374C116228AE6DE700479969 /* GameWidgetExtension */;
+			targetProxy = 374C116E28AE6DE800479969 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		B5759A28288AE5D2007CE07E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -733,6 +789,68 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		374C117228AE6DE800479969 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 727CVV9PLJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GameWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GameWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = RisingSSR.ByteDance.Klotski.GameWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/magickeegan/Github/ByteDanceCampus_Klotski/ByteDanceCampus_Klotski/GameWidget/Bridge.h;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		374C117328AE6DE800479969 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 727CVV9PLJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GameWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GameWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = RisingSSR.ByteDance.Klotski.GameWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/magickeegan/Github/ByteDanceCampus_Klotski/ByteDanceCampus_Klotski/GameWidget/Bridge.h;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		B5759A2E288AE5D2007CE07E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -785,7 +903,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -839,7 +957,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -851,6 +969,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C7AA49666D0AD8E2970626AB /* Pods-ByteDanceCampus_Klotski.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -882,6 +1001,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A404246E66C14D4FA6786972 /* Pods-ByteDanceCampus_Klotski.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -911,6 +1031,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		374C117428AE6DE800479969 /* Build configuration list for PBXNativeTarget "GameWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				374C117228AE6DE800479969 /* Debug */,
+				374C117328AE6DE800479969 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B5759A12288AE5D0007CE07E /* Build configuration list for PBXProject "ByteDanceCampus_Klotski" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
