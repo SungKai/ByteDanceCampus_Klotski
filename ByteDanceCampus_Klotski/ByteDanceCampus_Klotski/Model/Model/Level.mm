@@ -15,6 +15,25 @@
 
 NSString *LevelTableName = @"Level";
 
+#pragma mark - TreeNode
+
+/**
+ *  广度优先树节点结构
+ *  仅用于算法
+ */
+
+typedef struct TreeNode {
+    std::array<int, 20> code;  // 棋盘布局
+//    std::array<PersonStruct, 10> array;   //此时棋子的状态
+    std::vector<PersonStruct> array;
+//    int floor;    // 树的深度
+//    int num;     // 树的宽度
+    int index;   // 上一步使用的棋子
+    int moveTo;  // 上一步移动方向
+    struct TreeNode* before;    // 父节点
+//    TreeNode(TreeNode* before) : before(before){};
+} TreeNode;
+
 #pragma mark - Level ()
 
 @interface Level ()
@@ -35,32 +54,6 @@ NSString *LevelTableName = @"Level";
 
 /// 数据库
 @property(nonatomic, readonly, class) WCTDatabase *DB;
-
-
-
-
-
-
-/**
- *  广度优先树节点结构
- *  仅用于算法
- */
-
-typedef struct TreeNode {
-    std::array<int, 20> code;  // 棋盘布局
-//    std::array<PersonStruct, 10> array;   //此时棋子的状态
-    std::vector<PersonStruct> array;
-//    int floor;    // 树的深度
-//    int num;     // 树的宽度
-    int index;   // 上一步使用的棋子
-    int moveTo;  // 上一步移动方向
-    struct TreeNode* before;    // 父节点
-//    TreeNode(TreeNode* before) : before(before){};
-} TreeNode;
-
-
-
-
 
 @end
 
@@ -168,6 +161,7 @@ WCDB_PRIMARY(Level, originLayoutStr)
         Person *p = [[Person alloc] init];
         p.name = name;
         p.frame = PersonFrameMake(x, y, width, height);
+        p.index = i;
         [mutAry addObject:p];
         
         [self _setCodeWithPerson:p];
@@ -261,6 +255,9 @@ WCDB_PRIMARY(Level, originLayoutStr)
     NSArray <NSString *> *strAry = [_originLayoutStr componentsSeparatedByString:@" "];
     for (int i = 0; i < strAry.count; i++) {
         NSString *aStr = strAry[i];
+        if (aStr.length < 2) {
+            continue;
+        }
         int x = [aStr substringWithRange:NSMakeRange(0, 1)].intValue;
         int y = [aStr substringWithRange:NSMakeRange(1, 1)].intValue;
         
@@ -482,7 +479,7 @@ WCDB_PRIMARY(Level, originLayoutStr)
     //  A是广度优先搜索树
     //  本来想使用map，可以省略重复棋盘的代码。但后来发现map在使用索引的时候超级无敌究极麻烦，
     //  麻烦程度远远超过自己写代码解决重复棋盘。所以用回vector
-    std::vector<std::vector<TreeNode>> A;
+    std::vector<std::vector<TreeNode>> A= {};
     
     //获取最顶级节点的棋子属性
 //    std::array<PersonStruct, 10> per;
@@ -497,7 +494,9 @@ WCDB_PRIMARY(Level, originLayoutStr)
     
     //以此刻棋盘为树顶点
     TreeNode father = {_onlyCode, per, 0, 0, NULL};
-    A[0].push_back(father);
+    std::vector<TreeNode> fatherV = {father};
+    A.push_back(fatherV);
+//    A[0].push_back(father);
     
     //是否获胜
     Boolean victory = false;
@@ -544,7 +543,9 @@ WCDB_PRIMARY(Level, originLayoutStr)
                     
                     //添加节点
                     TreeNode node = {A[a][k].code, arr, i, PersonDirectionUP, &A[a][k]};
-                    A[a+1].push_back(node);
+                    std::vector<TreeNode> tree = {node};
+//                    A[a+1].push_back(node);
+                    A.push_back(tree);
                     
                     //注意！！！一定要把棋盘还原为父节点！！！不然子节点会直接覆盖父节点
                     A[a][k].array[i] = per;
@@ -574,7 +575,9 @@ WCDB_PRIMARY(Level, originLayoutStr)
                     
                     //添加节点
                     TreeNode node = {A[a][k].code, arr, i, PersonDirectionDown, &A[a][k]};
-                    A[a+1].push_back(node);
+                    std::vector<TreeNode> tree = {node};
+//                    A[a+1].push_back(node);
+                    A.push_back(tree);
                     
                     //注意！！！一定要把棋盘还原为父节点！！！不然子节点会直接覆盖父节点
                     A[a][k].array[i] = per;
@@ -605,7 +608,9 @@ WCDB_PRIMARY(Level, originLayoutStr)
                     
                     //添加节点
                     TreeNode node = {A[a][k].code, arr, i, PersonDirectionLeft, &A[a][k]};
-                    A[a+1].push_back(node);
+                    std::vector<TreeNode> tree = {node};
+                    A.push_back(tree);
+//                    A[a+1].push_back(node);
                     
                     //注意！！！一定要把棋盘还原为父节点！！！不然子节点会直接覆盖父节点
                     A[a][k].array[i] = per;
@@ -636,7 +641,9 @@ WCDB_PRIMARY(Level, originLayoutStr)
                     
                     //添加节点
                     TreeNode node = {A[a][k].code, arr, i, PersonDirectionRight, &A[a][k]};
-                    A[a+1].push_back(node);
+                    std::vector<TreeNode> tree = {node};
+                    A.push_back(tree);
+//                    A[a+1].push_back(node);
                     
                     //注意！！！一定要把棋盘还原为父节点！！！不然子节点会直接覆盖父节点
                     A[a][k].array[i] = per;

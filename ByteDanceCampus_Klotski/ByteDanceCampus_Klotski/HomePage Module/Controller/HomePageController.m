@@ -86,7 +86,8 @@
 - (TeamIntroduceView *)introduceView {
     if (_introduceView == nil) {
         CGFloat width = self.view.width - 30;
-        _introduceView = [[TeamIntroduceView alloc] initWithFrame:CGRectMake(15, self.logoImgView.bottom, width, width / 2.5)];
+        _introduceView = [[TeamIntroduceView alloc] initWithFrame:CGRectMake(0, 0, width, width / 2.5)];
+        _introduceView.center = self.view.SuperCenter;
     }
     return _introduceView;
 }
@@ -102,8 +103,10 @@
 - (TodayRecommendView *)recommendView {
     if (_recommendView == nil) {
         CGFloat width = self.view.width * 0.7;
-        _recommendView = [[TodayRecommendView alloc] initWithFrame:CGRectMake(0, self.introduceView.bottom + 20, width, width * 0.5)];
+        _recommendView = [[TodayRecommendView alloc] initWithFrame:CGRectMake(0, 0, width, width * 0.6)];
         _recommendView.centerX = self.view.width / 2;
+        _recommendView.centerY = (self.introduceView.bottom + self.tabBarController.mainTabBar.top) / 2;
+        
         _recommendView.title = self.model.name;
         [_recommendView addTarget:self action:@selector(_push)];
     }

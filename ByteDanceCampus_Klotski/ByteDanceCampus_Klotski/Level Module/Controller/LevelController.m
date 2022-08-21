@@ -17,6 +17,8 @@
 
 #import "LevelFuncView.h"
 
+#import "LevelDataView.h"
+
 #pragma mark - LevelController ()
 
 @interface LevelController ()
@@ -35,6 +37,9 @@
 
 /// 华容道的一局的信息
 @property (nonatomic, strong) Level *model;
+
+/// 关于关卡的数据
+@property (nonatomic, strong) LevelDataView *dataView;
 
 /// 关于关卡的功能
 @property (nonatomic, strong) LevelFuncView *funcView;
@@ -76,6 +81,7 @@
         [self.view addSubview:self.popBtn];
     }
     [self.view addSubview:self.collectionView];
+    [self.view addSubview:self.dataView];
     [self.view addSubview:self.funcView];
 }
 
@@ -153,11 +159,22 @@
     return _collectionView;
 }
 
+- (LevelDataView *)dataView {
+    if (_dataView == nil) {
+        CGFloat width = self.view.width - 30;
+        _dataView = [[LevelDataView alloc] initWithFrame:CGRectMake(15, 0, width, 50)];
+        _dataView.bottom = (self.collectionView.bottom + self.view.height) / 2 - 10;
+        [_dataView dataWithCurrentStep:self.model.currentStep bestStep:self.model.bestStep];
+        self.adapter.dataView = _dataView;
+    }
+    return _dataView;
+}
+
 - (LevelFuncView *)funcView {
     if (_funcView == nil) {
         CGFloat width = self.view.width - 30;
         _funcView = [[LevelFuncView alloc] initWithFrame:CGRectMake(15, 0, width, 50)];
-        _funcView.centerY = (self.collectionView.bottom + self.view.height) / 2;
+        _funcView.top = (self.collectionView.bottom + self.view.height) / 2 + 10;
         _funcView.delegate = self.adapter;
     }
     return _funcView;

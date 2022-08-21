@@ -18,6 +18,13 @@
 
 @implementation LevelCollectionLayout
 
+- (void)reloadLayout {
+    for (NSInteger i = 0; i < self.attributes.count; i++) {
+        UICollectionViewLayoutAttributes *attribute = self.attributes[i];
+        attribute.frame = [self _frameForIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
+    }
+}
+
 #pragma mark - Getter
 
 - (NSMutableArray<UICollectionViewLayoutAttributes *> *)attributes {

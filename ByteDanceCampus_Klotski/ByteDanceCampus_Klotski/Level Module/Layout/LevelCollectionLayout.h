@@ -56,6 +56,9 @@ NS_ASSUME_NONNULL_BEGIN
             toDirection:(PersonDirection)direction
                finished:(void (^ _Nullable)(void))complition;
 
+/// 重新布局
+- (void)reloadLayout;
+
 @end
 
 NS_ASSUME_NONNULL_END

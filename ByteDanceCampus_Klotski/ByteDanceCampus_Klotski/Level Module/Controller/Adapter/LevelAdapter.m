@@ -11,6 +11,8 @@
 
 #import "PersonItem.h"
 
+#import "LevelDataView.h"
+
 #pragma mark - LevelAdapter ()
 
 @interface LevelAdapter ()
@@ -95,16 +97,21 @@
             [self.layout moveItemAtIndex:index toDirection:i finished:nil];
             
             self.model.currentStep += 1;
+            [self.dataView dataWithCurrentStep:self.model.currentStep bestStep:self.model.bestStep];
         }
     }
     
     if (self.model.isGameOver) {
-        /**TODO: 挑战成功
-         * 复原棋盘
-         * 记录最高次数
-         * 当前次数还原
-         */
+        [self.model resetLayout];
+        self.model.currentStep = 0;
+        [self.model updateDB];
     }
+}
+
+#pragma mark - Setter
+
+- (void)setDataView:(LevelDataView *)dataView {
+    _dataView = dataView;
 }
 
 #pragma mark - <UICollectionViewDataSource>
@@ -147,13 +154,23 @@
         } break;
             
         case LevelFuncTypeResetPlay: {
+            
             [self.model resetLayout];
+            self.model.currentStep = 0;
+            [self.dataView dataWithCurrentStep:self.model.currentStep bestStep:self.model.bestStep];
+            [self.collectionView performBatchUpdates:^{
+                [self.layout reloadLayout];
+            } completion:nil];
+            
         } break;
             
         case LevelFuncTypeAutoGame:{
             
+            [self.dataView dataWithCalculate];
             self.isAutoSolve = YES;
             self.solveSteps = self.model.stepForCurrent;
+            
+            [self.dataView dataWithSolvingFinalStep:self.solveSteps.count];
             [self _solveDic:self._nextStep];
             
         } break;

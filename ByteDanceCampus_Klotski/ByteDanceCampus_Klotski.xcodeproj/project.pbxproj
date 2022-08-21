@@ -28,6 +28,7 @@
 		1442D7052897992A009CEB40 /* UIColor+Rising.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442D6FF2897992A009CEB40 /* UIColor+Rising.m */; };
 		14626BA128A2555D00659D16 /* KlotskiTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14626B9F28A2555D00659D16 /* KlotskiTabController.m */; };
 		148EE7F728B1230C0094760E /* TodayRecommendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 148EE7F628B1230C0094760E /* TodayRecommendView.m */; };
+		148EE81828B1D0030094760E /* LevelDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 148EE81728B1D0030094760E /* LevelDataView.m */; };
 		149786E028AD369A00D4EB3C /* LevelFuncView.m in Sources */ = {isa = PBXBuildFile; fileRef = 149786DF28AD369A00D4EB3C /* LevelFuncView.m */; };
 		14A92BE228A2914B00D6ACB0 /* HomePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A92BE128A2914B00D6ACB0 /* HomePageController.m */; };
 		14A92BE828A4EB7C00D6ACB0 /* IntroduceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A92BE728A4EB7C00D6ACB0 /* IntroduceView.m */; };
@@ -94,6 +95,8 @@
 		1480BBC628A8FFD5009F0244 /* KlotskiHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KlotskiHeader.h; sourceTree = "<group>"; };
 		148EE7F528B1230C0094760E /* TodayRecommendView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayRecommendView.h; sourceTree = "<group>"; };
 		148EE7F628B1230C0094760E /* TodayRecommendView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayRecommendView.m; sourceTree = "<group>"; };
+		148EE81628B1D0030094760E /* LevelDataView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelDataView.h; sourceTree = "<group>"; };
+		148EE81728B1D0030094760E /* LevelDataView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LevelDataView.m; sourceTree = "<group>"; };
 		149786DE28AD369A00D4EB3C /* LevelFuncView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelFuncView.h; sourceTree = "<group>"; };
 		149786DF28AD369A00D4EB3C /* LevelFuncView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LevelFuncView.m; sourceTree = "<group>"; };
 		14A92BE028A2914B00D6ACB0 /* HomePageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomePageController.h; sourceTree = "<group>"; };
@@ -355,6 +358,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		148EE81928B1D8240094760E /* LevelDataView */ = {
+			isa = PBXGroup;
+			children = (
+				148EE81628B1D0030094760E /* LevelDataView.h */,
+				148EE81728B1D0030094760E /* LevelDataView.m */,
+			);
+			path = LevelDataView;
+			sourceTree = "<group>";
+		};
 		14A92BE928A5449600D6ACB0 /* IntroduceView */ = {
 			isa = PBXGroup;
 			children = (
@@ -426,6 +438,7 @@
 			children = (
 				14EDEBC428AE3A3200D38795 /* PersonItem */,
 				14EDEBC328AE3A2400D38795 /* LevelFuncView */,
+				148EE81928B1D8240094760E /* LevelDataView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -676,6 +689,7 @@
 				14CDC876289BE2620009358F /* LevelCollectionLayout.m in Sources */,
 				1442D7022897992A009CEB40 /* RisingFoundationExtention.m in Sources */,
 				14048C39289F943500C1025F /* StageSelectAdapter.m in Sources */,
+				148EE81828B1D0030094760E /* LevelDataView.m in Sources */,
 				14CDC860289B84ED0009358F /* Person.m in Sources */,
 				B5759A1C288AE5D1007CE07E /* AppDelegate.m in Sources */,
 				148EE7F728B1230C0094760E /* TodayRecommendView.m in Sources */,
