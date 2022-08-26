@@ -102,9 +102,14 @@
     }
     
     if (self.model.isGameOver) {
-        [self.model resetLayout];
-        self.model.currentStep = 0;
-        [self.model updateDB];
+        [self.controller presentViewController:self._gameOverController animated:YES completion:^{
+            self.model.bestStep = (self.model.bestStep >= self.model.currentStep ?
+                                   self.model.bestStep :
+                                   self.model.currentStep);
+            [self.model resetLayout];
+            [self.model updateDB];
+            self.model.currentStep = 0;
+        }];
     }
 }
 
@@ -112,6 +117,29 @@
 
 - (void)setDataView:(LevelDataView *)dataView {
     _dataView = dataView;
+}
+
+#pragma mark - Getter
+
+- (UIViewController *)_gameOverController {
+    NSString *title = [NSString stringWithFormat:@"%@ 挑战成功", self.model.name];
+    NSString *content = [NSString stringWithFormat:@"使用步数: %ld", self.model.currentStep];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:content preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"重新开始" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self.dataView dataWithCurrentStep:self.model.currentStep bestStep:self.model.bestStep];
+        [self.collectionView performBatchUpdates:^{
+            [self.layout reloadLayout];
+        } completion:nil];
+    }]];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"退出游戏" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        if (self.controller) {
+            [self.controller dismissViewControllerAnimated:YES completion:^{
+                [self.controller.navigationController popViewControllerAnimated:YES];
+            }];
+        }
+    }]];
+    
+    return alertController;
 }
 
 #pragma mark - <UICollectionViewDataSource>

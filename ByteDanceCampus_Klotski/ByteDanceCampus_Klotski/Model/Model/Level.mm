@@ -277,8 +277,7 @@ WCDB_PRIMARY(Level, originLayoutStr)
     
     [Level.DB
      updateRowsInTable:LevelTableName
-     onProperties:
-    {Level.name, Level.currentStep, Level.bestStep, Level.isFavorite, Level.currentLayoutStr}
+     onProperties:Level.AllProperties
      withObject:self
      where:Level.name == self.name];
 }
@@ -421,7 +420,7 @@ WCDB_PRIMARY(Level, originLayoutStr)
 // MARK: game over
 
 - (BOOL)isGameOverWithCheckBoard:(std::array<int, 20>)board {
-    return (board[18] == 4 && board[19] == 4);
+    return (board[17] == 4 && board[18] == 4);
 }
 
 - (BOOL)isGameOver {

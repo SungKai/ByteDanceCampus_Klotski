@@ -97,6 +97,7 @@
 - (UITableView *)stageTableView {
     if (_stageTableView == nil) {
         _stageTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+        _stageTableView.clipsToBounds = NO;
         _stageTableView.backgroundColor = UIColor.clearColor;
         _stageTableView.width = self.view.width - 80;
         _stageTableView.centerX = self.view.width / 2;

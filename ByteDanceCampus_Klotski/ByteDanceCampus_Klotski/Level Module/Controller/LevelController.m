@@ -69,6 +69,7 @@
     self.navigationController.interactivePopGestureRecognizer.delegate = nil;
     
     self.adapter = [LevelAdapter adapterWithCollectionView:self.collectionView layout:(LevelCollectionLayout *)self.collectionView.collectionViewLayout model:self.model];
+    self.adapter.controller = self;
     
     [self.view addSubview:self.backImgView];
     [self.view addSubview:self.titleLab];
@@ -88,6 +89,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tabBarController tabBarVisible:NO animated:YES];
+    [self.collectionView reloadData];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
