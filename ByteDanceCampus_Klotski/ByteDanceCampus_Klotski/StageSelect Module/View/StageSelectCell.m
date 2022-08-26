@@ -36,7 +36,7 @@ NSString * StageSelectCellReuseIdentifier = @"StageSelectCell";
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.clipsToBounds = YES;
+        self.clipsToBounds = NO;
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.backgroundColor = UIColor.clearColor;
         self.contentView.backgroundColor =

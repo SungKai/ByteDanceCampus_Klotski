@@ -280,10 +280,10 @@ WCDB_PRIMARY(Level, originLayoutStr)
     [self _saveCurrentLayout];
     
     [Level.DB
-     updateAllRowsInTable:LevelTableName
-     onProperties:
-     {Level.name, Level.currentStep, Level.bestStep, Level.isFavorite, Level.currentLayoutStr}
-     withObject:self];
+     updateRowsInTable:LevelTableName
+     onProperties:Level.AllProperties
+     withObject:self
+     where:Level.name == self.name];
 }
 
 @end
