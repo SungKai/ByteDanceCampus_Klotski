@@ -424,7 +424,7 @@ WCDB_PRIMARY(Level, originLayoutStr)
 // MARK: game over
 
 - (BOOL)isGameOverWithCheckBoard:(std::array<int, 20>)board {
-    return (board[17] == 4 && board[18] == 4);
+    return (board[18] == 4 && board[19] == 4);
 }
 
 - (BOOL)isGameOver {
