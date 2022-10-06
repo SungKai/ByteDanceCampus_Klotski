@@ -6,3 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+
+NSString *NSStringFromPersonFrame(PersonFrame frame) {
+    return [NSString stringWithFormat:@"{%d %d %d %d}", frame.x, frame.y, frame.width, frame.height];
+}

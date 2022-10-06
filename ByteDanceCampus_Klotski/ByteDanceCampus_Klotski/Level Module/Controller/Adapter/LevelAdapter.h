@@ -42,8 +42,11 @@ NS_ASSUME_NONNULL_BEGIN
                                    layout:(LevelCollectionLayout *)layout
                                     model:(Level *)model;
 
+/// Controller
+@property (nonatomic, weak) UIViewController *controller;
+
 /// 数据视图
-@property (nonatomic, null_resettable) LevelDataView *dataView;
+@property (nonatomic, strong, null_resettable) LevelDataView *dataView;
 
 @end
 

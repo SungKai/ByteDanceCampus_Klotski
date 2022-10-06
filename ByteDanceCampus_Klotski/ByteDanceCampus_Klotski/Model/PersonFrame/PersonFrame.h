@@ -25,6 +25,7 @@ NS_INLINE BOOL PersonFrameEqual(PersonFrame f1, PersonFrame f2) {
             f1.width == f2.width && f1.height == f2.height);
 }
 
+FOUNDATION_EXPORT NSString *NSStringFromPersonFrame(PersonFrame);
 
 #pragma mark - ENUM (PersonDirrection)
 
